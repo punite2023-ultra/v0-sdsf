@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { ChevronRight, MapPin, Briefcase, DollarSign } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { ScrollReveal } from "@/components/scroll-reveal"
 
 interface Job {
   id: number
@@ -28,7 +27,7 @@ export function JobAccordion({ jobs }: JobAccordionProps) {
   return (
     <div className="grid gap-4 max-w-4xl mx-auto">
       {jobs.map((job) => (
-        <ScrollReveal key={job.id}>
+        <div key={job.id}>
           <button
             onClick={() => setExpandedJob(expandedJob === job.id ? null : job.id)}
             className="w-full text-left bg-card border border-border rounded-2xl p-6 hover:border-primary transition-colors"
@@ -107,7 +106,7 @@ export function JobAccordion({ jobs }: JobAccordionProps) {
               </div>
             )}
           </button>
-        </ScrollReveal>
+        </div>
       ))}
     </div>
   )
