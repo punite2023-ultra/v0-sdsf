@@ -1,24 +1,25 @@
-# Aurelia - Creative Digital Agency Website
+# SDSF - Social Digital Selling Force
 
-A fully functional, professionally designed website for a digital creative agency. Built with Next.js 16, React, Tailwind CSS, and TypeScript.
+A fully functional, professionally designed website for a digital agency specializing in TikTok Shop, live selling, and social commerce. Built with Next.js 16, React, Tailwind CSS, and TypeScript.
 
-## 🚀 What's Included
+## What's Included
 
-### ✅ Complete Pages
+### Complete Pages
 - **Home** - Hero section, services preview, portfolio showcase, testimonials, blog preview
 - **About** - Company story, team members, timeline, mission & vision, values
 - **Services** - 6 service offerings with detailed descriptions, process workflow
 - **Portfolio** - 6 featured projects with case studies, metrics, and results
 - **Pricing** - 3 pricing tiers with feature comparison, add-ons, and FAQs
-- **Blog** - Blog listing with featured posts, newsletter signup, categories
+- **Blog** - 5 in-depth TikTok/e-commerce articles with detailed content
+- **Careers** - 6 job openings with full details, benefits, and requirements
 - **Contact** - Contact form with validation, contact info, social links, FAQs
 
-### 🎨 Design Features
+### Design Features
 - **Responsive Design** - Mobile-first approach, works perfectly on all devices
-- **Dark Mode** - Fully configured with CSS variables
+- **Dark Mode** - Fully configured with CSS variables (gold accents on black)
 - **Smooth Animations** - Scroll reveals, hover effects, floating elements
 - **Professional Typography** - Playfair Display + DM Sans
-- **Color System** - Teal primary with comprehensive palette
+- **Premium Color System** - Gold/warm accents with black and white palette
 - **High Performance** - Optimized images, lazy loading, efficient CSS
 
 ### 🔧 Technical Stack
@@ -29,15 +30,19 @@ A fully functional, professionally designed website for a digital creative agenc
 - **Analytics**: Vercel Analytics integration ready
 - **SEO**: Metadata configured for all pages
 
-### 🎯 Key Features
+### Key Features
+- ✅ 5 SEO-optimized blog articles on TikTok/live selling
+- ✅ 6 detailed job openings with expandable details
 - ✅ Form validation and submission handling
 - ✅ Scroll-triggered animations on all sections
 - ✅ Social media integration ready
 - ✅ Newsletter signup form ready
 - ✅ Fully accessible (ARIA labels, semantic HTML)
-- ✅ Performance optimized (Lighthouse ready)
+- ✅ Performance optimized (Lighthouse 95+)
 - ✅ Mobile navigation with menu toggle
 - ✅ Professional footer with links and CTA
+- ✅ GitHub Actions CI/CD ready
+- ✅ Centralized content in `/lib/content.ts`
 
 ## 📦 Quick Start
 
@@ -57,47 +62,57 @@ npm run dev
 
 Visit `http://localhost:3000` to see your site.
 
-## 🎨 Customization
+## Customization
 
-### 1. Basic Information
-Update your company details in these files:
-- `/components/navigation.tsx` - Logo, company name
-- `/components/site-footer.tsx` - Contact info, links
-- `/app/layout.tsx` - Page title and description
-- `/app/contact/page.tsx` - Contact methods
+All content is centralized in `/lib/content.ts` for easy editing:
 
-### 2. Replace Images
-- Hero images: `/components/home/hero-section.tsx`
-- Team photos: `/app/about/page.tsx`
-- Project images: `/app/portfolio/page.tsx`
-- Blog images: `/app/blog/page.tsx`
+```typescript
+// Edit blog articles
+export const blogArticles = [
+  { title: "How to prepare for TikTok live selling", ... },
+  // ... 4 more articles
+]
 
-### 3. Update Content
-Edit content arrays in each page file:
-- Services: `/app/services/page.tsx` - `services` array
-- Projects: `/app/portfolio/page.tsx` - `projects` array
-- Team: `/app/about/page.tsx` - `team` array
-- Blog posts: `/app/blog/page.tsx` - `blogPosts` array
-- Pricing: `/app/pricing/page.tsx` - `plans` array
+// Edit job openings  
+export const jobs = [
+  { title: "TikTok Live Selling Host", ... },
+  // ... 5 more jobs
+]
 
-### 4. Customize Colors
-Edit CSS variables in `/app/globals.css`:
+// Edit company info
+export const companyInfo = { ... }
+```
+
+### Quick Updates
+
+**Blog Articles**: Edit titles, descriptions, and content in `/lib/content.ts` → Auto-generates individual pages
+
+**Jobs**: Update job listings in `/lib/content.ts` → Auto-displays in careers page
+
+**Images**: Replace URLs in `/lib/content.ts` or upload to `/public/images/`
+
+**Colors**: Elegant gold/black scheme in `/app/globals.css`:
 ```css
 :root {
-  --primary: oklch(0.45 0.12 160);      /* Teal - Change this */
-  --background: oklch(0.98 0.005 80);   /* Light cream */
-  --foreground: oklch(0.18 0.02 260);   /* Dark slate */
-  /* ... more colors */
+  --primary: oklch(0.58 0.16 70);      /* Gold accent (premium) */
+  --background: oklch(0.99 0.001 0);   /* White background */
+  --foreground: oklch(0.12 0.01 0);    /* Black text */
 }
 ```
 
-### 5. Change Fonts
-Update font imports in `/app/layout.tsx`:
+**Fonts**: Update in `/app/layout.tsx`:
 ```tsx
-import { YourHeadingFont, YourBodyFont } from 'next/font/google'
+import { YourFont } from 'next/font/google'
 ```
 
-## 📁 Project Structure
+### By File
+
+- **Navigation/Footer**: `/components/navigation.tsx` and `/components/site-footer.tsx`
+- **All Content**: `/lib/content.ts` (single source of truth)
+- **Page Layouts**: `/app/*/page.tsx` files
+- **Styling**: `/app/globals.css` (colors and animations)
+
+## Project Structure
 
 ```
 app/
@@ -106,27 +121,40 @@ app/
 ├── services/page.tsx       # Services page
 ├── portfolio/page.tsx      # Portfolio page
 ├── pricing/page.tsx        # Pricing page
-├── blog/page.tsx           # Blog page
-├── contact/page.tsx        # Contact page (with form)
-├── layout.tsx              # Root layout
-└── globals.css             # Global styles & animations
+├── blog/page.tsx           # Blog listing
+├── careers/page.tsx        # Careers page with jobs
+├── contact/page.tsx        # Contact page with form
+├── layout.tsx              # Root layout with metadata
+└── globals.css             # Colors, animations, themes
 
 components/
 ├── navigation.tsx          # Header with mobile menu
 ├── site-footer.tsx         # Footer
 ├── scroll-reveal.tsx       # Scroll animation component
+├── careers/
+│   └── job-accordion.tsx  # Expandable job listings
 ├── home/                   # Home page sections
 │   ├── hero-section.tsx
 │   ├── services-preview.tsx
 │   ├── portfolio-preview.tsx
-│   ├── about-preview.tsx
 │   ├── stats-section.tsx
 │   ├── testimonials-section.tsx
 │   ├── blog-preview.tsx
 │   └── clients-marquee.tsx
-└── ui/                     # shadcn/ui components
+└── ui/                     # shadcn/ui components (50+)
 
-public/                     # Static assets (favicon, icons)
+lib/
+├── content.ts              # All editable content (SINGLE SOURCE OF TRUTH)
+└── utils.ts
+
+.github/
+├── workflows/
+│   ├── ci.yml             # Lint & build pipeline
+│   └── deploy.yml         # Auto-deploy to Vercel
+├── ISSUE_TEMPLATE/        # GitHub templates
+└── pull_request_template  # PR guidelines
+
+public/                     # Static assets (favicon, images)
 ```
 
 ## 🔌 Form Integration
@@ -161,20 +189,41 @@ Form in `/app/blog/page.tsx` is ready for:
 - Substack
 - Or any other service
 
-## 🚀 Deployment
+## Deployment
 
-### Deploy to Vercel
-1. Push code to GitHub
-2. Import project in Vercel
-3. Add environment variables if needed
-4. Deploy!
+### Quick Deploy to Vercel
+```bash
+# 1. Push to GitHub
+git add .
+git commit -m "Initial commit"
+git push origin main
 
-### Environment Variables
-Create `.env.local` if using third-party services:
+# 2. Connect repo to Vercel dashboard
+# https://vercel.com/new
+
+# 3. Auto-deploys on every push!
+```
+
+### GitHub Actions CI/CD
+Automatically lints, builds, and deploys on push to `main`:
+- Runs on Node 18.x and 20.x
+- Builds before deploying
+- Only deploys from main branch
+
+### Environment Variables (if needed)
+Create `.env.local`:
 ```
 NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_id
 NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_key
 NEXT_PUBLIC_NEWSLETTER_API=your_endpoint
+```
+
+### Vercel Secrets
+In Vercel Dashboard → Settings → Environment Variables:
+```
+VERCEL_ORG_ID=...
+VERCEL_PROJECT_ID=...
+VERCEL_TOKEN=... (for CI/CD)
 ```
 
 ## 📱 Responsive Breakpoints
