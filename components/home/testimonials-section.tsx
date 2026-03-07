@@ -1,0 +1,151 @@
+"use client"
+
+import { useState } from "react"
+import Image from "next/image"
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
+import { ScrollReveal } from "@/components/scroll-reveal"
+
+const testimonials = [
+  {
+    id: 1,
+    content: "Working with Aurelia was an absolute pleasure. They transformed our vision into a stunning reality. Their attention to detail and creative approach exceeded all our expectations.",
+    author: "Sarah Mitchell",
+    role: "CEO, TechVentures",
+    image: "https://i.pravatar.cc/200?img=1",
+    company: "TechVentures",
+  },
+  {
+    id: 2,
+    content: "The team delivered exceptional results on time and within budget. Their strategic thinking and execution capabilities are truly world-class. I highly recommend their services.",
+    author: "Michael Chen",
+    role: "Marketing Director, GlobalBrands",
+    image: "https://i.pravatar.cc/200?img=3",
+    company: "GlobalBrands",
+  },
+  {
+    id: 3,
+    content: "Aurelia helped us reimagine our digital presence. The new website has significantly increased our conversions and user engagement. They truly understand modern design.",
+    author: "Emily Rodriguez",
+    role: "Founder, StartupHub",
+    image: "https://i.pravatar.cc/200?img=5",
+    company: "StartupHub",
+  },
+  {
+    id: 4,
+    content: "Professional, creative, and results-driven. The team went above and beyond to ensure our project was a success. We have seen a 200% increase in our online presence.",
+    author: "David Thompson",
+    role: "COO, InnovateCo",
+    image: "https://i.pravatar.cc/200?img=8",
+    company: "InnovateCo",
+  },
+]
+
+export function TestimonialsSection() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const nextTestimonial = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length)
+  }
+
+  const prevTestimonial = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+  }
+
+  return (
+    <section className="py-24 lg:py-32 bg-muted/30">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left Content */}
+          <div>
+            <ScrollReveal>
+              <span className="text-primary font-medium text-sm uppercase tracking-wider">
+                Testimonials
+              </span>
+            </ScrollReveal>
+            <ScrollReveal delay={100}>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+                What Our Clients Say
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal delay={200}>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                We take pride in building lasting relationships with our clients. Here is what some of them have to say about working with us.
+              </p>
+            </ScrollReveal>
+
+            {/* Navigation */}
+            <ScrollReveal delay={300}>
+              <div className="flex items-center gap-4">
+                <button
+                  onClick={prevTestimonial}
+                  className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+                  aria-label="Previous testimonial"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={nextTestimonial}
+                  className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+                  aria-label="Next testimonial"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+                <span className="text-muted-foreground ml-4">
+                  {currentIndex + 1} / {testimonials.length}
+                </span>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* Testimonial Card */}
+          <ScrollReveal direction="right">
+            <div className="relative">
+              <div className="bg-card p-8 md:p-10 rounded-3xl shadow-lg relative">
+                <Quote className="w-12 h-12 text-primary/20 absolute top-8 right-8" />
+                
+                <div className="relative z-10">
+                  <p className="text-lg md:text-xl leading-relaxed mb-8">
+                    {testimonials[currentIndex].content}
+                  </p>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 rounded-full overflow-hidden">
+                      <Image
+                        src={testimonials[currentIndex].image}
+                        alt={testimonials[currentIndex].author}
+                        width={56}
+                        height={56}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div>
+                      <div className="font-semibold">{testimonials[currentIndex].author}</div>
+                      <div className="text-muted-foreground text-sm">{testimonials[currentIndex].role}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Decorative Elements */}
+              <div className="absolute -z-10 -bottom-4 -right-4 w-full h-full bg-primary/10 rounded-3xl" />
+            </div>
+          </ScrollReveal>
+        </div>
+
+        {/* Dots Indicator */}
+        <div className="flex justify-center gap-2 mt-12 lg:hidden">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentIndex ? "w-8 bg-primary" : "bg-border"
+              }`}
+              aria-label={`Go to testimonial ${index + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
