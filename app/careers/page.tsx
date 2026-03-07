@@ -3,11 +3,9 @@
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { ScrollReveal } from "@/components/scroll-reveal"
-import Image from "next/image"
-import Link from "next/link"
 import { ChevronRight, MapPin, Briefcase, DollarSign, Users, Zap, Target } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { jobOpenings, teamMembers } from "@/config/content"
+import { jobs } from "@/lib/content"
 import { useState } from "react"
 
 export const metadata = {
@@ -160,13 +158,13 @@ export default function CareersPage() {
                   Open Positions
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Currently hiring for {jobOpenings.length} roles across our teams.
+                  Currently hiring for {jobs.length} roles across our teams.
                 </p>
               </div>
             </ScrollReveal>
 
             <div className="grid gap-4 max-w-4xl mx-auto">
-              {jobOpenings.map((job) => (
+              {jobs.map((job) => (
                 <ScrollReveal key={job.id}>
                   <button
                     onClick={() => setExpandedJob(expandedJob === job.id ? null : job.id)}
@@ -252,42 +250,7 @@ export default function CareersPage() {
           </div>
         </section>
 
-        {/* Team Section */}
-        <section className="py-20 lg:py-28">
-          <div className="container mx-auto px-6 lg:px-8">
-            <ScrollReveal>
-              <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>
-                  Meet Our Team
-                </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Talented individuals passionate about social commerce and creator success.
-                </p>
-              </div>
-            </ScrollReveal>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {teamMembers.map((member, index) => (
-                <ScrollReveal key={member.id} delay={index * 100}>
-                  <div className="text-center">
-                    <div className="mb-6 rounded-2xl overflow-hidden h-64">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        width={400}
-                        height={400}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
-                    <p className="text-primary text-sm font-medium mb-3">{member.role}</p>
-                    <p className="text-muted-foreground text-sm">{member.bio}</p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* CTA Section */}
         <section className="py-20 lg:py-28 bg-primary">

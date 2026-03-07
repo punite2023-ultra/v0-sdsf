@@ -6,7 +6,7 @@ import Link from "next/link"
 import { Calendar, User, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { blogArticles } from "@/config/content"
+import { blogArticles } from "@/lib/content"
 
 export const metadata = {
   title: "Blog | SDSF - Social Digital Selling Force",
