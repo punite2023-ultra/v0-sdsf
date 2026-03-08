@@ -1,7 +1,8 @@
 "use client"
 
+import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
+import { ChevronCircleRight } from "lucide-react"
 import { useState, useEffect } from "react"
 
 interface HeroSlide {
@@ -48,22 +49,25 @@ export function HeroSection() {
         backgroundSize: 'cover',
         backgroundAttachment: 'fixed',
         paddingTop: '100px',
+        paddingRight: '0px',
+        paddingBottom: '0px',
+        paddingLeft: '0px',
         minHeight: '100vh'
       }}
     >
       {/* Main Container */}
       <div 
-        className="relative w-full h-full flex justify-between items-start px-6 lg:px-12"
+        className="relative flex flex-row justify-between items-stretch w-full"
         style={{
-          maxWidth: '1400px',
+          maxWidth: '1340px',
           margin: '0 auto',
-          gap: '32px'
+          padding: '0px 0px 0px 0px'
         }}
       >
-        {/* LEFT COLUMN */}
+        {/* LEFT COLUMN - 12% width */}
         <div 
-          className="hidden lg:flex flex-col flex-shrink-0 relative z-20"
-          style={{ width: '120px', paddingTop: '20px' }}
+          className="hidden lg:flex flex-col relative z-20"
+          style={{ width: '12%', paddingBottom: '100px', marginBottom: '-136px' }}
         >
           {/* Team Avatars */}
           <div className="flex -space-x-2 mb-3" style={{ animation: 'fadeInDown 1s ease-out 0.4s backwards' }}>
@@ -111,14 +115,15 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* CENTER COLUMN - Flexible */}
-        <div className="relative flex-1 flex items-center justify-center" style={{ zIndex: 1, minHeight: '600px' }}>
-          {/* Slider Container */}
+        {/* CENTER COLUMN - 100% width (full width for slider) */}
+        <div className="relative w-full flex items-center justify-center" style={{ position: 'relative', zIndex: 1 }}>
+          {/* Slider Container - NO FIXED WIDTH */}
           <div 
-            className="relative w-full h-full overflow-hidden"
+            className="relative w-full overflow-hidden"
             style={{
               borderRadius: '25px',
-              maxWidth: '100%'
+              aspectRatio: '16/9',
+              maxHeight: 'none'
             }}
           >
             {/* Slider Images */}
@@ -144,16 +149,16 @@ export function HeroSection() {
             </div>
 
             {/* Large Text Overlay */}
-            <div className="absolute inset-0 flex items-center justify-center z-10 p-4">
+            <div className="absolute inset-0 flex items-center justify-center z-10">
               <h1 
                 className="text-center leading-none uppercase"
                 style={{
-                  fontSize: 'clamp(60px, 20vw, 280px)',
+                  fontSize: '300px',
                   fontWeight: '900',
                   color: '#CCFF00',
                   fontFamily: 'Anton, sans-serif',
                   textShadow: '0 6px 30px rgba(0, 0, 0, 0.5)',
-                  letterSpacing: '-0.02em',
+                  letterSpacing: '-5px',
                   lineHeight: '1',
                   wordSpacing: '9999px',
                   animation: 'slideInLeft 1s ease-out'
@@ -185,12 +190,12 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* RIGHT COLUMN */}
+        {/* RIGHT COLUMN - 20% width */}
         <div 
-          className="hidden lg:flex flex-col flex-shrink-0 relative z-20"
+          className="hidden lg:flex flex-col relative z-20"
           style={{ 
-            width: '240px',
-            paddingTop: '20px',
+            width: '20%',
+            paddingBottom: '62px',
             alignItems: 'flex-start',
             animation: 'fadeInUp 1s ease-out 1.2s backwards'
           }}
@@ -209,18 +214,18 @@ export function HeroSection() {
           </p>
 
           <button
-            className="inline-flex items-center gap-2 px-6 py-3 text-base font-bold uppercase transition-all duration-500 hover:scale-95"
+            className="inline-flex items-center gap-4 px-6 py-3 text-base font-bold uppercase transition-all duration-500 hover:scale-95"
             style={{
               backgroundColor: '#FFFFFF',
               color: '#0047e6',
-              border: 'none',
+              border: '2px solid #CCFF00',
               borderRadius: '24px',
               fontFamily: 'Anton, sans-serif',
-              fontSize: '14px'
+              fontSize: '16px'
             }}
           >
             <span>Get Started</span>
-            <ArrowRight size={18} style={{ color: '#0047e6' }} />
+            <ChevronCircleRight size={20} style={{ color: '#0047e6' }} />
           </button>
         </div>
       </div>
