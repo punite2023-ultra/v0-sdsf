@@ -1,14 +1,14 @@
 const clients = [
-  "Google",
-  "Microsoft",
-  "Amazon",
-  "Meta",
-  "Apple",
-  "Netflix",
-  "Spotify",
-  "Airbnb",
-  "Uber",
-  "Slack",
+  "Social Media Marketing",
+  "Content Creation & Branding",
+  "E-Commerce Strategy & Management",
+  "Influencer and Affiliate Marketing",
+  "Live Streaming Services",
+  "Dummy Text for now",
+  "Dummy Text for now",
+  "Dummy Text for now",
+  "Dummy Text for now",
+  "Dummy Text for now",
 ]
 
 export function ClientsMarquee() {
@@ -19,7 +19,7 @@ export function ClientsMarquee() {
           {[...clients, ...clients].map((client, index) => (
             <div
               key={index}
-              className="flex items-center justify-center min-w-[200px] px-8"
+              className="flex items-center justify-center min-w-[100px] px-20"
             >
               <span className="text-xl font-semibold text-muted-foreground/50 hover:text-foreground transition-colors duration-300 cursor-default">
                 {client}
