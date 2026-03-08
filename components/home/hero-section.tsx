@@ -53,7 +53,7 @@ export function HeroSection() {
     >
       {/* Main Container */}
       <div 
-        className="relative w-full h-full flex justify-between items-start px-6 lg:px-12"
+        className="relative w-full h-full flex justify-between items-center px-6 lg:px-12"
         style={{
           maxWidth: '1400px',
           margin: '0 auto',
@@ -134,14 +134,6 @@ export function HeroSection() {
                 priority={index === currentSlide}
               />
             ))}
-
-            {/* Geometric Rectangles Overlay */}
-            <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute top-12 left-12 w-16 h-24 border-4 border-yellow-300" style={{ animation: 'pulse 2s infinite' }} />
-              <div className="absolute top-1/3 right-24 w-20 h-16 border-4 border-yellow-300" style={{ animation: 'pulse 2s infinite 0.3s' }} />
-              <div className="absolute bottom-20 left-1/4 w-24 h-20 border-4 border-yellow-300" style={{ animation: 'pulse 2s infinite 0.5s' }} />
-              <div className="absolute bottom-32 right-16 w-12 h-16 border-3 border-yellow-300" style={{ animation: 'pulse 2s infinite 0.7s' }} />
-            </div>
 
             {/* Large Text Overlay */}
             <div className="absolute inset-0 flex items-center justify-center z-10 p-4">
@@ -224,66 +216,6 @@ export function HeroSection() {
           </button>
         </div>
       </div>
-
-      {/* CSS Animations */}
-      <style jsx>{`
-        @keyframes fadeInDown {
-          from {
-            opacity: 0;
-            transform: translateY(-10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        @keyframes fadeInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        @keyframes slideInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        @keyframes spin {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-        @keyframes pulse {
-          0%, 100% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0.5;
-          }
-        }
-      `}</style>
     </section>
   )
 }
