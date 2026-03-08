@@ -22,12 +22,10 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex items-center">
-              <span className="text-primary text-xl font-bold">STAR</span>
-              <Star className="w-4 h-4 text-primary mx-1 fill-primary" />
-              <span className="text-foreground text-xl font-light">star</span>
-            </div>
-          </Link>
+  <div className="flex items-center">
+    <img src="/images/StarDigitalSolutionsLogoWhite.svg" alt="Logo" className="h-8" />
+  </div>
+</Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
