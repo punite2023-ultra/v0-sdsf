@@ -2,119 +2,154 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Phone } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden" style={{ backgroundColor: '#0047e6' }}>
-      {/* Phone Number Badge - Top Right */}
-      <div className="absolute top-8 right-8 flex items-center gap-3 z-20">
-        <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: '#FFFF00' }}>
-          <Phone className="w-6 h-6" style={{ color: '#0047e6' }} strokeWidth={3} />
-        </div>
-        <div className="text-white">
-          <div className="text-xs font-bold">PHONE NUMBER</div>
-          <div className="text-sm font-bold">+ 43 879 5673 9876</div>
-        </div>
-      </div>
-
-      {/* Left Column - Stats and Team Info */}
-      <div className="absolute left-8 top-1/2 transform -translate-y-1/2 hidden lg:block">
-        {/* Team Info */}
-        <div className="text-white mb-12">
-          <div className="flex -space-x-3 mb-3">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
-                <Image
-                  src={`https://i.pravatar.cc/100?img=${i + 5}`}
-                  alt=""
-                  width={40}
-                  height={40}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
+    <section 
+      className="relative min-h-screen flex items-center justify-between overflow-hidden pt-[100px] px-0"
+      style={{
+        backgroundImage: 'url(https://pai.nomadenstudio.com/aurelia/wp-content/uploads/sites/6/2024/11/Bg-2.jpg)',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      <div className="w-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between relative z-10">
+        
+        {/* Left Column - Team Info & Stats (12% width on desktop) */}
+        <div className="hidden lg:flex flex-col w-1/5 gap-12 relative z-20 animate-fadeInDown">
+          {/* Team Section */}
+          <div className="flex flex-col gap-3">
+            {/* Avatar Images */}
+            <div className="flex -space-x-2">
+              {[1, 2, 3].map((i) => (
+                <div 
+                  key={i} 
+                  className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-white/10"
+                >
+                  <Image
+                    src={`https://i.pravatar.cc/100?img=${i + 10}`}
+                    alt=""
+                    width={40}
+                    height={40}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+            
+            {/* Divider Line */}
+            <div className="flex items-center gap-2">
+              <div className="h-0.5 w-16" style={{ backgroundColor: '#CCFF00' }} />
+            </div>
+            
+            {/* Team Text */}
+            <h3 className="text-white font-bold text-sm leading-tight max-w-xs uppercase tracking-tight">
+              THE EXPERT TEAM BRINGS A CREATIVITY TO EVERY PROJECT.
+            </h3>
           </div>
-          <p className="text-xs font-bold text-white/90 max-w-xs leading-tight">
-            THE EXPERT TEAM BRINGS A CREATIVITY TO EVERY PROJECT.
+
+          {/* Stats */}
+          <div className="flex flex-col gap-8">
+            {/* Stat 1 */}
+            <div className="flex flex-col gap-2">
+              <div className="text-4xl font-black text-white leading-none">500 +</div>
+              <div className="text-xs font-bold text-white/90 uppercase">HAPPY CLIENT</div>
+              <div className="h-1 w-12" style={{ backgroundColor: '#CCFF00' }} />
+            </div>
+
+            {/* Stat 2 */}
+            <div className="flex flex-col gap-2">
+              <div className="text-4xl font-black text-white leading-none">125 +</div>
+              <div className="text-xs font-bold text-white/90 uppercase">PROJECT DONE</div>
+              <div className="h-1 w-12" style={{ backgroundColor: '#CCFF00' }} />
+            </div>
+          </div>
+        </div>
+
+        {/* Center - Large Hero Image & Text */}
+        <div className="relative flex-1 flex items-center justify-center mx-8 lg:mx-0">
+          {/* Hero Image Container */}
+          <div className="relative w-full h-[500px] lg:h-[700px] rounded-3xl overflow-hidden">
+            <Image
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1000&h=800&fit=crop"
+              alt="Creative team working"
+              width={1000}
+              height={800}
+              className="w-full h-full object-cover"
+              priority
+            />
+
+            {/* Geometric Overlay Rectangles with Yellow Border */}
+            <div className="absolute inset-0 pointer-events-none">
+              {/* Top-left rectangle */}
+              <div className="absolute top-20 left-16 w-20 h-32 border-4" style={{ borderColor: '#CCFF00' }} />
+              
+              {/* Center-top rectangle */}
+              <div className="absolute top-24 right-32 w-24 h-20 border-4" style={{ borderColor: '#CCFF00' }} />
+              
+              {/* Center rectangle */}
+              <div className="absolute top-1/2 left-1/3 w-28 h-24 border-4" style={{ borderColor: '#CCFF00' }} />
+              
+              {/* Bottom-right rectangle */}
+              <div className="absolute bottom-32 right-20 w-16 h-20 border-3" style={{ borderColor: '#CCFF00' }} />
+            </div>
+
+            {/* Large Text Overlay - CREATIVE AGENCY */}
+            <div className="absolute inset-0 flex items-center justify-center z-10">
+              <h1 
+                className="text-8xl md:text-9xl lg:text-10xl font-black text-center leading-none uppercase"
+                style={{ 
+                  color: '#CCFF00',
+                  textShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
+                  letterSpacing: '-0.02em',
+                  wordSpacing: '9999px'
+                }}
+              >
+                CREATIVE
+                <br />
+                AGENCY
+              </h1>
+            </div>
+          </div>
+
+          {/* Decorative Star Circle - Top Right of Hero */}
+          <div className="absolute -right-6 -top-6 w-20 h-20 rounded-full border-3 hidden lg:flex items-center justify-center z-20" style={{ borderColor: '#CCFF00' }}>
+            <svg className="w-10 h-10" style={{ color: '#CCFF00' }} fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+          </div>
+        </div>
+
+        {/* Right Column - Description & CTA */}
+        <div className="hidden lg:flex flex-col w-1/5 gap-6 relative z-20 animate-fadeInRight justify-end pb-16">
+          <p className="text-white/90 text-sm leading-relaxed font-light">
+            Lorem ipsum do adipiscing elit Ut elit tellus luctus nec ullamcorper mattis pulvinar dapibus leo.
           </p>
-        </div>
 
-        {/* Stats */}
-        <div className="space-y-6">
-          <div>
-            <div className="text-4xl font-black text-white">500 +</div>
-            <div className="text-sm font-bold text-white/80">HAPPY CLIENT</div>
-            <div className="w-12 h-1 bg-yellow-300 mt-2" />
-          </div>
-          <div>
-            <div className="text-4xl font-black text-white">125 +</div>
-            <div className="text-sm font-bold text-white/80">PROJECT DONE</div>
-            <div className="w-12 h-1 bg-yellow-300 mt-2" />
-          </div>
+          <Button 
+            asChild 
+            className="rounded-md px-6 py-3 bg-white text-blue-600 hover:bg-blue-50 font-bold text-sm uppercase border-0 group w-fit"
+            style={{ backgroundColor: '#FFFFFF', color: '#0047e6' }}
+          >
+            <Link href="/contact" className="flex items-center gap-2">
+              GET STARTED
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Button>
         </div>
       </div>
 
-      {/* Right Column - CTA and Description */}
-      <div className="absolute right-8 bottom-16 hidden lg:block max-w-xs z-10">
-        <p className="text-white/90 text-sm leading-relaxed mb-6">
-          Lorem ipsum do adipiscing elit Ut elit tellus luctus nec ullamcorper mattis pulvinar dapibus leo.
-        </p>
-        <Button asChild className="rounded-full px-8 py-6 bg-white text-blue-600 hover:bg-blue-100 font-bold text-base group">
-          <Link href="/contact" className="flex items-center gap-2">
-            GET STARTED
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </Link>
-        </Button>
-      </div>
-
-      {/* Center - Large Hero Image with Overlaid Text */}
-      <div className="relative w-full h-full flex items-center justify-center">
-        {/* Hero Image */}
-        <div className="relative w-full h-full max-w-4xl mx-auto">
-          <Image
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1200&h=800&fit=crop"
-            alt="Creative team working"
-            width={1200}
-            height={800}
-            className="w-full h-full object-cover"
-            priority
-          />
-
-          {/* Geometric Overlay Rectangles with Yellow Border */}
-          <div className="absolute inset-0 pointer-events-none">
-            {/* Top left rectangle */}
-            <div className="absolute top-24 left-32 w-24 h-32 border-4 border-yellow-300 opacity-70" />
-            {/* Middle rectangle */}
-            <div className="absolute top-1/3 right-48 w-32 h-24 border-4 border-yellow-300 opacity-70" />
-            {/* Bottom rectangle */}
-            <div className="absolute bottom-32 left-1/3 w-28 h-36 border-4 border-yellow-300 opacity-70" />
-            {/* Small accent rectangle */}
-            <div className="absolute top-1/2 right-32 w-16 h-24 border-3 border-yellow-300 opacity-50" />
-          </div>
-        </div>
-
-        {/* Large Text Overlay */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-          <h1 className="text-9xl lg:text-10xl font-black text-yellow-300 text-center leading-none drop-shadow-2xl">
-            CREATIVE
-            <br />
-            NOW
-          </h1>
-        </div>
-
-        {/* Decorative Star Circle - Top Right */}
-        <div className="absolute top-12 right-12 w-24 h-24 rounded-full border-3 border-yellow-300 flex items-center justify-center z-20 hidden lg:flex">
-          <svg className="w-12 h-12 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-          </svg>
-        </div>
-      </div>
-
-      {/* Mobile CTA - Bottom */}
-      <div className="absolute bottom-8 left-0 right-0 lg:hidden px-6 text-center">
-        <Button asChild className="rounded-full px-8 py-6 bg-white text-blue-600 hover:bg-blue-100 font-bold text-base w-full">
+      {/* Mobile CTA */}
+      <div className="absolute bottom-8 left-6 right-6 lg:hidden text-center z-20">
+        <Button 
+          asChild 
+          className="w-full rounded-md px-6 py-3 bg-white text-blue-600 hover:bg-blue-50 font-bold text-sm uppercase border-0"
+          style={{ backgroundColor: '#FFFFFF', color: '#0047e6' }}
+        >
           <Link href="/contact" className="flex items-center justify-center gap-2">
             GET STARTED
             <ArrowRight className="w-4 h-4" />
