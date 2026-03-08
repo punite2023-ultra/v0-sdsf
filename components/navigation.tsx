@@ -43,7 +43,7 @@ export function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
   <div className="flex items-center">
-    <img src="/images/StarDigitalSolutionsColor.svg" alt="Logo" className="h-24" />
+    <img src="/images/StarDigitalSolutionsColor.svg" alt="Logo" className="h-19" />
   </div>
 </Link>
 
