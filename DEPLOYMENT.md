@@ -1,18 +1,20 @@
-# Deployment Guide
+# Deployment Guide - Star Digital Solutions
 
-This guide covers deploying SDSF to Vercel with GitHub Actions CI/CD.
+Complete guide to deploy Star Digital Solutions website to Vercel with GitHub integration and automatic CI/CD.
 
 ## Prerequisites
 
-- GitHub account with repository
-- Vercel account (free tier works great)
-- Node.js 18+ installed locally
+- GitHub account (free at github.com)
+- Vercel account (free tier - 100GB/month bandwidth, unlimited deployments)
+- Node.js 18.x, 20.x, or 22.x installed locally
+- pnpm package manager
 
-## Step-by-Step Deployment
-
-### 1. Prepare Your GitHub Repository
+## Step 1: Prepare Your GitHub Repository
 
 ```bash
+# Navigate to project directory
+cd v0-sdsf
+
 # Initialize git (if not already done)
 git init
 
@@ -20,124 +22,187 @@ git init
 git add .
 
 # Create initial commit
-git commit -m "Initial commit: SDSF website"
+git commit -m "Initial commit: Star Digital Solutions with hero slider"
 
-# Create main branch (if needed)
+# Create/rename main branch
 git branch -M main
 
-# Add remote repository
-git remote add origin https://github.com/yourusername/sdsf.git
+# Add remote repository (replace USERNAME with your GitHub username)
+git remote add origin https://github.com/USERNAME/v0-sdsf.git
 
 # Push to GitHub
 git push -u origin main
 ```
 
-### 2. Connect to Vercel
+## Step 2: Create GitHub Repository
 
-**Option A: Direct Vercel Connection (Easiest)**
+1. Go to [github.com/new](https://github.com/new)
+2. **Repository name**: `v0-sdsf`
+3. **Description**: `Star Digital Solutions - Award-winning digital agency website`
+4. **Visibility**: Choose Public (for collaboration) or Private (for confidentiality)
+5. **DO NOT** initialize with README, .gitignore, or license (we already have these)
+6. Click **Create repository**
+7. Follow GitHub's instructions to connect your local repository
 
-1. Go to [vercel.com/new](https://vercel.com/new)
-2. Click "Import Git Repository"
-3. Select your GitHub repo
-4. Vercel will auto-detect Next.js settings
-5. Click "Deploy"
+**Or use GitHub CLI:**
+```bash
+gh repo create v0-sdsf --source=. --remote=origin --push
+```
 
-**Option B: Vercel CLI**
+## Step 3: Verify Repository on GitHub
+
+Visit `https://github.com/USERNAME/v0-sdsf` and confirm:
+- ✅ All source files are present
+- ✅ No `node_modules` folder
+- ✅ `.gitignore` properly configured
+- ✅ `next.config.js` and `vercel.json` present
+- ✅ `package.json` exists
+
+## Step 4: Connect to Vercel
+
+### Option A: Web Dashboard (Recommended)
+
+1. Go to [vercel.com](https://vercel.com) and sign in
+2. Click **Add New** → **Project**
+3. Under "Import Git Repository," select your GitHub repo `v0-sdsf`
+4. Click **Import**
+
+### Step 5: Configure Project Settings
+
+**Framework**: Next.js (auto-detected)
+
+**Build Settings** (auto-detected):
+- **Build Command**: `next build`
+- **Output Directory**: `.next`
+- **Install Command**: `pnpm install`
+
+**Environment Variables**: Leave empty for now (optional)
+
+**Advanced Settings**:
+- **Node.js Version**: 20.x (recommended)
+- **Automatically expose System Environment Variables**: Enabled
+
+### Step 6: Deploy
+
+Click **Deploy** button. Vercel will:
+1. Clone your GitHub repository
+2. Install dependencies
+3. Build the project
+4. Deploy to CDN
+5. Provide live URL (deployment-hash.vercel.app)
+
+Deployment takes 2-5 minutes. Once complete, you'll see a confirmation with your live URL.
+
+## Step 7: Configure Environment Variables (Optional)
+
+In Vercel Dashboard → **Settings** → **Environment Variables**:
+
+```
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+```
+
+Note: Prefix with `NEXT_PUBLIC_` to expose to browser. Other variables are server-only.
+
+## Step 8: Set Up Automatic Deployments
+
+Once your repository is connected to Vercel, **automatic deployments are enabled**. Every push to the main branch automatically deploys to production.
+
+### Automatic Deployment Workflow
 
 ```bash
-# Install Vercel CLI globally
-npm install -g vercel
+# Make changes locally
+# ...edit files...
 
-# Deploy from project directory
-vercel
+# Test locally
+pnpm dev
 
-# Follow the prompts to connect GitHub
-```
+# Build to verify no errors
+pnpm build
 
-### 3. Configure Environment Variables
-
-In Vercel Dashboard:
-
-1. Go to Project Settings
-2. Click "Environment Variables"
-3. Add any needed variables (optional for basic setup):
-
-```
-NEXT_PUBLIC_SITE_URL=https://yourdomain.com
-```
-
-### 4. Set Up GitHub Actions CI/CD
-
-The `.github/workflows/ci.yml` file is already configured, but you need to set secrets:
-
-**In GitHub Repository Settings:**
-
-1. Go to Settings → Secrets and variables → Actions
-2. Add these secrets (from Vercel):
-
-```
-VERCEL_ORG_ID        # Found in Vercel dashboard
-VERCEL_PROJECT_ID    # Found in Vercel dashboard  
-VERCEL_TOKEN         # Create at vercel.com/account/tokens
-```
-
-**To Get These Values:**
-
-- **VERCEL_ORG_ID**: Vercel Dashboard → Settings → General → Team ID
-- **VERCEL_PROJECT_ID**: Project Settings → General → Project ID
-- **VERCEL_TOKEN**: Create at [vercel.com/account/tokens](https://vercel.com/account/tokens)
-
-### 5. Automatic Deployments
-
-Now every time you push to GitHub:
-
-```bash
+# Commit and push
 git add .
-git commit -m "Update content"
+git commit -m "Update hero section styling"
 git push origin main
+
+# Vercel automatically deploys!
+# Check status: Vercel Dashboard → Deployments
 ```
 
-GitHub Actions will:
-1. ✅ Lint your code
-2. ✅ Run Next.js build
-3. ✅ Deploy to Vercel (if main branch)
+### GitHub Actions CI/CD (Optional Enhancement)
 
-Check deployment status:
-- GitHub: Actions tab
-- Vercel: Deployments section
+For automated testing before deployment:
 
-## Custom Domain
+**GitHub Actions is pre-configured** in `.github/workflows/` but not required for Vercel deployments.
 
-### Add Custom Domain to Vercel
+To enable GitHub Actions validation:
 
-1. Vercel Dashboard → Project Settings
-2. Click "Domains"
-3. Add your domain (e.g., sdsf.com)
-4. Follow Vercel's DNS instructions
-5. Point your domain registrar to Vercel nameservers
+1. Go to GitHub → Repository **Settings**
+2. Click **Secrets and variables** → **Actions**
+3. Create a new secret: `VERCEL_TOKEN`
+4. Get token from [vercel.com/account/tokens](https://vercel.com/account/tokens)
 
-### DNS Configuration
+This enables:
+- Automated linting on pull requests
+- Build validation before merge
+- Automatic preview deployments
+- Production deployment on merge to main
 
-**If using separate registrar:**
+## Step 9: Preview Deployments
 
-1. Get Vercel's nameservers
-2. Update DNS records at domain registrar
-3. Wait 24-48 hours for propagation
-4. Verify domain in Vercel dashboard
+Every pull request automatically gets a preview URL:
 
-**If using registrar's DNS:**
+1. Push to a branch: `git checkout -b feature/new-feature`
+2. Make changes and push
+3. Create Pull Request on GitHub
+4. Vercel comments with preview URL
+5. Share preview link for team review
+6. Merge PR to deploy to production
 
-1. Add CNAME/A records pointing to Vercel
-2. Check Vercel docs for specific records
-3. Verify in Vercel dashboard
+## Step 10: Add Custom Domain (Optional)
 
-## SSL/TLS Certificate
+### Prerequisites
+- Own domain name (e.g., stardigitalsolutions.com)
+- Domain registrar account (GoDaddy, Namecheap, Google Domains, etc.)
 
-✅ Automatically provided by Vercel (Let's Encrypt)
+### Add Domain to Vercel
 
+1. **Vercel Dashboard** → **Settings** → **Domains**
+2. Enter your domain: `stardigitalsolutions.com`
+3. Click **Add**
+4. Vercel shows DNS configuration options
+
+### DNS Configuration Options
+
+**Option A: Change Nameservers (Recommended)**
+1. Copy Vercel nameservers provided
+2. Log into your domain registrar
+3. Update nameservers to Vercel's
+4. Wait 24-48 hours for DNS propagation
+5. Vercel auto-verifies once propagated
+
+**Option B: Add DNS Records**
+1. Use registrar's DNS management
+2. Add CNAME/A records provided by Vercel
+3. Update all required records
+4. Vercel auto-verifies once live
+
+**Option C: Connect via Registrar**
+Some registrars (Route 53, Cloudflare) integrate directly with Vercel.
+
+### Verify Domain Setup
+
+1. After DNS propagates, visit your domain
+2. Should show your Vercel-deployed site
+3. Vercel auto-provisions SSL certificate
+4. Certificate valid within 24 hours
+
+### SSL/TLS Certificate
+
+✅ **Automatically provided** by Vercel (Let's Encrypt)
 - Free for all projects
 - Auto-renewal included
 - No configuration needed
+- HTTPS enabled by default
 
 ## Performance Optimization
 

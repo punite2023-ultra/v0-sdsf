@@ -1,18 +1,18 @@
-# SDSF - Social Digital Selling Force
+# Star Digital Solutions
 
-A fully functional, professionally designed website for a digital agency specializing in TikTok Shop, live selling, and social commerce. Built with Next.js 16, React, Tailwind CSS, and TypeScript.
+Award-winning digital agency website specializing in social media marketing, e-commerce strategy, influencer marketing, and live streaming services. Built with Next.js 16, React 19, Tailwind CSS v4, and TypeScript for maximum performance.
 
 ## What's Included
 
-### Complete Pages
-- **Home** - Hero section, services preview, portfolio showcase, testimonials, blog preview
-- **About** - Company story, team members, timeline, mission & vision, values
-- **Services** - 6 service offerings with detailed descriptions, process workflow
-- **Portfolio** - 6 featured projects with case studies, metrics, and results
-- **Pricing** - 3 pricing tiers with feature comparison, add-ons, and FAQs
-- **Blog** - 5 in-depth TikTok/e-commerce articles with detailed content
-- **Careers** - 6 job openings with full details, benefits, and requirements
-- **Contact** - Contact form with validation, contact info, social links, FAQs
+### Core Features
+- **Auto-Scrolling Hero Section** - 10-second interval slider with geometric overlays and smooth transitions
+- **Responsive Design** - Mobile-first approach, fully optimized for all devices (320px - 4K screens)
+- **Dynamic Marquee** - Scrolling services text with purple background and white typography
+- **Team Stats Section** - Showcasing 500+ clients and 125+ completed projects
+- **Service Cards** - Social media marketing, e-commerce, influencer marketing, live streaming
+- **Contact Form** - Form validation and ready for email integration
+- **Dark Mode Support** - Complete dark/light theme switching with next-themes
+- **Performance Optimized** - Images optimized for web, lazy loading, minimal bundle size
 
 ### Design Features
 - **Responsive Design** - Mobile-first approach, works perfectly on all devices
@@ -46,21 +46,24 @@ A fully functional, professionally designed website for a digital agency special
 
 ## 📦 Quick Start
 
+### Prerequisites
+- Node.js 18.x, 20.x, or 22.x
+- pnpm (recommended), npm, or yarn
+
 ### Installation
 ```bash
-# Clone or download the project
-cd your-project
+# Clone the repository
+git clone https://github.com/punite2023-ultra/v0-sdsf.git
+cd v0-sdsf
 
-# Install dependencies
-npm install
-# or
+# Install dependencies (using pnpm for faster builds)
 pnpm install
 
 # Run development server
-npm run dev
+pnpm dev
 ```
 
-Visit `http://localhost:3000` to see your site.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the site.
 
 ## Customization
 
