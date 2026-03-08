@@ -15,8 +15,8 @@ export function ClientsMarquee() {
   return (
     <section className="py-12 border-y border-border bg-muted/30 overflow-hidden">
       <div className="relative">
-        {/* Ensure flex-nowrap prevents wrapping and remove animation */}
-        <div className="flex space-x-8 flex-nowrap">
+        {/* Ensuring flex-nowrap prevents wrapping and using space-x for horizontal spacing */}
+        <div className="flex animate-marquee space-x-8 flex-nowrap">
           {[...clients, ...clients].map((client, index) => (
             <div
               key={index}
