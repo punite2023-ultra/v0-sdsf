@@ -1,129 +1,209 @@
-# Quick Start - Star Digital Solutions
+# Quick Start Guide
 
-Get your website live in 5 minutes.
+Get your SDSF website running in 5 minutes.
 
-## 1️⃣ Local Setup (2 minutes)
+## Installation (2 minutes)
 
 ```bash
+# Clone or download the project
+git clone https://github.com/your-username/sdsf.git
+cd sdsf
+
 # Install dependencies
 pnpm install
 
 # Start development server
-pnpm dev
+pnpm run dev
 
-# Open http://localhost:3000
+# Open browser to http://localhost:3000
 ```
 
-## 2️⃣ Test Everything Works (1 minute)
+## Customize Content (3 minutes)
 
-- ✅ Hero slider auto-scrolls every 10 seconds
-- ✅ Marquee section displays services
-- ✅ All navigation links work
-- ✅ Mobile responsive (test with DevTools)
-- ✅ No console errors
+**Edit `/config/content.ts` to change:**
 
-## 3️⃣ Verify Build (1 minute)
+```typescript
+// Change company name
+export const companyInfo = {
+  name: "Your Company Name",  // ← Change this
+  email: "your@email.com",     // ← Change this
+  phone: "+66 2 XXX XXXX",     // ← Change this
+  location: "Your City",       // ← Change this
+  // ...
+}
 
-```bash
-pnpm build
-# Should complete with no errors
+// Update blog articles
+export const blogArticles = [
+  {
+    id: 1,
+    title: "Your Article",     // ← Change this
+    excerpt: "Your summary",   // ← Change this
+    // ...
+  },
+  // Add more articles here
+]
+
+// Update jobs
+export const jobOpenings = [
+  {
+    id: 1,
+    title: "Your Job Title",   // ← Change this
+    // ...
+  },
+  // Add more jobs here
+]
 ```
 
-## 4️⃣ Push to GitHub (1 minute)
+Save the file → Changes appear instantly!
 
-```bash
-# Create repo at github.com/new (name: v0-sdsf)
-# Then connect locally:
+## Common Edits
 
-git remote add origin https://github.com/USERNAME/v0-sdsf.git
-git branch -M main
-git add .
-git commit -m "Initial commit: Star Digital Solutions"
-git push -u origin main
+### Update Logo Text
+```typescript
+// components/navigation.tsx (line ~28)
+<span className="text-xl font-semibold">Your Company</span>
 ```
 
-## 5️⃣ Deploy to Vercel (auto - 2-5 minutes)
-
-1. Go to [vercel.com/new](https://vercel.com/new)
-2. Sign in with GitHub
-3. Select `v0-sdsf` repository
-4. Click **Deploy**
-5. Get live URL in 2-5 minutes ✅
-
-## 📝 Update Your Site
-
-```bash
-# Make changes locally
-# Test: pnpm dev
-
-# Push to deploy
-git add .
-git commit -m "Update hero section"
-git push origin main
-
-# Automatically deployed! ✨
-```
-
-## 🎨 Customize Design
-
-**Colors**: Edit `app/globals.css`
+### Change Primary Color
 ```css
-:root {
-  --color-primary: #62248e;      /* Purple */
-  --color-accent: #CCFF00;       /* Neon Yellow */
+/* app/globals.css */
+--color-primary: #00d4ff;  /* ← Your color */
+```
+
+### Add New Blog Article
+```typescript
+// Add to blogArticles array in config/content.ts
+{
+  id: 6,
+  title: "Your New Article",
+  excerpt: "Short summary",
+  image: "https://...",
+  category: "E-Commerce",
+  author: "Your Name",
+  date: "Mar 25, 2024",
+  readTime: "10 min read",
+  slug: "article-url-slug",
+  content: `Your full article content...`,
 }
 ```
 
-**Hero Section**: Edit `components/home/hero-section.tsx`
-- Change slider images
-- Adjust text sizing
-- Modify animation timing (currently 10 seconds)
+### Add New Job
+```typescript
+// Add to jobOpenings array in config/content.ts
+{
+  id: 7,
+  title: "New Job Title",
+  department: "Your Dept",
+  location: "Your Location",
+  type: "Full-Time",
+  salary: "$X - $Y",
+  description: "Job description",
+  image: "https://...",
+  responsibilities: ["Task 1", "Task 2"],
+  requirements: ["Req 1", "Req 2"],
+  benefits: ["Benefit 1", "Benefit 2"],
+}
+```
 
-**Marquee Services**: Edit `components/home/clients-marquee.tsx`
-- Update service text
-- Change background color
-- Adjust speed/spacing
+### Replace Images
+1. Add images to `/public/images/` folder
+2. Update URLs in `/config/content.ts`:
+   ```typescript
+   image: "/images/your-image.jpg"  // Instead of URL
+   ```
 
-## 🎯 What You Get
-
-- ✅ Auto-scaling (Vercel handles traffic)
-- ✅ Free SSL/HTTPS (automatic)
-- ✅ Global CDN (fast everywhere)
-- ✅ Free tier: 100GB/month, unlimited deployments
-- ✅ Auto-deployments (push = instant deploy)
-- ✅ Preview URLs (pull requests get test links)
-- ✅ Built-in analytics
-
-## 🆘 Troubleshooting
-
-| Issue | Fix |
-|-------|-----|
-| Hero slider not visible | Check Vercel build logs |
-| Build fails locally | Run `pnpm install` then `pnpm build` |
-| Images not loading | Verify paths in `/public/images/` |
-| Want to rollback | Vercel Deployments → select previous version |
-
-## 📚 Full Documentation
-
-- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Complete deployment guide
-- **[DEPLOYMENT_CHECKLIST.md](./DEPLOYMENT_CHECKLIST.md)** - Pre-launch checklist
-- **[README.md](./README.md)** - Project overview
-
-## ✨ You're Ready!
+## Deploy to Vercel
 
 ```bash
-# 1. Test locally
-pnpm dev
-
-# 2. Push to GitHub
+# 1. Push to GitHub
+git add .
+git commit -m "Update content"
 git push origin main
 
-# 3. Deploy to Vercel
-# Automatic - takes 2-5 minutes
+# 2. Go to vercel.com
+# 3. Import your GitHub repository
+# 4. Click "Deploy"
 
-# 4. Share your live URL!
+# Done! Your site is live.
 ```
+
+## File Locations Quick Reference
+
+| What | Where | What to Edit |
+|------|-------|-------------|
+| Company Info | `/config/content.ts` | name, email, phone, location |
+| Blog Articles | `/config/content.ts` | title, content, author, date |
+| Jobs | `/config/content.ts` | title, salary, responsibilities |
+| Team Members | `/config/content.ts` | name, role, bio |
+| Images (Local) | `/public/images/` | Add .jpg/.png files here |
+| Colors | `/app/globals.css` | --color-primary, etc. |
+| Fonts | `/app/layout.tsx` | Font imports |
+| Navigation | `/components/navigation.tsx` | Menu links |
+| Footer | `/components/site-footer.tsx` | Footer content |
+
+## Useful Commands
+
+```bash
+# Development
+pnpm run dev              # Start dev server
+
+# Production
+pnpm run build            # Build for production
+pnpm run start            # Start production server
+
+# Code quality
+pnpm run lint             # Check code quality
+
+# Clean up
+rm -rf .next node_modules # Remove cache
+pnpm install              # Reinstall dependencies
+```
+
+## Page URLs
+
+- Homepage: `/`
+- About: `/about`
+- Services: `/services`
+- Portfolio: `/portfolio`
+- Blog: `/blog`
+- Blog Post: `/blog/article-slug`
+- Pricing: `/pricing`
+- Contact: `/contact`
+- Careers: `/careers`
+
+## Troubleshooting
+
+### Page not loading?
+```bash
+pnpm run dev              # Restart dev server
+```
+
+### Changes not showing?
+1. Check file is saved
+2. Hard refresh: Cmd+Shift+R (Mac) or Ctrl+Shift+R (Windows)
+3. Restart dev server
+
+### Port 3000 already in use?
+```bash
+# Use different port
+pnpm run dev -- -p 3001
+```
+
+### Dependencies error?
+```bash
+rm -rf node_modules pnpm-lock.yaml
+pnpm install
+```
+
+## Need More Help?
+
+- **Content editing**: See `EDITABLE_CONTENT.md`
+- **GitHub & Deployment**: See `GITHUB_README.md`
+- **Code changes**: See `CONTRIBUTING.md`
+- **Full setup**: See `README.md`
 
 ---
 
-**That's it! Your website is live.** 🎉
+**That's it! You're ready to go.** 
+
+Start by editing `/config/content.ts` with your own information, then deploy to Vercel.
