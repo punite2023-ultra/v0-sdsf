@@ -13,7 +13,7 @@ interface HeroSlide {
 const heroSlides: HeroSlide[] = [
   {
     id: 1,
-    image: "/mnt/data/short-haired-girl-in-good-mood-listening-to-song-i-BXEP4P5-2-1-e1736261077207.png",
+    image: "/images/short-haired-girl-in-good-mood-listening-to-song-i-BXEP4P5-2-1-e1736261077207.png",  // Make sure image is in the public directory
     alt: "Girl with headphones"
   },
   {
