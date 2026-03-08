@@ -13,7 +13,7 @@ interface HeroSlide {
 const heroSlides: HeroSlide[] = [
   {
     id: 1,
-    image: "https://pai.nomadenstudio.com/aurelia/wp-content/uploads/sites/6/2024/11/short-haired-girl-in-good-mood-listening-to-song-i-BXEP4P5-2-1-e1736261077207.png",
+    image: "/mnt/data/short-haired-girl-in-good-mood-listening-to-song-i-BXEP4P5-2-1-e1736261077207.png",
     alt: "Girl with headphones"
   },
   {
