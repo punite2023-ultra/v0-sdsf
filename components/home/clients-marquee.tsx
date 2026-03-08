@@ -1,14 +1,14 @@
 const clients = [
-  "Google",
-  "Microsoft",
-  "Amazon",
-  "Meta",
-  "Apple",
-  "Netflix",
-  "Spotify",
-  "Airbnb",
-  "Uber",
-  "Slack",
+  "Social Media Marketing",
+  "Content Creation & Branding",
+  "E-Commerce Strategy & Management",
+  "Influencer and Affiliate Marketing",
+  "Live Streaming Services",
+  "Dummy Text for now",
+  "Dummy Text for now",
+  "Dummy Text for now",
+  "Dummy Text for now",
+  "Dummy Text for now",
 ]
 
 export function ClientsMarquee() {
