@@ -14,15 +14,14 @@ const clients = [
 export function ClientsMarquee() {
   return (
     <section className="py-12 border-y border-border bg-muted/30 overflow-hidden">
-      <div className="relative">
-        {/* Ensuring flex-nowrap prevents wrapping and using space-x for horizontal spacing */}
-        <div className="flex animate-marquee space-x-8 flex-nowrap">
+      <div className="relative w-full">
+        <div className="flex animate-marquee space-x-4 flex-nowrap">
           {[...clients, ...clients].map((client, index) => (
             <div
               key={index}
-              className="flex items-center justify-center min-w-[200px]"  // Adjust width if needed
+              className="flex items-center justify-center min-w-[150px] px-4"  // Reduced min-width and padding
             >
-              <span className="text-xl font-semibold text-muted-foreground/50 hover:text-foreground transition-colors duration-300 cursor-default">
+              <span className="text-sm font-semibold text-muted-foreground/50 hover:text-foreground transition-colors duration-300 cursor-pointer">
                 {client}
               </span>
             </div>
