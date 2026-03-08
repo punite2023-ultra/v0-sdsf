@@ -41,12 +41,11 @@ export function Navigation() {
       <div className="container mx-auto px-6 lg:px-8">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <span className="text-primary-foreground font-bold text-lg">A</span>
-            </div>
-            <span className="text-xl font-semibold tracking-tight">Aurelia</span>
-          </Link>
+          <Link href="/" className="flex items-center gap-2">
+  <div className="flex items-center">
+    <img src="/images/StarDigitalSolutionsLogoWhite.svg" alt="Logo" className="h-8" />
+  </div>
+</Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
