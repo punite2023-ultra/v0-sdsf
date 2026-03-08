@@ -1,9 +1,22 @@
+const clients = [
+  "Social Media Marketing",
+  "Content Creation & Branding",
+  "E-Commerce Strategy & Management",
+  "Influencer and Affiliate Marketing",
+  "Live Streaming Services",
+  "Dummy Text for now",
+  "Dummy Text for now",
+  "Dummy Text for now",
+  "Dummy Text for now",
+  "Dummy Text for now",
+]
+
 export function ClientsMarquee() {
   return (
     <section className="py-12 border-y border-border bg-muted/30 overflow-hidden">
       <div className="relative">
-        {/* Ensure flex-nowrap to keep everything in one line */}
-        <div className="flex space-x-8 flex-nowrap">
+        {/* Ensuring flex-nowrap prevents wrapping and using space-x for horizontal spacing */}
+        <div className="flex animate-marquee space-x-8 flex-nowrap">
           {[...clients, ...clients].map((client, index) => (
             <div
               key={index}
@@ -17,5 +30,5 @@ export function ClientsMarquee() {
         </div>
       </div>
     </section>
-  );
+  )
 }
