@@ -15,13 +15,13 @@ export function ClientsMarquee() {
   return (
     <section className="py-12 border-y border-border bg-muted/30 overflow-hidden">
       <div className="relative w-full">
-        <div className="flex space-x-6 flex-nowrap animate-marquee">
+        <div className="flex space-x-4 flex-nowrap">
           {[...clients, ...clients].map((client, index) => (
             <div
               key={index}
-              className="flex items-center justify-center min-w-[200px] px-8"
+              className="flex items-center justify-center min-w-[200px] px-4"
             >
-              <span className="text-xl font-semibold text-muted-foreground/50 hover:text-foreground transition-colors duration-300 cursor-default">
+              <span className="text-base font-semibold text-muted-foreground/50 hover:text-foreground transition-colors duration-300 cursor-default">
                 {client}
               </span>
             </div>
