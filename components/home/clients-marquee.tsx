@@ -14,7 +14,7 @@ const clients = [
 export function ClientsMarquee() {
   return (
     <section className="py-12 border-y border-border bg-muted/30 overflow-hidden">
-      <div className="relative">
+      <div className="relative w-full overflow-x-auto">  {/* Ensures full width and horizontal overflow */}
         <div className="flex animate-marquee space-x-6 flex-nowrap">
           {[...clients, ...clients].map((client, index) => (
             <div
