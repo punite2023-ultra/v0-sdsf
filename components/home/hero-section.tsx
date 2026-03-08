@@ -2,165 +2,125 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Play } from "lucide-react"
+import { ArrowRight, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
 
 export function HeroSection() {
-  const [isVideoOpen, setIsVideoOpen] = useState(false)
-
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/30 rounded-full blur-3xl" />
+    <section className="relative min-h-screen flex items-center overflow-hidden" style={{ backgroundColor: '#0047e6' }}>
+      {/* Phone Number Badge - Top Right */}
+      <div className="absolute top-8 right-8 flex items-center gap-3 z-20">
+        <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: '#FFFF00' }}>
+          <Phone className="w-6 h-6" style={{ color: '#0047e6' }} strokeWidth={3} />
+        </div>
+        <div className="text-white">
+          <div className="text-xs font-bold">PHONE NUMBER</div>
+          <div className="text-sm font-bold">+ 43 879 5673 9876</div>
+        </div>
       </div>
 
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Content */}
-          <div className="order-2 lg:order-1">
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in-down">
-              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              Award-Winning Digital Agency
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 animate-fade-in-up">
-              We Create{" "}
-              <span className="text-primary relative">
-                Digital
-                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
-                  <path d="M2 10C50 2 150 2 198 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="text-primary/30" />
-                </svg>
-              </span>
-              <br />
-              Experiences
-            </h1>
-            
-            <p className="text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed animate-fade-in-up delay-200">
-              We craft exceptional digital solutions that elevate brands and drive meaningful results. From strategy to execution, we bring your vision to life.
-            </p>
-            
-            <div className="flex flex-wrap items-center gap-4 animate-fade-in-up delay-300">
-              <Button asChild size="lg" className="rounded-full px-8 group">
-                <Link href="/contact" className="flex items-center gap-2">
-                  Start a Project
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-              
-              <button
-                onClick={() => setIsVideoOpen(true)}
-                className="flex items-center gap-3 group"
-              >
-                <div className="w-14 h-14 rounded-full bg-foreground text-background flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground">
-                  <Play className="w-5 h-5 ml-0.5" fill="currentColor" />
-                </div>
-                <span className="font-medium">Watch Showreel</span>
-              </button>
-            </div>
-            
-            {/* Stats */}
-            <div className="flex items-center gap-8 mt-12 pt-8 border-t border-border animate-fade-in-up delay-400">
-              <div>
-                <div className="text-3xl font-bold text-foreground">250+</div>
-                <div className="text-sm text-muted-foreground">Projects Completed</div>
-              </div>
-              <div className="w-px h-12 bg-border" />
-              <div>
-                <div className="text-3xl font-bold text-foreground">98%</div>
-                <div className="text-sm text-muted-foreground">Client Satisfaction</div>
-              </div>
-              <div className="w-px h-12 bg-border hidden sm:block" />
-              <div className="hidden sm:block">
-                <div className="text-3xl font-bold text-foreground">15+</div>
-                <div className="text-sm text-muted-foreground">Years Experience</div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Hero Image */}
-          <div className="order-1 lg:order-2 relative animate-fade-in-right">
-            <div className="relative">
-              {/* Main Image */}
-              <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
+      {/* Left Column - Stats and Team Info */}
+      <div className="absolute left-8 top-1/2 transform -translate-y-1/2 hidden lg:block">
+        {/* Team Info */}
+        <div className="text-white mb-12">
+          <div className="flex -space-x-3 mb-3">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=900&fit=crop"
-                  alt="Creative team collaborating"
-                  width={600}
-                  height={700}
-                  className="w-full h-auto object-cover"
-                  priority
+                  src={`https://i.pravatar.cc/100?img=${i + 5}`}
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-cover"
                 />
               </div>
-              
-              {/* Floating Card 1 */}
-              <div className="absolute -left-8 top-1/4 bg-card p-4 rounded-2xl shadow-xl z-20 animate-float hidden md:block">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-sm">Fast Delivery</div>
-                    <div className="text-xs text-muted-foreground">On-time, every time</div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Floating Card 2 */}
-              <div className="absolute -right-4 bottom-1/4 bg-card p-4 rounded-2xl shadow-xl z-20 hidden md:block" style={{ animation: 'float 3s ease-in-out infinite 1.5s' }}>
-                <div className="flex items-center gap-3">
-                  <div className="flex -space-x-2">
-                    {[1, 2, 3].map((i) => (
-                      <div key={i} className="w-8 h-8 rounded-full bg-muted border-2 border-card overflow-hidden">
-                        <Image
-                          src={`https://i.pravatar.cc/100?img=${i + 10}`}
-                          alt=""
-                          width={32}
-                          height={32}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                  <div>
-                    <div className="font-semibold text-sm">Expert Team</div>
-                    <div className="text-xs text-muted-foreground">50+ Specialists</div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Background Shape */}
-              <div className="absolute -z-10 -bottom-8 -right-8 w-full h-full bg-primary/10 rounded-3xl" />
-            </div>
+            ))}
+          </div>
+          <p className="text-xs font-bold text-white/90 max-w-xs leading-tight">
+            THE EXPERT TEAM BRINGS A CREATIVITY TO EVERY PROJECT.
+          </p>
+        </div>
+
+        {/* Stats */}
+        <div className="space-y-6">
+          <div>
+            <div className="text-4xl font-black text-white">500 +</div>
+            <div className="text-sm font-bold text-white/80">HAPPY CLIENT</div>
+            <div className="w-12 h-1 bg-yellow-300 mt-2" />
+          </div>
+          <div>
+            <div className="text-4xl font-black text-white">125 +</div>
+            <div className="text-sm font-bold text-white/80">PROJECT DONE</div>
+            <div className="w-12 h-1 bg-yellow-300 mt-2" />
           </div>
         </div>
       </div>
 
-      {/* Video Modal */}
-      {isVideoOpen && (
-        <div 
-          className="fixed inset-0 bg-foreground/80 z-50 flex items-center justify-center p-4"
-          onClick={() => setIsVideoOpen(false)}
-        >
-          <div className="relative w-full max-w-4xl aspect-video bg-card rounded-2xl overflow-hidden">
-            <button
-              onClick={() => setIsVideoOpen(false)}
-              className="absolute top-4 right-4 w-10 h-10 bg-background rounded-full flex items-center justify-center z-10 hover:bg-muted transition-colors"
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-              <Play className="w-16 h-16" />
-            </div>
+      {/* Right Column - CTA and Description */}
+      <div className="absolute right-8 bottom-16 hidden lg:block max-w-xs z-10">
+        <p className="text-white/90 text-sm leading-relaxed mb-6">
+          Lorem ipsum do adipiscing elit Ut elit tellus luctus nec ullamcorper mattis pulvinar dapibus leo.
+        </p>
+        <Button asChild className="rounded-full px-8 py-6 bg-white text-blue-600 hover:bg-blue-100 font-bold text-base group">
+          <Link href="/contact" className="flex items-center gap-2">
+            GET STARTED
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </Button>
+      </div>
+
+      {/* Center - Large Hero Image with Overlaid Text */}
+      <div className="relative w-full h-full flex items-center justify-center">
+        {/* Hero Image */}
+        <div className="relative w-full h-full max-w-4xl mx-auto">
+          <Image
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1200&h=800&fit=crop"
+            alt="Creative team working"
+            width={1200}
+            height={800}
+            className="w-full h-full object-cover"
+            priority
+          />
+
+          {/* Geometric Overlay Rectangles with Yellow Border */}
+          <div className="absolute inset-0 pointer-events-none">
+            {/* Top left rectangle */}
+            <div className="absolute top-24 left-32 w-24 h-32 border-4 border-yellow-300 opacity-70" />
+            {/* Middle rectangle */}
+            <div className="absolute top-1/3 right-48 w-32 h-24 border-4 border-yellow-300 opacity-70" />
+            {/* Bottom rectangle */}
+            <div className="absolute bottom-32 left-1/3 w-28 h-36 border-4 border-yellow-300 opacity-70" />
+            {/* Small accent rectangle */}
+            <div className="absolute top-1/2 right-32 w-16 h-24 border-3 border-yellow-300 opacity-50" />
           </div>
         </div>
-      )}
+
+        {/* Large Text Overlay */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+          <h1 className="text-9xl lg:text-10xl font-black text-yellow-300 text-center leading-none drop-shadow-2xl">
+            CREATIVE
+            <br />
+            NOW
+          </h1>
+        </div>
+
+        {/* Decorative Star Circle - Top Right */}
+        <div className="absolute top-12 right-12 w-24 h-24 rounded-full border-3 border-yellow-300 flex items-center justify-center z-20 hidden lg:flex">
+          <svg className="w-12 h-12 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+        </div>
+      </div>
+
+      {/* Mobile CTA - Bottom */}
+      <div className="absolute bottom-8 left-0 right-0 lg:hidden px-6 text-center">
+        <Button asChild className="rounded-full px-8 py-6 bg-white text-blue-600 hover:bg-blue-100 font-bold text-base w-full">
+          <Link href="/contact" className="flex items-center justify-center gap-2">
+            GET STARTED
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </Button>
+      </div>
     </section>
   )
 }
