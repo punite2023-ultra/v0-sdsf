@@ -1,8 +1,7 @@
 "use client"
 
-import Link from "next/link"
 import Image from "next/image"
-import { ChevronCircleRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { useState, useEffect } from "react"
 
 interface HeroSlide {
@@ -210,18 +209,18 @@ export function HeroSection() {
           </p>
 
           <button
-            className="inline-flex items-center gap-4 px-6 py-3 text-base font-bold uppercase transition-all duration-500 hover:scale-95"
+            className="inline-flex items-center gap-2 px-6 py-3 text-base font-bold uppercase transition-all duration-500 hover:scale-95"
             style={{
               backgroundColor: '#FFFFFF',
               color: '#0047e6',
-              border: '2px solid #CCFF00',
+              border: 'none',
               borderRadius: '24px',
               fontFamily: 'Anton, sans-serif',
-              fontSize: '16px'
+              fontSize: '14px'
             }}
           >
             <span>Get Started</span>
-            <ChevronCircleRight size={20} style={{ color: '#0047e6' }} />
+            <ArrowRight size={18} style={{ color: '#0047e6' }} />
           </button>
         </div>
       </div>
