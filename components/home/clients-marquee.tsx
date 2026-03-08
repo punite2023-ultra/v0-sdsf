@@ -15,7 +15,7 @@ export function ClientsMarquee() {
   return (
     <section className="py-12 border-y border-border bg-muted/30 overflow-hidden">
       <div className="relative">
-        <div className="flex animate-marquee">
+        <div className="flex animate-marquee space-x-4 flex-nowrap">
           {[...clients, ...clients].map((client, index) => (
             <div
               key={index}
