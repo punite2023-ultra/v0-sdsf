@@ -4,14 +4,19 @@ const clients = [
   "E-Commerce Strategy & Management",
   "Influencer and Affiliate Marketing",
   "Live Streaming Services",
+  "Dummy Text for now",
+  "Dummy Text for now",
+  "Dummy Text for now",
+  "Dummy Text for now",
+  "Dummy Text for now",
 ]
 
 export function ClientsMarquee() {
   return (
     <section className="py-12 border-y border-border bg-muted/30 overflow-hidden">
       <div className="relative">
-        {/* Flexbox container without wrapping, ensuring each client name stays in one line */}
-        <div className="flex animate-marquee space-x-8">
+        {/* Flexbox container with 100% width for smoother animation */}
+        <div className="flex animate-marquee space-x-8 w-full">
           {[...clients, ...clients].map((client, index) => (
             <div
               key={index}
