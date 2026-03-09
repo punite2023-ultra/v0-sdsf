@@ -61,27 +61,23 @@ export function HeroSection() {
     >
       <div className="absolute inset-0 opacity-[0.03] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:18px_18px]" />
 
-      <div className="relative z-10 mx-auto max-w-[1660px] px-6 pb-10 pt-24 xl:px-8">
-        <div className="relative min-h-[820px] xl:min-h-[860px]">
+      <div className="relative z-10 mx-auto max-w-[1700px] px-6 pb-10 pt-24 xl:px-8">
+        <div className="relative min-h-[860px]">
           <div
-            className="pointer-events-none absolute inset-x-0 top-[140px] z-[1] hidden xl:block"
+            className="pointer-events-none absolute inset-x-0 top-[120px] z-[1] hidden xl:block"
             style={{
               transform: `translate(${mouse.x * 8}px, ${mouse.y * 5}px)`,
             }}
           >
-            <div
-              className={`${anton.className} hero-fill text-center text-[#9c003a]`}
-            >
+            <div className={`${anton.className} hero-fill text-center text-[#9c003a]`}>
               CONTENT
             </div>
-            <div
-              className={`${anton.className} hero-fill hero-second-line text-center text-[#9c003a]`}
-            >
+            <div className={`${anton.className} hero-outline-second text-center text-[#9c003a]`}>
               CREATION & BRANDING
             </div>
           </div>
 
-          <div className="relative z-10 grid min-h-[820px] grid-cols-1 items-center gap-8 xl:grid-cols-[16%_50%_24%] xl:gap-0">
+          <div className="relative z-10 grid min-h-[820px] grid-cols-1 items-center gap-8 xl:grid-cols-[15%_54%_23%] xl:gap-0">
             <div
               className="hidden self-center xl:block"
               style={{
@@ -89,15 +85,15 @@ export function HeroSection() {
               }}
             >
               <p
-                className={`${anton.className} max-w-[180px] text-[14px] uppercase leading-[1.08] tracking-[-0.01em] text-white`}
+                className={`${anton.className} max-w-[180px] text-[14px] uppercase leading-[1.08] tracking-[0] text-white`}
               >
                 THE EXPERT TEAM BRINGS A CREATIVITY TO EVERY PROJECT.
               </p>
             </div>
 
-            <div className="relative flex min-h-[520px] items-center justify-center xl:min-h-[700px]">
+            <div className="relative flex min-h-[560px] items-center justify-center overflow-visible xl:min-h-[760px]">
               <div
-                className="relative z-[3] h-[360px] w-[520px] sm:h-[430px] sm:w-[620px] xl:h-[470px] xl:w-[760px]"
+                className="relative z-[3] h-[430px] w-[640px] sm:h-[500px] sm:w-[760px] xl:h-[640px] xl:w-[980px]"
                 style={{
                   transform: `translate(${mouse.x * 16}px, ${mouse.y * 10}px)`,
                 }}
@@ -107,7 +103,7 @@ export function HeroSection() {
                   alt="Content creator"
                   fill
                   priority
-                  className="object-contain object-center"
+                  className="object-contain object-center scale-[1.18] xl:scale-[1.28]"
                 />
               </div>
             </div>
@@ -144,7 +140,7 @@ export function HeroSection() {
           </div>
 
           <div
-            className="pointer-events-none absolute inset-x-0 top-[140px] z-[5] hidden xl:block"
+            className="pointer-events-none absolute inset-x-0 top-[120px] z-[5] hidden xl:block"
             style={{
               transform: `translate(${-mouse.x * 5}px, ${-mouse.y * 4}px)`,
             }}
@@ -156,7 +152,7 @@ export function HeroSection() {
               CONTENT
             </div>
             <div
-              className={`${anton.className} hero-outline hero-second-line text-center text-transparent`}
+              className={`${anton.className} hero-outline-second text-center text-transparent`}
               style={{ WebkitTextStroke: "2px #9c003a" }}
             >
               CREATION & BRANDING
@@ -165,22 +161,22 @@ export function HeroSection() {
 
           <div className="relative z-20 mt-2 grid gap-6 xl:hidden">
             <div className="flex justify-center">
-              <div className="relative h-[280px] w-[340px] sm:h-[320px] sm:w-[420px]">
+              <div className="relative h-[320px] w-[460px] max-w-full">
                 <Image
                   src="/HeroImage1.png"
                   alt="Content creator"
                   fill
                   priority
-                  className="object-contain"
+                  className="object-contain scale-[1.08]"
                 />
               </div>
             </div>
 
             <div className="text-center">
-              <div className={`${anton.className} text-[72px] leading-[0.84] tracking-[-1px] text-[#9c003a]`}>
+              <div className={`${anton.className} text-[72px] leading-[0.86] tracking-[0] text-[#9c003a]`}>
                 CONTENT
               </div>
-              <div className={`${anton.className} mt-[-8px] text-[52px] leading-[0.9] tracking-[-1px] text-[#9c003a]`}>
+              <div className={`${anton.className} mt-1 text-[42px] leading-[0.95] tracking-[0] text-[#9c003a]`}>
                 CREATION & BRANDING
               </div>
             </div>
@@ -214,15 +210,18 @@ export function HeroSection() {
       <style jsx>{`
         .hero-fill,
         .hero-outline {
-          font-size: clamp(120px, 14vw, 250px);
+          font-size: clamp(130px, 14vw, 250px);
           line-height: 0.8;
-          letter-spacing: -2px;
+          letter-spacing: -1px;
           text-transform: uppercase;
         }
 
-        .hero-second-line {
-          margin-top: -18px;
-          font-size: clamp(90px, 10.8vw, 200px);
+        .hero-outline-second {
+          font-size: clamp(88px, 8.8vw, 170px);
+          line-height: 0.88;
+          letter-spacing: 0px;
+          text-transform: uppercase;
+          margin-top: 8px;
         }
 
         .hero-ring-spin {
