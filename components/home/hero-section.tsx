@@ -57,10 +57,22 @@ export function HeroSection() {
     <section
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative min-h-screen overflow-hidden bg-[#050505] text-white"
+      className="relative min-h-screen overflow-hidden text-white"
     >
-      <div className="absolute inset-0 opacity-[0.06] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:18px_18px]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04),transparent_55%)]" />
+      {/* Background image */}
+      <div className="absolute inset-0 -z-20">
+        <Image
+          src="/10121357.jpg"
+          alt="Hero background"
+          fill
+          priority
+          className="object-cover"
+        />
+      </div>
+
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 -z-10 bg-black/45" />
+      <div className="absolute inset-0 opacity-[0.04] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:18px_18px]" />
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-[1720px] flex-col justify-center px-5 py-8 md:px-8 xl:px-10">
         <div className="relative min-h-[860px] w-full">
