@@ -1,7 +1,8 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
 import {
+  ArrowUpRight,
   Palette,
   Code,
   Smartphone,
@@ -29,8 +30,10 @@ const services = [
       "Visual Identity",
       "Brand Messaging",
     ],
-    color: "from-sky-500 to-cyan-500",
     iconBg: "bg-sky-500/12 text-sky-600",
+    hoverBg: "hover:bg-sky-50",
+    activeBg: "bg-sky-50",
+    bullet: "bg-sky-600",
   },
   {
     icon: Code,
@@ -43,8 +46,10 @@ const services = [
       "E-commerce Solutions",
       "API Integration",
     ],
-    color: "from-fuchsia-500 to-pink-500",
     iconBg: "bg-fuchsia-500/12 text-fuchsia-600",
+    hoverBg: "hover:bg-fuchsia-50",
+    activeBg: "bg-fuchsia-50",
+    bullet: "bg-fuchsia-600",
   },
   {
     icon: Smartphone,
@@ -57,8 +62,10 @@ const services = [
       "Prototyping",
       "Design Systems",
     ],
-    color: "from-emerald-500 to-green-500",
     iconBg: "bg-emerald-500/12 text-emerald-600",
+    hoverBg: "hover:bg-emerald-50",
+    activeBg: "bg-emerald-50",
+    bullet: "bg-emerald-600",
   },
   {
     icon: TrendingUp,
@@ -71,8 +78,10 @@ const services = [
       "Social Media",
       "PPC Campaigns",
     ],
-    color: "from-orange-500 to-red-500",
     iconBg: "bg-orange-500/12 text-orange-600",
+    hoverBg: "hover:bg-orange-50",
+    activeBg: "bg-orange-50",
+    bullet: "bg-orange-600",
   },
   {
     icon: BarChart3,
@@ -85,8 +94,10 @@ const services = [
       "Conversion Optimization",
       "Reporting",
     ],
-    color: "from-blue-500 to-indigo-500",
     iconBg: "bg-blue-500/12 text-blue-600",
+    hoverBg: "hover:bg-blue-50",
+    activeBg: "bg-blue-50",
+    bullet: "bg-blue-600",
   },
   {
     icon: Zap,
@@ -99,49 +110,50 @@ const services = [
       "Workflow Automation",
       "CRM Integration",
     ],
-    color: "from-amber-500 to-orange-500",
     iconBg: "bg-amber-500/12 text-amber-600",
+    hoverBg: "hover:bg-amber-50",
+    activeBg: "bg-amber-50",
+    bullet: "bg-amber-600",
   },
 ]
 
 function ServiceCard({
   service,
   index,
+  isOpen,
+  onToggle,
 }: {
   service: (typeof services)[number]
   index: number
+  isOpen: boolean
+  onToggle: () => void
 }) {
-  const [showDetails, setShowDetails] = useState(false)
-  const timerRef = useRef<NodeJS.Timeout | null>(null)
-
-  const handleMouseEnter = () => {
-    timerRef.current = setTimeout(() => {
-      setShowDetails(true)
-    }, 2000)
-  }
-
-  const handleMouseLeave = () => {
-    if (timerRef.current) clearTimeout(timerRef.current)
-    setShowDetails(false)
-  }
-
   const Icon = service.icon
 
   return (
     <ScrollReveal delay={index * 100}>
-      <div
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        className="group relative h-full overflow-hidden rounded-[28px] border border-border bg-card p-8 text-left transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_0_0_1px_rgba(156,0,58,0.08),0_20px_60px_rgba(156,0,58,0.12)]"
+      <button
+        type="button"
+        onClick={onToggle}
+        className={`group block h-full w-full rounded-[28px] border border-border p-8 text-left transition-all duration-500 ${
+          isOpen ? service.activeBg : "bg-card"
+        } ${service.hoverBg} hover:-translate-y-1 hover:border-border/80`}
       >
         <div
-          className={`mb-6 flex h-16 w-16 items-center justify-center rounded-2xl ${service.iconBg} transition-all duration-500 group-hover:-translate-y-1 group-hover:scale-105`}
+          className={`mb-6 flex h-16 w-16 items-center justify-center rounded-2xl ${service.iconBg} transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105`}
         >
           <Icon className="h-7 w-7" />
         </div>
 
-        <h3 className="mb-4 text-[28px] font-semibold leading-[1.12] tracking-[-0.02em] text-foreground">
-          {service.title}
+        <h3 className="mb-4 flex items-start justify-between gap-3 text-[28px] font-semibold leading-[1.12] tracking-[-0.02em] text-foreground">
+          <span>{service.title}</span>
+          <ArrowUpRight
+            className={`mt-1 h-5 w-5 shrink-0 transition-all duration-300 ${
+              isOpen
+                ? "translate-x-0 translate-y-0 opacity-100"
+                : "-translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"
+            }`}
+          />
         </h3>
 
         <p className="text-[17px] leading-[1.65] text-muted-foreground">
@@ -149,8 +161,8 @@ function ServiceCard({
         </p>
 
         <div
-          className={`overflow-hidden transition-all duration-700 ease-out ${
-            showDetails ? "mt-8 max-h-80 opacity-100" : "max-h-0 opacity-0"
+          className={`overflow-hidden transition-all duration-500 ease-out ${
+            isOpen ? "mt-8 max-h-80 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <ul className="space-y-3">
@@ -158,32 +170,28 @@ function ServiceCard({
               <li
                 key={detail}
                 className={`flex items-start gap-4 text-[15px] text-foreground transition-all duration-500 ${
-                  showDetails
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-3 opacity-0"
+                  isOpen ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
                 }`}
                 style={{
-                  transitionDelay: showDetails ? `${i * 90}ms` : "0ms",
+                  transitionDelay: isOpen ? `${i * 70}ms` : "0ms",
                 }}
               >
-                <span className="mt-[9px] h-2.5 w-2.5 shrink-0 rounded-full bg-[#7a168f] transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_12px_rgba(122,22,143,0.55)]" />
+                <span
+                  className={`mt-[9px] h-2.5 w-2.5 shrink-0 rounded-full ${service.bullet}`}
+                />
                 <span>{detail}</span>
               </li>
             ))}
           </ul>
         </div>
-
-        <div
-          className={`pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r ${service.color} transition-opacity duration-500 ${
-            showDetails ? "opacity-100" : "opacity-0"
-          }`}
-        />
-      </div>
+      </button>
     </ScrollReveal>
   )
 }
 
 export function ServicesPreview() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
   return (
     <section className="pt-8 pb-24 lg:pt-12 lg:pb-28">
       <div className="container mx-auto px-6 lg:px-8">
@@ -218,6 +226,10 @@ export function ServicesPreview() {
               key={service.title}
               service={service}
               index={index}
+              isOpen={openIndex === index}
+              onToggle={() =>
+                setOpenIndex((prev) => (prev === index ? null : index))
+              }
             />
           ))}
         </div>
