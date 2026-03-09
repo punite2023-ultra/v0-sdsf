@@ -18,7 +18,7 @@ function StarCore() {
   return (
     <svg
       viewBox="0 0 512 512"
-      className="h-[54px] w-[54px] fill-[#9c003a]"
+      className="h-[40px] w-[40px] fill-[#9c003a]"
       aria-hidden="true"
     >
       <path d="M414.37 245.29V266.65C332.82 266.65 266.71 332.76 266.71 414.31V414.37H245.41V414.31C245.41 332.76 179.3 266.65 97.75 266.65H97.63V245.29C179.18 245.29 245.29 179.18 245.29 97.63H266.71C266.71 179.18 332.82 245.29 414.37 245.29Z" />
@@ -28,8 +28,8 @@ function StarCore() {
 
 function RotatingBadge() {
   return (
-    <div className="relative flex h-[128px] w-[128px] items-center justify-center">
-      <div className="absolute inset-0 rounded-full border-[4px] border-[#9c003a] hero-ring-spin" />
+    <div className="relative flex h-[96px] w-[96px] items-center justify-center">
+      <div className="absolute inset-0 rounded-full border-[3px] border-[#9c003a] hero-ring-spin" />
       <div className="relative z-10 flex h-full w-full items-center justify-center hero-star-spin">
         <StarCore />
       </div>
@@ -70,27 +70,27 @@ function StatBlock({
   label: string
 }) {
   return (
-    <div className="w-[220px]">
-      <div className="flex items-start gap-2">
+    <div className="w-[180px]">
+      <div className="flex items-start gap-1.5">
         <div
-          className={`${poppins.className} text-[72px] font-semibold leading-none tracking-[-0.04em] text-white`}
+          className={`${poppins.className} text-[56px] font-semibold leading-none tracking-[-0.04em] text-white`}
         >
           <Counter value={value} />
         </div>
         <div
-          className={`${poppins.className} mt-[10px] text-[30px] font-semibold leading-none text-[#9c003a]`}
+          className={`${poppins.className} mt-[8px] text-[22px] font-semibold leading-none text-[#9c003a]`}
         >
           +
         </div>
       </div>
 
       <div
-        className={`${poppins.className} mt-3 text-[22px] font-semibold uppercase leading-none tracking-[-0.02em] text-white`}
+        className={`${poppins.className} mt-2 text-[15px] font-semibold uppercase leading-none tracking-[-0.01em] text-white`}
       >
         {label}
       </div>
 
-      <div className="mt-7 h-[4px] w-[178px] bg-[#9c003a]" />
+      <div className="mt-5 h-[3px] w-[150px] bg-[#9c003a]" />
     </div>
   )
 }
@@ -133,7 +133,7 @@ export function HeroSection() {
         <div className="relative min-h-[760px] w-full">
           {/* Left stats */}
           <div
-            className="absolute left-0 top-[170px] z-[12] hidden xl:flex xl:flex-col xl:gap-10"
+            className="absolute left-0 top-[185px] z-[12] hidden xl:flex xl:flex-col xl:gap-8"
             style={{
               transform: `translate(${mouse.x * 6}px, ${mouse.y * 6}px)`,
             }}
@@ -143,9 +143,9 @@ export function HeroSection() {
             <StatBlock value={450} label="MEDIA FEATURED" />
           </div>
 
-          {/* Rotating badge */}
+          {/* Smaller rotating badge */}
           <div
-            className="absolute right-[110px] top-[120px] z-[14] hidden xl:block"
+            className="absolute right-[120px] top-[120px] z-[14] hidden xl:block"
             style={{
               transform: `translate(${mouse.x * 4}px, ${mouse.y * 4}px)`,
             }}
@@ -194,7 +194,6 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* Empty right column spacing only */}
             <div className="hidden xl:block" />
           </div>
         </div>
@@ -221,11 +220,13 @@ export function HeroSection() {
         }
 
         .hero-ring-spin {
-          animation: ringRotate 14s linear infinite;
+          animation: ringRotate 6s linear infinite;
+          transform-origin: center;
         }
 
         .hero-star-spin {
-          animation: starRotate 10s linear infinite reverse;
+          animation: starRotate 4s linear infinite reverse;
+          transform-origin: center;
         }
 
         @keyframes figureSlideIn {
