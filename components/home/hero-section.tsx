@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 interface HeroSlide {
   id: number
@@ -13,7 +13,7 @@ interface HeroSlide {
 const heroSlides: HeroSlide[] = [
   {
     id: 1,
-    image: "/images/short-haired-girl-in-good-mood-listening-to-song-i-BXEP4P5-2-1-e1736261077207.png",  // Corrected path
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/short-haired-girl-in-good-mood-listening-to-song-i-BXEP4P5-2-1-e1736261077207-Xe3Og2JbZJQ15NRPmCrappWrm3Y3RF.png",
     alt: "Girl with headphones"
   },
   {
@@ -30,6 +30,8 @@ const heroSlides: HeroSlide[] = [
 
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [scrollY, setScrollY] = useState(0)
+  const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -38,8 +40,29 @@ export function HeroSection() {
     return () => clearInterval(timer)
   }, [])
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect()
+        const elementTop = rect.top
+        const elementHeight = rect.height
+        const windowHeight = window.innerHeight
+
+        if (elementTop < windowHeight) {
+          const scrolled = windowHeight - elementTop
+          const progress = Math.min(scrolled / elementHeight, 1)
+          setScrollY(progress)
+        }
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
     <section 
+      ref={sectionRef}
       className="relative w-full overflow-hidden"
       style={{
         backgroundImage: `url(https://pai.nomadenstudio.com/aurelia/wp-content/uploads/sites/6/2024/11/Bg-2.jpg)`,
@@ -57,7 +80,8 @@ export function HeroSection() {
         style={{
           maxWidth: '1400px',
           margin: '0 auto',
-          gap: '32px'
+          gap: '32px',
+          minHeight: '600px'
         }}
       >
         {/* LEFT COLUMN */}
@@ -90,14 +114,20 @@ export function HeroSection() {
               fontSize: '16px',
               fontWeight: '400',
               lineHeight: '1.2',
-              animation: 'fadeInDown 1s ease-out 0.4s backwards'
+              animation: 'fadeInDown 1s ease-out 0.4s backwards',
+              transform: `translateY(${scrollY * -30}px)`,
+              transition: 'transform 0.1s linear'
             }}
           >
             THE EXPERT TEAM BRINGS A CREATIVITY TO EVERY PROJECT.
           </h3>
 
           {/* Stats */}
-          <div className="flex flex-col gap-8 mt-12" style={{ animation: 'fadeInLeft 1s ease-out 0.8s backwards' }}>
+          <div className="flex flex-col gap-8 mt-12" style={{ 
+            animation: 'fadeInLeft 1s ease-out 0.8s backwards',
+            transform: `translateY(${scrollY * -50}px)`,
+            transition: 'transform 0.1s linear'
+          }}>
             <div>
               <div className="text-4xl font-black text-white leading-none mb-1">500 +</div>
               <div className="text-xs font-bold text-white/90 uppercase mb-2">HAPPY CLIENT</div>
@@ -112,31 +142,50 @@ export function HeroSection() {
         </div>
 
         {/* CENTER COLUMN - Flexible */}
-        <div className="relative flex-1 flex items-center justify-center" style={{ zIndex: 1, minHeight: '600px' }}>
+        <div 
+          className="relative flex-1 flex items-center justify-center"
+          style={{ 
+            zIndex: 1, 
+            minHeight: '600px',
+            position: 'relative'
+          }}
+        >
           {/* Slider Container */}
           <div 
-            className="relative w-full h-full overflow-hidden"
+            className="relative w-full h-full overflow-hidden rounded-3xl"
             style={{
               borderRadius: '25px',
-              maxWidth: '100%'
+              maxWidth: '100%',
+              aspectRatio: '3/4',
+              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)'
             }}
           >
             {/* Slider Images */}
             {heroSlides.map((slide, index) => (
-              <Image
-                key={slide.id}
-                src={slide.image}
-                alt={slide.alt}
-                fill
-                className={`w-full h-full object-cover transition-all duration-1000 ease-in-out ${
-                  index === currentSlide ? 'opacity-100' : 'opacity-0'
-                }`}
-                priority={index === currentSlide}
-              />
+              <div key={slide.id} className="relative w-full h-full">
+                <Image
+                  src={slide.image}
+                  alt={slide.alt}
+                  fill
+                  className={`w-full h-full object-cover transition-all duration-1000 ease-in-out ${
+                    index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                  }`}
+                  style={{
+                    transform: index === currentSlide ? `translateY(${scrollY * -20}px) scale(1)` : 'scale(0.95)'
+                  }}
+                  priority={index === currentSlide}
+                />
+              </div>
             ))}
 
-            {/* Large Text Overlay */}
-            <div className="absolute inset-0 flex items-center justify-center z-10 p-4">
+            {/* Large Text Overlay with Parallax */}
+            <div 
+              className="absolute inset-0 flex items-center justify-center z-10 p-4"
+              style={{
+                transform: `translateY(${scrollY * -40}px)`,
+                transition: 'transform 0.1s linear'
+              }}
+            >
               <h1 
                 className="text-center leading-none uppercase"
                 style={{
@@ -157,7 +206,7 @@ export function HeroSection() {
               </h1>
             </div>
 
-            {/* Decorative Star Circle */}
+            {/* Decorative Star Circle with Rotation */}
             <div 
               className="absolute flex items-center justify-center z-20 hidden lg:flex"
               style={{
@@ -167,7 +216,9 @@ export function HeroSection() {
                 height: '64px',
                 borderRadius: '50%',
                 border: '3px solid #CCFF00',
-                animation: 'spin 20s linear infinite'
+                animation: 'spin 20s linear infinite',
+                transform: `rotate(${scrollY * 360}deg)`,
+                transition: 'transform 0.1s linear'
               }}
             >
               <svg className="w-8 h-8 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
@@ -184,7 +235,9 @@ export function HeroSection() {
             width: '240px',
             paddingTop: '20px',
             alignItems: 'flex-start',
-            animation: 'fadeInUp 1s ease-out 1.2s backwards'
+            animation: 'fadeInUp 1s ease-out 1.2s backwards',
+            transform: `translateY(${scrollY * 30}px)`,
+            transition: 'transform 0.1s linear'
           }}
         >
           <p 
@@ -216,6 +269,29 @@ export function HeroSection() {
           </button>
         </div>
       </div>
+
+      {/* Scroll Indicator */}
+      <style>{`
+        @keyframes slideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      `}</style>
     </section>
   )
 }
