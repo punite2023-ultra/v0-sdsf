@@ -12,17 +12,22 @@ import { ClientsMarquee } from "@/components/home/clients-marquee"
 export default function HomePage() {
   return (
     <>
+      {/* Navigation */}
       <Navigation />
-      <main>
-        <HeroSection />
-        <ClientsMarquee />
-        <ServicesPreview />
-        <AboutPreview />
-        <PortfolioPreview />
-        <StatsSection />
-        <TestimonialsSection />
-        <BlogPreview />
-      </main>
+
+      {/* Hero Section: image + creative agency text */}
+      <HeroSection />
+
+      {/* The rest of the homepage sections */}
+      <ServicesPreview />
+      <AboutPreview />
+      <PortfolioPreview />
+      <StatsSection />
+      <TestimonialsSection />
+      <BlogPreview />
+      <ClientsMarquee />
+
+      {/* Footer */}
       <SiteFooter />
     </>
   )
