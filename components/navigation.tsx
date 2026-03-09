@@ -34,7 +34,7 @@ export function Navigation() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-sm py-4"
+          ? "bg-white/95 backdrop-blur-md shadow-sm py-4"
           : "bg-transparent py-6"
       }`}
     >
@@ -42,10 +42,14 @@ export function Navigation() {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-  <div className="flex items-center">
-    <img src="/images/StarDigitalSolutionsColor.svg" alt="Logo" className="h-19" />
-  </div>
-</Link>
+            <div className="flex items-center h-10">
+              <img 
+                src={isScrolled ? "/images/StarDigitalSolutionsColor.svg" : "/star-digital-white-logo.svg"} 
+                alt="Logo" 
+                className="h-10 transition-all duration-500" 
+              />
+            </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
@@ -54,8 +58,12 @@ export function Navigation() {
                 key={link.href}
                 href={link.href}
                 className={`text-sm font-medium transition-colors duration-300 underline-animation ${
-                  pathname === link.href
-                    ? "text-white"
+                  isScrolled
+                    ? pathname === link.href
+                      ? "text-[#ff002f]"
+                      : "text-black/70 hover:text-black"
+                    : pathname === link.href
+                    ? "text-[#ff002f]"
                     : "text-white/70 hover:text-white"
                 }`}
               >
@@ -66,14 +74,25 @@ export function Navigation() {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button asChild className="rounded-full px-6 transition-all duration-300 hover:scale-105">
+            <Button 
+              asChild 
+              className={`rounded-full px-6 transition-all duration-300 hover:scale-105 ${
+                isScrolled
+                  ? "bg-[#ff002f] text-white hover:bg-[#e6001f]"
+                  : ""
+              }`}
+            >
               <Link href="/contact">Get Started</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden p-2 hover:bg-white/10 rounded-lg transition-colors text-white"
+            className={`lg:hidden p-2 rounded-lg transition-colors ${
+              isScrolled
+                ? "text-black hover:bg-black/10"
+                : "text-white hover:bg-white/10"
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -91,7 +110,9 @@ export function Navigation() {
             isMobileMenuOpen ? "max-h-[500px] opacity-100 mt-6" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="bg-card rounded-2xl p-6 shadow-lg">
+          <div className={`rounded-2xl p-6 shadow-lg transition-colors duration-500 ${
+            isScrolled ? "bg-gray-100" : "bg-black/40 backdrop-blur"
+          }`}>
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
@@ -99,15 +120,23 @@ export function Navigation() {
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`text-base font-medium py-2 transition-colors ${
-                    pathname === link.href
-                      ? "text-white"
+                    isScrolled
+                      ? pathname === link.href
+                        ? "text-[#ff002f]"
+                        : "text-black/70 hover:text-black"
+                      : pathname === link.href
+                      ? "text-[#ff002f]"
                       : "text-white/70 hover:text-white"
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
-              <Button asChild className="rounded-full mt-4">
+              <Button asChild className={`rounded-full mt-4 ${
+                isScrolled
+                  ? "bg-[#ff002f] text-white hover:bg-[#e6001f]"
+                  : ""
+              }`}>
                 <Link href="/contact">Get Started</Link>
               </Button>
             </div>
