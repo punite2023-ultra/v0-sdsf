@@ -12,17 +12,13 @@ import { ClientsMarquee } from "@/components/home/clients-marquee"
 export default function HomePage() {
   return (
     <>
+      {/* Navigation */}
       <Navigation />
 
-      {/* Hero Section */}
+      {/* Hero Section: image + creative agency text */}
       <HeroSection />
 
-      {/* Section with purple text */}
-      <div className="text-center mt-8 bg-purple-600 text-white py-4">
-        <p className="text-2xl">Welcome to Our Creative Agency!</p>
-      </div>
-
-      {/* Other Sections */}
+      {/* The rest of the homepage sections */}
       <ServicesPreview />
       <AboutPreview />
       <PortfolioPreview />
@@ -31,7 +27,8 @@ export default function HomePage() {
       <BlogPreview />
       <ClientsMarquee />
 
+      {/* Footer */}
       <SiteFooter />
     </>
-  );
+  )
 }
