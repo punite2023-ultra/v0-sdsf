@@ -59,7 +59,6 @@ export function HeroSection() {
       onMouseLeave={handleMouseLeave}
       className="relative min-h-screen overflow-hidden text-white"
     >
-      {/* Background image */}
       <div className="absolute inset-0 -z-20">
         <Image
           src="/10121357.jpg"
@@ -70,7 +69,6 @@ export function HeroSection() {
         />
       </div>
 
-      {/* Dark overlay for readability */}
       <div className="absolute inset-0 -z-10 bg-black/45" />
       <div className="absolute inset-0 opacity-[0.04] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:18px_18px]" />
 
@@ -102,44 +100,6 @@ export function HeroSection() {
                 transform: `translate(${mouse.x * 10}px, ${mouse.y * 10}px)`,
               }}
             >
-              <div className="mb-6 flex items-center">
-                <div className="relative h-14 w-14 overflow-hidden rounded-full border-2 border-white">
-                  <Image
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80"
-                    alt="team member"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                </div>
-                <div className="-ml-2 relative h-14 w-14 overflow-hidden rounded-full border-2 border-white">
-                  <Image
-                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80"
-                    alt="team member"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                </div>
-                <div className="-ml-2 relative h-14 w-14 overflow-hidden rounded-full border-2 border-white">
-                  <Image
-                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300&q=80"
-                    alt="team member"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                </div>
-              </div>
-
-              <div className="mb-5 h-[3px] w-[178px] bg-[#9c003a]" />
-
-              <p
-                className={`${anton.className} max-w-[180px] text-[16px] uppercase leading-[1.05] tracking-[-0.01em] text-white`}
-              >
-                THE EXPERT TEAM BRINGS A CREATIVITY TO EVERY PROJECT.
-              </p>
-
               <div className="mt-24 space-y-10">
                 <div>
                   <div
@@ -241,42 +201,6 @@ export function HeroSection() {
           </div>
 
           <div className="mt-8 grid gap-6 xl:hidden">
-            <div className="flex items-center gap-3">
-              <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-white">
-                <Image
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80"
-                  alt="team member"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-              </div>
-              <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-white">
-                <Image
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80"
-                  alt="team member"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-              </div>
-              <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-white">
-                <Image
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300&q=80"
-                  alt="team member"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-              </div>
-            </div>
-
-            <p
-              className={`${anton.className} max-w-[220px] text-[16px] uppercase leading-[1.05]`}
-            >
-              THE EXPERT TEAM BRINGS A CREATIVITY TO EVERY PROJECT.
-            </p>
-
             <div className="grid grid-cols-2 gap-5">
               <div>
                 <div className={`${anton.className} text-6xl leading-none`}>
