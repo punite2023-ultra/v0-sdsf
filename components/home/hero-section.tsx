@@ -3,218 +3,38 @@
 import Image from "next/image"
 import Link from "next/link"
 import { MoveRight } from "lucide-react"
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
-import { useEffect, useRef } from "react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-
-gsap.registerPlugin(ScrollTrigger)
+import { useState } from "react"
 
 export function HeroSection() {
-  const sectionRef = useRef<HTMLElement | null>(null)
-  const imageWrapRef = useRef<HTMLDivElement | null>(null)
-  const textWrapRef = useRef<HTMLDivElement | null>(null)
-  const outlineWrapRef = useRef<HTMLDivElement | null>(null)
-  const rightBlockRef = useRef<HTMLDivElement | null>(null)
-  const leftBlockRef = useRef<HTMLDivElement | null>(null)
-  const circleRef = useRef<HTMLDivElement | null>(null)
-
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
-
-  const springX = useSpring(mouseX, { stiffness: 60, damping: 18, mass: 0.6 })
-  const springY = useSpring(mouseY, { stiffness: 60, damping: 18, mass: 0.6 })
-
-  const imageX = useTransform(springX, [-0.5, 0.5], [-28, 28])
-  const imageY = useTransform(springY, [-0.5, 0.5], [-18, 18])
-
-  const textX = useTransform(springX, [-0.5, 0.5], [-14, 14])
-  const textY = useTransform(springY, [-0.5, 0.5], [-8, 8])
-
-  const outlineX = useTransform(springX, [-0.5, 0.5], [14, -14])
-  const outlineY = useTransform(springY, [-0.5, 0.5], [10, -10])
-
-  const circleX = useTransform(springX, [-0.5, 0.5], [-20, 20])
-  const circleY = useTransform(springY, [-0.5, 0.5], [-20, 20])
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.set(
-        [
-          leftBlockRef.current,
-          rightBlockRef.current,
-          circleRef.current,
-          ".hero-main-text",
-          ".hero-outline-text",
-          ".hero-image",
-          ".hero-cta",
-        ],
-        {
-          opacity: 0,
-        }
-      )
-
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
-
-      tl.fromTo(
-        leftBlockRef.current,
-        { x: -40, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.8 }
-      )
-        .fromTo(
-          rightBlockRef.current,
-          { x: 40, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.8 },
-          "-=0.55"
-        )
-        .fromTo(
-          circleRef.current,
-          { scale: 0.8, opacity: 0, rotate: -12 },
-          { scale: 1, opacity: 1, rotate: 0, duration: 0.8 },
-          "-=0.55"
-        )
-        .fromTo(
-          ".hero-main-text",
-          { y: 80, scale: 0.94, opacity: 0 },
-          { y: 0, scale: 1, opacity: 1, duration: 1.1 },
-          "-=0.45"
-        )
-        .fromTo(
-          ".hero-outline-text",
-          { y: 100, scale: 1.04, opacity: 0 },
-          { y: 0, scale: 1, opacity: 1, duration: 1.1 },
-          "-=0.9"
-        )
-        .fromTo(
-          ".hero-image",
-          { y: 70, scale: 0.92, opacity: 0 },
-          { y: 0, scale: 1, opacity: 1, duration: 1.1 },
-          "-=0.95"
-        )
-        .fromTo(
-          ".hero-cta",
-          { y: 24, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.7 },
-          "-=0.65"
-        )
-
-      gsap.to(imageWrapRef.current, {
-        y: "-=16",
-        duration: 2.8,
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true,
-      })
-
-      gsap.to(circleRef.current, {
-        y: "-=10",
-        duration: 2.4,
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true,
-      })
-
-      if (sectionRef.current) {
-        const heroTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "+=1200",
-            scrub: 1.2,
-            pin: true,
-          },
-        })
-
-        heroTl
-          .to(
-            imageWrapRef.current,
-            {
-              y: -90,
-              scale: 1.12,
-              ease: "none",
-            },
-            0
-          )
-          .to(
-            textWrapRef.current,
-            {
-              y: -120,
-              ease: "none",
-            },
-            0
-          )
-          .to(
-            outlineWrapRef.current,
-            {
-              y: -70,
-              scale: 1.03,
-              ease: "none",
-            },
-            0
-          )
-          .to(
-            leftBlockRef.current,
-            {
-              y: -45,
-              opacity: 0.35,
-              ease: "none",
-            },
-            0
-          )
-          .to(
-            rightBlockRef.current,
-            {
-              y: -55,
-              opacity: 0.45,
-              ease: "none",
-            },
-            0
-          )
-          .to(
-            circleRef.current,
-            {
-              y: -90,
-              scale: 1.08,
-              rotation: 10,
-              ease: "none",
-            },
-            0
-          )
-      }
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  const [mouse, setMouse] = useState({ x: 0, y: 0 })
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
     const x = (e.clientX - rect.left) / rect.width - 0.5
     const y = (e.clientY - rect.top) / rect.height - 0.5
-    mouseX.set(x)
-    mouseY.set(y)
+    setMouse({ x, y })
   }
 
   const handleMouseLeave = () => {
-    mouseX.set(0)
-    mouseY.set(0)
+    setMouse({ x: 0, y: 0 })
   }
 
   return (
     <section
-      ref={sectionRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className="relative min-h-screen overflow-hidden bg-black text-white"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05),transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_55%)]" />
       <div className="absolute inset-0 opacity-[0.06] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:18px_18px]" />
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-[1600px] flex-col justify-center px-6 py-12 lg:px-10">
         <div className="relative min-h-[820px]">
-          <motion.div
-            ref={leftBlockRef}
-            style={{ x: textX, y: textY }}
-            className="absolute left-0 top-24 z-20 hidden w-[220px] xl:block"
+          <div
+            className="absolute left-0 top-24 z-20 hidden w-[220px] animate-[heroFadeLeft_1s_ease-out_forwards] xl:block"
+            style={{
+              transform: `translate(${mouse.x * 14}px, ${mouse.y * 10}px)`,
+            }}
           >
             <div className="mb-6 flex items-center">
               <div className="relative h-14 w-14 overflow-hidden rounded-full border-2 border-white">
@@ -223,6 +43,7 @@ export function HeroSection() {
                   alt="team member"
                   fill
                   className="object-cover"
+                  unoptimized
                 />
               </div>
               <div className="-ml-2 relative h-14 w-14 overflow-hidden rounded-full border-2 border-white">
@@ -231,6 +52,7 @@ export function HeroSection() {
                   alt="team member"
                   fill
                   className="object-cover"
+                  unoptimized
                 />
               </div>
               <div className="-ml-2 relative h-14 w-14 overflow-hidden rounded-full border-2 border-white">
@@ -239,6 +61,7 @@ export function HeroSection() {
                   alt="team member"
                   fill
                   className="object-cover"
+                  unoptimized
                 />
               </div>
             </div>
@@ -270,43 +93,46 @@ export function HeroSection() {
                 <div className="mt-6 h-[3px] w-[180px] bg-lime-300" />
               </div>
             </div>
-          </motion.div>
+          </div>
 
           <div className="relative mx-auto flex min-h-[820px] w-full items-center justify-center">
-            <motion.div
-              ref={textWrapRef}
-              style={{ x: textX, y: textY }}
+            <div
               className="pointer-events-none relative z-10 text-center"
+              style={{
+                transform: `translate(${mouse.x * 12}px, ${mouse.y * 8}px)`,
+              }}
             >
-              <div className="hero-main-text text-[20vw] font-black uppercase leading-[0.82] tracking-[-0.08em] text-lime-300 xl:text-[17rem]">
+              <div className="animate-[heroTextIn_1.2s_ease-out_forwards] text-[20vw] font-black uppercase leading-[0.82] tracking-[-0.08em] text-lime-300 xl:text-[17rem]">
                 Creative
               </div>
-              <div className="hero-main-text -mt-2 text-[20vw] font-black uppercase leading-[0.82] tracking-[-0.08em] text-lime-300 xl:text-[17rem]">
+              <div className="animate-[heroTextIn_1.2s_ease-out_0.08s_forwards] -mt-2 text-[20vw] font-black uppercase leading-[0.82] tracking-[-0.08em] text-lime-300 xl:text-[17rem]">
                 Agency
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              ref={outlineWrapRef}
-              style={{ x: outlineX, y: outlineY }}
+            <div
               className="pointer-events-none absolute inset-0 z-[11] flex items-center justify-center"
+              style={{
+                transform: `translate(${-mouse.x * 10}px, ${-mouse.y * 8}px)`,
+              }}
             >
               <div className="text-center">
-                <div className="hero-outline-text text-[20vw] font-black uppercase leading-[0.82] tracking-[-0.08em] text-transparent [-webkit-text-stroke:2px_#D7FF00] xl:text-[17rem]">
+                <div className="animate-[heroOutlineIn_1.35s_ease-out_forwards] text-[20vw] font-black uppercase leading-[0.82] tracking-[-0.08em] text-transparent [-webkit-text-stroke:2px_#D7FF00] xl:text-[17rem]">
                   Creative
                 </div>
-                <div className="hero-outline-text -mt-2 text-[20vw] font-black uppercase leading-[0.82] tracking-[-0.08em] text-transparent [-webkit-text-stroke:2px_#D7FF00] xl:text-[17rem]">
+                <div className="animate-[heroOutlineIn_1.35s_ease-out_0.08s_forwards] -mt-2 text-[20vw] font-black uppercase leading-[0.82] tracking-[-0.08em] text-transparent [-webkit-text-stroke:2px_#D7FF00] xl:text-[17rem]">
                   Agency
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              ref={imageWrapRef}
-              style={{ x: imageX, y: imageY }}
+            <div
               className="absolute inset-0 z-[9] flex items-center justify-center"
+              style={{
+                transform: `translate(${mouse.x * 24}px, ${mouse.y * 18}px)`,
+              }}
             >
-              <div className="hero-image relative h-[72vh] w-[34vw] min-w-[320px] max-w-[640px]">
+              <div className="relative h-[72vh] w-[34vw] min-w-[320px] max-w-[640px] animate-[heroFloat_4s_ease-in-out_infinite,heroImageIn_1.2s_ease-out_forwards]">
                 <Image
                   src="/images/short-haired-girl-in-good-mood-listening-to-song-i-BXEP4P5-2-1-e1736261077207.png"
                   alt="hero woman"
@@ -315,32 +141,34 @@ export function HeroSection() {
                   className="object-contain"
                 />
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              ref={circleRef}
-              style={{ x: circleX, y: circleY }}
-              className="absolute right-10 top-28 z-20 hidden xl:flex"
+            <div
+              className="absolute right-10 top-28 z-20 hidden xl:flex animate-[heroFadeRight_1s_ease-out_forwards,heroFloatSmall_3s_ease-in-out_infinite_1s]"
+              style={{
+                transform: `translate(${mouse.x * 18}px, ${mouse.y * 18}px)`,
+              }}
             >
               <div className="flex h-40 w-40 items-center justify-center rounded-full border-[4px] border-lime-300">
                 <span className="text-[80px] leading-none text-lime-300">✦</span>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              ref={rightBlockRef}
-              style={{ x: outlineX, y: textY }}
-              className="absolute bottom-8 right-0 z-20 w-full max-w-[360px] xl:bottom-16 xl:right-4"
+            <div
+              className="absolute bottom-8 right-0 z-20 w-full max-w-[360px] animate-[heroFadeRight_1s_ease-out_forwards] xl:bottom-16 xl:right-4"
+              style={{
+                transform: `translate(${-mouse.x * 10}px, ${mouse.y * 10}px)`,
+              }}
             >
               <p className="text-right text-[20px] leading-[1.5] text-white/95">
                 Lorem ipsum do adipiscing elit Ut elit tellus luctus nec
                 ullamcorper mattis pulvinar dapibus leo.
               </p>
 
-              <div className="hero-cta mt-8 flex justify-end">
+              <div className="mt-8 flex justify-end">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-4 border-[3px] border-lime-300 px-8 py-5 text-[18px] font-black uppercase tracking-[0.08em] text-white transition duration-300 hover:bg-lime-300 hover:text-black"
+                  className="inline-flex items-center gap-4 border-[3px] border-lime-300 px-8 py-5 text-[18px] font-black uppercase tracking-[0.08em] text-white transition duration-300 hover:-translate-y-1 hover:bg-lime-300 hover:text-black"
                 >
                   Get Started
                   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-black">
@@ -348,7 +176,7 @@ export function HeroSection() {
                   </span>
                 </Link>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           <div className="mt-10 grid gap-6 xl:hidden">
@@ -359,6 +187,7 @@ export function HeroSection() {
                   alt="team member"
                   fill
                   className="object-cover"
+                  unoptimized
                 />
               </div>
               <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-white">
@@ -367,6 +196,7 @@ export function HeroSection() {
                   alt="team member"
                   fill
                   className="object-cover"
+                  unoptimized
                 />
               </div>
               <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-white">
@@ -375,6 +205,7 @@ export function HeroSection() {
                   alt="team member"
                   fill
                   className="object-cover"
+                  unoptimized
                 />
               </div>
             </div>
@@ -410,7 +241,7 @@ export function HeroSection() {
             <div>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-4 border-[3px] border-lime-300 px-6 py-4 text-base font-black uppercase tracking-[0.08em] text-white"
+                className="inline-flex items-center gap-4 border-[3px] border-lime-300 px-6 py-4 text-base font-black uppercase tracking-[0.08em] text-white transition duration-300 hover:bg-lime-300 hover:text-black"
               >
                 Get Started
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-black">
@@ -421,6 +252,83 @@ export function HeroSection() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes heroFadeLeft {
+          0% {
+            opacity: 0;
+            transform: translateX(-40px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes heroFadeRight {
+          0% {
+            opacity: 0;
+            transform: translateX(40px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes heroTextIn {
+          0% {
+            opacity: 0;
+            transform: translateY(70px) scale(0.94);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+
+        @keyframes heroOutlineIn {
+          0% {
+            opacity: 0;
+            transform: translateY(90px) scale(1.03);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+
+        @keyframes heroImageIn {
+          0% {
+            opacity: 0;
+            transform: translateY(70px) scale(0.92);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+
+        @keyframes heroFloat {
+          0%,
+          100% {
+            margin-top: 0px;
+          }
+          50% {
+            margin-top: -14px;
+          }
+        }
+
+        @keyframes heroFloatSmall {
+          0%,
+          100% {
+            margin-top: 0px;
+          }
+          50% {
+            margin-top: -10px;
+          }
+        }
+      `}</style>
     </section>
   )
 }
