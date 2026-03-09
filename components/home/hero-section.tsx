@@ -64,7 +64,7 @@ export function HeroSection() {
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-[1720px] flex-col justify-center px-5 py-8 md:px-8 xl:px-10">
         <div className="relative min-h-[860px] w-full">
-          <div className="pointer-events-none absolute left-1/2 top-[7%] z-[8] w-full -translate-x-1/2 text-center">
+          <div className="pointer-events-none absolute left-1/2 top-[32%] z-[8] w-full -translate-x-1/2 text-center">
             <div
               className={`${anton.className} hero-fill-text text-[#9c003a]`}
               style={{
@@ -207,7 +207,7 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="pointer-events-none absolute left-1/2 top-[7%] z-[11] w-full -translate-x-1/2 text-center">
+          <div className="pointer-events-none absolute left-1/2 top-[32%] z-[11] w-full -translate-x-1/2 text-center">
             <div
               className={`${anton.className} hero-outline-text text-transparent`}
               style={{
@@ -309,16 +309,16 @@ export function HeroSection() {
       <style jsx>{`
         .hero-fill-text,
         .hero-outline-text {
-          font-size: clamp(70px, 10vw, 180px);
-          line-height: 0.82;
-          letter-spacing: -5px;
+          font-size: clamp(55px, 8vw, 140px);
+          line-height: 0.9;
+          letter-spacing: -2px;
           text-transform: uppercase;
           animation: heroTextIn 1s ease-out both;
         }
 
         .hero-fill-text-second,
         .hero-outline-text-second {
-          margin-top: -3.4vw;
+          margin-top: -2.2vw;
         }
 
         .hero-float {
