@@ -1,12 +1,43 @@
 "use client"
 
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { useState, useEffect } from "react"
+
+interface HeroSlide {
+  id: number
+  title: string
+  image: string
+  description: string
+}
+
+const heroSlides: HeroSlide[] = [
+  {
+    id: 1,
+    title: "CREATIVE\nAGENCY",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/short-haired-girl-in-good-mood-listening-to-song-i-BXEP4P5-2-1-e1736261077207-Xe3Og2JbZJQ15NRPmCrappWrm3Y3RF.png",
+    description: "Lorem ipsum do adipiscing elit Ut elit tellus luctus nec ullamcorper mattis pulvinar dapibus leo."
+  },
+  {
+    id: 2,
+    title: "DESIGN\nEXCELLENCE",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/short-haired-girl-in-good-mood-listening-to-song-i-BXEP4P5-2-1-e1736261077207-Xe3Og2JbZJQ15NRPmCrappWrm3Y3RF.png",
+    description: "We create stunning visual experiences that captivate and inspire your audience with innovation."
+  },
+  {
+    id: 3,
+    title: "DIGITAL\nSOLUTIONS",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/short-haired-girl-in-good-mood-listening-to-song-i-BXEP4P5-2-1-e1736261077207-Xe3Og2JbZJQ15NRPmCrappWrm3Y3RF.png",
+    description: "Transform your brand with cutting-edge digital strategies that drive growth and engagement."
+  }
+]
 
 export function HeroSection() {
   const [scrollY, setScrollY] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [isAutoPlay, setIsAutoPlay] = useState(true)
 
+  // Handle scroll events
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY)
@@ -15,6 +46,33 @@ export function HeroSection() {
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  // Auto-play slider
+  useEffect(() => {
+    if (!isAutoPlay) return
+
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
+    }, 8000)
+
+    return () => clearInterval(timer)
+  }, [isAutoPlay])
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index)
+    setIsAutoPlay(false)
+    setTimeout(() => setIsAutoPlay(true), 8000)
+  }
+
+  const nextSlide = () => {
+    goToSlide((currentSlide + 1) % heroSlides.length)
+  }
+
+  const prevSlide = () => {
+    goToSlide((currentSlide - 1 + heroSlides.length) % heroSlides.length)
+  }
+
+  const slide = heroSlides[currentSlide]
 
   return (
     <section 
@@ -28,6 +86,8 @@ export function HeroSection() {
         paddingTop: '100px',
         minHeight: '100vh'
       }}
+      onMouseEnter={() => setIsAutoPlay(false)}
+      onMouseLeave={() => setIsAutoPlay(true)}
     >
       {/* Main Container */}
       <div 
@@ -180,66 +240,77 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* CENTER COLUMN - Hero Image & Large Text */}
+        {/* CENTER COLUMN - Hero Image & Large Text Slider */}
         <div 
           className="flex-1 relative flex items-center justify-center z-10"
           style={{ 
             minHeight: '600px',
-            position: 'relative'
+            position: 'relative',
+            overflow: 'hidden'
           }}
         >
-          {/* Girl Image with Parallax */}
-          <div 
-            className="absolute inset-0 w-full h-full flex items-center justify-center"
-            style={{
-              transform: `translateY(${scrollY * -0.1}px) scale(${1 + scrollY * 0.00005})`,
-              transition: 'transform 0.1s ease-out'
-            }}
-          >
-            <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/short-haired-girl-in-good-mood-listening-to-song-i-BXEP4P5-2-1-e1736261077207-Xe3Og2JbZJQ15NRPmCrappWrm3Y3RF.png"
-              alt="Girl with headphones"
-              width={500}
-              height={700}
-              className="object-contain"
-              priority
+          {/* Slides Container */}
+          {heroSlides.map((s, idx) => (
+            <div
+              key={s.id}
+              className="absolute inset-0 w-full h-full transition-opacity duration-1000"
               style={{
-                maxHeight: '100%',
-                width: 'auto',
-                filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))'
+                opacity: idx === currentSlide ? 1 : 0,
+                pointerEvents: idx === currentSlide ? 'auto' : 'none'
               }}
-            />
-          </div>
+            >
+              {/* Image with Parallax */}
+              <div 
+                className="absolute inset-0 w-full h-full flex items-center justify-center"
+                style={{
+                  transform: `translateY(${scrollY * -0.1}px) scale(${1 + scrollY * 0.00005})`,
+                  transition: 'transform 0.1s ease-out'
+                }}
+              >
+                <Image
+                  src={s.image}
+                  alt={s.title}
+                  width={500}
+                  height={700}
+                  className="object-contain"
+                  priority={idx === 0}
+                  style={{
+                    maxHeight: '100%',
+                    width: 'auto',
+                    filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))'
+                  }}
+                />
+              </div>
 
-          {/* Large Text Overlay with Parallax */}
-          <h1 
-            className="relative z-10 text-center leading-tight uppercase font-black"
-            style={{
-              fontSize: 'clamp(80px, 25vw, 360px)',
-              color: '#CCFF00',
-              fontFamily: 'Anton, sans-serif',
-              fontWeight: '400',
-              textShadow: '0 10px 30px rgba(0, 0, 0, 0.4)',
-              letterSpacing: '-5px',
-              lineHeight: '1',
-              wordSpacing: '9999px',
-              animation: 'slideInLeft 1s ease-out',
-              transform: `translateY(${scrollY * -0.2}px)`,
-              transition: 'transform 0.1s ease-out',
-              maxWidth: '90%',
-              margin: '0 auto',
-              paddingLeft: '20px',
-              paddingRight: '20px'
-            }}
-          >
-            CREATIVE
-            <br />
-            AGENCY
-          </h1>
+              {/* Text Overlay with Parallax */}
+              <h1 
+                className="absolute inset-0 flex items-center justify-center z-10 text-center leading-tight uppercase font-black"
+                style={{
+                  fontSize: 'clamp(80px, 25vw, 360px)',
+                  color: '#CCFF00',
+                  fontFamily: 'Anton, sans-serif',
+                  fontWeight: '400',
+                  textShadow: '0 10px 30px rgba(0, 0, 0, 0.4)',
+                  letterSpacing: '-5px',
+                  lineHeight: '1',
+                  wordSpacing: '9999px',
+                  animation: idx === currentSlide ? 'slideInLeft 1s ease-out' : 'none',
+                  transform: `translateY(${scrollY * -0.2}px)`,
+                  transition: 'transform 0.1s ease-out',
+                  maxWidth: '90%',
+                  margin: '0 auto',
+                  paddingLeft: '20px',
+                  paddingRight: '20px'
+                }}
+              >
+                {s.title}
+              </h1>
+            </div>
+          ))}
 
           {/* Rotating Circle Star */}
           <div 
-            className="absolute hidden lg:flex items-center justify-center"
+            className="absolute hidden lg:flex items-center justify-center z-20"
             style={{
               right: '5%',
               top: '10%',
@@ -258,7 +329,7 @@ export function HeroSection() {
 
           {/* Decorative Yellow Boxes */}
           <div 
-            className="absolute hidden lg:block"
+            className="absolute hidden lg:block z-20"
             style={{
               left: '15%',
               top: '25%',
@@ -271,7 +342,7 @@ export function HeroSection() {
             }}
           />
           <div 
-            className="absolute hidden lg:block"
+            className="absolute hidden lg:block z-20"
             style={{
               right: '12%',
               top: '40%',
@@ -283,6 +354,40 @@ export function HeroSection() {
               animation: 'float 4s ease-in-out infinite 0.5s'
             }}
           />
+
+          {/* Previous Button */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-8 top-1/2 transform -translate-y-1/2 z-30 hidden lg:flex items-center justify-center transition-all duration-300 hover:scale-110"
+            style={{
+              width: '50px',
+              height: '50px',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              border: '2px solid #CCFF00',
+              borderRadius: '50%',
+              color: '#CCFF00'
+            }}
+            aria-label="Previous slide"
+          >
+            <ChevronLeft size={24} />
+          </button>
+
+          {/* Next Button */}
+          <button
+            onClick={nextSlide}
+            className="absolute right-8 top-1/2 transform -translate-y-1/2 z-30 hidden lg:flex items-center justify-center transition-all duration-300 hover:scale-110"
+            style={{
+              width: '50px',
+              height: '50px',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              border: '2px solid #CCFF00',
+              borderRadius: '50%',
+              color: '#CCFF00'
+            }}
+            aria-label="Next slide"
+          >
+            <ChevronRight size={24} />
+          </button>
         </div>
 
         {/* RIGHT COLUMN - CTA Section */}
@@ -306,7 +411,7 @@ export function HeroSection() {
               textAlign: 'left'
             }}
           >
-            Lorem ipsum do adipiscing elit Ut elit tellus luctus nec ullamcorper mattis pulvinar dapibus leo.
+            {slide.description}
           </p>
 
           <button
@@ -322,6 +427,30 @@ export function HeroSection() {
             <span>GET STARTED</span>
             <ArrowRight size={18} />
           </button>
+        </div>
+
+        {/* Slide Indicators - Bottom Center */}
+        <div 
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex gap-3"
+          style={{ display: 'flex', gap: '12px' }}
+        >
+          {heroSlides.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => goToSlide(idx)}
+              className="transition-all duration-300"
+              style={{
+                width: idx === currentSlide ? '40px' : '12px',
+                height: '12px',
+                backgroundColor: idx === currentSlide ? '#CCFF00' : 'rgba(204, 255, 0, 0.4)',
+                borderRadius: '6px',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease'
+              }}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
         </div>
       </div>
 
