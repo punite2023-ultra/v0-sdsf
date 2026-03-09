@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Anton, Poppins } from "next/font/google"
 import { MoveRight } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const anton = Anton({
   subsets: ["latin"],
@@ -39,6 +39,58 @@ function RotatingBadge() {
   )
 }
 
+function Counter({
+  value,
+  duration = 1800,
+}: {
+  value: number
+  duration?: number
+}) {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    let start = 0
+    const startTime = performance.now()
+
+    const tick = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      const next = Math.floor(start + (value - start) * eased)
+      setCount(next)
+      if (progress < 1) requestAnimationFrame(tick)
+    }
+
+    requestAnimationFrame(tick)
+  }, [value, duration])
+
+  return <>{count}</>
+}
+
+function StatBlock({
+  value,
+  label,
+}: {
+  value: number
+  label: string
+}) {
+  return (
+    <div className="w-[220px]">
+      <div className="flex items-start gap-2">
+        <div className={`${anton.className} text-[88px] leading-none tracking-[-0.05em] text-white`}>
+          <Counter value={value} />
+        </div>
+        <div className={`${anton.className} mt-[12px] text-[38px] leading-none text-[#d7ff00]`}>
+          +
+        </div>
+      </div>
+      <div className={`${anton.className} mt-3 text-[24px] uppercase leading-none text-white`}>
+        {label}
+      </div>
+      <div className="mt-7 h-[4px] w-[178px] bg-[#d7ff00]" />
+    </div>
+  )
+}
+
 export function HeroSection() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 })
 
@@ -59,6 +111,7 @@ export function HeroSection() {
       onMouseLeave={handleMouseLeave}
       className="relative min-h-screen overflow-hidden text-white"
     >
+      {/* Background */}
       <div className="absolute inset-0 -z-20">
         <Image
           src="/10121357.jpg"
@@ -73,10 +126,23 @@ export function HeroSection() {
       <div className="absolute inset-0 opacity-[0.04] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:18px_18px]" />
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-[1720px] flex-col justify-center px-5 py-8 md:px-8 xl:px-10">
-        <div className="relative min-h-[860px] w-full">
-          <div className="pointer-events-none absolute left-1/2 top-[42%] z-[8] w-full -translate-x-1/2 text-center">
+        <div className="relative min-h-[900px] w-full">
+          {/* Left stats */}
+          <div
+            className="absolute left-0 top-[170px] z-[12] hidden xl:flex xl:flex-col xl:gap-12"
+            style={{
+              transform: `translate(${mouse.x * 8}px, ${mouse.y * 8}px)`,
+            }}
+          >
+            <StatBlock value={500} label="HAPPY CLIENT" />
+            <StatBlock value={125} label="PROJECT DONE" />
+            <StatBlock value={450} label="MEDIA FEATURED" />
+          </div>
+
+          {/* Fill text */}
+          <div className="pointer-events-none absolute left-1/2 top-[46%] z-[8] w-full -translate-x-1/2 -translate-y-1/2 text-center">
             <div
-              className={`${anton.className} hero-fill-text text-[#9c003a]`}
+              className={`${anton.className} hero-fill-text text-[#9c003a] hero-text-enter`}
               style={{
                 transform: `translate(${mouse.x * 10}px, ${mouse.y * 5}px)`,
               }}
@@ -84,7 +150,7 @@ export function HeroSection() {
               CONTENT CREATION
             </div>
             <div
-              className={`${anton.className} hero-fill-text hero-fill-text-second text-[#9c003a]`}
+              className={`${anton.className} hero-fill-text hero-fill-text-second text-[#9c003a] hero-text-enter`}
               style={{
                 transform: `translate(${mouse.x * 10}px, ${mouse.y * 5}px)`,
               }}
@@ -93,49 +159,16 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="relative z-10 grid min-h-[860px] grid-cols-1 items-center gap-6 pt-24 xl:grid-cols-[20%_52%_20%] xl:justify-between xl:gap-0">
-            <div
-              className="hidden self-center xl:block"
-              style={{
-                transform: `translate(${mouse.x * 10}px, ${mouse.y * 10}px)`,
-              }}
-            >
-              <div className="mt-24 space-y-10">
-                <div>
-                  <div
-                    className={`${anton.className} text-[88px] leading-none tracking-[-0.05em]`}
-                  >
-                    500<span className="text-[#9c003a]">+</span>
-                  </div>
-                  <div
-                    className={`${anton.className} mt-2 text-[24px] uppercase leading-none`}
-                  >
-                    HAPPY CLIENT
-                  </div>
-                  <div className="mt-7 h-[3px] w-[178px] bg-[#9c003a]" />
-                </div>
+          <div className="relative z-10 grid min-h-[900px] grid-cols-1 items-center gap-6 pt-24 xl:grid-cols-[22%_50%_20%] xl:justify-between xl:gap-0">
+            {/* Empty spacer on left because stats are absolute now */}
+            <div className="hidden xl:block" />
 
-                <div>
-                  <div
-                    className={`${anton.className} text-[88px] leading-none tracking-[-0.05em]`}
-                  >
-                    125<span className="text-[#9c003a]">+</span>
-                  </div>
-                  <div
-                    className={`${anton.className} mt-2 text-[24px] uppercase leading-none`}
-                  >
-                    PROJECT DONE
-                  </div>
-                  <div className="mt-7 h-[3px] w-[178px] bg-[#9c003a]" />
-                </div>
-              </div>
-            </div>
-
-            <div className="relative z-[9] flex min-h-[680px] items-center justify-center overflow-visible">
+            {/* Center figure */}
+            <div className="relative z-[9] flex min-h-[720px] items-center justify-center overflow-visible">
               <div
-                className="absolute left-1/2 top-1/2 h-[92vh] w-screen max-w-none -translate-x-1/2 -translate-y-1/2 hero-float"
+                className="relative h-[78vh] w-[52vw] min-w-[760px] max-w-[1100px] hero-figure-enter"
                 style={{
-                  transform: `translate(calc(-50% + ${mouse.x * 18}px), calc(-50% + ${mouse.y * 12}px))`,
+                  transform: `translate(${mouse.x * 14}px, ${mouse.y * 10}px)`,
                 }}
               >
                 <Image
@@ -143,13 +176,14 @@ export function HeroSection() {
                   alt="Hero figure"
                   fill
                   priority
-                  className="object-cover object-center"
+                  className="object-contain object-center"
                 />
               </div>
             </div>
 
+            {/* Right content */}
             <div
-              className="relative z-20 hidden self-end pb-14 xl:block"
+              className="relative z-20 hidden self-center xl:block"
               style={{
                 transform: `translate(${-mouse.x * 8}px, ${mouse.y * 8}px)`,
               }}
@@ -179,9 +213,10 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="pointer-events-none absolute left-1/2 top-[42%] z-[11] w-full -translate-x-1/2 text-center">
+          {/* Outline text */}
+          <div className="pointer-events-none absolute left-1/2 top-[46%] z-[11] w-full -translate-x-1/2 -translate-y-1/2 text-center">
             <div
-              className={`${anton.className} hero-outline-text text-transparent`}
+              className={`${anton.className} hero-outline-text text-transparent hero-text-enter`}
               style={{
                 WebkitTextStroke: "2px #9c003a",
                 transform: `translate(${-mouse.x * 8}px, ${-mouse.y * 5}px)`,
@@ -190,7 +225,7 @@ export function HeroSection() {
               CONTENT CREATION
             </div>
             <div
-              className={`${anton.className} hero-outline-text hero-outline-text-second text-transparent`}
+              className={`${anton.className} hero-outline-text hero-outline-text-second text-transparent hero-text-enter`}
               style={{
                 WebkitTextStroke: "2px #9c003a",
                 transform: `translate(${-mouse.x * 8}px, ${-mouse.y * 5}px)`,
@@ -200,23 +235,36 @@ export function HeroSection() {
             </div>
           </div>
 
+          {/* Mobile */}
           <div className="mt-8 grid gap-6 xl:hidden">
             <div className="grid grid-cols-2 gap-5">
               <div>
-                <div className={`${anton.className} text-6xl leading-none`}>
-                  500<span className="text-[#9c003a]">+</span>
+                <div className={`${anton.className} text-6xl leading-none text-white`}>
+                  <Counter value={500} />
+                  <span className="text-[#d7ff00]">+</span>
                 </div>
                 <div className={`${anton.className} mt-2 text-lg uppercase`}>
                   HAPPY CLIENT
                 </div>
               </div>
               <div>
-                <div className={`${anton.className} text-6xl leading-none`}>
-                  125<span className="text-[#9c003a]">+</span>
+                <div className={`${anton.className} text-6xl leading-none text-white`}>
+                  <Counter value={125} />
+                  <span className="text-[#d7ff00]">+</span>
                 </div>
                 <div className={`${anton.className} mt-2 text-lg uppercase`}>
                   PROJECT DONE
                 </div>
+              </div>
+            </div>
+
+            <div>
+              <div className={`${anton.className} text-6xl leading-none text-white`}>
+                <Counter value={450} />
+                <span className="text-[#d7ff00]">+</span>
+              </div>
+              <div className={`${anton.className} mt-2 text-lg uppercase`}>
+                MEDIA FEATURED
               </div>
             </div>
 
@@ -253,11 +301,15 @@ export function HeroSection() {
 
         .hero-fill-text-second,
         .hero-outline-text-second {
-          margin-top: 1.1vw;
+          margin-top: 1.6vw;
         }
 
-        .hero-float {
-          animation: heroImageIn 1.1s ease-out both, heroFloat 4s ease-in-out infinite;
+        .hero-figure-enter {
+          animation: figureSlideIn 1.1s ease-out both, heroFloat 4s ease-in-out 1.2s infinite;
+        }
+
+        .hero-text-enter {
+          animation: textSlideIn 1.1s ease-out both;
         }
 
         .hero-ring-spin {
@@ -290,14 +342,25 @@ export function HeroSection() {
           animation: ripplePulse 1.2s ease-out 0.3s infinite;
         }
 
-        @keyframes heroImageIn {
+        @keyframes figureSlideIn {
           0% {
             opacity: 0;
-            transform: translateY(70px) scale(0.93);
+            transform: translateX(-140px) scale(0.96);
           }
           100% {
             opacity: 1;
-            transform: translateY(0) scale(1);
+            transform: translateX(0) scale(1);
+          }
+        }
+
+        @keyframes textSlideIn {
+          0% {
+            opacity: 0;
+            transform: translateX(140px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
           }
         }
 
