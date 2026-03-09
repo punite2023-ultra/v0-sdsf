@@ -76,7 +76,7 @@ export function AboutPreview() {
               <span className="text-primary font-medium text-sm uppercase tracking-wider">About Us</span>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mt-4 mb-6" style={{ fontFamily: 'var(--font-heading)', fontWeight: '900' }}>
                 We Transform Ideas Into Digital Reality
               </h2>
             </ScrollReveal>

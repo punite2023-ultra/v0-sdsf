@@ -70,7 +70,7 @@ export function PortfolioPreview() {
               <span className="text-primary font-medium text-sm uppercase tracking-wider">Our Portfolio</span>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4" style={{ fontFamily: 'var(--font-display)' }}>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mt-4" style={{ fontFamily: 'var(--font-heading)', fontWeight: '900' }}>
                 Featured Projects
               </h2>
             </ScrollReveal>

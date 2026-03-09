@@ -63,7 +63,7 @@ export function TestimonialsSection() {
               </span>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mt-4 mb-6" style={{ fontFamily: 'var(--font-heading)', fontWeight: '900' }}>
                 What Our Clients Say
               </h2>
             </ScrollReveal>

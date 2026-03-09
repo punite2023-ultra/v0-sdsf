@@ -115,10 +115,12 @@ export function HeroSection() {
         <div className="relative flex-1 flex items-center justify-center" style={{ zIndex: 1, minHeight: '600px' }}>
           {/* Slider Container */}
           <div 
-            className="relative w-full h-full overflow-hidden"
+            className="relative w-full overflow-hidden"
             style={{
               borderRadius: '25px',
-              maxWidth: '100%'
+              maxWidth: '100%',
+              height: '600px',
+              position: 'relative'
             }}
           >
             {/* Slider Images */}
@@ -143,7 +145,7 @@ export function HeroSection() {
                   fontSize: 'clamp(60px, 20vw, 280px)',
                   fontWeight: '900',
                   color: '#CCFF00',
-                  fontFamily: 'Anton, sans-serif',
+                  fontFamily: 'var(--font-heading)',
                   textShadow: '0 6px 30px rgba(0, 0, 0, 0.5)',
                   letterSpacing: '-0.02em',
                   lineHeight: '1',
