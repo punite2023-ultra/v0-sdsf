@@ -1,16 +1,13 @@
 "use client"
 
-import { useState } from "react"
-import Link from "next/link"
+import { useEffect, useRef, useState } from "react"
 import {
-  ArrowUpRight,
   Palette,
   Code,
-  TrendingUp,
-  Megaphone,
-  Search,
   Smartphone,
-  X,
+  TrendingUp,
+  BarChart3,
+  Zap,
 } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Raleway } from "next/font/google"
@@ -23,167 +20,208 @@ const raleway = Raleway({
 const services = [
   {
     icon: Palette,
-    title: "Brand Strategy",
+    title: "Brand Strategy & Identity",
     description:
-      "Build a powerful brand identity that resonates with your audience and stands out in the market.",
-    color: "bg-rose-500/10 text-rose-600",
+      "Build a compelling brand identity that resonates with your target audience and sets you apart from competitors.",
+    details: [
+      "Logo Design",
+      "Brand Guidelines",
+      "Visual Identity",
+      "Brand Messaging",
+    ],
+    color: "from-sky-500 to-cyan-500",
+    iconBg: "bg-sky-500/12 text-sky-600",
   },
   {
     icon: Code,
     title: "Web Development",
     description:
-      "Custom websites and web applications built with cutting-edge technology for optimal performance.",
-    color: "bg-blue-500/10 text-blue-600",
+      "Custom-built, high-performance websites and applications tailored to your business needs.",
+    details: [
+      "Frontend Development",
+      "Backend Systems",
+      "E-commerce Solutions",
+      "API Integration",
+    ],
+    color: "from-fuchsia-500 to-pink-500",
+    iconBg: "bg-fuchsia-500/12 text-fuchsia-600",
   },
   {
     icon: Smartphone,
-    title: "UI/UX Design",
+    title: "UX/UI Design",
     description:
-      "User-centered design solutions that create seamless and engaging digital experiences.",
-    color: "bg-violet-500/10 text-violet-600",
+      "User-centered design that creates intuitive, beautiful interfaces that drive engagement.",
+    details: [
+      "User Research",
+      "Wireframing",
+      "Prototyping",
+      "Design Systems",
+    ],
+    color: "from-emerald-500 to-green-500",
+    iconBg: "bg-emerald-500/12 text-emerald-600",
   },
   {
     icon: TrendingUp,
     title: "Digital Marketing",
     description:
-      "Data-driven marketing strategies that drive traffic, engagement, and conversions.",
-    color: "bg-emerald-500/10 text-emerald-600",
+      "Strategic marketing campaigns that connect with your audience and drive measurable results.",
+    details: [
+      "SEO Optimization",
+      "Content Strategy",
+      "Social Media",
+      "PPC Campaigns",
+    ],
+    color: "from-orange-500 to-red-500",
+    iconBg: "bg-orange-500/12 text-orange-600",
   },
   {
-    icon: Search,
-    title: "SEO Optimization",
+    icon: BarChart3,
+    title: "Analytics & Strategy",
     description:
-      "Improve your search rankings and organic visibility with proven SEO techniques.",
-    color: "bg-amber-500/10 text-amber-600",
+      "Data-driven insights and strategic recommendations to optimize your digital presence.",
+    details: [
+      "Performance Analytics",
+      "User Behavior Analysis",
+      "Conversion Optimization",
+      "Reporting",
+    ],
+    color: "from-blue-500 to-indigo-500",
+    iconBg: "bg-blue-500/12 text-blue-600",
   },
   {
-    icon: Megaphone,
-    title: "Social Media",
+    icon: Zap,
+    title: "Marketing Automation",
     description:
-      "Strategic social media management to grow your audience and build community.",
-    color: "bg-pink-500/10 text-pink-600",
+      "Streamline your marketing processes with automation tools that increase efficiency and ROI.",
+    details: [
+      "Email Marketing",
+      "Lead Nurturing",
+      "Workflow Automation",
+      "CRM Integration",
+    ],
+    color: "from-amber-500 to-orange-500",
+    iconBg: "bg-amber-500/12 text-amber-600",
   },
 ]
 
-export function ServicesPreview() {
-  const [selectedService, setSelectedService] = useState<(typeof services)[0] | null>(null)
+function ServiceCard({
+  service,
+  index,
+}: {
+  service: (typeof services)[number]
+  index: number
+}) {
+  const [showDetails, setShowDetails] = useState(false)
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
+
+  const handleMouseEnter = () => {
+    timerRef.current = setTimeout(() => {
+      setShowDetails(true)
+    }, 2000)
+  }
+
+  const handleMouseLeave = () => {
+    if (timerRef.current) clearTimeout(timerRef.current)
+    setShowDetails(false)
+  }
+
+  const Icon = service.icon
 
   return (
-    <>
-      <section className="pt-8 pb-24 lg:pt-12 lg:pb-28">
-        <div className="container mx-auto px-6 lg:px-8">
-          {/* Header */}
-          <div className="mx-auto mb-14 max-w-4xl text-center lg:mb-16">
-            <ScrollReveal>
-              <span
-                className={`${raleway.className} text-primary text-sm font-medium uppercase tracking-[0.18em]`}
+    <ScrollReveal delay={index * 100}>
+      <div
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className="group relative h-full overflow-hidden rounded-[28px] border border-border bg-card p-8 text-left transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_0_0_1px_rgba(156,0,58,0.08),0_20px_60px_rgba(156,0,58,0.12)]"
+      >
+        <div
+          className={`mb-6 flex h-16 w-16 items-center justify-center rounded-2xl ${service.iconBg} transition-all duration-500 group-hover:-translate-y-1 group-hover:scale-105`}
+        >
+          <Icon className="h-7 w-7" />
+        </div>
+
+        <h3 className="mb-4 text-[28px] font-semibold leading-[1.12] tracking-[-0.02em] text-foreground">
+          {service.title}
+        </h3>
+
+        <p className="text-[17px] leading-[1.65] text-muted-foreground">
+          {service.description}
+        </p>
+
+        <div
+          className={`overflow-hidden transition-all duration-700 ease-out ${
+            showDetails ? "mt-8 max-h-80 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <ul className="space-y-3">
+            {service.details.map((detail, i) => (
+              <li
+                key={detail}
+                className={`flex items-start gap-4 text-[15px] text-foreground transition-all duration-500 ${
+                  showDetails
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-3 opacity-0"
+                }`}
+                style={{
+                  transitionDelay: showDetails ? `${i * 90}ms` : "0ms",
+                }}
               >
-                Our Services
-              </span>
-            </ScrollReveal>
-
-            <ScrollReveal delay={100}>
-              <h2
-                className={`${raleway.className} mt-4 mb-6 text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl`}
-              >
-                Services We Offer
-              </h2>
-            </ScrollReveal>
-
-            <ScrollReveal delay={200}>
-              <p className="mx-auto max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-                We provide comprehensive digital solutions tailored to your unique
-                needs. Our expert team delivers results that exceed expectations.
-              </p>
-            </ScrollReveal>
-          </div>
-
-          {/* Services Grid */}
-          <div className="grid gap-6 md:grid-cols-2 lg:gap-8 xl:grid-cols-3">
-            {services.map((service, index) => (
-              <ScrollReveal key={service.title} delay={index * 100}>
-                <button
-                  type="button"
-                  onClick={() => setSelectedService(service)}
-                  className="group block h-full rounded-2xl border border-border bg-card p-8 text-left transition-all duration-500 hover-lift hover:border-primary/20 hover:shadow-xl"
-                >
-                  <div
-                    className={`mb-6 flex h-14 w-14 items-center justify-center rounded-xl ${service.color} transition-transform duration-300 group-hover:scale-110`}
-                  >
-                    <service.icon className="h-6 w-6" />
-                  </div>
-
-                  <h3 className="mb-3 flex items-center gap-2 text-xl font-semibold">
-                    {service.title}
-                    <ArrowUpRight className="h-5 w-5 -translate-x-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
-                  </h3>
-
-                  <p className="leading-relaxed text-muted-foreground">
-                    {service.description}
-                  </p>
-                </button>
-              </ScrollReveal>
+                <span className="mt-[9px] h-2.5 w-2.5 shrink-0 rounded-full bg-[#7a168f] transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_12px_rgba(122,22,143,0.55)]" />
+                <span>{detail}</span>
+              </li>
             ))}
-          </div>
+          </ul>
+        </div>
 
-          {/* View All Link */}
-          <ScrollReveal delay={600}>
-            <div className="mt-12 text-center">
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-2 font-medium text-primary transition-all duration-300 hover:gap-4"
-              >
-                View All Services
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </div>
+        <div
+          className={`pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r ${service.color} transition-opacity duration-500 ${
+            showDetails ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      </div>
+    </ScrollReveal>
+  )
+}
+
+export function ServicesPreview() {
+  return (
+    <section className="pt-8 pb-24 lg:pt-12 lg:pb-28">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="mx-auto mb-14 max-w-4xl text-center lg:mb-16">
+          <ScrollReveal>
+            <span
+              className={`${raleway.className} text-primary text-sm font-medium uppercase tracking-[0.18em]`}
+            >
+              Our Services
+            </span>
+          </ScrollReveal>
+
+          <ScrollReveal delay={100}>
+            <h2
+              className={`${raleway.className} mt-4 mb-6 text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl`}
+            >
+              Services We Offer
+            </h2>
+          </ScrollReveal>
+
+          <ScrollReveal delay={200}>
+            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+              We provide comprehensive digital solutions tailored to your unique
+              needs. Our expert team delivers results that exceed expectations.
+            </p>
           </ScrollReveal>
         </div>
-      </section>
 
-      {/* Modal */}
-      {selectedService && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
-          onClick={() => setSelectedService(null)}
-        >
-          <div
-            className="relative w-full max-w-xl rounded-3xl border border-border bg-background p-8 shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={() => setSelectedService(null)}
-              className="absolute top-4 right-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition hover:bg-muted hover:text-foreground"
-              aria-label="Close modal"
-            >
-              <X className="h-5 w-5" />
-            </button>
-
-            <div
-              className={`mb-6 flex h-16 w-16 items-center justify-center rounded-2xl ${selectedService.color}`}
-            >
-              <selectedService.icon className="h-7 w-7" />
-            </div>
-
-            <h3 className="mb-4 text-3xl font-bold">{selectedService.title}</h3>
-
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              {selectedService.description}
-            </p>
-
-            <div className="mt-8">
-              <button
-                type="button"
-                onClick={() => setSelectedService(null)}
-                className="inline-flex items-center rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90"
-              >
-                Close
-              </button>
-            </div>
-          </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:gap-8 xl:grid-cols-3">
+          {services.map((service, index) => (
+            <ServiceCard
+              key={service.title}
+              service={service}
+              index={index}
+            />
+          ))}
         </div>
-      )}
-    </>
+      </div>
+    </section>
   )
 }
