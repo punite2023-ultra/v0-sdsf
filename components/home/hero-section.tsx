@@ -71,15 +71,15 @@ export function HeroSection() {
                 transform: `translate(${mouse.x * 10}px, ${mouse.y * 5}px)`,
               }}
             >
-              CREATIVE
+              CONTENT CREATION
             </div>
             <div
-              className={`${anton.className} hero-fill-text -mt-[4.8vw] text-[#9c003a]`}
+              className={`${anton.className} hero-fill-text hero-fill-text-second text-[#9c003a]`}
               style={{
                 transform: `translate(${mouse.x * 10}px, ${mouse.y * 5}px)`,
               }}
             >
-              AGENCY
+              &amp; BRANDING
             </div>
           </div>
 
@@ -215,16 +215,16 @@ export function HeroSection() {
                 transform: `translate(${-mouse.x * 8}px, ${-mouse.y * 5}px)`,
               }}
             >
-              CREATIVE
+              CONTENT CREATION
             </div>
             <div
-              className={`${anton.className} hero-outline-text -mt-[4.8vw] text-transparent`}
+              className={`${anton.className} hero-outline-text hero-outline-text-second text-transparent`}
               style={{
                 WebkitTextStroke: "2px #9c003a",
                 transform: `translate(${-mouse.x * 8}px, ${-mouse.y * 5}px)`,
               }}
             >
-              AGENCY
+              &amp; BRANDING
             </div>
           </div>
 
@@ -314,6 +314,11 @@ export function HeroSection() {
           letter-spacing: -5px;
           text-transform: uppercase;
           animation: heroTextIn 1s ease-out both;
+        }
+
+        .hero-fill-text-second,
+        .hero-outline-text-second {
+          margin-top: -3.4vw;
         }
 
         .hero-float {
