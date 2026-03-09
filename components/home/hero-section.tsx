@@ -64,7 +64,9 @@ export function HeroSection() {
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-[1720px] flex-col justify-center px-5 py-8 md:px-8 xl:px-10">
         <div className="relative min-h-[860px] w-full">
-          <div className="pointer-events-none absolute left-1/2 top-[32%] z-[8] w-full -translate-x-1/2 text-center">
+
+          {/* HERO TEXT */}
+          <div className="pointer-events-none absolute left-1/2 top-[42%] z-[8] w-full -translate-x-1/2 text-center">
             <div
               className={`${anton.className} hero-fill-text text-[#9c003a]`}
               style={{
@@ -73,6 +75,7 @@ export function HeroSection() {
             >
               CONTENT CREATION
             </div>
+
             <div
               className={`${anton.className} hero-fill-text hero-fill-text-second text-[#9c003a]`}
               style={{
@@ -84,6 +87,8 @@ export function HeroSection() {
           </div>
 
           <div className="relative z-10 grid min-h-[860px] grid-cols-1 items-center gap-6 pt-24 xl:grid-cols-[20%_52%_20%] xl:justify-between xl:gap-0">
+
+            {/* LEFT COLUMN */}
             <div
               className="hidden self-center xl:block"
               style={{
@@ -92,66 +97,38 @@ export function HeroSection() {
             >
               <div className="mb-6 flex items-center">
                 <div className="relative h-14 w-14 overflow-hidden rounded-full border-2 border-white">
-                  <Image
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80"
-                    alt="team member"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
+                  <Image src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80" alt="team member" fill className="object-cover" unoptimized/>
                 </div>
                 <div className="-ml-2 relative h-14 w-14 overflow-hidden rounded-full border-2 border-white">
-                  <Image
-                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80"
-                    alt="team member"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
+                  <Image src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" alt="team member" fill className="object-cover" unoptimized/>
                 </div>
                 <div className="-ml-2 relative h-14 w-14 overflow-hidden rounded-full border-2 border-white">
-                  <Image
-                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300&q=80"
-                    alt="team member"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
+                  <Image src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300&q=80" alt="team member" fill className="object-cover" unoptimized/>
                 </div>
               </div>
 
               <div className="mb-5 h-[3px] w-[178px] bg-[#9c003a]" />
 
-              <p
-                className={`${anton.className} max-w-[180px] text-[16px] uppercase leading-[1.05] tracking-[-0.01em] text-white`}
-              >
+              <p className={`${anton.className} max-w-[180px] text-[16px] uppercase leading-[1.05] tracking-[-0.01em] text-white`}>
                 THE EXPERT TEAM BRINGS A CREATIVITY TO EVERY PROJECT.
               </p>
 
               <div className="mt-24 space-y-10">
                 <div>
-                  <div
-                    className={`${anton.className} text-[88px] leading-none tracking-[-0.05em]`}
-                  >
+                  <div className={`${anton.className} text-[88px] leading-none tracking-[-0.05em]`}>
                     500<span className="text-[#9c003a]">+</span>
                   </div>
-                  <div
-                    className={`${anton.className} mt-2 text-[24px] uppercase leading-none`}
-                  >
+                  <div className={`${anton.className} mt-2 text-[24px] uppercase leading-none`}>
                     HAPPY CLIENT
                   </div>
                   <div className="mt-7 h-[3px] w-[178px] bg-[#9c003a]" />
                 </div>
 
                 <div>
-                  <div
-                    className={`${anton.className} text-[88px] leading-none tracking-[-0.05em]`}
-                  >
+                  <div className={`${anton.className} text-[88px] leading-none tracking-[-0.05em]`}>
                     125<span className="text-[#9c003a]">+</span>
                   </div>
-                  <div
-                    className={`${anton.className} mt-2 text-[24px] uppercase leading-none`}
-                  >
+                  <div className={`${anton.className} mt-2 text-[24px] uppercase leading-none`}>
                     PROJECT DONE
                   </div>
                   <div className="mt-7 h-[3px] w-[178px] bg-[#9c003a]" />
@@ -159,6 +136,7 @@ export function HeroSection() {
               </div>
             </div>
 
+            {/* CENTER IMAGE */}
             <div className="relative z-[9] flex min-h-[680px] items-center justify-center overflow-visible">
               <div
                 className="absolute left-1/2 top-1/2 h-[90vh] w-screen max-w-none -translate-x-1/2 -translate-y-1/2 hero-float"
@@ -176,133 +154,40 @@ export function HeroSection() {
               </div>
             </div>
 
-            <div
-              className="relative z-20 hidden self-end pb-14 xl:block"
-              style={{
-                transform: `translate(${-mouse.x * 8}px, ${mouse.y * 8}px)`,
-              }}
-            >
+            {/* RIGHT SIDE */}
+            <div className="relative z-20 hidden self-end pb-14 xl:block">
               <div className="mb-24 flex justify-end">
                 <RotatingBadge />
               </div>
 
-              <p
-                className={`${poppins.className} ml-auto max-w-[320px] text-right text-[16px] font-normal leading-[1.6] text-white`}
-              >
+              <p className={`${poppins.className} ml-auto max-w-[320px] text-right text-[16px] leading-[1.6]`}>
                 Lorem ipsum do adipiscing elit Ut elit tellus luctus nec
                 ullamcorper mattis pulvinar dapibus leo.
               </p>
 
               <div className="mt-10 flex justify-end">
-                <Link
-                  href="/contact"
-                  className={`${anton.className} hero-ripple group relative inline-flex items-center gap-4 overflow-hidden border-[3px] border-[#9c003a] px-8 py-5 text-[18px] uppercase tracking-[0.08em] text-white transition duration-300 hover:bg-[#9c003a] hover:text-black`}
-                >
+                <Link href="/contact" className={`${anton.className} hero-ripple group relative inline-flex items-center gap-4 overflow-hidden border-[3px] border-[#9c003a] px-8 py-5 text-[18px] uppercase tracking-[0.08em] text-white transition duration-300 hover:bg-[#9c003a] hover:text-black`}>
                   <span className="relative z-10">GET STARTED</span>
-                  <span className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white text-black transition duration-300 group-hover:bg-black group-hover:text-[#9c003a]">
+                  <span className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white text-black group-hover:bg-black group-hover:text-[#9c003a]">
                     <MoveRight className="h-5 w-5" />
                   </span>
                 </Link>
               </div>
             </div>
+
           </div>
 
-          <div className="pointer-events-none absolute left-1/2 top-[32%] z-[11] w-full -translate-x-1/2 text-center">
-            <div
-              className={`${anton.className} hero-outline-text text-transparent`}
-              style={{
-                WebkitTextStroke: "2px #9c003a",
-                transform: `translate(${-mouse.x * 8}px, ${-mouse.y * 5}px)`,
-              }}
-            >
+          {/* OUTLINE TEXT */}
+          <div className="pointer-events-none absolute left-1/2 top-[42%] z-[11] w-full -translate-x-1/2 text-center">
+            <div className={`${anton.className} hero-outline-text text-transparent`} style={{WebkitTextStroke:"2px #9c003a"}}>
               CONTENT CREATION
             </div>
-            <div
-              className={`${anton.className} hero-outline-text hero-outline-text-second text-transparent`}
-              style={{
-                WebkitTextStroke: "2px #9c003a",
-                transform: `translate(${-mouse.x * 8}px, ${-mouse.y * 5}px)`,
-              }}
-            >
+
+            <div className={`${anton.className} hero-outline-text hero-outline-text-second text-transparent`} style={{WebkitTextStroke:"2px #9c003a"}}>
               &amp; BRANDING
             </div>
           </div>
 
-          <div className="mt-8 grid gap-6 xl:hidden">
-            <div className="flex items-center gap-3">
-              <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-white">
-                <Image
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80"
-                  alt="team member"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-              </div>
-              <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-white">
-                <Image
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80"
-                  alt="team member"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-              </div>
-              <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-white">
-                <Image
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300&q=80"
-                  alt="team member"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-              </div>
-            </div>
-
-            <p
-              className={`${anton.className} max-w-[220px] text-[16px] uppercase leading-[1.05]`}
-            >
-              THE EXPERT TEAM BRINGS A CREATIVITY TO EVERY PROJECT.
-            </p>
-
-            <div className="grid grid-cols-2 gap-5">
-              <div>
-                <div className={`${anton.className} text-6xl leading-none`}>
-                  500<span className="text-[#9c003a]">+</span>
-                </div>
-                <div className={`${anton.className} mt-2 text-lg uppercase`}>
-                  HAPPY CLIENT
-                </div>
-              </div>
-              <div>
-                <div className={`${anton.className} text-6xl leading-none`}>
-                  125<span className="text-[#9c003a]">+</span>
-                </div>
-                <div className={`${anton.className} mt-2 text-lg uppercase`}>
-                  PROJECT DONE
-                </div>
-              </div>
-            </div>
-
-            <p
-              className={`${poppins.className} max-w-xl text-base leading-7 text-white`}
-            >
-              Lorem ipsum do adipiscing elit Ut elit tellus luctus nec
-              ullamcorper mattis pulvinar dapibus leo.
-            </p>
-
-            <div>
-              <Link
-                href="/contact"
-                className={`${anton.className} hero-ripple group relative inline-flex items-center gap-4 overflow-hidden border-[3px] border-[#9c003a] px-6 py-4 text-base uppercase tracking-[0.08em] text-white transition duration-300 hover:bg-[#9c003a] hover:text-black`}
-              >
-                <span className="relative z-10">GET STARTED</span>
-                <span className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white text-black transition duration-300 group-hover:bg-black group-hover:text-[#9c003a]">
-                  <MoveRight className="h-5 w-5" />
-                </span>
-              </Link>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -310,105 +195,32 @@ export function HeroSection() {
         .hero-fill-text,
         .hero-outline-text {
           font-size: clamp(55px, 8vw, 140px);
-          line-height: 0.9;
+          line-height: 1;
           letter-spacing: -2px;
           text-transform: uppercase;
-          animation: heroTextIn 1s ease-out both;
         }
 
         .hero-fill-text-second,
         .hero-outline-text-second {
-          margin-top: -2.2vw;
+          margin-top: 0.9vw;
         }
 
         .hero-float {
-          animation: heroImageIn 1.1s ease-out both, heroFloat 4s ease-in-out infinite;
+          animation: heroFloat 4s ease-in-out infinite;
         }
 
         .hero-ring-spin {
           animation: ringRotate 14s linear infinite;
         }
 
-        .hero-ripple::before,
-        .hero-ripple::after {
-          content: "";
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          width: 18px;
-          height: 18px;
-          border-radius: 9999px;
-          background: rgba(156, 0, 58, 0.35);
-          box-shadow: 0 0 30px rgba(156, 0, 58, 0.55);
-          transform: translate(-50%, -50%) scale(0.6);
-          opacity: 0;
-          pointer-events: none;
-        }
-
-        .hero-ripple:hover::before {
-          opacity: 1;
-          animation: ripplePulse 1.2s ease-out infinite;
-        }
-
-        .hero-ripple:hover::after {
-          opacity: 1;
-          animation: ripplePulse 1.2s ease-out 0.3s infinite;
-        }
-
-        @keyframes heroTextIn {
-          0% {
-            opacity: 0;
-            transform: translateY(60px) scale(0.96);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-
-        @keyframes heroImageIn {
-          0% {
-            opacity: 0;
-            transform: translateY(70px) scale(0.93);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-
         @keyframes heroFloat {
-          0%,
-          100% {
-            margin-top: 0;
-          }
-          50% {
-            margin-top: -14px;
-          }
+          0%,100% { margin-top:0 }
+          50% { margin-top:-14px }
         }
 
         @keyframes ringRotate {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-
-        @keyframes ripplePulse {
-          0% {
-            transform: translate(-50%, -50%) scale(0.6);
-            opacity: 0.45;
-          }
-          70% {
-            transform: translate(-50%, -50%) scale(2.3);
-            opacity: 0;
-          }
-          100% {
-            transform: translate(-50%, -50%) scale(2.3);
-            opacity: 0;
-          }
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
       `}</style>
     </section>
