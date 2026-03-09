@@ -55,8 +55,8 @@ export function Navigation() {
                 href={link.href}
                 className={`text-sm font-medium transition-colors duration-300 underline-animation ${
                   pathname === link.href
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "text-white"
+                    : "text-white/70 hover:text-white"
                 }`}
               >
                 {link.label}
@@ -73,7 +73,7 @@ export function Navigation() {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden p-2 hover:bg-muted rounded-lg transition-colors"
+            className="lg:hidden p-2 hover:bg-white/10 rounded-lg transition-colors text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -100,8 +100,8 @@ export function Navigation() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`text-base font-medium py-2 transition-colors ${
                     pathname === link.href
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "text-white"
+                      : "text-white/70 hover:text-white"
                   }`}
                 >
                   {link.label}
