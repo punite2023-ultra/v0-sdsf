@@ -161,9 +161,9 @@ export function HeroSection() {
 
             <div className="relative z-[9] flex min-h-[680px] items-center justify-center overflow-visible">
               <div
-                className="relative h-[72vh] w-[64vw] min-w-[720px] max-w-[1200px] hero-float"
+                className="absolute left-1/2 top-1/2 h-[92vh] w-screen max-w-none -translate-x-1/2 -translate-y-1/2 hero-float"
                 style={{
-                  transform: `translate(${mouse.x * 18}px, ${mouse.y * 12}px)`,
+                  transform: `translate(calc(-50% + ${mouse.x * 18}px), calc(-50% + ${mouse.y * 12}px))`,
                 }}
               >
                 <Image
@@ -171,7 +171,7 @@ export function HeroSection() {
                   alt="Hero figure"
                   fill
                   priority
-                  className="object-contain object-center"
+                  className="object-cover object-center"
                 />
               </div>
             </div>
