@@ -309,7 +309,7 @@ export function HeroSection() {
       <style jsx>{`
         .hero-fill-text,
         .hero-outline-text {
-          font-size: clamp(120px, 16vw, 300px);
+          font-size: clamp(70px, 10vw, 180px);
           line-height: 0.82;
           letter-spacing: -5px;
           text-transform: uppercase;
