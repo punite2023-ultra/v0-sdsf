@@ -49,14 +49,12 @@ function Counter({
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    let start = 0
     const startTime = performance.now()
 
     const tick = (now: number) => {
       const progress = Math.min((now - startTime) / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
-      const next = Math.floor(start + (value - start) * eased)
-      setCount(next)
+      setCount(Math.floor(value * eased))
       if (progress < 1) requestAnimationFrame(tick)
     }
 
@@ -76,17 +74,25 @@ function StatBlock({
   return (
     <div className="w-[220px]">
       <div className="flex items-start gap-2">
-        <div className={`${anton.className} text-[88px] leading-none tracking-[-0.05em] text-white`}>
+        <div
+          className={`${anton.className} text-[88px] leading-none tracking-[-0.05em] text-white`}
+        >
           <Counter value={value} />
         </div>
-        <div className={`${anton.className} mt-[12px] text-[38px] leading-none text-[#d7ff00]`}>
+        <div
+          className={`${anton.className} mt-[12px] text-[38px] leading-none text-[#9c003a]`}
+        >
           +
         </div>
       </div>
-      <div className={`${anton.className} mt-3 text-[24px] uppercase leading-none text-white`}>
+
+      <div
+        className={`${anton.className} mt-3 text-[24px] uppercase leading-none text-white`}
+      >
         {label}
       </div>
-      <div className="mt-7 h-[4px] w-[178px] bg-[#d7ff00]" />
+
+      <div className="mt-7 h-[4px] w-[178px] bg-[#9c003a]" />
     </div>
   )
 }
@@ -160,15 +166,14 @@ export function HeroSection() {
           </div>
 
           <div className="relative z-10 grid min-h-[900px] grid-cols-1 items-center gap-6 pt-24 xl:grid-cols-[22%_50%_20%] xl:justify-between xl:gap-0">
-            {/* Empty spacer on left because stats are absolute now */}
             <div className="hidden xl:block" />
 
             {/* Center figure */}
             <div className="relative z-[9] flex min-h-[720px] items-center justify-center overflow-visible">
               <div
-                className="relative h-[78vh] w-[52vw] min-w-[760px] max-w-[1100px] hero-figure-enter"
+                className="absolute left-1/2 top-1/2 h-[108vh] w-[118vw] max-w-none -translate-x-1/2 -translate-y-1/2 hero-figure-enter"
                 style={{
-                  transform: `translate(${mouse.x * 14}px, ${mouse.y * 10}px)`,
+                  transform: `translate(calc(-50% + ${mouse.x * 14}px), calc(-50% + ${mouse.y * 10}px))`,
                 }}
               >
                 <Image
@@ -176,7 +181,7 @@ export function HeroSection() {
                   alt="Hero figure"
                   fill
                   priority
-                  className="object-contain object-center"
+                  className="object-contain object-center scale-[1.12]"
                 />
               </div>
             </div>
@@ -239,18 +244,23 @@ export function HeroSection() {
           <div className="mt-8 grid gap-6 xl:hidden">
             <div className="grid grid-cols-2 gap-5">
               <div>
-                <div className={`${anton.className} text-6xl leading-none text-white`}>
+                <div
+                  className={`${anton.className} text-6xl leading-none text-white`}
+                >
                   <Counter value={500} />
-                  <span className="text-[#d7ff00]">+</span>
+                  <span className="text-[#9c003a]">+</span>
                 </div>
                 <div className={`${anton.className} mt-2 text-lg uppercase`}>
                   HAPPY CLIENT
                 </div>
               </div>
+
               <div>
-                <div className={`${anton.className} text-6xl leading-none text-white`}>
+                <div
+                  className={`${anton.className} text-6xl leading-none text-white`}
+                >
                   <Counter value={125} />
-                  <span className="text-[#d7ff00]">+</span>
+                  <span className="text-[#9c003a]">+</span>
                 </div>
                 <div className={`${anton.className} mt-2 text-lg uppercase`}>
                   PROJECT DONE
@@ -259,9 +269,11 @@ export function HeroSection() {
             </div>
 
             <div>
-              <div className={`${anton.className} text-6xl leading-none text-white`}>
+              <div
+                className={`${anton.className} text-6xl leading-none text-white`}
+              >
                 <Counter value={450} />
-                <span className="text-[#d7ff00]">+</span>
+                <span className="text-[#9c003a]">+</span>
               </div>
               <div className={`${anton.className} mt-2 text-lg uppercase`}>
                 MEDIA FEATURED
