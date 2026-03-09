@@ -13,7 +13,7 @@ const anton = Anton({
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
 })
 
 function StarCore() {
@@ -75,19 +75,19 @@ function StatBlock({
     <div className="w-[220px]">
       <div className="flex items-start gap-2">
         <div
-          className={`${anton.className} text-[88px] leading-none tracking-[-0.05em] text-white`}
+          className={`${poppins.className} text-[72px] font-semibold leading-none tracking-[-0.04em] text-white`}
         >
           <Counter value={value} />
         </div>
         <div
-          className={`${anton.className} mt-[12px] text-[38px] leading-none text-[#9c003a]`}
+          className={`${poppins.className} mt-[10px] text-[30px] font-semibold leading-none text-[#9c003a]`}
         >
           +
         </div>
       </div>
 
       <div
-        className={`${anton.className} mt-3 text-[24px] uppercase leading-none text-white`}
+        className={`${poppins.className} mt-3 text-[22px] font-semibold uppercase leading-none tracking-[-0.02em] text-white`}
       >
         {label}
       </div>
@@ -115,7 +115,7 @@ export function HeroSection() {
     <section
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative min-h-screen overflow-hidden text-white"
+      className="relative overflow-hidden text-white"
     >
       {/* Background */}
       <div className="absolute inset-0 -z-20">
@@ -131,11 +131,11 @@ export function HeroSection() {
       <div className="absolute inset-0 -z-10 bg-black/45" />
       <div className="absolute inset-0 opacity-[0.04] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:18px_18px]" />
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-[1720px] flex-col justify-center px-5 py-8 md:px-8 xl:px-10">
-        <div className="relative min-h-[900px] w-full">
+      <div className="relative z-10 mx-auto flex min-h-[820px] max-w-[1720px] flex-col justify-center px-5 pb-0 pt-8 md:px-8 xl:px-10">
+        <div className="relative min-h-[760px] w-full">
           {/* Left stats */}
           <div
-            className="absolute left-0 top-[170px] z-[12] hidden xl:flex xl:flex-col xl:gap-12"
+            className="absolute left-0 top-[170px] z-[12] hidden xl:flex xl:flex-col xl:gap-10"
             style={{
               transform: `translate(${mouse.x * 8}px, ${mouse.y * 8}px)`,
             }}
@@ -146,7 +146,7 @@ export function HeroSection() {
           </div>
 
           {/* Fill text */}
-          <div className="pointer-events-none absolute left-1/2 top-[46%] z-[8] w-full -translate-x-1/2 -translate-y-1/2 text-center">
+          <div className="pointer-events-none absolute left-1/2 top-[52%] z-[8] w-full -translate-x-1/2 -translate-y-1/2 text-center">
             <div
               className={`${anton.className} hero-fill-text text-[#9c003a] hero-text-enter`}
               style={{
@@ -165,13 +165,13 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="relative z-10 grid min-h-[900px] grid-cols-1 items-center gap-6 pt-24 xl:grid-cols-[22%_50%_20%] xl:justify-between xl:gap-0">
+          <div className="relative z-10 grid min-h-[760px] grid-cols-1 items-center gap-6 pt-16 xl:grid-cols-[22%_50%_20%] xl:justify-between xl:gap-0">
             <div className="hidden xl:block" />
 
             {/* Center figure */}
-            <div className="relative z-[9] flex min-h-[720px] items-center justify-center overflow-visible">
+            <div className="relative z-[9] flex min-h-[620px] items-center justify-center overflow-visible">
               <div
-                className="absolute left-1/2 top-1/2 h-[108vh] w-[118vw] max-w-none -translate-x-1/2 -translate-y-1/2 hero-figure-enter"
+                className="absolute left-1/2 top-1/2 h-[104vh] w-[116vw] max-w-none -translate-x-1/2 -translate-y-1/2 hero-figure-enter"
                 style={{
                   transform: `translate(calc(-50% + ${mouse.x * 14}px), calc(-50% + ${mouse.y * 10}px))`,
                 }}
@@ -181,7 +181,7 @@ export function HeroSection() {
                   alt="Hero figure"
                   fill
                   priority
-                  className="object-contain object-center scale-[1.12]"
+                  className="object-contain object-center scale-[1.1]"
                 />
               </div>
             </div>
@@ -193,7 +193,7 @@ export function HeroSection() {
                 transform: `translate(${-mouse.x * 8}px, ${mouse.y * 8}px)`,
               }}
             >
-              <div className="mb-24 flex justify-end">
+              <div className="mb-20 flex justify-end">
                 <RotatingBadge />
               </div>
 
@@ -219,7 +219,7 @@ export function HeroSection() {
           </div>
 
           {/* Outline text */}
-          <div className="pointer-events-none absolute left-1/2 top-[46%] z-[11] w-full -translate-x-1/2 -translate-y-1/2 text-center">
+          <div className="pointer-events-none absolute left-1/2 top-[52%] z-[11] w-full -translate-x-1/2 -translate-y-1/2 text-center">
             <div
               className={`${anton.className} hero-outline-text text-transparent hero-text-enter`}
               style={{
@@ -245,24 +245,24 @@ export function HeroSection() {
             <div className="grid grid-cols-2 gap-5">
               <div>
                 <div
-                  className={`${anton.className} text-6xl leading-none text-white`}
+                  className={`${poppins.className} text-6xl font-semibold leading-none text-white`}
                 >
                   <Counter value={500} />
                   <span className="text-[#9c003a]">+</span>
                 </div>
-                <div className={`${anton.className} mt-2 text-lg uppercase`}>
+                <div className={`${poppins.className} mt-2 text-lg font-semibold uppercase`}>
                   HAPPY CLIENT
                 </div>
               </div>
 
               <div>
                 <div
-                  className={`${anton.className} text-6xl leading-none text-white`}
+                  className={`${poppins.className} text-6xl font-semibold leading-none text-white`}
                 >
                   <Counter value={125} />
                   <span className="text-[#9c003a]">+</span>
                 </div>
-                <div className={`${anton.className} mt-2 text-lg uppercase`}>
+                <div className={`${poppins.className} mt-2 text-lg font-semibold uppercase`}>
                   PROJECT DONE
                 </div>
               </div>
@@ -270,12 +270,12 @@ export function HeroSection() {
 
             <div>
               <div
-                className={`${anton.className} text-6xl leading-none text-white`}
+                className={`${poppins.className} text-6xl font-semibold leading-none text-white`}
               >
                 <Counter value={450} />
                 <span className="text-[#9c003a]">+</span>
               </div>
-              <div className={`${anton.className} mt-2 text-lg uppercase`}>
+              <div className={`${poppins.className} mt-2 text-lg font-semibold uppercase`}>
                 MEDIA FEATURED
               </div>
             </div>
@@ -305,15 +305,15 @@ export function HeroSection() {
       <style jsx>{`
         .hero-fill-text,
         .hero-outline-text {
-          font-size: clamp(55px, 8vw, 140px);
-          line-height: 1;
+          font-size: clamp(72px, 10vw, 180px);
+          line-height: 0.96;
           letter-spacing: -2px;
           text-transform: uppercase;
         }
 
         .hero-fill-text-second,
         .hero-outline-text-second {
-          margin-top: 1.6vw;
+          margin-top: 2vw;
         }
 
         .hero-figure-enter {
