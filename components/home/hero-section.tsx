@@ -2,58 +2,14 @@
 
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
-import { useState, useEffect, useRef } from "react"
-
-interface HeroSlide {
-  id: number
-  image: string
-  alt: string
-}
-
-const heroSlides: HeroSlide[] = [
-  {
-    id: 1,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/short-haired-girl-in-good-mood-listening-to-song-i-BXEP4P5-2-1-e1736261077207-Xe3Og2JbZJQ15NRPmCrappWrm3Y3RF.png",
-    alt: "Girl with headphones"
-  },
-  {
-    id: 2,
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1000&h=800&fit=crop",
-    alt: "Team collaboration"
-  },
-  {
-    id: 3,
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1000&h=800&fit=crop",
-    alt: "Creative work"
-  }
-]
+import { useState, useEffect } from "react"
 
 export function HeroSection() {
-  const [currentSlide, setCurrentSlide] = useState(0)
   const [scrollY, setScrollY] = useState(0)
-  const sectionRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
-    }, 10000)
-    return () => clearInterval(timer)
-  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect()
-        const elementTop = rect.top
-        const elementHeight = rect.height
-        const windowHeight = window.innerHeight
-
-        if (elementTop < windowHeight) {
-          const scrolled = windowHeight - elementTop
-          const progress = Math.min(scrolled / elementHeight, 1)
-          setScrollY(progress)
-        }
-      }
+      setScrollY(window.scrollY)
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -62,233 +18,283 @@ export function HeroSection() {
 
   return (
     <section 
-      ref={sectionRef}
-      className="relative w-full overflow-hidden"
+      className="relative w-full h-screen overflow-hidden"
       style={{
-        backgroundImage: `url(https://pai.nomadenstudio.com/aurelia/wp-content/uploads/sites/6/2024/11/Bg-2.jpg)`,
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        backgroundAttachment: 'fixed',
-        paddingTop: '100px',
+        background: 'linear-gradient(135deg, #0047e6 0%, #003399 100%)',
         minHeight: '100vh'
       }}
     >
-      {/* Main Container */}
+      {/* Background Image Container */}
       <div 
-        className="relative w-full h-full flex justify-between items-center px-6 lg:px-12"
+        className="absolute inset-0 w-full h-full"
         style={{
-          maxWidth: '1400px',
-          margin: '0 auto',
-          gap: '32px',
-          minHeight: '600px'
+          opacity: 0.3,
+          backgroundImage: `url(https://hebbkx1anhila5yf.public.blob.vercel-storage.com/short-haired-girl-in-good-mood-listening-to-song-i-BXEP4P5-2-1-e1736261077207-Xe3Og2JbZJQ15NRPmCrappWrm3Y3RF.png)`,
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'contain'
         }}
-      >
-        {/* LEFT COLUMN */}
-        <div 
-          className="hidden lg:flex flex-col flex-shrink-0 relative z-20"
-          style={{ width: '120px', paddingTop: '20px' }}
-        >
-          {/* Team Avatars */}
-          <div className="flex -space-x-2 mb-3" style={{ animation: 'fadeInDown 1s ease-out 0.4s backwards' }}>
-            {[1, 2, 3].map((i) => (
-              <Image
-                key={i}
-                src={`https://i.pravatar.cc/100?img=${i + 10}`}
-                alt="Team member"
-                width={40}
-                height={40}
-                className="w-10 h-10 rounded-full border-2 border-white"
-              />
-            ))}
-          </div>
+      />
 
-          {/* Divider */}
-          <div className="h-0.5 w-16 mb-3" style={{ backgroundColor: '#CCFF00', animation: 'fadeInDown 1s ease-out 0.4s backwards' }} />
-
-          {/* Team Text */}
-          <h3 
-            className="text-white font-bold text-xs leading-tight uppercase tracking-wide max-w-xs"
-            style={{ 
-              fontFamily: 'Anton, sans-serif',
-              fontSize: '16px',
-              fontWeight: '400',
-              lineHeight: '1.2',
-              animation: 'fadeInDown 1s ease-out 0.4s backwards',
-              transform: `translateY(${scrollY * -30}px)`,
-              transition: 'transform 0.1s linear'
-            }}
-          >
-            THE EXPERT TEAM BRINGS A CREATIVITY TO EVERY PROJECT.
-          </h3>
-
-          {/* Stats */}
-          <div className="flex flex-col gap-8 mt-12" style={{ 
-            animation: 'fadeInLeft 1s ease-out 0.8s backwards',
-            transform: `translateY(${scrollY * -50}px)`,
-            transition: 'transform 0.1s linear'
-          }}>
-            <div>
-              <div className="text-4xl font-black text-white leading-none mb-1">500 +</div>
-              <div className="text-xs font-bold text-white/90 uppercase mb-2">HAPPY CLIENT</div>
-              <div className="h-1 w-12" style={{ backgroundColor: '#CCFF00' }} />
-            </div>
-            <div>
-              <div className="text-4xl font-black text-white leading-none mb-1">125 +</div>
-              <div className="text-xs font-bold text-white/90 uppercase mb-2">PROJECT DONE</div>
-              <div className="h-1 w-12" style={{ backgroundColor: '#CCFF00' }} />
-            </div>
-          </div>
-        </div>
-
-        {/* CENTER COLUMN - Flexible */}
-        <div 
-          className="relative flex-1 flex items-center justify-center"
-          style={{ 
-            zIndex: 1, 
-            minHeight: '600px',
-            position: 'relative'
-          }}
-        >
-          {/* Slider Container */}
-          <div 
-            className="relative w-full h-full overflow-hidden rounded-3xl"
-            style={{
-              borderRadius: '25px',
-              maxWidth: '100%',
-              aspectRatio: '3/4',
-              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)'
-            }}
-          >
-            {/* Slider Images */}
-            {heroSlides.map((slide, index) => (
-              <div key={slide.id} className="relative w-full h-full">
-                <Image
-                  src={slide.image}
-                  alt={slide.alt}
-                  fill
-                  className={`w-full h-full object-cover transition-all duration-1000 ease-in-out ${
-                    index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-                  }`}
+      {/* Main Content Grid */}
+      <div className="relative h-full w-full flex items-center justify-center px-6 lg:px-12">
+        <div className="max-w-7xl w-full grid grid-cols-12 gap-8 items-center h-full py-20">
+          
+          {/* LEFT COLUMN */}
+          <div className="col-span-12 lg:col-span-2 flex flex-col justify-center z-20">
+            {/* Team Avatars */}
+            <div 
+              className="flex -space-x-3 mb-4"
+              style={{ animation: 'fadeInLeft 0.8s ease-out' }}
+            >
+              {[1, 2, 3].map((i) => (
+                <div
+                  key={i}
+                  className="w-10 h-10 rounded-full border-2 border-white bg-white/20"
                   style={{
-                    transform: index === currentSlide ? `translateY(${scrollY * -20}px) scale(1)` : 'scale(0.95)'
+                    backgroundImage: `url(https://i.pravatar.cc/100?img=${i + 10})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
                   }}
-                  priority={index === currentSlide}
                 />
-              </div>
-            ))}
-
-            {/* Large Text Overlay with Parallax */}
-            <div 
-              className="absolute inset-0 flex items-center justify-center z-10 p-4"
-              style={{
-                transform: `translateY(${scrollY * -40}px)`,
-                transition: 'transform 0.1s linear'
-              }}
-            >
-              <h1 
-                className="text-center leading-none uppercase"
-                style={{
-                  fontSize: 'clamp(60px, 20vw, 280px)',
-                  fontWeight: '900',
-                  color: '#CCFF00',
-                  fontFamily: 'Anton, sans-serif',
-                  textShadow: '0 6px 30px rgba(0, 0, 0, 0.5)',
-                  letterSpacing: '-0.02em',
-                  lineHeight: '1',
-                  wordSpacing: '9999px',
-                  animation: 'slideInLeft 1s ease-out'
-                }}
-              >
-                CREATIVE
-                <br />
-                AGENCY
-              </h1>
+              ))}
             </div>
 
-            {/* Decorative Star Circle with Rotation */}
+            {/* Divider */}
             <div 
-              className="absolute flex items-center justify-center z-20 hidden lg:flex"
+              className="h-1 w-16 mb-4"
+              style={{ 
+                backgroundColor: '#CCFF00',
+                animation: 'slideInLeft 1s ease-out'
+              }}
+            />
+
+            {/* Team Text */}
+            <h3 
+              className="text-white font-bold text-sm leading-tight uppercase tracking-wide mb-12"
+              style={{ 
+                fontFamily: 'Anton, sans-serif',
+                fontSize: '16px',
+                lineHeight: '1.3',
+                animation: 'fadeInLeft 1s ease-out 0.2s backwards',
+                transform: `translateY(${scrollY * 0.3}px)`,
+              }}
+            >
+              THE EXPERT TEAM BRINGS A CREATIVITY TO EVERY PROJECT.
+            </h3>
+
+            {/* Stats */}
+            <div className="flex flex-col gap-8" style={{ 
+              animation: 'fadeInLeft 1.2s ease-out 0.4s backwards',
+              transform: `translateY(${scrollY * 0.5}px)`,
+            }}>
+              <div>
+                <div className="text-5xl font-black text-white leading-none mb-2">500 +</div>
+                <div className="text-xs font-bold text-white uppercase tracking-wide mb-2">HAPPY CLIENT</div>
+                <div className="h-1 w-16" style={{ backgroundColor: '#CCFF00' }} />
+              </div>
+              <div>
+                <div className="text-5xl font-black text-white leading-none mb-2">125 +</div>
+                <div className="text-xs font-bold text-white uppercase tracking-wide mb-2">PROJECT DONE</div>
+                <div className="h-1 w-16" style={{ backgroundColor: '#CCFF00' }} />
+              </div>
+            </div>
+          </div>
+
+          {/* CENTER COLUMN - Large Text with Image */}
+          <div 
+            className="col-span-12 lg:col-span-8 relative h-full flex items-center justify-center z-10"
+            style={{
+              position: 'relative',
+              minHeight: '500px'
+            }}
+          >
+            {/* Girl Image - Centered */}
+            <div 
+              className="absolute inset-0 w-full h-full flex items-center justify-center"
               style={{
-                right: '-12px',
-                top: '32px',
-                width: '64px',
-                height: '64px',
-                borderRadius: '50%',
+                transform: `translateY(${scrollY * -0.15}px)`,
+                transition: 'transform 0.1s ease-out'
+              }}
+            >
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/short-haired-girl-in-good-mood-listening-to-song-i-BXEP4P5-2-1-e1736261077207-Xe3Og2JbZJQ15NRPmCrappWrm3Y3RF.png"
+                alt="Girl with headphones"
+                width={400}
+                height={600}
+                className="object-contain drop-shadow-lg"
+                priority
+                style={{
+                  maxHeight: '100%',
+                  width: 'auto',
+                  height: 'auto'
+                }}
+              />
+            </div>
+
+            {/* Large Text Overlay */}
+            <h1 
+              className="relative z-10 text-center leading-none uppercase font-black"
+              style={{
+                fontSize: 'clamp(80px, 22vw, 320px)',
+                color: '#CCFF00',
+                fontFamily: 'Anton, sans-serif',
+                textShadow: `
+                  2px 2px 0 #0047e6,
+                  4px 4px 0 rgba(0, 0, 0, 0.3),
+                  -2px 2px 0 #0047e6,
+                  2px -2px 0 #0047e6
+                `,
+                letterSpacing: '-0.03em',
+                lineHeight: '0.9',
+                wordSpacing: '9999px',
+                animation: 'fadeInUp 1.2s ease-out',
+                transform: `translateY(${scrollY * -0.25}px)`,
+                transition: 'transform 0.1s ease-out'
+              }}
+            >
+              CREATIVE
+              <br />
+              AGENCY
+            </h1>
+
+            {/* Decorative elements around text */}
+            <div 
+              className="absolute hidden lg:flex items-center justify-center"
+              style={{
+                right: '10%',
+                top: '15%',
+                width: '80px',
+                height: '80px',
                 border: '3px solid #CCFF00',
-                animation: 'spin 20s linear infinite',
-                transform: `rotate(${scrollY * 360}deg)`,
+                borderRadius: '50%',
+                transform: `rotate(${scrollY * 0.5}deg)`,
                 transition: 'transform 0.1s linear'
               }}
             >
-              <svg className="w-8 h-8 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-10 h-10 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
               </svg>
             </div>
+
+            {/* Decorative boxes around girl */}
+            <div 
+              className="absolute hidden lg:block"
+              style={{
+                left: '35%',
+                top: '20%',
+                width: '60px',
+                height: '80px',
+                border: '2px solid #CCFF00',
+                borderRadius: '4px',
+                opacity: 0.6,
+                animation: 'pulse 3s ease-in-out infinite'
+              }}
+            />
+            <div 
+              className="absolute hidden lg:block"
+              style={{
+                right: '20%',
+                top: '35%',
+                width: '70px',
+                height: '70px',
+                border: '2px solid #CCFF00',
+                borderRadius: '4px',
+                opacity: 0.5,
+                animation: 'pulse 4s ease-in-out infinite 0.5s'
+              }}
+            />
           </div>
-        </div>
 
-        {/* RIGHT COLUMN */}
-        <div 
-          className="hidden lg:flex flex-col flex-shrink-0 relative z-20"
-          style={{ 
-            width: '240px',
-            paddingTop: '20px',
-            alignItems: 'flex-start',
-            animation: 'fadeInUp 1s ease-out 1.2s backwards',
-            transform: `translateY(${scrollY * 30}px)`,
-            transition: 'transform 0.1s linear'
-          }}
-        >
-          <p 
-            className="text-white/90 text-sm leading-relaxed font-light mb-6"
-            style={{
-              fontFamily: 'Poppins, sans-serif',
-              fontSize: '16px',
-              lineHeight: '1.6',
-              maxWidth: '90%',
-              textAlign: 'justify'
+          {/* RIGHT COLUMN */}
+          <div 
+            className="col-span-12 lg:col-span-2 flex flex-col justify-center z-20"
+            style={{ 
+              animation: 'fadeInRight 1s ease-out 0.2s backwards',
+              transform: `translateY(${scrollY * -0.3}px)`,
             }}
           >
-            Lorem ipsum do adipiscing elit Ut elit tellus luctus nec ullamcorper mattis pulvinar dapibus leo.
-          </p>
+            <p 
+              className="text-white/90 text-sm leading-relaxed font-light mb-8"
+              style={{
+                fontFamily: 'Poppins, sans-serif',
+                fontSize: '15px',
+                lineHeight: '1.7',
+                textAlign: 'left'
+              }}
+            >
+              Lorem ipsum do adipiscing elit Ut elit tellus luctus nec ullamcorper mattis pulvinar dapibus leo.
+            </p>
 
-          <button
-            className="inline-flex items-center gap-2 px-6 py-3 text-base font-bold uppercase transition-all duration-500 hover:scale-95"
-            style={{
-              backgroundColor: '#FFFFFF',
-              color: '#0047e6',
-              border: 'none',
-              borderRadius: '24px',
-              fontFamily: 'Anton, sans-serif',
-              fontSize: '14px'
-            }}
-          >
-            <span>Get Started</span>
-            <ArrowRight size={18} style={{ color: '#0047e6' }} />
-          </button>
+            <button
+              className="inline-flex items-center gap-2 px-6 py-3 font-bold uppercase text-sm transition-all duration-300 hover:scale-105 w-fit border-2"
+              style={{
+                backgroundColor: 'transparent',
+                color: '#CCFF00',
+                borderColor: '#CCFF00',
+                borderRadius: '4px',
+                fontFamily: 'Anton, sans-serif'
+              }}
+            >
+              <span>Get Started</span>
+              <ArrowRight size={16} />
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Styles */}
       <style>{`
-        @keyframes slideInLeft {
+        @keyframes fadeInLeft {
           from {
             opacity: 0;
-            transform: translateX(-50px);
+            transform: translateX(-30px);
           }
           to {
             opacity: 1;
             transform: translateX(0);
           }
         }
-        
-        @keyframes spin {
+
+        @keyframes fadeInRight {
           from {
-            transform: rotate(0deg);
+            opacity: 0;
+            transform: translateX(30px);
           }
           to {
-            transform: rotate(360deg);
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slideInLeft {
+          from {
+            width: 0;
+          }
+          to {
+            width: 64px;
+          }
+        }
+
+        @keyframes pulse {
+          0%, 100% {
+            opacity: 0.5;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.8;
+            transform: scale(1.05);
           }
         }
       `}</style>
