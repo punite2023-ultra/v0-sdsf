@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Anton, Poppins } from "next/font/google"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 const anton = Anton({
   subsets: ["latin"],
@@ -13,6 +13,25 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 })
+
+type Slide = {
+  image: string
+  line1: string
+  line2: string
+}
+
+const slides: Slide[] = [
+  {
+    image: "/HeroImage1.png",
+    line1: "CONTENT CREATION",
+    line2: "& BRANDING",
+  },
+  {
+    image: "/HeroImage2.png",
+    line1: "INFLUENCER",
+    line2: "& AFFILIATE MARKETING",
+  },
+]
 
 function StarCore() {
   return (
@@ -97,6 +116,27 @@ function StatBlock({
 
 export function HeroSection() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 })
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [animKey, setAnimKey] = useState(0)
+
+  const activeSlide = useMemo(() => slides[activeIndex], [activeIndex])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => {
+        const next = (prev + 1) % slides.length
+        return next
+      })
+      setAnimKey((k) => k + 1)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  const goToSlide = (index: number) => {
+    setActiveIndex(index)
+    setAnimKey((k) => k + 1)
+  }
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
@@ -115,7 +155,6 @@ export function HeroSection() {
       onMouseLeave={handleMouseLeave}
       className="relative overflow-hidden text-white"
     >
-      {/* Background */}
       <div className="absolute inset-0 -z-20">
         <Image
           src="/10121357.jpg"
@@ -131,7 +170,6 @@ export function HeroSection() {
 
       <div className="relative z-10 mx-auto flex min-h-[820px] max-w-[1720px] flex-col justify-center px-5 pb-0 pt-8 md:px-8 xl:px-10">
         <div className="relative min-h-[760px] w-full">
-          {/* Left stats */}
           <div
             className="absolute left-0 top-[185px] z-[12] hidden xl:flex xl:flex-col xl:gap-8"
             style={{
@@ -143,7 +181,6 @@ export function HeroSection() {
             <StatBlock value={450} label="MEDIA FEATURED" />
           </div>
 
-          {/* Smaller rotating badge */}
           <div
             className="absolute right-[120px] top-[120px] z-[14] hidden xl:block"
             style={{
@@ -153,15 +190,17 @@ export function HeroSection() {
             <RotatingBadge />
           </div>
 
-          {/* Text behind figure */}
-          <div className="pointer-events-none absolute left-1/2 top-[55%] z-[7] w-full -translate-x-1/2 -translate-y-1/2 text-center">
+          <div
+            key={`text-${animKey}`}
+            className="pointer-events-none absolute left-1/2 top-[55%] z-[7] w-full -translate-x-1/2 -translate-y-1/2 text-center"
+          >
             <div
               className={`${anton.className} hero-fill-text text-[#9c003a] hero-text-enter`}
               style={{
                 transform: `translate(${mouse.x * 6}px, ${mouse.y * 3}px)`,
               }}
             >
-              CONTENT CREATION
+              {activeSlide.line1}
             </div>
             <div
               className={`${anton.className} hero-fill-text hero-fill-text-second text-[#9c003a] hero-text-enter`}
@@ -169,24 +208,24 @@ export function HeroSection() {
                 transform: `translate(${mouse.x * 6}px, ${mouse.y * 3}px)`,
               }}
             >
-              &amp; BRANDING
+              {activeSlide.line2}
             </div>
           </div>
 
           <div className="relative z-10 grid min-h-[760px] grid-cols-1 items-center gap-6 pt-16 xl:grid-cols-[22%_50%_20%] xl:justify-between xl:gap-0">
             <div className="hidden xl:block" />
 
-            {/* Center figure */}
             <div className="relative z-[10] flex min-h-[620px] items-center justify-center overflow-visible">
               <div
+                key={`image-${animKey}`}
                 className="absolute left-1/2 top-1/2 h-[104vh] w-[116vw] max-w-none -translate-x-1/2 -translate-y-1/2 hero-figure-enter"
                 style={{
                   transform: `translate(calc(-50% + ${mouse.x * 10}px), calc(-50% + ${mouse.y * 6}px))`,
                 }}
               >
                 <Image
-                  src="/HeroImage1.png"
-                  alt="Hero figure"
+                  src={activeSlide.image}
+                  alt={activeSlide.line1}
                   fill
                   priority
                   className="object-contain object-center scale-[1.1]"
@@ -195,6 +234,46 @@ export function HeroSection() {
             </div>
 
             <div className="hidden xl:block" />
+          </div>
+
+          <div
+            key={`outline-${animKey}`}
+            className="pointer-events-none absolute left-1/2 top-[55%] z-[11] w-full -translate-x-1/2 -translate-y-1/2 text-center"
+          >
+            <div
+              className={`${anton.className} hero-outline-text text-transparent hero-text-enter`}
+              style={{
+                WebkitTextStroke: "2px #9c003a",
+                transform: `translate(${-mouse.x * 6}px, ${-mouse.y * 3}px)`,
+              }}
+            >
+              {activeSlide.line1}
+            </div>
+            <div
+              className={`${anton.className} hero-outline-text hero-outline-text-second text-transparent hero-text-enter`}
+              style={{
+                WebkitTextStroke: "2px #9c003a",
+                transform: `translate(${-mouse.x * 6}px, ${-mouse.y * 3}px)`,
+              }}
+            >
+              {activeSlide.line2}
+            </div>
+          </div>
+
+          <div className="absolute bottom-8 left-1/2 z-[20] hidden -translate-x-1/2 xl:flex items-center gap-3">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                aria-label={`Go to slide ${index + 1}`}
+                onClick={() => goToSlide(index)}
+                className={`h-2.5 rounded-full transition-all duration-300 ${
+                  activeIndex === index
+                    ? "w-10 bg-[#9c003a]"
+                    : "w-2.5 bg-white/50 hover:bg-white/80"
+                }`}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -207,16 +286,24 @@ export function HeroSection() {
           text-transform: uppercase;
         }
 
-        .hero-fill-text-second {
+        .hero-outline-text {
+          font-size: clamp(72px, 10vw, 180px);
+          line-height: 0.96;
+          letter-spacing: -2px;
+          text-transform: uppercase;
+        }
+
+        .hero-fill-text-second,
+        .hero-outline-text-second {
           margin-top: 2vw;
         }
 
         .hero-figure-enter {
-          animation: figureSlideIn 1.1s ease-out both;
+          animation: figureSlideIn 0.9s ease-out both;
         }
 
         .hero-text-enter {
-          animation: textSlideIn 1.1s ease-out both;
+          animation: textSlideIn 0.9s ease-out both;
         }
 
         .hero-ring-spin {
@@ -232,7 +319,7 @@ export function HeroSection() {
         @keyframes figureSlideIn {
           0% {
             opacity: 0;
-            transform: translateX(-140px) scale(0.96);
+            transform: translateX(140px) scale(0.96);
           }
           100% {
             opacity: 1;
@@ -243,7 +330,7 @@ export function HeroSection() {
         @keyframes textSlideIn {
           0% {
             opacity: 0;
-            transform: translateX(140px);
+            transform: translateX(-140px);
           }
           100% {
             opacity: 1;
