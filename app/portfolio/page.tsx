@@ -14,8 +14,8 @@ export const metadata = {
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform Redesign",
-    category: "Web Design & Development",
+    title: "GARNIER: The Unfiltered Glow Campaign",
+    category: "Content Creation & Branding",
     description: "Complete redesign and development of an e-commerce platform resulting in 45% increase in conversions.",
     image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop",
     tags: ["E-Commerce", "Design", "Development"],
