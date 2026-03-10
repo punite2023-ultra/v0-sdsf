@@ -45,12 +45,14 @@ export function AboutPreview() {
     <section className="bg-muted/30 pt-12 pb-24 lg:pt-16 lg:pb-28">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+
           {/* Images */}
           <ScrollReveal direction="left">
             <div className="relative">
               <div className="grid grid-cols-2 gap-4">
+
                 <div className="space-y-4">
-                  <div className="img-zoom overflow-hidden rounded-[2rem]">
+                  <div className="img-zoom overflow-hidden rounded-2xl">
                     <Image
                       src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=500&fit=crop"
                       alt="Team meeting"
@@ -59,7 +61,8 @@ export function AboutPreview() {
                       className="h-64 w-full object-cover"
                     />
                   </div>
-                  <div className="img-zoom overflow-hidden rounded-[2rem]">
+
+                  <div className="img-zoom overflow-hidden rounded-2xl">
                     <Image
                       src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop"
                       alt="Creative workspace"
@@ -71,7 +74,7 @@ export function AboutPreview() {
                 </div>
 
                 <div className="space-y-4 pt-8">
-                  <div className="img-zoom overflow-hidden rounded-[2rem]">
+                  <div className="img-zoom overflow-hidden rounded-2xl">
                     <Image
                       src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
                       alt="Team collaboration"
@@ -80,7 +83,8 @@ export function AboutPreview() {
                       className="h-48 w-full object-cover"
                     />
                   </div>
-                  <div className="img-zoom overflow-hidden rounded-[2rem]">
+
+                  <div className="img-zoom overflow-hidden rounded-2xl">
                     <Image
                       src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=500&fit=crop"
                       alt="Design process"
@@ -90,8 +94,10 @@ export function AboutPreview() {
                     />
                   </div>
                 </div>
+
               </div>
 
+              {/* Experience Badge */}
               <div className="absolute -bottom-6 -right-6 rounded-2xl bg-primary p-6 text-primary-foreground shadow-xl">
                 <div className="text-4xl font-bold">{count}+</div>
                 <div className="text-sm opacity-90">Years of Excellence</div>
@@ -100,10 +106,10 @@ export function AboutPreview() {
           </ScrollReveal>
 
           {/* Content */}
-          <div className="max-w-[760px]">
+          <div>
             <ScrollReveal>
               <span
-                className={`${raleway.className} text-primary text-lg font-extrabold uppercase tracking-[0.16em]`}
+                className={`${raleway.className} text-primary text-base font-semibold uppercase tracking-[0.14em]`}
               >
                 About Us
               </span>
@@ -111,55 +117,52 @@ export function AboutPreview() {
 
             <ScrollReveal delay={100}>
               <h2
-                className={`${raleway.className} mt-6 max-w-[720px] text-5xl font-extrabold leading-[0.92] tracking-[-0.04em] md:text-6xl lg:text-[6rem]`}
+                className={`${raleway.className} mt-4 mb-6 text-3xl font-extrabold md:text-4xl lg:text-5xl`}
               >
                 We Transform Brands Through Digital Strategy
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
-              <p className="mt-10 max-w-[720px] text-[1.9rem] leading-[1.65] text-muted-foreground md:text-[2rem]">
-                Star Digital Solutions Inc. is a trusted digital partner
-                dedicated to helping brands grow in today’s fast-moving online
-                landscape. We deliver comprehensive solutions that strengthen
-                brand presence, enhance audience engagement, and drive
-                measurable results.
+              <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
+                Star Digital Solutions Inc. is a trusted digital partner dedicated
+                to helping brands grow in today’s fast-moving online landscape.
+                We deliver comprehensive solutions that strengthen brand presence,
+                enhance audience engagement, and drive measurable results.
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={300}>
-              <p className="mt-10 max-w-[720px] text-[1.85rem] leading-[1.7] text-muted-foreground md:text-[1.95rem]">
-                From strategic content development and brand marketing to
-                digital campaign management and platform optimization, our team
-                ensures businesses stay competitive across evolving digital
-                channels. More than a service provider, we become a partner
-                committed to long-term growth.
+              <p className="mb-8 leading-relaxed text-muted-foreground">
+                From strategic content development and brand marketing to digital
+                campaign management and platform optimization, our team ensures
+                businesses stay competitive across evolving digital channels.
+                More than a service provider, we become a partner committed to
+                long-term growth.
               </p>
             </ScrollReveal>
 
+            {/* Features */}
             <ScrollReveal delay={400}>
-              <ul className="mt-14 space-y-7">
+              <ul className="mb-8 space-y-4">
                 {features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-5">
-                    <CheckCircle2 className="mt-2 h-7 w-7 shrink-0 text-primary" />
-                    <span className="text-[1.65rem] leading-[1.45] text-foreground">
-                      {feature}
-                    </span>
+                  <li key={feature} className="flex items-center gap-3">
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" />
+                    <span className="text-foreground">{feature}</span>
                   </li>
                 ))}
               </ul>
             </ScrollReveal>
 
             <ScrollReveal delay={500}>
-              <div className="mt-12">
-                <Button asChild size="lg" className="group rounded-full px-8">
-                  <Link href="/about" className="flex items-center gap-2">
-                    Learn More About Us
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </Button>
-              </div>
+              <Button asChild size="lg" className="group rounded-full px-8">
+                <Link href="/about" className="flex items-center gap-2">
+                  Learn More About Us
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
             </ScrollReveal>
+
           </div>
         </div>
       </div>
