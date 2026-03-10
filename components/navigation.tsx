@@ -41,6 +41,7 @@ export function Navigation() {
     >
       <div className="container mx-auto px-6 lg:px-8">
         <nav className="flex items-center justify-between">
+
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <img
@@ -49,7 +50,7 @@ export function Navigation() {
                   ? "/images/StarDigitalSolutionsColor.svg"
                   : "/images/StarDigitalSolutionsWhite.svg"
               }
-              alt="Logo"
+              alt="Star Digital Solutions"
               className="h-[72px] w-auto"
             />
           </Link>
@@ -60,12 +61,12 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-300 underline-animation ${
+                className={`text-sm font-medium transition-all duration-300 underline-animation ${
                   pathname === link.href
                     ? "text-[#ff002f]"
                     : isScrolled
-                    ? "text-[#62248e] hover:text-[#62248e]/80"
-                    : "text-white hover:text-white/80"
+                    ? "text-[#62248e] hover:text-[#ff002f]"
+                    : "text-white hover:text-[#ff002f]"
                 }`}
               >
                 {link.label}
@@ -75,7 +76,10 @@ export function Navigation() {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button asChild className="rounded-full px-6 transition-all duration-300 hover:scale-105">
+            <Button
+              asChild
+              className="rounded-full px-6 transition-all duration-300 hover:scale-105"
+            >
               <Link href="/contact">Get Started</Link>
             </Button>
           </div>
@@ -87,9 +91,17 @@ export function Navigation() {
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className={`w-6 h-6 ${isScrolled ? "text-[#62248e]" : "text-white"}`} />
+              <X
+                className={`w-6 h-6 ${
+                  isScrolled ? "text-[#62248e]" : "text-white"
+                }`}
+              />
             ) : (
-              <Menu className={`w-6 h-6 ${isScrolled ? "text-[#62248e]" : "text-white"}`} />
+              <Menu
+                className={`w-6 h-6 ${
+                  isScrolled ? "text-[#62248e]" : "text-white"
+                }`}
+              />
             )}
           </button>
         </nav>
@@ -97,7 +109,9 @@ export function Navigation() {
         {/* Mobile Menu */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-500 ${
-            isMobileMenuOpen ? "max-h-[500px] opacity-100 mt-6" : "max-h-0 opacity-0"
+            isMobileMenuOpen
+              ? "max-h-[500px] opacity-100 mt-6"
+              : "max-h-0 opacity-0"
           }`}
         >
           <div className="bg-card rounded-2xl p-6 shadow-lg">
@@ -110,18 +124,20 @@ export function Navigation() {
                   className={`text-base font-medium py-2 transition-colors ${
                     pathname === link.href
                       ? "text-[#ff002f]"
-                      : "text-[#62248e] hover:text-[#62248e]/80"
+                      : "text-[#62248e] hover:text-[#ff002f]"
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
+
               <Button asChild className="rounded-full mt-4">
                 <Link href="/contact">Get Started</Link>
               </Button>
             </div>
           </div>
         </div>
+
       </div>
     </header>
   )
