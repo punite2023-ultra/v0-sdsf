@@ -92,7 +92,6 @@ export function AboutPreview() {
                 </div>
               </div>
 
-              {/* Experience Badge */}
               <div className="absolute -bottom-6 -right-6 rounded-2xl bg-primary p-6 text-primary-foreground shadow-xl">
                 <div className="text-4xl font-bold">{count}+</div>
                 <div className="text-sm opacity-90">Years of Excellence</div>
@@ -101,10 +100,10 @@ export function AboutPreview() {
           </ScrollReveal>
 
           {/* Content */}
-          <div className="max-w-xl">
+          <div className="max-w-[760px]">
             <ScrollReveal>
               <span
-                className={`${raleway.className} text-primary text-base font-semibold uppercase tracking-[0.18em]`}
+                className={`${raleway.className} text-primary text-lg font-extrabold uppercase tracking-[0.16em]`}
               >
                 About Us
               </span>
@@ -112,14 +111,14 @@ export function AboutPreview() {
 
             <ScrollReveal delay={100}>
               <h2
-                className={`${raleway.className} mt-4 mb-6 text-4xl font-extrabold leading-tight md:text-5xl lg:text-[52px]`}
+                className={`${raleway.className} mt-6 max-w-[720px] text-5xl font-extrabold leading-[0.92] tracking-[-0.04em] md:text-6xl lg:text-[6rem]`}
               >
                 We Transform Brands Through Digital Strategy
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
-              <p className="mb-6 text-xl leading-relaxed text-muted-foreground md:text-[1.55rem]">
+              <p className="mt-10 max-w-[720px] text-[1.9rem] leading-[1.65] text-muted-foreground md:text-[2rem]">
                 Star Digital Solutions Inc. is a trusted digital partner
                 dedicated to helping brands grow in today’s fast-moving online
                 landscape. We deliver comprehensive solutions that strengthen
@@ -129,7 +128,7 @@ export function AboutPreview() {
             </ScrollReveal>
 
             <ScrollReveal delay={300}>
-              <p className="mb-8 text-lg leading-relaxed text-muted-foreground md:text-[1.15rem]">
+              <p className="mt-10 max-w-[720px] text-[1.85rem] leading-[1.7] text-muted-foreground md:text-[1.95rem]">
                 From strategic content development and brand marketing to
                 digital campaign management and platform optimization, our team
                 ensures businesses stay competitive across evolving digital
@@ -138,25 +137,28 @@ export function AboutPreview() {
               </p>
             </ScrollReveal>
 
-            {/* Features */}
             <ScrollReveal delay={400}>
-              <ul className="mb-8 space-y-5">
+              <ul className="mt-14 space-y-7">
                 {features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-4">
-                    <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-primary" />
-                    <span className="text-lg text-foreground">{feature}</span>
+                  <li key={feature} className="flex items-start gap-5">
+                    <CheckCircle2 className="mt-2 h-7 w-7 shrink-0 text-primary" />
+                    <span className="text-[1.65rem] leading-[1.45] text-foreground">
+                      {feature}
+                    </span>
                   </li>
                 ))}
               </ul>
             </ScrollReveal>
 
             <ScrollReveal delay={500}>
-              <Button asChild size="lg" className="group rounded-full px-8">
-                <Link href="/about" className="flex items-center gap-2">
-                  Learn More About Us
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
+              <div className="mt-12">
+                <Button asChild size="lg" className="group rounded-full px-8">
+                  <Link href="/about" className="flex items-center gap-2">
+                    Learn More About Us
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+              </div>
             </ScrollReveal>
           </div>
         </div>
