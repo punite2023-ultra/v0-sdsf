@@ -4,7 +4,6 @@ import { useState } from "react"
 import {
   ArrowUpRight,
   Palette,
-  Code,
   Smartphone,
   TrendingUp,
   BarChart3,
@@ -20,79 +19,15 @@ const raleway = Raleway({
 
 const services = [
   {
-    icon: Palette,
-    title: "Brand Strategy & Identity",
-    description:
-      "Build a compelling brand identity that resonates with your target audience and sets you apart from competitors.",
-    details: [
-      "Logo Design",
-      "Brand Guidelines",
-      "Visual Identity",
-      "Brand Messaging",
-    ],
-    iconBg: "bg-sky-500/12 text-sky-600",
-    hoverBg: "hover:bg-sky-50",
-    activeBg: "bg-sky-50",
-    bullet: "bg-sky-600",
-  },
-  {
-    icon: Code,
-    title: "Web Development",
-    description:
-      "Custom-built, high-performance websites and applications tailored to your business needs.",
-    details: [
-      "Frontend Development",
-      "Backend Systems",
-      "E-commerce Solutions",
-      "API Integration",
-    ],
-    iconBg: "bg-fuchsia-500/12 text-fuchsia-600",
-    hoverBg: "hover:bg-fuchsia-50",
-    activeBg: "bg-fuchsia-50",
-    bullet: "bg-fuchsia-600",
-  },
-  {
-    icon: Smartphone,
-    title: "UX/UI Design",
-    description:
-      "User-centered design that creates intuitive, beautiful interfaces that drive engagement.",
-    details: [
-      "User Research",
-      "Wireframing",
-      "Prototyping",
-      "Design Systems",
-    ],
-    iconBg: "bg-emerald-500/12 text-emerald-600",
-    hoverBg: "hover:bg-emerald-50",
-    activeBg: "bg-emerald-50",
-    bullet: "bg-emerald-600",
-  },
-  {
     icon: TrendingUp,
-    title: "Digital Marketing",
+    title: "Social Media Marketing",
     description:
-      "Strategic marketing campaigns that connect with your audience and drive measurable results.",
+      "Elevate brand awareness and engagement across major social media platforms through strategic campaigns and data-driven content.",
     details: [
-      "SEO Optimization",
-      "Content Strategy",
-      "Social Media",
-      "PPC Campaigns",
-    ],
-    iconBg: "bg-orange-500/12 text-orange-600",
-    hoverBg: "hover:bg-orange-50",
-    activeBg: "bg-orange-50",
-    bullet: "bg-orange-600",
-  },
-  {
-    icon: BarChart3,
-    title: "Analytics & Strategy",
-    description:
-      "Data-driven insights and strategic recommendations to optimize your digital presence.",
-    details: [
+      "Social Media Strategy",
+      "Community Management",
+      "Content Scheduling",
       "Performance Analytics",
-      "User Behavior Analysis",
-      "Conversion Optimization",
-      "Reporting",
     ],
     iconBg: "bg-blue-500/12 text-blue-600",
     hoverBg: "hover:bg-blue-50",
@@ -100,20 +35,84 @@ const services = [
     bullet: "bg-blue-600",
   },
   {
-    icon: Zap,
-    title: "Marketing Automation",
+    icon: Palette,
+    title: "Content Creation & Branding",
     description:
-      "Streamline your marketing processes with automation tools that increase efficiency and ROI.",
+      "Develop compelling visual and written content that resonates with target audiences while building a strong brand identity.",
     details: [
-      "Email Marketing",
-      "Lead Nurturing",
-      "Workflow Automation",
-      "CRM Integration",
+      "Creative Content Production",
+      "Brand Identity Design",
+      "Visual Storytelling",
+      "Campaign Creative Direction",
     ],
-    iconBg: "bg-amber-500/12 text-amber-600",
-    hoverBg: "hover:bg-amber-50",
-    activeBg: "bg-amber-50",
-    bullet: "bg-amber-600",
+    iconBg: "bg-purple-500/12 text-purple-600",
+    hoverBg: "hover:bg-purple-50",
+    activeBg: "bg-purple-50",
+    bullet: "bg-purple-600",
+  },
+  {
+    icon: Smartphone,
+    title: "E-Commerce Strategy & Management",
+    description:
+      "Streamline online store operations and optimize digital commerce strategies to increase efficiency and drive sales growth.",
+    details: [
+      "Marketplace Management",
+      "Store Optimization",
+      "Product Listing Strategy",
+      "Conversion Optimization",
+    ],
+    iconBg: "bg-emerald-500/12 text-emerald-600",
+    hoverBg: "hover:bg-emerald-50",
+    activeBg: "bg-emerald-50",
+    bullet: "bg-emerald-600",
+  },
+  {
+    icon: BarChart3,
+    title: "Influencer & Affiliate Marketing",
+    description:
+      "Collaborate with trusted influencers and affiliates to expand brand reach, drive awareness, and boost conversions.",
+    details: [
+      "Influencer Partnerships",
+      "Affiliate Program Management",
+      "Campaign Coordination",
+      "Performance Tracking",
+    ],
+    iconBg: "bg-orange-500/12 text-orange-600",
+    hoverBg: "hover:bg-orange-50",
+    activeBg: "bg-orange-50",
+    bullet: "bg-orange-600",
+  },
+  {
+    icon: Zap,
+    title: "Live Streaming & Social Commerce",
+    description:
+      "Boost engagement and sales through interactive live streaming experiences across major social commerce platforms.",
+    details: [
+      "Live Commerce Strategy",
+      "Host & Production Management",
+      "Real-Time Audience Engagement",
+      "Sales Performance Tracking",
+    ],
+    iconBg: "bg-pink-500/12 text-pink-600",
+    hoverBg: "hover:bg-pink-50",
+    activeBg: "bg-pink-50",
+    bullet: "bg-pink-600",
+  },
+  {
+    icon: BarChart3,
+    title: "Digital Advertising & Performance Marketing",
+    description:
+      "Drive targeted traffic and maximize ROI through optimized advertising campaigns across search and social platforms.",
+    details: [
+      "Meta & TikTok Ads",
+      "Google Ads Management",
+      "Conversion Tracking",
+      "Campaign Optimization",
+    ],
+    iconBg: "bg-indigo-500/12 text-indigo-600",
+    hoverBg: "hover:bg-indigo-50",
+    activeBg: "bg-indigo-50",
+    bullet: "bg-indigo-600",
   },
 ]
 
