@@ -11,7 +11,7 @@ const categories = ["All", "Branding", "Web Design", "Development", "Marketing"]
 const projects = [
   {
     id: 1,
-    title: "Luxe Fashion Brand",
+    title: "Luxe Fashion Brandss",
     category: "Branding",
     image:
       "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
