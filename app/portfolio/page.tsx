@@ -16,11 +16,11 @@ const projects = [
     id: 1,
     title: "GARNIER: The Unfiltered Glow Campaign",
     category: "Content Creation & Branding",
-    description: "Complete redesign and development of an e-commerce platform resulting in 45% increase in conversions.",
+    description: "Developed an authenticity-driven content and branding campaign for Garnier’s Vitamin C Serum.",
     image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop",
     tags: ["E-Commerce", "Design", "Development"],
     year: "2024",
-    results: ["45% conversion increase", "3x faster load times", "150% ROI"],
+    results: ["150% Engagement Increase", "40% Positive Brand Sentiment", "25% Online Sales Growth"],
   },
   {
     id: 2,
