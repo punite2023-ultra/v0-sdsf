@@ -45,10 +45,12 @@ export function AboutPreview() {
     <section className="bg-muted/30 pt-12 pb-24 lg:pt-16 lg:pb-28">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+
           {/* Images */}
           <ScrollReveal direction="left">
             <div className="relative">
               <div className="grid grid-cols-2 gap-4">
+
                 <div className="space-y-4">
                   <div className="img-zoom overflow-hidden rounded-2xl">
                     <Image
@@ -92,6 +94,7 @@ export function AboutPreview() {
                     />
                   </div>
                 </div>
+
               </div>
 
               {/* Experience Badge */}
@@ -104,6 +107,7 @@ export function AboutPreview() {
 
           {/* Content */}
           <div>
+
             <ScrollReveal>
               <span
                 className={`${raleway.className} text-primary text-base font-semibold uppercase tracking-[0.14em]`}
@@ -121,15 +125,23 @@ export function AboutPreview() {
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
-              <p className="mb-8 text-lg leading-relaxed text-muted-foreground">
+              <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
                 Star Digital Solutions Inc. helps brands grow in today’s
                 fast-moving digital landscape through strategic marketing,
                 creative content, and platform management.
               </p>
             </ScrollReveal>
 
-            {/* Features */}
             <ScrollReveal delay={300}>
+              <p className="mb-8 leading-relaxed text-muted-foreground">
+                Our team delivers data-driven solutions that strengthen brand
+                presence, increase engagement, and drive measurable results
+                across digital channels.
+              </p>
+            </ScrollReveal>
+
+            {/* Features */}
+            <ScrollReveal delay={400}>
               <ul className="mb-8 space-y-4">
                 {features.map((feature) => (
                   <li key={feature} className="flex items-center gap-3">
@@ -140,7 +152,7 @@ export function AboutPreview() {
               </ul>
             </ScrollReveal>
 
-            <ScrollReveal delay={400}>
+            <ScrollReveal delay={500}>
               <Button asChild size="lg" className="group rounded-full px-8">
                 <Link href="/about" className="flex items-center gap-2">
                   Learn More About Us
@@ -148,6 +160,7 @@ export function AboutPreview() {
                 </Link>
               </Button>
             </ScrollReveal>
+
           </div>
         </div>
       </div>
