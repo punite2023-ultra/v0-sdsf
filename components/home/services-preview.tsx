@@ -14,7 +14,7 @@ import { Raleway } from "next/font/google"
 
 const raleway = Raleway({
   subsets: ["latin"],
-  weight: ["500", "800"],
+  weight: ["400", "800"],
 })
 
 const services = [
@@ -144,7 +144,9 @@ function ServiceCard({
           <Icon className="h-7 w-7" />
         </div>
 
-        <h3 className="mb-4 flex items-start justify-between gap-3 text-[28px] font-semibold leading-[1.12] tracking-[-0.02em] text-foreground">
+        <h3
+          className={`${raleway.className} mb-4 flex items-start justify-between gap-3 text-[28px] font-[800] leading-[1.12] tracking-[-0.02em] text-foreground`}
+        >
           <span>{service.title}</span>
           <ArrowUpRight
             className={`mt-1 h-5 w-5 shrink-0 transition-all duration-300 ${
@@ -205,7 +207,7 @@ export function ServicesPreview() {
 
           <ScrollReveal delay={100}>
             <h2
-              className={`${raleway.className} mt-4 mb-6 text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl`}
+              className={`${raleway.className} mt-4 mb-6 text-4xl font-[800] leading-tight md:text-5xl lg:text-6xl`}
             >
               Services We Offer
             </h2>
