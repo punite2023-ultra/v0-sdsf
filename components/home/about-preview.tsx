@@ -42,13 +42,15 @@ export function AboutPreview() {
   }, [])
 
   return (
-    <section className="bg-muted/30 py-24 lg:py-32">
+    <section className="bg-muted/30 pt-12 pb-24 lg:pt-16 lg:pb-28">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+          
           {/* Images */}
           <ScrollReveal direction="left">
             <div className="relative">
               <div className="grid grid-cols-2 gap-4">
+                
                 <div className="space-y-4">
                   <div className="img-zoom overflow-hidden rounded-2xl">
                     <Image
@@ -59,6 +61,7 @@ export function AboutPreview() {
                       className="h-64 w-full object-cover"
                     />
                   </div>
+
                   <div className="img-zoom overflow-hidden rounded-2xl">
                     <Image
                       src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop"
@@ -80,6 +83,7 @@ export function AboutPreview() {
                       className="h-48 w-full object-cover"
                     />
                   </div>
+
                   <div className="img-zoom overflow-hidden rounded-2xl">
                     <Image
                       src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=500&fit=crop"
@@ -104,7 +108,7 @@ export function AboutPreview() {
           <div>
             <ScrollReveal>
               <span
-                className={`${raleway.className} text-primary text-sm font-medium uppercase tracking-[0.18em]`}
+                className={`${raleway.className} text-primary text-base font-semibold uppercase tracking-[0.14em]`}
               >
                 About Us
               </span>
@@ -154,6 +158,7 @@ export function AboutPreview() {
                 </Link>
               </Button>
             </ScrollReveal>
+
           </div>
         </div>
       </div>
