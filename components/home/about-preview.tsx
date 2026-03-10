@@ -112,7 +112,7 @@ export function AboutPreview() {
               <span
                 className={`${raleway.className} text-primary text-base font-semibold uppercase tracking-[0.14em]`}
               >
-                About Us
+                What We Do
               </span>
             </ScrollReveal>
 
