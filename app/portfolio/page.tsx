@@ -7,20 +7,20 @@ import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export const metadata = {
-  title: "Portfolio | Star Digital Solutions Agency",
+  title: "Portfolio | Aurelia Creative Agency",
   description: "Explore our collection of successful projects and case studies that showcase our expertise and creativity.",
 }
 
 const projects = [
   {
     id: 1,
-    title: "The "Unfiltered Glow" Campaign",
-    category: "Content Creation & Branding",
+    title: "E-Commerce Platform Redesign",
+    category: "Web Design & Development",
     description: "Complete redesign and development of an e-commerce platform resulting in 45% increase in conversions.",
-    image: "https://unsplash.com/photos/person-holding-white-and-purple-plastic-bottle-XCoZgF_wT7Aw=800&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop",
     tags: ["E-Commerce", "Design", "Development"],
     year: "2024",
-    results: ["A 150% increase in TikTok engagement", "40% positive shift in conversations", "25% increase in online sales"],
+    results: ["45% conversion increase", "3x faster load times", "150% ROI"],
   },
   {
     id: 2,
