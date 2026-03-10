@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 
 export const metadata = {
   title: "Portfolio | Aurelia Creative Agency",
-  description: "Explore our collection of successful projects that showcase our expertise and creativity.",
+  description: "Explore our collection of successful projects and case studies that showcase our expertise and creativity.",
 }
 
 const projects = [
@@ -17,7 +17,7 @@ const projects = [
     title: "GARNIER: The Unfiltered Glow Campaign",
     category: "Content Creation & Branding",
     description: "Developed an authenticity-driven content and branding campaign for Garnier’s Vitamin C Serum.",
-    image: "https://images.unsplash.com/photo-1582020738577-2e7a48043902?w=800&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-1582020738577-2e7a48043902?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fGxvdGlvbiUyMHByb2R1Y3RzfGVufDB8fDB8fHww?w=800&h=600&fit=crop",
     tags: ["E-Commerce", "Design", "Development"],
     year: "2024",
     results: ["150% Engagement Increase", "40% Positive Brand Sentiment", "25% Online Sales Growth"],
@@ -26,8 +26,9 @@ const projects = [
     id: 2,
     title: "Colgate Optic White Advanced Toothpaste",
     category: "E-Commerce Strategy & Management",
-    description: "Executed a full e-commerce optimization strategy for Colgate.",
-    image: "https://images.unsplash.com/photo-1661347215653-9c8ca91685c9?w=800&h=600&fit=crop",
+    description:
+      "Executed a full e-commerce optimization strategy for Colgate, enhancing product discoverability, improving listing performance, and managing promotional campaigns",
+    image: "https://images.unsplash.com/photo-1661347215653-9c8ca91685c9?q=80&w=930&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=800&h=600&fit=crop",
     tags: ["Management", "Development", "Strategy"],
     year: "2024",
     results: ["10K+ active users", "$2M ARR", "5-star rating"],
@@ -36,8 +37,9 @@ const projects = [
     id: 3,
     title: "Dove Real Beauty Skincare Line",
     category: "Social Media Marketing",
-    description: "Strengthened Unilever’s social media presence with authentic content strategy.",
-    image: "https://plus.unsplash.com/premium_photo-1679511319174-d35c3ffe0dd0?w=800&h=600&fit=crop",
+    description:
+      "Strengthen Unilever’s social media presence and increase audience engagement by creating an authentic, purpose-driven content strategy",
+    image: "https://plus.unsplash.com/premium_photo-1679511319174-d35c3ffe0dd0?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dw=800&h=600&fit=crop",
     tags: ["Branding", "Social Media", "Marketing"],
     year: "2023",
     results: ["100+ brand touchpoints", "Consistent visual language", "Market recognition"],
@@ -46,11 +48,31 @@ const projects = [
     id: 4,
     title: "Palmolive Naturals Body Wash",
     category: "Influencer & Affiliate Marketing",
-    description: "Leveraged influencer partnerships to boost awareness and sales.",
-    image: "https://plus.unsplash.com/premium_photo-1764591621174-422ec90e7ee5?w=800&h=600&fit=crop",
-    tags: ["Influencer", "Affiliate", "Campaign"],
+    description: "Increase product awareness and online sales by leveraging influencer partnerships and affiliate-driven content.",
+    image: "https://plus.unsplash.com/premium_photo-1764591621174-422ec90e7ee5?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=800&h=600&fit=crop",
+    tags: ["Indfluencer", "Development", "Affiliate"],
     year: "2023",
     results: ["100K+ downloads", "4.8-star rating", "Top 10 category"],
+  },
+  {
+    id: 5,
+    title: "Marketing Campaign",
+    category: "Digital Marketing",
+    description: "Executed an integrated marketing campaign across multiple channels generating 500K impressions and 50K conversions.",
+    image: "https://plus.unsplash.com/premium_photo-1684529265739-b03f9ceb5a67?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=800&h=600&fit=crop",
+    tags: ["Marketing", "Campaign", "Analytics"],
+    year: "2023",
+    results: ["500K impressions", "50K conversions", "8% CTR"],
+  },
+  {
+    id: 6,
+    title: "Analytics & Optimization",
+    category: "Data & Strategy",
+    description: "Implemented comprehensive analytics and A/B testing framework that optimized user experience and increased revenue.",
+    image: "https://plus.unsplash.com/premium_photo-1685223895585-5d620fb5ba7b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=800&h=600&fit=crop",
+    tags: ["Analytics", "Strategy", "Optimization"],
+    year: "2023",
+    results: ["35% revenue increase", "2x engagement", "Custom dashboards"],
   },
 ]
 
@@ -58,23 +80,25 @@ export default function PortfolioPage() {
   return (
     <>
       <Navigation />
-
       <main>
-
-        {/* HERO */}
-        <section className="pt-32 pb-10 lg:pt-40 lg:pb-12">
+        {/* Hero */}
+        <section className="pt-32 pb-8 lg:pt-40 lg:pb-10">
           <div className="container mx-auto px-6 lg:px-8">
-
             <div className="max-w-4xl mx-auto text-center">
-
               <ScrollReveal>
-                <span className="text-primary font-medium text-sm uppercase tracking-wider">
+                <span
+                  className="text-primary font-medium text-sm uppercase tracking-wider"
+                  style={{ fontFamily: "var(--font-raleway)" }}
+                >
                   Our Work
                 </span>
               </ScrollReveal>
 
               <ScrollReveal delay={100}>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mt-4 mb-6 uppercase">
+                <h1
+                  className="text-4xl md:text-5xl lg:text-6xl font-extrabold mt-4 mb-6 uppercase"
+                  style={{ fontFamily: "var(--font-raleway)" }}
+                >
                   FEATURED PROJECTS
                 </h1>
               </ScrollReveal>
@@ -84,26 +108,18 @@ export default function PortfolioPage() {
                   Explore our collection of successful projects that showcase our expertise, creativity, and commitment to excellence.
                 </p>
               </ScrollReveal>
-
             </div>
-
           </div>
         </section>
 
-
-        {/* PROJECT GRID */}
+        {/* Projects Grid */}
         <section className="pt-6 pb-20 lg:pt-8 lg:pb-28">
           <div className="container mx-auto px-6 lg:px-8">
-
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
               {projects.map((project, index) => (
                 <ScrollReveal key={project.id} delay={index * 100}>
-
                   <div className="group cursor-pointer">
-
                     <div className="relative rounded-2xl overflow-hidden mb-6 h-64">
-
                       <Image
                         src={project.image}
                         alt={project.title}
@@ -111,20 +127,15 @@ export default function PortfolioPage() {
                         height={600}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
-
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <div className="text-center">
-                          <div className="text-primary-foreground font-semibold">
-                            View Case Study
-                          </div>
+                          <div className="text-primary-foreground font-semibold">View Case Study</div>
                           <ArrowRight className="w-5 h-5 text-primary-foreground mt-2 mx-auto" />
                         </div>
                       </div>
-
                     </div>
 
                     <div>
-
                       <div className="inline-block text-xs font-medium text-primary uppercase tracking-wider mb-2">
                         {project.category}
                       </div>
@@ -147,7 +158,6 @@ export default function PortfolioPage() {
 
                       <div className="pt-4 border-t border-border">
                         <p className="text-xs text-muted-foreground mb-3">Key Results:</p>
-
                         <ul className="space-y-1">
                           {project.results.map((result) => (
                             <li key={result} className="text-xs text-foreground flex items-center gap-2">
@@ -156,75 +166,63 @@ export default function PortfolioPage() {
                             </li>
                           ))}
                         </ul>
-
                       </div>
-
                     </div>
-
                   </div>
-
                 </ScrollReveal>
               ))}
-
             </div>
-
           </div>
         </section>
 
-
-        {/* CTA */}
-        <section className="py-20 lg:py-28">
+        {/* CTA Section */}
+        <section className="pb-20 lg:pb-28">
           <div className="container mx-auto px-6 lg:px-8">
+            <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#6f0b95] via-[#8a08a6] to-[#6f0b95] px-8 py-16 md:px-14 md:py-20">
+              <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-white/10" />
+              <div className="pointer-events-none absolute -right-24 -bottom-24 h-72 w-72 rounded-full bg-white/10" />
 
-            <div className="max-w-2xl mx-auto text-center">
-
-              <ScrollReveal>
-                <h2
-                  className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase mb-6"
-                  style={{ color: "#682e94" }}
-                >
-                  READY TO START YOUR PROJECT?
-                </h2>
-              </ScrollReveal>
-
-              <ScrollReveal delay={100}>
-                <p className="text-lg text-muted-foreground mb-8">
-                  Let's collaborate to create something extraordinary. Get in touch and let's discuss your vision.
-                </p>
-              </ScrollReveal>
-
-              <ScrollReveal delay={200}>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-
-                  <Button asChild size="lg" className="rounded-full px-8">
-                    <Link href="/contact">
-                      Start a Project
-                    </Link>
-                  </Button>
-
-                  <Button
-                    asChild
-                    size="lg"
-                    className="rounded-full px-8 text-white"
-                    style={{ backgroundColor: "#c0485e" }}
+              <div className="relative max-w-4xl mx-auto text-center">
+                <ScrollReveal>
+                  <h2
+                    className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase mb-6 text-white"
+                    style={{ fontFamily: "var(--font-raleway)" }}
                   >
-                    <Link href="/services">
-                      Explore Services
-                    </Link>
-                  </Button>
+                    READY TO START YOUR PROJECT?
+                  </h2>
+                </ScrollReveal>
 
-                </div>
+                <ScrollReveal delay={100}>
+                  <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+                    Let&apos;s collaborate to create something extraordinary. Get in touch and let&apos;s discuss your vision.
+                  </p>
+                </ScrollReveal>
 
-              </ScrollReveal>
+                <ScrollReveal delay={200}>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button
+                      asChild
+                      size="lg"
+                      className="rounded-full px-8 bg-[#7b029e] text-white hover:bg-[#682e94] transition-colors duration-300"
+                    >
+                      <Link href="/contact">Start a Project</Link>
+                    </Button>
 
+                    <Button
+                      asChild
+                      size="lg"
+                      className="rounded-full px-8 text-white transition-colors duration-300 hover:bg-[#682e94]"
+                      style={{ backgroundColor: "#c0485e" }}
+                    >
+                      <Link href="/services">Explore Services</Link>
+                    </Button>
+                  </div>
+                </ScrollReveal>
+              </div>
             </div>
-
           </div>
         </section>
-
       </main>
-
       <SiteFooter />
     </>
   )
