@@ -7,7 +7,7 @@ import { ArrowRight, Award, Users, Target, Lightbulb } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export const metadata = {
-  title: "About Us | Aurelia Creative Agency",
+  title: "About Us | Star Digital Solutions Agency",
   description: "Learn about our story, mission, and the talented team behind Aurelia Creative Agency.",
 }
 
@@ -136,17 +136,17 @@ export default function AboutPage() {
                 </ScrollReveal>
                 <ScrollReveal delay={100}>
                   <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-                    From Humble Beginnings to Industry Leaders
+                    We Transform Brands Through Digital Strategy
                   </h2>
                 </ScrollReveal>
                 <ScrollReveal delay={200}>
                   <p className="text-muted-foreground leading-relaxed mb-6">
-                    What started as a small studio with three passionate designers has grown into a full-service digital agency with over 50 talented professionals. Our journey has been defined by a relentless pursuit of excellence and a deep commitment to our clients success.
+                    Star Digital Solutions Inc. helps brands grow in today’s fast-moving digital landscape through strategic marketing, creative content, and platform management.
                   </p>
                 </ScrollReveal>
                 <ScrollReveal delay={300}>
                   <p className="text-muted-foreground leading-relaxed mb-8">
-                    Today, we work with businesses of all sizes, from ambitious startups to Fortune 500 companies, helping them navigate the digital landscape and achieve their goals. Our approach combines strategic thinking with creative execution to deliver results that matter.
+                    Our team delivers data-driven solutions that strengthen brand presence, increase engagement, and drive measurable results across digital channels.
                   </p>
                 </ScrollReveal>
                 <ScrollReveal delay={400}>
