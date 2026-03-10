@@ -40,12 +40,21 @@ export function Navigation() {
     >
       <div className="container mx-auto px-6 lg:px-8">
         <nav className="flex items-center justify-between">
+
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-  <div className="flex items-center">
-    <img src="/images/StarDigitalSolutionsColor.svg" alt="Logo" className="h-19" />
-  </div>
-</Link>
+            <div className="flex items-center">
+              <img
+                src={
+                  isScrolled
+                    ? "/images/StarDigitalSolutionsColor.svg"
+                    : "/images/StarDigitalSolutionsLogoWhite.png"
+                }
+                alt="Logo"
+                className="h-19"
+              />
+            </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
@@ -55,8 +64,8 @@ export function Navigation() {
                 href={link.href}
                 className={`text-sm font-medium transition-colors duration-300 underline-animation ${
                   pathname === link.href
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "text-[#ff002f]"
+                    : "text-white hover:text-white/80"
                 }`}
               >
                 {link.label}
@@ -78,9 +87,9 @@ export function Navigation() {
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
+              <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className="w-6 h-6" />
+              <Menu className="w-6 h-6 text-white" />
             )}
           </button>
         </nav>
@@ -100,7 +109,7 @@ export function Navigation() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`text-base font-medium py-2 transition-colors ${
                     pathname === link.href
-                      ? "text-primary"
+                      ? "text-[#ff002f]"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
@@ -113,6 +122,7 @@ export function Navigation() {
             </div>
           </div>
         </div>
+
       </div>
     </header>
   )
