@@ -76,32 +76,26 @@ const projects = [
   },
 ]
 
-const categories = ["All", "Web Design & Development", "Full-Stack Development", "Branding", "App Development", "Digital Marketing"]
-
 export default function PortfolioPage() {
   return (
     <>
       <Navigation />
       <main>
-        {/* Hero Section */}
+
+        {/* Hero */}
         <section className="pt-32 pb-8 lg:pt-40 lg:pb-10">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
+
               <ScrollReveal>
-                <span
-                  className="text-primary font-medium text-sm uppercase tracking-wider"
-                  style={{ fontFamily: "var(--font-raleway)" }}
-                >
+                <span className="text-primary font-medium text-sm uppercase tracking-wider">
                   Our Work
                 </span>
               </ScrollReveal>
 
               <ScrollReveal delay={100}>
-                <h1
-                  className="text-4xl md:text-5xl lg:text-6xl font-extrabold mt-4 mb-6"
-                  style={{ fontFamily: "var(--font-raleway)" }}
-                >
-                  Featured Projects
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mt-4 mb-6 uppercase">
+                  FEATURED PROJECTS
                 </h1>
               </ScrollReveal>
 
@@ -110,17 +104,22 @@ export default function PortfolioPage() {
                   Explore our collection of successful projects that showcase our expertise, creativity, and commitment to excellence.
                 </p>
               </ScrollReveal>
+
             </div>
           </div>
         </section>
 
-        {/* Projects Grid */}
+
+        {/* Projects */}
         <section className="pt-6 pb-20 lg:pt-8 lg:pb-28">
           <div className="container mx-auto px-6 lg:px-8">
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
                 <ScrollReveal key={project.id} delay={index * 100}>
+
                   <div className="group cursor-pointer">
+
                     <div className="relative rounded-2xl overflow-hidden mb-6 h-64">
                       <Image
                         src={project.image}
@@ -129,6 +128,7 @@ export default function PortfolioPage() {
                         height={600}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
+
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <div className="text-center">
                           <div className="text-primary-foreground font-semibold">View Case Study</div>
@@ -141,9 +141,11 @@ export default function PortfolioPage() {
                       <div className="inline-block text-xs font-medium text-primary uppercase tracking-wider mb-2">
                         {project.category}
                       </div>
+
                       <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
                         {project.title}
                       </h3>
+
                       <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                         {project.description}
                       </p>
@@ -158,6 +160,7 @@ export default function PortfolioPage() {
 
                       <div className="pt-4 border-t border-border">
                         <p className="text-xs text-muted-foreground mb-3">Key Results:</p>
+
                         <ul className="space-y-1">
                           {project.results.map((result) => (
                             <li key={result} className="text-xs text-foreground flex items-center gap-2">
@@ -166,25 +169,32 @@ export default function PortfolioPage() {
                             </li>
                           ))}
                         </ul>
+
                       </div>
                     </div>
+
                   </div>
+
                 </ScrollReveal>
               ))}
             </div>
+
           </div>
         </section>
 
-        {/* CTA Section */}
+
+        {/* CTA */}
         <section className="py-20 lg:py-28 bg-[#111111]">
           <div className="container mx-auto px-6 lg:px-8">
+
             <div className="max-w-2xl mx-auto text-center">
+
               <ScrollReveal>
                 <h2
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
-                  style={{ fontFamily: "var(--font-raleway)", color: "#682e94" }}
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 uppercase"
+                  style={{ color: "#682e94" }}
                 >
-                  Ready to Start Your Project?
+                  READY TO START YOUR PROJECT?
                 </h2>
               </ScrollReveal>
 
@@ -195,23 +205,31 @@ export default function PortfolioPage() {
               </ScrollReveal>
 
               <ScrollReveal delay={200}>
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button
-                    asChild
-                    size="lg"
-                    className="rounded-full px-8 transition-colors duration-300 hover:bg-[#682e94]"
-                  >
+
+                  <Button asChild size="lg" className="rounded-full px-8">
                     <Link href="/contact">Start a Project</Link>
                   </Button>
 
-                  <Button asChild variant="outline" size="lg" className="rounded-full px-8 text-white border-white hover:bg-white hover:text-[#682e94]">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="rounded-full px-8 text-white"
+                    style={{ backgroundColor: "#c0485e" }}
+                  >
                     <Link href="/services">Explore Services</Link>
                   </Button>
+
                 </div>
+
               </ScrollReveal>
+
             </div>
+
           </div>
         </section>
+
       </main>
       <SiteFooter />
     </>
