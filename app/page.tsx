@@ -8,32 +8,21 @@ import { StatsSection } from "@/components/home/stats-section"
 import { TestimonialsSection } from "@/components/home/testimonials-section"
 import { BlogPreview } from "@/components/home/blog-preview"
 import { ClientsMarquee } from "@/components/home/clients-marquee"
-import { ClientLogosStrip } from "@/components/home/client-logos-strip"
 
 export default function HomePage() {
   return (
     <>
       <Navigation />
-
       <main>
         <HeroSection />
-
+        <ClientsMarquee />
         <AboutPreview />
-
-        {/* NEW CLIENT LOGO STRIP */}
-        <ClientLogosStrip />
-
         <ServicesPreview />
-
         <PortfolioPreview />
-
         <StatsSection />
-
         <TestimonialsSection />
-
         <BlogPreview />
       </main>
-
       <SiteFooter />
     </>
   )
