@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Aurelia | Creative Digital Agency',
+  title: 'Star Digital Solutions | Marketing Agency',
   description: 'We craft exceptional digital experiences that elevate brands and drive results. Strategy, Design, Development, and Marketing.',
   generator: 'v0.app',
   icons: {
