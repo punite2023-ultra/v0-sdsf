@@ -43,17 +43,15 @@ export function Navigation() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex items-center">
-              <img
-                src={
-                  isScrolled
-                    ? "/images/StarDigitalSolutionsColor.svg"
-                    : "/images/StarDigitalSolutionsLogoWhite.png"
-                }
-                alt="Logo"
-                className="h-19"
-              />
-            </div>
+            <img
+              src={
+                isScrolled
+                  ? "/images/StarDigitalSolutionsLogoColor.svg"
+                  : "/images/StarDigitalSolutionsLogoWhite.png"
+              }
+              alt="Logo"
+              className="h-[72px] w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -65,6 +63,8 @@ export function Navigation() {
                 className={`text-sm font-medium transition-colors duration-300 underline-animation ${
                   pathname === link.href
                     ? "text-[#ff002f]"
+                    : isScrolled
+                    ? "text-[#62248e] hover:text-[#62248e]/80"
                     : "text-white hover:text-white/80"
                 }`}
               >
