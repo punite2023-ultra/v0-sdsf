@@ -17,7 +17,7 @@ const projects = [
     title: "GARNIER: The Unfiltered Glow Campaign",
     category: "Content Creation & Branding",
     description: "Developed an authenticity-driven content and branding campaign for Garnier’s Vitamin C Serum.",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-1582020738577-2e7a48043902?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fGxvdGlvbiUyMHByb2R1Y3RzfGVufDB8fDB8fHww?w=800&h=600&fit=crop",
     tags: ["E-Commerce", "Design", "Development"],
     year: "2024",
     results: ["150% Engagement Increase", "40% Positive Brand Sentiment", "25% Online Sales Growth"],
