@@ -15,9 +15,9 @@ export default function HomePage() {
       <Navigation />
       <main>
         <HeroSection />
-        <ClientsMarquee />
         <AboutPreview />
         <ServicesPreview />
+        <ClientsMarquee />
         <PortfolioPreview />
         <StatsSection />
         <TestimonialsSection />
