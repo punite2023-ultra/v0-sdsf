@@ -25,9 +25,6 @@ export default function HomePage() {
 
         <ServicesPreview />
 
-        {/* This is your purple services marquee */}
-        <ClientsMarquee />
-
         <PortfolioPreview />
 
         <StatsSection />
