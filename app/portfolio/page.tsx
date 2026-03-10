@@ -26,7 +26,8 @@ const projects = [
     id: 2,
     title: "Colgate Optic White Advanced Toothpaste",
     category: "E-Commerce Strategy & Management",
-    description: "Executed a full e-commerce optimization strategy for Colgate, enhancing product discoverability, improving listing performance, and managing promotional campaigns",
+    description:
+      "Executed a full e-commerce optimization strategy for Colgate, enhancing product discoverability, improving listing performance, and managing promotional campaigns",
     image: "https://images.unsplash.com/photo-1661347215653-9c8ca91685c9?q=80&w=930&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=800&h=600&fit=crop",
     tags: ["Management", "Development", "Strategy"],
     year: "2024",
@@ -36,7 +37,8 @@ const projects = [
     id: 3,
     title: "Dove Real Beauty Skincare Line",
     category: "Social Media Marketing",
-    description: "Strengthen Unilever’s social media presence and increase audience engagement by creating an authentic, purpose-driven content strategy",
+    description:
+      "Strengthen Unilever’s social media presence and increase audience engagement by creating an authentic, purpose-driven content strategy",
     image: "https://plus.unsplash.com/premium_photo-1679511319174-d35c3ffe0dd0?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dw=800&h=600&fit=crop",
     tags: ["Branding", "Social Media", "Marketing"],
     year: "2023",
@@ -82,17 +84,27 @@ export default function PortfolioPage() {
       <Navigation />
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <section className="pt-32 pb-8 lg:pt-40 lg:pb-10">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <ScrollReveal>
-                <span className="text-primary font-medium text-sm uppercase tracking-wider">Our Work</span>
+                <span
+                  className="text-primary font-medium text-sm uppercase tracking-wider"
+                  style={{ fontFamily: "var(--font-raleway)" }}
+                >
+                  Our Work
+                </span>
               </ScrollReveal>
+
               <ScrollReveal delay={100}>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+                <h1
+                  className="text-4xl md:text-5xl lg:text-6xl font-extrabold mt-4 mb-6"
+                  style={{ fontFamily: "var(--font-raleway)" }}
+                >
                   Featured Projects
                 </h1>
               </ScrollReveal>
+
               <ScrollReveal delay={200}>
                 <p className="text-xl text-muted-foreground leading-relaxed">
                   Explore our collection of successful projects that showcase our expertise, creativity, and commitment to excellence.
@@ -103,7 +115,7 @@ export default function PortfolioPage() {
         </section>
 
         {/* Projects Grid */}
-        <section className="py-20 lg:py-28">
+        <section className="pt-6 pb-20 lg:pt-8 lg:pb-28">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
@@ -124,7 +136,7 @@ export default function PortfolioPage() {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div>
                       <div className="inline-block text-xs font-medium text-primary uppercase tracking-wider mb-2">
                         {project.category}
@@ -135,7 +147,7 @@ export default function PortfolioPage() {
                       <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                         {project.description}
                       </p>
-                      
+
                       <div className="flex flex-wrap gap-2 mb-4">
                         {project.tags.map((tag) => (
                           <span key={tag} className="text-xs px-2.5 py-1 bg-muted rounded-full text-muted-foreground">
@@ -143,7 +155,7 @@ export default function PortfolioPage() {
                           </span>
                         ))}
                       </div>
-                      
+
                       <div className="pt-4 border-t border-border">
                         <p className="text-xs text-muted-foreground mb-3">Key Results:</p>
                         <ul className="space-y-1">
@@ -164,25 +176,35 @@ export default function PortfolioPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 lg:py-28 bg-muted/30">
+        <section className="py-20 lg:py-28 bg-[#111111]">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="max-w-2xl mx-auto text-center">
               <ScrollReveal>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-                  Impressed by Our Work?
+                <h2
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+                  style={{ fontFamily: "var(--font-raleway)", color: "#682e94" }}
+                >
+                  Ready to Start Your Project?
                 </h2>
               </ScrollReveal>
+
               <ScrollReveal delay={100}>
-                <p className="text-lg text-muted-foreground mb-8">
-                  Let us help you create something amazing. Get in touch with our team to discuss your project.
+                <p className="text-lg text-white mb-8">
+                  Let&apos;s collaborate to create something extraordinary. Get in touch and let&apos;s discuss your vision.
                 </p>
               </ScrollReveal>
+
               <ScrollReveal delay={200}>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button asChild size="lg" className="rounded-full px-8">
-                    <Link href="/contact">Start Your Project</Link>
+                  <Button
+                    asChild
+                    size="lg"
+                    className="rounded-full px-8 transition-colors duration-300 hover:bg-[#682e94]"
+                  >
+                    <Link href="/contact">Start a Project</Link>
                   </Button>
-                  <Button asChild variant="outline" size="lg" className="rounded-full px-8">
+
+                  <Button asChild variant="outline" size="lg" className="rounded-full px-8 text-white border-white hover:bg-white hover:text-[#682e94]">
                     <Link href="/services">Explore Services</Link>
                   </Button>
                 </div>
