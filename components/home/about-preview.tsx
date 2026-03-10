@@ -14,10 +14,10 @@ const raleway = Raleway({
 })
 
 const features = [
-  "Strategic approach to every project",
-  "Experienced team of 50+ specialists",
-  "Transparent communication & reporting",
-  "Results-driven methodology",
+  "Strategic digital solutions tailored to your brand",
+  "Experienced team of digital specialists and creators",
+  "Transparent communication and performance reporting",
+  "Data-driven strategies focused on measurable growth",
 ]
 
 export function AboutPreview() {
@@ -45,14 +45,12 @@ export function AboutPreview() {
     <section className="bg-muted/30 pt-12 pb-24 lg:pt-16 lg:pb-28">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          
           {/* Images */}
           <ScrollReveal direction="left">
             <div className="relative">
               <div className="grid grid-cols-2 gap-4">
-                
                 <div className="space-y-4">
-                  <div className="img-zoom overflow-hidden rounded-2xl">
+                  <div className="img-zoom overflow-hidden rounded-[2rem]">
                     <Image
                       src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=500&fit=crop"
                       alt="Team meeting"
@@ -61,8 +59,7 @@ export function AboutPreview() {
                       className="h-64 w-full object-cover"
                     />
                   </div>
-
-                  <div className="img-zoom overflow-hidden rounded-2xl">
+                  <div className="img-zoom overflow-hidden rounded-[2rem]">
                     <Image
                       src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop"
                       alt="Creative workspace"
@@ -74,7 +71,7 @@ export function AboutPreview() {
                 </div>
 
                 <div className="space-y-4 pt-8">
-                  <div className="img-zoom overflow-hidden rounded-2xl">
+                  <div className="img-zoom overflow-hidden rounded-[2rem]">
                     <Image
                       src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
                       alt="Team collaboration"
@@ -83,8 +80,7 @@ export function AboutPreview() {
                       className="h-48 w-full object-cover"
                     />
                   </div>
-
-                  <div className="img-zoom overflow-hidden rounded-2xl">
+                  <div className="img-zoom overflow-hidden rounded-[2rem]">
                     <Image
                       src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=500&fit=crop"
                       alt="Design process"
@@ -105,10 +101,10 @@ export function AboutPreview() {
           </ScrollReveal>
 
           {/* Content */}
-          <div>
+          <div className="max-w-xl">
             <ScrollReveal>
               <span
-                className={`${raleway.className} text-primary text-base font-semibold uppercase tracking-[0.14em]`}
+                className={`${raleway.className} text-primary text-base font-semibold uppercase tracking-[0.18em]`}
               >
                 About Us
               </span>
@@ -116,35 +112,39 @@ export function AboutPreview() {
 
             <ScrollReveal delay={100}>
               <h2
-                className={`${raleway.className} mt-4 mb-6 text-3xl font-extrabold md:text-4xl lg:text-5xl`}
+                className={`${raleway.className} mt-4 mb-6 text-4xl font-extrabold leading-tight md:text-5xl lg:text-[52px]`}
               >
-                We Transform Ideas Into Digital Reality
+                We Transform Brands Through Digital Strategy
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
-              <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
-                Since 2009, we have been helping businesses of all sizes achieve
-                their digital goals. Our passionate team combines creativity with
-                technical expertise to deliver solutions that make an impact.
+              <p className="mb-6 text-xl leading-relaxed text-muted-foreground md:text-[1.55rem]">
+                Star Digital Solutions Inc. is a trusted digital partner
+                dedicated to helping brands grow in today’s fast-moving online
+                landscape. We deliver comprehensive solutions that strengthen
+                brand presence, enhance audience engagement, and drive
+                measurable results.
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={300}>
-              <p className="mb-8 leading-relaxed text-muted-foreground">
-                We believe in building lasting partnerships with our clients.
-                Every project we undertake is approached with dedication,
-                innovation, and a commitment to excellence that sets us apart.
+              <p className="mb-8 text-lg leading-relaxed text-muted-foreground md:text-[1.15rem]">
+                From strategic content development and brand marketing to
+                digital campaign management and platform optimization, our team
+                ensures businesses stay competitive across evolving digital
+                channels. More than a service provider, we become a partner
+                committed to long-term growth.
               </p>
             </ScrollReveal>
 
             {/* Features */}
             <ScrollReveal delay={400}>
-              <ul className="mb-8 space-y-4">
+              <ul className="mb-8 space-y-5">
                 {features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" />
-                    <span className="text-foreground">{feature}</span>
+                  <li key={feature} className="flex items-start gap-4">
+                    <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-primary" />
+                    <span className="text-lg text-foreground">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -158,7 +158,6 @@ export function AboutPreview() {
                 </Link>
               </Button>
             </ScrollReveal>
-
           </div>
         </div>
       </div>
