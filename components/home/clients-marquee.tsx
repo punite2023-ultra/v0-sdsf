@@ -11,10 +11,11 @@ const clients = [
 export function ClientsMarquee() {
   return (
     <section
-      className="overflow-hidden border-y border-white/10 bg-black"
+      className="overflow-hidden"
+      style={{ backgroundColor: "#62248e" }}
       aria-label="Services marquee"
     >
-      <div className="relative flex h-14 items-center">
+      <div className="relative flex h-12 items-center">
         <div
           className="flex min-w-max items-center whitespace-nowrap"
           style={{
@@ -22,17 +23,16 @@ export function ClientsMarquee() {
           }}
         >
           {[...clients, ...clients].map((client, index) => (
-            <div
-              key={index}
-              className="flex items-center whitespace-nowrap"
-            >
-              <span className="px-6 text-[18px] font-semibold uppercase leading-none tracking-tight text-white md:text-[20px]">
+            <div key={index} className="flex items-center whitespace-nowrap">
+              
+              <span className="px-5 text-sm font-bold uppercase text-white">
                 {client}
               </span>
 
-              <span className="text-[18px] font-semibold text-white/90 md:text-[20px]">
+              <span className="text-sm font-bold text-white/90">
                 ✦
               </span>
+
             </div>
           ))}
         </div>
