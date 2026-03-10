@@ -26,6 +26,7 @@ export function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
+
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
@@ -40,14 +41,13 @@ export function Navigation() {
     >
       <div className="container mx-auto px-6 lg:px-8">
         <nav className="flex items-center justify-between">
-
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <img
               src={
                 isScrolled
-                  ? "/images/StarDigitalSolutionsLogoColor.svg"
-                  : "/images/StarDigitalSolutionsLogoWhite.png"
+                  ? "/images/StarDigitalSolutionsColor.svg"
+                  : "/images/StarDigitalSolutionsWhite.svg"
               }
               alt="Logo"
               className="h-[72px] w-auto"
@@ -87,9 +87,9 @@ export function Navigation() {
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-white" />
+              <X className={`w-6 h-6 ${isScrolled ? "text-[#62248e]" : "text-white"}`} />
             ) : (
-              <Menu className="w-6 h-6 text-white" />
+              <Menu className={`w-6 h-6 ${isScrolled ? "text-[#62248e]" : "text-white"}`} />
             )}
           </button>
         </nav>
@@ -110,7 +110,7 @@ export function Navigation() {
                   className={`text-base font-medium py-2 transition-colors ${
                     pathname === link.href
                       ? "text-[#ff002f]"
-                      : "text-muted-foreground hover:text-foreground"
+                      : "text-[#62248e] hover:text-[#62248e]/80"
                   }`}
                 >
                   {link.label}
@@ -122,7 +122,6 @@ export function Navigation() {
             </div>
           </div>
         </div>
-
       </div>
     </header>
   )
