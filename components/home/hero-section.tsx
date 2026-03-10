@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Poppins } from "next/font/google"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Play } from "lucide-react"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -12,79 +12,84 @@ const poppins = Poppins({
 
 export function HeroSection() {
   return (
-    <section className={`${poppins.className} relative overflow-hidden bg-[#081f1c]`}>
+    <section className={`${poppins.className} relative overflow-hidden bg-[#f3f3f6]`}>
+      <div className="mx-auto max-w-[1500px] px-4 pb-10 pt-6 md:px-8 xl:px-10">
 
-      {/* subtle grid background */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.08]">
-        <div className="h-full w-full bg-[linear-gradient(#ffffff20_1px,transparent_1px),linear-gradient(90deg,#ffffff20_1px,transparent_1px)] bg-[size:40px_40px]" />
-      </div>
+        {/* HERO CARD */}
+        <div className="relative overflow-hidden rounded-[30px] rounded-bl-[120px] bg-[linear-gradient(135deg,#5d43f3_0%,#6d52ff_45%,#7757ff_100%)] shadow-[0_30px_80px_rgba(70,48,180,0.22)]">
 
-      {/* glow */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-[10%] top-[30%] h-[300px] w-[300px] rounded-full bg-[#00ff9d]/10 blur-[120px]" />
-      </div>
-
-      <div className="relative mx-auto max-w-[1500px] px-6 py-24">
-
-        <div className="grid items-center gap-10 lg:grid-cols-[52%_48%]">
-
-          {/* LEFT TEXT */}
-          <div className="max-w-[620px]">
-
-            <h1 className="text-[42px] font-semibold leading-[1.05] tracking-[-0.02em] text-white md:text-[52px] xl:text-[64px]">
-              The Leading Agency for Digital Influencer Marketing
-            </h1>
-
-            <p className="mt-6 text-[16px] leading-8 text-white/70">
-              Star Digital Solutions helps brands grow through content creation,
-              influencer campaigns, and platform management that builds
-              visibility, engagement, and measurable growth.
-            </p>
-
-            <div className="mt-10 flex items-center gap-5">
-
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-md bg-[#00ff9d] px-7 py-4 text-[14px] font-semibold text-[#021a17] transition hover:brightness-95"
-              >
-                Get Started
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 rounded-md border border-white/30 px-7 py-4 text-[14px] font-medium text-white transition hover:bg-white/10"
-              >
-                Learn More
-              </Link>
-
-            </div>
-
+          {/* background glow */}
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute left-[-40px] top-[120px] h-[200px] w-[200px] rounded-full bg-[#ff7ad9]/15 blur-[10px]" />
+            <div className="absolute right-[12%] top-[0%] h-[220px] w-[220px] rounded-full bg-[#ff7ad9]/10 blur-[10px]" />
+            <div className="absolute right-[-30px] bottom-[80px] h-[260px] w-[260px] rounded-full bg-[#8a72ff]/20 blur-[8px]" />
           </div>
 
-          {/* RIGHT VISUAL */}
-          <div className="relative flex items-center justify-center">
+          {/* ring decoration */}
+          <div className="pointer-events-none absolute bottom-[40px] left-[60px] h-[90px] w-[90px] rounded-full border-[3px] border-[#ff8ccf]/25" />
 
-            {/* circle */}
-            <div className="absolute h-[420px] w-[420px] rounded-full bg-[#0f3a34]" />
+          {/* GRID */}
+          <div className="relative z-10 grid min-h-[520px] items-center gap-8 px-6 py-12 md:px-10 lg:grid-cols-2 lg:px-16">
 
-            {/* hero image */}
-            <div className="relative z-10 h-[420px] w-full max-w-[620px]">
-              <Image
-                src="/HeroImage1.png"
-                alt="Hero image"
-                fill
-                priority
-                className="object-contain object-bottom"
-              />
+            {/* TEXT CONTENT */}
+            <div className="max-w-[680px]">
+
+              <h1 className="text-[36px] font-semibold leading-[1.1] tracking-[-0.02em] text-white md:text-[44px] lg:text-[52px]">
+                Connecting you to the latest stats and trend in Star Digital.
+              </h1>
+
+              <p className="mt-6 max-w-[560px] text-[15px] leading-7 text-white/80 md:text-[16px]">
+                Star Digital Solutions helps brands grow through content,
+                creator campaigns, strategy, and platform management designed
+                to build visibility, engagement, and measurable results.
+              </p>
+
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/50 bg-white/10 px-7 py-3 text-[14px] font-medium text-white transition hover:bg-white/15"
+                >
+                  Explore Now
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-3 rounded-full bg-[#ff9a3d] px-5 py-3 text-white shadow-[0_14px_30px_rgba(255,154,61,0.24)] transition hover:brightness-105"
+                >
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#ff7a00]">
+                    <Play className="ml-0.5 h-4 w-4 fill-current" />
+                  </span>
+
+                  <span className="flex flex-col leading-none">
+                    <span className="text-[13px] font-medium uppercase">
+                      Watch Video
+                    </span>
+                    <span className="text-[12px] text-white/90">
+                      Start your free trial
+                    </span>
+                  </span>
+                </Link>
+
+              </div>
             </div>
 
-            {/* floating card */}
-            <div className="absolute bottom-[40px] right-[40px] rounded-xl bg-white p-5 shadow-xl">
-              <div className="text-[13px] text-gray-500">Happy Clients</div>
-              <div className="mt-1 text-[28px] font-semibold text-[#0b2c28]">
-                1200+
+            {/* HERO IMAGE */}
+            <div className="relative flex justify-center lg:justify-end">
+
+              <div className="relative h-[420px] w-[320px] md:h-[480px] md:w-[360px] lg:h-[520px] lg:w-[400px]">
+
+                <Image
+                  src="/HeroImage2.png"
+                  alt="Hero"
+                  fill
+                  priority
+                  className="object-contain object-bottom drop-shadow-[0_30px_50px_rgba(0,0,0,0.35)]"
+                />
+
               </div>
+
             </div>
 
           </div>
@@ -92,7 +97,6 @@ export function HeroSection() {
         </div>
 
       </div>
-
     </section>
   )
 }
