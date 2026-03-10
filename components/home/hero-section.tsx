@@ -3,7 +3,14 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Poppins } from "next/font/google"
-import { ArrowRight, Heart, UserRound } from "lucide-react"
+import {
+  ArrowRight,
+  Play,
+  BarChart3,
+  Users,
+  Heart,
+  TrendingUp,
+} from "lucide-react"
 import { useState } from "react"
 
 const poppins = Poppins({
@@ -11,45 +18,52 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800"],
 })
 
-function StarShape({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 512 512"
-      className={className}
-      aria-hidden="true"
-      fill="currentColor"
-    >
-      <path d="M414.37 245.29V266.65C332.82 266.65 266.71 332.76 266.71 414.31V414.37H245.41V414.31C245.41 332.76 179.3 266.65 97.75 266.65H97.63V245.29C179.18 245.29 245.29 179.18 245.29 97.63H266.71C266.71 179.18 332.82 245.29 414.37 245.29Z" />
-    </svg>
-  )
-}
-
-function FloatingCard({
+function MiniStat({
   icon,
-  value,
   label,
+  value,
   className = "",
 }: {
   icon: React.ReactNode
-  value: string
   label: string
+  value: string
   className?: string
 }) {
   return (
     <div
-      className={`flex items-center gap-3 rounded-[16px] bg-white px-4 py-3 shadow-[0_16px_35px_rgba(87,78,163,0.12)] ${className}`}
+      className={`rounded-2xl bg-white/95 px-4 py-3 shadow-[0_16px_40px_rgba(33,19,89,0.18)] backdrop-blur ${className}`}
     >
-      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#6c63ff] text-white">
-        {icon}
+      <div className="flex items-center gap-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#f3efff] text-[#6d5cff]">
+          {icon}
+        </div>
+        <div>
+          <div className="text-[14px] font-bold leading-none text-[#1f1f28]">
+            {value}
+          </div>
+          <div className="mt-1 text-[12px] leading-none text-[#7c7c95]">
+            {label}
+          </div>
+        </div>
       </div>
+    </div>
+  )
+}
 
-      <div>
-        <div className="text-[18px] font-bold leading-none text-[#6c63ff]">
-          {value}
-        </div>
-        <div className="mt-1.5 text-[15px] font-medium leading-none text-[#7c7c86]">
-          {label}
-        </div>
+function ChartCard({ className = "" }: { className?: string }) {
+  return (
+    <div
+      className={`rounded-2xl bg-white/95 p-4 shadow-[0_16px_40px_rgba(33,19,89,0.18)] backdrop-blur ${className}`}
+    >
+      <div className="flex items-end gap-2 h-[70px]">
+        <div className="w-3 rounded-full bg-[#d9d2ff] h-[36px]" />
+        <div className="w-3 rounded-full bg-[#c1b7ff] h-[52px]" />
+        <div className="w-3 rounded-full bg-[#8c7cff] h-[62px]" />
+        <div className="w-3 rounded-full bg-[#6d5cff] h-[48px]" />
+        <div className="w-3 rounded-full bg-[#4f3df2] h-[68px]" />
+      </div>
+      <div className="mt-3 text-[12px] font-semibold text-[#7b7b92]">
+        Monthly Growth
       </div>
     </div>
   )
@@ -73,116 +87,151 @@ export function HeroSection() {
     <section
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`${poppins.className} relative overflow-hidden bg-[#efedff]`}
+      className={`${poppins.className} relative overflow-hidden bg-[#f7f4ff]`}
     >
-      {/* bottom curves */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute bottom-[-90px] left-[-5%] h-[210px] w-[60%] rounded-[100%] bg-[#e4e0ff]" />
-        <div className="absolute bottom-[-90px] right-[-5%] h-[210px] w-[55%] rounded-[100%] bg-[#e7e3ff]" />
+        <div className="absolute left-[-120px] top-[80px] h-[280px] w-[280px] rounded-full bg-[#ede7ff]" />
+        <div className="absolute right-[-120px] bottom-[-40px] h-[260px] w-[260px] rounded-full bg-[#efeaff]" />
       </div>
 
-      {/* stars */}
-      <StarShape className="absolute left-[55%] top-[21%] z-[2] h-12 w-12 text-[#6c63ff]" />
-      <StarShape className="absolute right-[8%] bottom-[25%] z-[2] h-12 w-12 text-[#6c63ff]" />
+      <div className="relative z-10 mx-auto max-w-[1380px] px-4 pb-10 pt-8 md:px-8 md:pb-14 xl:px-10">
+        <div className="overflow-hidden rounded-[36px] bg-[linear-gradient(135deg,#5b43f4_0%,#6d52ff_45%,#7f61ff_100%)] shadow-[0_24px_70px_rgba(72,52,201,0.22)]">
+          <div className="grid min-h-[620px] items-center gap-10 px-6 py-10 md:px-10 lg:grid-cols-[1.05fr_0.95fr] lg:px-14 lg:py-14 xl:min-h-[680px] xl:px-16">
+            {/* LEFT */}
+            <div
+              className="relative z-[3] max-w-[560px]"
+              style={{
+                transform: `translate(${mouse.x * -10}px, ${mouse.y * -8}px)`,
+              }}
+            >
+              <div className="mb-5 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85">
+                Social Media Marketing
+              </div>
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-6 pt-8 lg:px-10">
-        <div className="grid min-h-[760px] items-center gap-8 lg:grid-cols-[47%_53%]">
-          {/* LEFT */}
-          <div
-            className="relative z-[5] max-w-[620px]"
-            style={{
-              transform: `translate(${mouse.x * -5}px, ${mouse.y * -4}px)`,
-            }}
-          >
-            <div className="mb-6 text-[14px] font-medium uppercase tracking-[0.08em] text-[#6c63ff] lg:text-[16px]">
-              THE BEST INFLUENCER AGENCY
+              <h1 className="text-[38px] font-bold leading-[1.02] tracking-[-0.04em] text-white sm:text-[48px] md:text-[56px] xl:text-[66px]">
+                Grow your brand
+                <br />
+                with smarter social
+                <br />
+                media strategy
+              </h1>
+
+              <p className="mt-5 max-w-[520px] text-[14px] leading-7 text-white/75 md:text-[15px]">
+                Star Digital Solutions helps brands build visibility, create
+                engaging content, and turn audience attention into measurable
+                digital growth.
+              </p>
+
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#ffb545] px-6 py-3 text-[13px] font-semibold text-[#2a2148] transition hover:opacity-95"
+                >
+                  Get Started
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 text-[13px] font-semibold text-white transition hover:bg-white/15"
+                >
+                  <Play className="h-4 w-4" />
+                  Learn More
+                </Link>
+              </div>
+
+              <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4 text-white/90">
+                <div>
+                  <div className="text-[24px] font-bold leading-none">12K+</div>
+                  <div className="mt-1 text-[12px] text-white/65">
+                    Audience Reached
+                  </div>
+                </div>
+                <div>
+                  <div className="text-[24px] font-bold leading-none">320+</div>
+                  <div className="mt-1 text-[12px] text-white/65">
+                    Campaigns Managed
+                  </div>
+                </div>
+                <div>
+                  <div className="text-[24px] font-bold leading-none">98%</div>
+                  <div className="mt-1 text-[12px] text-white/65">
+                    Client Satisfaction
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <h1 className="text-[64px] font-bold leading-[0.98] tracking-[-0.05em] text-[#252525] xl:text-[76px]">
-              The{" "}
-              <span className="relative inline-block text-[#6c63ff]">
-                Leading
-                <span className="absolute left-0 right-0 bottom-[0.08em] h-[4px] rounded-full bg-[#6c63ff]" />
-              </span>{" "}
-              Agency
-              <br />
-              for Digital
-              <br />
-              Influencer
-              <br />
-              Marketing
-            </h1>
+            {/* RIGHT */}
+            <div className="relative flex min-h-[380px] items-center justify-center md:min-h-[500px] xl:min-h-[560px]">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="h-[260px] w-[260px] rounded-full bg-white/10 blur-2xl md:h-[340px] md:w-[340px]" />
+              </div>
 
-            <p className="mt-8 max-w-[600px] text-[16px] leading-[1.9] text-[#7b7b88] lg:text-[17px]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-            </p>
-
-            <div className="mt-9">
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-3 rounded-[8px] bg-[#6c63ff] px-8 py-4 text-[15px] font-medium uppercase tracking-[0.05em] text-white transition hover:bg-[#5c54f0]"
+              <div
+                className="absolute left-[4%] top-[10%] z-[4]"
+                style={{
+                  transform: `translate(${mouse.x * 8}px, ${mouse.y * 8}px)`,
+                }}
               >
-                LEARN MORE
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-            </div>
-          </div>
+                <MiniStat
+                  icon={<Users className="h-5 w-5" />}
+                  value="240.12k+"
+                  label="Followers"
+                />
+              </div>
 
-          {/* RIGHT */}
-          <div className="relative flex min-h-[620px] items-center justify-center">
-            {/* circle */}
-            <div
-              className="absolute right-[7%] top-1/2 z-[1] h-[430px] w-[430px] -translate-y-1/2 rounded-full bg-[#6c63ff] xl:h-[520px] xl:w-[520px]"
-              style={{
-                transform: `translate(${mouse.x * 8}px, calc(-50% + ${mouse.y * 6}px))`,
-              }}
-            />
+              <div
+                className="absolute left-[8%] bottom-[12%] z-[4]"
+                style={{
+                  transform: `translate(${mouse.x * 10}px, ${mouse.y * 10}px)`,
+                }}
+              >
+                <ChartCard />
+              </div>
 
-            {/* image wrapper - smaller because your asset is wide */}
-            <div
-              className="relative z-[3] h-[420px] w-full max-w-[640px] xl:h-[500px] xl:max-w-[760px]"
-              style={{
-                transform: `translate(${mouse.x * 10}px, ${mouse.y * 6}px)`,
-              }}
-            >
-              <Image
-                src="/HeroImage1.png"
-                alt="Hero image"
-                fill
-                priority
-                className="object-contain object-center"
-              />
-            </div>
+              <div
+                className="absolute right-[0%] top-[18%] z-[4]"
+                style={{
+                  transform: `translate(${mouse.x * 7}px, ${mouse.y * 7}px)`,
+                }}
+              >
+                <MiniStat
+                  icon={<TrendingUp className="h-5 w-5" />}
+                  value="+38%"
+                  label="Engagement Rate"
+                />
+              </div>
 
-            {/* top card */}
-            <div
-              className="absolute right-[1%] top-[24%] z-[4]"
-              style={{
-                transform: `translate(${mouse.x * 4}px, ${mouse.y * 4}px)`,
-              }}
-            >
-              <FloatingCard
-                icon={<UserRound className="h-6 w-6" />}
-                value="100%"
-                label="Top Rated Job"
-                className="min-w-[260px]"
-              />
-            </div>
+              <div
+                className="absolute right-[6%] bottom-[16%] z-[4]"
+                style={{
+                  transform: `translate(${mouse.x * 7}px, ${mouse.y * 8}px)`,
+                }}
+              >
+                <MiniStat
+                  icon={<Heart className="h-5 w-5" />}
+                  value="9.8/10"
+                  label="Brand Score"
+                />
+              </div>
 
-            {/* bottom card */}
-            <div
-              className="absolute bottom-[8%] left-[8%] z-[4]"
-              style={{
-                transform: `translate(${mouse.x * 4}px, ${mouse.y * 4}px)`,
-              }}
-            >
-              <FloatingCard
-                icon={<Heart className="h-6 w-6 fill-current" />}
-                value="99.9%"
-                label="Satisfied Users"
-                className="min-w-[250px]"
-              />
+              <div
+                className="relative z-[3] h-[340px] w-full max-w-[620px] md:h-[430px] xl:h-[500px]"
+                style={{
+                  transform: `translate(${mouse.x * 16}px, ${mouse.y * 10}px)`,
+                }}
+              >
+                <Image
+                  src="/HeroImage1.png"
+                  alt="Star Digital Solutions hero"
+                  fill
+                  priority
+                  className="object-contain object-center drop-shadow-[0_24px_60px_rgba(22,12,80,0.28)]"
+                />
+              </div>
+
+              <div className="pointer-events-none absolute -bottom-10 left-0 h-[140px] w-[220px] rounded-tr-[120px] bg-white/8" />
             </div>
           </div>
         </div>
