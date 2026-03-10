@@ -170,7 +170,7 @@ export default function AboutPage() {
                 <div className="bg-primary text-primary-foreground p-10 lg:p-12 rounded-3xl h-full">
                   <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>Our Mission</h3>
                   <p className="text-primary-foreground/90 leading-relaxed text-lg">
-                    To empower businesses with innovative digital solutions that drive growth, enhance user experiences, and create lasting value. We believe in the transformative power of great design and technology.
+                    We empower brands and businesses with innovative digital strategies, impactful content, and authentic partnerships that drive growth and visibility. By combining creativity, technology, and data-driven insights, we help brands succeed across today’s ever-evolving digital landscape.
                   </p>
                 </div>
               </ScrollReveal>
@@ -178,7 +178,7 @@ export default function AboutPage() {
                 <div className="bg-card border border-border p-10 lg:p-12 rounded-3xl h-full">
                   <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>Our Vision</h3>
                   <p className="text-muted-foreground leading-relaxed text-lg">
-                    To be the most trusted creative partner for businesses worldwide, known for our exceptional work, innovative thinking, and unwavering commitment to client success.
+                    To become the trusted partner of brands worldwide by setting the standard for innovation, creativity, and excellence in digital marketing—helping businesses grow, connect with their audiences, and thrive in the evolving digital landscape.
                   </p>
                 </div>
               </ScrollReveal>
