@@ -1,156 +1,73 @@
 "use client"
 
 import Image from "next/image"
-import { Anton, Poppins } from "next/font/google"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { useEffect, useMemo, useState } from "react"
-
-const anton = Anton({
-  subsets: ["latin"],
-  weight: "400",
-})
+import Link from "next/link"
+import { Poppins } from "next/font/google"
+import { useEffect, useState } from "react"
+import { ArrowRight } from "lucide-react"
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 })
 
-type Slide = {
-  image: string
-  line1: string
-  line2: string
-  color: string
-}
-
-const slides: Slide[] = [
-  {
-    image: "/HeroImage1.png",
-    line1: "CONTENT CREATION",
-    line2: "& BRANDING",
-    color: "#9c003a",
-  },
-  {
-    image: "/HeroImage2.png",
-    line1: "INFLUENCER",
-    line2: "& AFFILIATE MARKETING",
-    color: "#a6406a",
-  },
-]
-
-function StarCore() {
+function StarShape({
+  className = "",
+}: {
+  className?: string
+}) {
   return (
     <svg
       viewBox="0 0 512 512"
-      className="h-[34px] w-[34px]"
+      className={className}
       aria-hidden="true"
+      fill="none"
     >
       <path
-        fill="currentColor"
         d="M414.37 245.29V266.65C332.82 266.65 266.71 332.76 266.71 414.31V414.37H245.41V414.31C245.41 332.76 179.3 266.65 97.75 266.65H97.63V245.29C179.18 245.29 245.29 179.18 245.29 97.63H266.71C266.71 179.18 332.82 245.29 414.37 245.29Z"
+        fill="currentColor"
       />
     </svg>
   )
 }
 
-function RotatingBadge() {
-  return (
-    <div className="relative flex h-[84px] w-[84px] items-center justify-center text-[#9c003a] md:h-[96px] md:w-[96px]">
-      <div className="absolute inset-0 rounded-full border-[3px] border-current hero-ring-spin" />
-      <div className="relative z-10 flex h-full w-full items-center justify-center hero-star-spin">
-        <StarCore />
-      </div>
-    </div>
-  )
-}
-
-function Counter({
-  value,
-  duration = 1800,
+function StatCard({
+  title,
+  subtitle,
+  className = "",
 }: {
-  value: number
-  duration?: number
-}) {
-  const [count, setCount] = useState(0)
-
-  useEffect(() => {
-    const startTime = performance.now()
-
-    const tick = (now: number) => {
-      const progress = Math.min((now - startTime) / duration, 1)
-      const eased = 1 - Math.pow(1 - progress, 3)
-      setCount(Math.floor(value * eased))
-      if (progress < 1) requestAnimationFrame(tick)
-    }
-
-    requestAnimationFrame(tick)
-  }, [value, duration])
-
-  return <>{count}</>
-}
-
-function StatBlock({
-  value,
-  label,
-}: {
-  value: number
-  label: string
+  title: string
+  subtitle: string
+  className?: string
 }) {
   return (
-    <div className="w-[150px] md:w-[180px]">
-      <div className="flex items-start gap-1.5">
-        <div
-          className={`${poppins.className} text-[42px] font-semibold leading-none tracking-[-0.04em] text-white md:text-[56px]`}
-        >
-          <Counter value={value} />
+    <div
+      className={`rounded-xl bg-white px-4 py-3 shadow-[0_10px_30px_rgba(98,36,142,0.14)] ${className}`}
+    >
+      <div className="flex items-start gap-3">
+        <div className="mt-1 h-9 w-9 rounded-full bg-[#ede7ff] flex items-center justify-center">
+          <div className="h-3.5 w-3.5 rounded-full bg-[#6c3bff]" />
         </div>
-        <div
-          className={`${poppins.className} mt-[6px] text-[18px] font-semibold leading-none text-[#9c003a] md:mt-[8px] md:text-[22px]`}
-        >
-          +
+        <div>
+          <div className="text-[14px] font-semibold leading-none text-[#1f1f1f] md:text-[15px]">
+            {title}
+          </div>
+          <div className="mt-1 text-[11px] font-medium leading-none text-[#7c7c94] md:text-[12px]">
+            {subtitle}
+          </div>
         </div>
       </div>
-
-      <div
-        className={`${poppins.className} mt-2 text-[12px] font-semibold uppercase leading-none tracking-[-0.01em] text-white md:text-[15px]`}
-      >
-        {label}
-      </div>
-
-      <div className="mt-4 h-[3px] w-[118px] bg-[#9c003a] md:mt-5 md:w-[150px]" />
     </div>
   )
 }
 
 export function HeroSection() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 })
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [animKey, setAnimKey] = useState(0)
-
-  const activeSlide = useMemo(() => slides[activeIndex], [activeIndex])
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % slides.length)
-      setAnimKey((k) => k + 1)
-    }, 5500)
-
-    return () => clearInterval(interval)
+    setMounted(true)
   }, [])
-
-  const goToSlide = (index: number) => {
-    setActiveIndex(index)
-    setAnimKey((k) => k + 1)
-  }
-
-  const goPrev = () => {
-    setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length)
-    setAnimKey((k) => k + 1)
-  }
-
-  const goNext = () => {
-    setActiveIndex((prev) => (prev + 1) % slides.length)
-    setAnimKey((k) => k + 1)
-  }
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
@@ -167,265 +84,139 @@ export function HeroSection() {
     <section
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative overflow-hidden text-white"
+      className={`${poppins.className} relative overflow-hidden bg-[#f2edff]`}
     >
-      <div className="absolute inset-0 -z-20">
-        <Image
-          src="/10121357.jpg"
-          alt="Hero background"
-          fill
-          priority
-          className="object-cover"
-        />
+      {/* background waves */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-x-0 bottom-0 h-[320px] bg-[radial-gradient(120%_90%_at_50%_100%,rgba(122,70,255,0.12),transparent_60%)]" />
+        <div className="absolute left-[-8%] top-[22%] h-[340px] w-[340px] rounded-full bg-[#7a46ff]/[0.05] blur-3xl" />
+        <div className="absolute right-[-10%] bottom-[8%] h-[360px] w-[360px] rounded-full bg-[#62248e]/[0.08] blur-3xl" />
+
+        <svg
+          className="absolute bottom-0 left-0 h-[240px] w-full md:h-[300px]"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            fill="rgba(122, 70, 255, 0.10)"
+            d="M0,256L60,245.3C120,235,240,213,360,218.7C480,224,600,256,720,261.3C840,267,960,245,1080,213.3C1200,181,1320,139,1380,117.3L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+          />
+        </svg>
+
+        <svg
+          className="absolute bottom-0 left-0 h-[220px] w-full md:h-[270px]"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            fill="rgba(98, 36, 142, 0.08)"
+            d="M0,224L48,229.3C96,235,192,245,288,224C384,203,480,149,576,128C672,107,768,117,864,149.3C960,181,1056,235,1152,240C1248,245,1344,203,1392,181.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          />
+        </svg>
       </div>
 
-      <div className="absolute inset-0 -z-10 bg-black/45" />
-      <div className="absolute inset-0 opacity-[0.04] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:18px_18px]" />
+      {/* stars */}
+      <StarShape className="absolute left-[7%] top-[20%] z-[1] h-6 w-6 text-[#7a46ff] md:h-8 md:w-8" />
+      <StarShape className="absolute right-[15%] top-[22%] z-[1] h-5 w-5 text-[#7a46ff] md:h-7 md:w-7" />
+      <StarShape className="absolute left-[10%] bottom-[17%] z-[1] h-6 w-6 text-[#7a46ff] md:h-8 md:w-8" />
 
-      <div className="relative z-10 mx-auto flex min-h-[720px] max-w-[1720px] flex-col justify-center px-4 pb-0 pt-6 md:min-h-[820px] md:px-8 xl:px-10">
-        <div className="relative min-h-[680px] w-full md:min-h-[760px]">
-          {/* Left stats desktop */}
+      <div className="relative z-10 mx-auto max-w-[1400px] px-4 pb-14 pt-8 md:px-8 md:pb-20 md:pt-10 xl:px-10">
+        <div className="grid min-h-[720px] items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-4">
+          {/* LEFT CONTENT */}
           <div
-            className="absolute left-0 top-[170px] z-[12] hidden xl:flex xl:flex-col xl:gap-8"
+            className={`relative z-20 max-w-[620px] transition-all duration-700 ${
+              mounted ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            }`}
             style={{
-              transform: `translate(${mouse.x * 6}px, ${mouse.y * 6}px)`,
+              transform: `translate(${mouse.x * -10}px, ${mouse.y * -8}px)`,
             }}
           >
-            <StatBlock value={500} label="HAPPY CLIENT" />
-            <StatBlock value={125} label="PROJECT DONE" />
-            <StatBlock value={450} label="MEDIA FEATURED" />
+            <div className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#7d70a6] md:text-[12px]">
+              The Best Influencer Marketing Agency
+            </div>
+
+            <h1 className="max-w-[640px] text-[42px] font-extrabold leading-[0.98] tracking-[-0.04em] text-[#202020] sm:text-[54px] md:text-[66px] xl:text-[78px]">
+              The <span className="text-[#7a46ff]">Leading</span> Agency
+              <br />
+              for Digital Influencer
+              <br />
+              Marketing
+            </h1>
+
+            <p className="mt-6 max-w-[520px] text-[14px] leading-7 text-[#7d7d92] md:text-[15px]">
+              Star Digital Solutions helps brands grow through content,
+              creators, strategy, and platform management that drive visibility,
+              engagement, and measurable digital results.
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-md bg-[#7a46ff] px-6 py-3 text-[13px] font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-[#62248e]"
+              >
+                Learn More
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
 
-          {/* Badge desktop */}
-          <div
-            className="absolute right-[110px] top-[105px] z-[14] hidden xl:block"
-            style={{
-              transform: `translate(${mouse.x * 3}px, ${mouse.y * 3}px)`,
-            }}
-          >
-            <RotatingBadge />
-          </div>
-
-          {/* Text behind figure only */}
-          <div
-            key={`text-${animKey}`}
-            className="pointer-events-none absolute left-1/2 top-[57%] z-[6] w-full -translate-x-1/2 -translate-y-1/2 text-center"
-          >
+          {/* RIGHT VISUAL */}
+          <div className="relative flex min-h-[500px] items-center justify-center md:min-h-[620px] lg:min-h-[720px]">
+            {/* purple circle */}
             <div
-              className={`${anton.className} hero-fill-text hero-text-enter`}
+              className="absolute right-[8%] top-1/2 z-[1] h-[280px] w-[280px] -translate-y-1/2 rounded-full bg-[#7a46ff] md:h-[390px] md:w-[390px] xl:h-[470px] xl:w-[470px]"
               style={{
-                color: activeSlide.color,
-                transform: `translate(${mouse.x * 4}px, ${mouse.y * 2}px)`,
+                transform: `translate(${mouse.x * 12}px, calc(-50% + ${mouse.y * 10}px))`,
+              }}
+            />
+
+            {/* image */}
+            <div
+              className={`relative z-[3] h-[360px] w-[115%] max-w-[760px] transition-all duration-700 md:h-[500px] lg:h-[620px] ${
+                mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              }`}
+              style={{
+                transform: `translate(${mouse.x * 18}px, ${mouse.y * 10}px)`,
               }}
             >
-              {activeSlide.line1}
+              <Image
+                src="/HeroImage1.png"
+                alt="Hero figure"
+                fill
+                priority
+                className="object-contain object-center drop-shadow-[0_24px_50px_rgba(34,19,80,0.18)]"
+              />
             </div>
+
+            {/* floating card top */}
             <div
-              className={`${anton.className} hero-fill-text hero-fill-text-second hero-text-enter`}
+              className="absolute right-[4%] top-[21%] z-[4]"
               style={{
-                color: activeSlide.color,
-                transform: `translate(${mouse.x * 4}px, ${mouse.y * 2}px)`,
+                transform: `translate(${mouse.x * 8}px, ${mouse.y * 8}px)`,
               }}
             >
-              {activeSlide.line2}
-            </div>
-          </div>
-
-          <div className="relative z-10 grid min-h-[680px] grid-cols-1 items-center gap-6 pt-12 md:min-h-[760px] md:pt-16 xl:grid-cols-[22%_50%_20%] xl:justify-between xl:gap-0">
-            <div className="hidden xl:block" />
-
-            {/* Figure */}
-            <div className="relative z-[10] flex min-h-[420px] items-center justify-center overflow-visible md:min-h-[620px]">
-              <div
-                key={`image-${animKey}`}
-                className="absolute left-1/2 top-1/2 h-[82vh] w-[115vw] max-w-none -translate-x-1/2 -translate-y-1/2 hero-figure-enter md:h-[96vh] xl:h-[104vh]"
-                style={{
-                  transform: `translate(calc(-50% + ${mouse.x * 8}px), calc(-50% + ${mouse.y * 5}px))`,
-                }}
-              >
-                <Image
-                  src={activeSlide.image}
-                  alt={activeSlide.line1}
-                  fill
-                  priority
-                  className="object-contain object-center scale-[1.02] md:scale-[1.06] xl:scale-[1.1]"
-                />
-              </div>
+              <StatCard title="100%" subtitle="Top Rated Agency" />
             </div>
 
-            <div className="hidden xl:block" />
-          </div>
-
-          {/* Subtle controls desktop */}
-          <div className="absolute bottom-8 right-0 z-[20] hidden items-center gap-3 xl:flex">
-            <button
-              type="button"
-              onClick={goPrev}
-              aria-label="Previous slide"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/15 text-white/75 backdrop-blur-sm transition hover:border-white/40 hover:text-white"
+            {/* floating card bottom */}
+            <div
+              className="absolute left-[10%] bottom-[16%] z-[4]"
+              style={{
+                transform: `translate(${mouse.x * 10}px, ${mouse.y * 12}px)`,
+              }}
             >
-              <ChevronLeft className="h-4 w-4" />
-            </button>
-
-            <div className="flex items-center gap-2">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  aria-label={`Go to slide ${index + 1}`}
-                  onClick={() => goToSlide(index)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    activeIndex === index
-                      ? "w-8 bg-white/85"
-                      : "w-2 bg-white/35 hover:bg-white/60"
-                  }`}
-                />
-              ))}
+              <StatCard title="99.9%" subtitle="Satisfied Clients" />
             </div>
 
-            <button
-              type="button"
-              onClick={goNext}
-              aria-label="Next slide"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/15 text-white/75 backdrop-blur-sm transition hover:border-white/40 hover:text-white"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </button>
-          </div>
-
-          {/* Mobile stats */}
-          <div className="relative z-[20] mt-2 grid gap-5 xl:hidden">
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-              <StatBlock value={500} label="HAPPY CLIENT" />
-              <StatBlock value={125} label="PROJECT DONE" />
-              <StatBlock value={450} label="MEDIA FEATURED" />
-            </div>
-
-            <div className="flex items-center justify-between pt-2">
-              <button
-                type="button"
-                onClick={goPrev}
-                aria-label="Previous slide"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/15 text-white/75 backdrop-blur-sm transition hover:border-white/40 hover:text-white"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </button>
-
-              <div className="flex items-center gap-2">
-                {slides.map((_, index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    aria-label={`Go to slide ${index + 1}`}
-                    onClick={() => goToSlide(index)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      activeIndex === index
-                        ? "w-8 bg-white/85"
-                        : "w-2 bg-white/35 hover:bg-white/60"
-                    }`}
-                  />
-                ))}
-              </div>
-
-              <button
-                type="button"
-                onClick={goNext}
-                aria-label="Next slide"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/15 text-white/75 backdrop-blur-sm transition hover:border-white/40 hover:text-white"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </button>
-            </div>
-
-            <div className="flex justify-end pr-1 sm:pr-3">
-              <RotatingBadge />
-            </div>
+            {/* extra star */}
+            <StarShape
+              className="absolute right-[8%] top-[43%] z-[2] h-7 w-7 text-[#7a46ff] md:h-9 md:w-9"
+            />
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .hero-fill-text {
-          font-size: clamp(48px, 8vw, 170px);
-          line-height: 0.94;
-          letter-spacing: -2px;
-          text-transform: uppercase;
-        }
-
-        .hero-fill-text-second {
-          margin-top: 1.4vw;
-        }
-
-        .hero-figure-enter {
-          animation: figureSlideIn 0.9s ease-out both;
-        }
-
-        .hero-text-enter {
-          animation: textSlideIn 0.9s ease-out both;
-        }
-
-        .hero-ring-spin {
-          animation: ringRotate 6s linear infinite;
-          transform-origin: center;
-        }
-
-        .hero-star-spin {
-          animation: starRotate 4s linear infinite reverse;
-          transform-origin: center;
-        }
-
-        @keyframes figureSlideIn {
-          0% {
-            opacity: 0;
-            transform: translateX(120px) scale(0.97);
-          }
-          100% {
-            opacity: 1;
-            transform: translateX(0) scale(1);
-          }
-        }
-
-        @keyframes textSlideIn {
-          0% {
-            opacity: 0;
-            transform: translateX(-120px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes ringRotate {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-
-        @keyframes starRotate {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-
-        @media (max-width: 767px) {
-          .hero-fill-text {
-            font-size: clamp(34px, 10vw, 64px);
-            line-height: 0.95;
-            letter-spacing: -1px;
-          }
-
-          .hero-fill-text-second {
-            margin-top: 8px;
-          }
-        }
-      `}</style>
     </section>
   )
 }
