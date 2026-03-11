@@ -92,7 +92,7 @@ export function SiteFooter() {
                   alt="Star Digital Solutions"
                   width={260}
                   height={80}
-                  className="h-12 w-auto"
+                  className="h-20 w-auto"
                   priority
                 />
 
