@@ -6,7 +6,7 @@ import { Raleway } from "next/font/google"
 
 const raleway = Raleway({
   subsets: ["latin"],
-  weight: ["800"], // ExtraBold
+  weight: ["800"],
 })
 
 const footerLinks = {
@@ -41,16 +41,15 @@ const socialLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="bg-[#62248e] text-white">
+    <footer className="bg-black text-white">
+
       {/* CTA Section */}
       <div className="container mx-auto px-6 lg:px-8 py-20">
         <div className="bg-white/10 rounded-3xl p-8 md:p-12 lg:p-16 text-center relative overflow-hidden">
-          
+
           <div className="relative z-10">
-            
-            <h2
-              className={`${raleway.className} text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4`}
-            >
+
+            <h2 className={`${raleway.className} text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4`}>
               Ready to Start Your Project?
             </h2>
 
@@ -61,7 +60,7 @@ export function SiteFooter() {
             <Button
               asChild
               size="lg"
-              className="rounded-full px-8 bg-white text-[#62248e] hover:bg-white/90"
+              className="rounded-full px-8 bg-white text-black hover:bg-white/90"
             >
               <Link href="/contact" className="flex items-center gap-2">
                 Start a Project <ArrowUpRight className="w-4 h-4" />
@@ -76,16 +75,17 @@ export function SiteFooter() {
       <div className="border-t border-white/20">
         <div className="container mx-auto px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
-            
+
             {/* Brand Column */}
             <div className="lg:col-span-2">
+
               <Link href="/" className="flex items-center mb-6">
                 <Image
                   src="/StarDigitalSolutionsLogoWhite.png"
                   alt="Star Digital Solutions"
-                  width={180}
-                  height={40}
-                  className="h-10 w-auto"
+                  width={220}
+                  height={48}
+                  className="h-12 w-auto"
                   priority
                 />
               </Link>
@@ -110,6 +110,7 @@ export function SiteFooter() {
                   <span>hello@stardigitalsolutions.ph</span>
                 </div>
               </div>
+
             </div>
 
             {/* Company */}
@@ -170,6 +171,7 @@ export function SiteFooter() {
       {/* Bottom Bar */}
       <div className="border-t border-white/20">
         <div className="container mx-auto px-6 lg:px-8 py-6">
+
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
 
             <p className="text-white/60 text-sm">
@@ -181,7 +183,7 @@ export function SiteFooter() {
                 <Link
                   key={social.label}
                   href={social.href}
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-[#62248e] transition-all duration-300"
+                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
                   aria-label={social.label}
                 >
                   <social.icon className="w-4 h-4" />
@@ -190,8 +192,10 @@ export function SiteFooter() {
             </div>
 
           </div>
+
         </div>
       </div>
+
     </footer>
   )
 }
