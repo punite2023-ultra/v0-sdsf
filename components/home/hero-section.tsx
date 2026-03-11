@@ -238,7 +238,7 @@ export function HeroSection() {
             <div className="relative z-[10] flex min-h-[420px] items-center justify-center overflow-visible md:min-h-[620px]">
               <div
                 key={`image-${animKey}`}
-                className="absolute left-1/2 top-1/2 h-[82vh] w-[115vw] max-w-none -translate-x-1/2 -translate-y-1/2 hero-figure-enter md:h-[96vh] xl:h-[104vh]"
+                className="absolute left-1/2 top-[56%] h-[68vh] w-[98vw] max-w-none -translate-x-1/2 -translate-y-1/2 hero-figure-enter md:h-[80vh] md:w-[92vw] xl:top-[57%] xl:h-[88vh] xl:w-[86vw]"
                 style={{
                   transform: `translate(calc(-50% + ${mouse.x * 8}px), calc(-50% + ${mouse.y * 5}px))`,
                 }}
@@ -248,7 +248,7 @@ export function HeroSection() {
                   alt={activeSlide.line1}
                   fill
                   priority
-                  className="object-contain object-center scale-[1.02] md:scale-[1.06] xl:scale-[1.1]"
+                  className="object-contain object-center scale-[0.9] md:scale-[0.94] xl:scale-[0.97]"
                 />
               </div>
             </div>
