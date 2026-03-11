@@ -96,12 +96,12 @@ export default function AboutPage() {
               </ScrollReveal>
               <ScrollReveal delay={100}>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-                  We Are a Team of Creative Problem Solvers
+                  We Are a Team of Digital Growth Partners
                 </h1>
               </ScrollReveal>
               <ScrollReveal delay={200}>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Since 2009, we have been helping businesses transform their digital presence and achieve remarkable growth through innovative design and strategic thinking.
+                 Star Digital Solutions is dedicated to helping businesses strengthen their digital presence and achieve measurable growth through strategic marketing, creative content, and data-driven solutions.
                 </p>
               </ScrollReveal>
             </div>
