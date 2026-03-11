@@ -39,11 +39,7 @@ const slides: Slide[] = [
 
 function StarCore() {
   return (
-    <svg
-      viewBox="0 0 512 512"
-      className="h-[34px] w-[34px]"
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 512 512" className="h-[34px] w-[34px]" aria-hidden="true">
       <path
         fill="currentColor"
         d="M414.37 245.29V266.65C332.82 266.65 266.71 332.76 266.71 414.31V414.37H245.41V414.31C245.41 332.76 179.3 266.65 97.75 266.65H97.63V245.29C179.18 245.29 245.29 179.18 245.29 97.63H266.71C266.71 179.18 332.82 245.29 414.37 245.29Z"
@@ -63,13 +59,7 @@ function RotatingBadge() {
   )
 }
 
-function Counter({
-  value,
-  duration = 1800,
-}: {
-  value: number
-  duration?: number
-}) {
+function Counter({ value, duration = 1800 }: { value: number; duration?: number }) {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
@@ -88,13 +78,7 @@ function Counter({
   return <>{count}</>
 }
 
-function StatBlock({
-  value,
-  label,
-}: {
-  value: number
-  label: string
-}) {
+function StatBlock({ value, label }: { value: number; label: string }) {
   return (
     <div className="w-[150px] md:w-[180px]">
       <div className="flex items-start gap-1.5">
@@ -184,61 +168,16 @@ export function HeroSection() {
 
       <div className="relative z-10 mx-auto flex min-h-[720px] max-w-[1720px] flex-col justify-center px-4 pb-0 pt-6 md:min-h-[820px] md:px-8 xl:px-10">
         <div className="relative min-h-[680px] w-full md:min-h-[760px]">
-          {/* Left stats desktop */}
-          <div
-            className="absolute left-0 top-[170px] z-[12] hidden xl:flex xl:flex-col xl:gap-8"
-            style={{
-              transform: `translate(${mouse.x * 6}px, ${mouse.y * 6}px)`,
-            }}
-          >
-            <StatBlock value={500} label="HAPPY CLIENT" />
-            <StatBlock value={125} label="PROJECT DONE" />
-            <StatBlock value={450} label="MEDIA FEATURED" />
-          </div>
-
-          {/* Badge desktop */}
-          <div
-            className="absolute right-[110px] top-[105px] z-[14] hidden xl:block"
-            style={{
-              transform: `translate(${mouse.x * 3}px, ${mouse.y * 3}px)`,
-            }}
-          >
-            <RotatingBadge />
-          </div>
-
-          {/* Text behind figure only */}
-          <div
-            key={`text-${animKey}`}
-            className="pointer-events-none absolute left-1/2 top-[57%] z-[6] w-full -translate-x-1/2 -translate-y-1/2 text-center"
-          >
-            <div
-              className={`${anton.className} hero-fill-text hero-text-enter`}
-              style={{
-                color: activeSlide.color,
-                transform: `translate(${mouse.x * 4}px, ${mouse.y * 2}px)`,
-              }}
-            >
-              {activeSlide.line1}
-            </div>
-            <div
-              className={`${anton.className} hero-fill-text hero-fill-text-second hero-text-enter`}
-              style={{
-                color: activeSlide.color,
-                transform: `translate(${mouse.x * 4}px, ${mouse.y * 2}px)`,
-              }}
-            >
-              {activeSlide.line2}
-            </div>
-          </div>
 
           <div className="relative z-10 grid min-h-[680px] grid-cols-1 items-center gap-6 pt-12 md:min-h-[760px] md:pt-16 xl:grid-cols-[22%_50%_20%] xl:justify-between xl:gap-0">
+
             <div className="hidden xl:block" />
 
-            {/* Figure */}
+            {/* HERO FIGURE (smaller now) */}
             <div className="relative z-[10] flex min-h-[420px] items-center justify-center overflow-visible md:min-h-[620px]">
               <div
                 key={`image-${animKey}`}
-                className="absolute left-1/2 top-1/2 h-[82vh] w-[115vw] max-w-none -translate-x-1/2 -translate-y-1/2 hero-figure-enter md:h-[96vh] xl:h-[104vh]"
+                className="absolute left-1/2 top-1/2 h-[74vh] w-[105vw] max-w-none -translate-x-1/2 -translate-y-1/2 hero-figure-enter md:h-[86vh] xl:h-[94vh]"
                 style={{
                   transform: `translate(calc(-50% + ${mouse.x * 8}px), calc(-50% + ${mouse.y * 5}px))`,
                 }}
@@ -248,184 +187,15 @@ export function HeroSection() {
                   alt={activeSlide.line1}
                   fill
                   priority
-                  className="object-contain object-center scale-[1.02] md:scale-[1.06] xl:scale-[1.1]"
+                  className="object-contain object-center scale-[0.96] md:scale-[1] xl:scale-[1.03]"
                 />
               </div>
             </div>
 
             <div className="hidden xl:block" />
           </div>
-
-          {/* Subtle controls desktop */}
-          <div className="absolute bottom-8 right-0 z-[20] hidden items-center gap-3 xl:flex">
-            <button
-              type="button"
-              onClick={goPrev}
-              aria-label="Previous slide"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/15 text-white/75 backdrop-blur-sm transition hover:border-white/40 hover:text-white"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </button>
-
-            <div className="flex items-center gap-2">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  aria-label={`Go to slide ${index + 1}`}
-                  onClick={() => goToSlide(index)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    activeIndex === index
-                      ? "w-8 bg-white/85"
-                      : "w-2 bg-white/35 hover:bg-white/60"
-                  }`}
-                />
-              ))}
-            </div>
-
-            <button
-              type="button"
-              onClick={goNext}
-              aria-label="Next slide"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/15 text-white/75 backdrop-blur-sm transition hover:border-white/40 hover:text-white"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </button>
-          </div>
-
-          {/* Mobile stats */}
-          <div className="relative z-[20] mt-2 grid gap-5 xl:hidden">
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-              <StatBlock value={500} label="HAPPY CLIENT" />
-              <StatBlock value={125} label="PROJECT DONE" />
-              <StatBlock value={450} label="MEDIA FEATURED" />
-            </div>
-
-            <div className="flex items-center justify-between pt-2">
-              <button
-                type="button"
-                onClick={goPrev}
-                aria-label="Previous slide"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/15 text-white/75 backdrop-blur-sm transition hover:border-white/40 hover:text-white"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </button>
-
-              <div className="flex items-center gap-2">
-                {slides.map((_, index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    aria-label={`Go to slide ${index + 1}`}
-                    onClick={() => goToSlide(index)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      activeIndex === index
-                        ? "w-8 bg-white/85"
-                        : "w-2 bg-white/35 hover:bg-white/60"
-                    }`}
-                  />
-                ))}
-              </div>
-
-              <button
-                type="button"
-                onClick={goNext}
-                aria-label="Next slide"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/15 text-white/75 backdrop-blur-sm transition hover:border-white/40 hover:text-white"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </button>
-            </div>
-
-            <div className="flex justify-end pr-1 sm:pr-3">
-              <RotatingBadge />
-            </div>
-          </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .hero-fill-text {
-          font-size: clamp(48px, 8vw, 170px);
-          line-height: 0.94;
-          letter-spacing: -2px;
-          text-transform: uppercase;
-        }
-
-        .hero-fill-text-second {
-          margin-top: 1.4vw;
-        }
-
-        .hero-figure-enter {
-          animation: figureSlideIn 0.9s ease-out both;
-        }
-
-        .hero-text-enter {
-          animation: textSlideIn 0.9s ease-out both;
-        }
-
-        .hero-ring-spin {
-          animation: ringRotate 6s linear infinite;
-          transform-origin: center;
-        }
-
-        .hero-star-spin {
-          animation: starRotate 4s linear infinite reverse;
-          transform-origin: center;
-        }
-
-        @keyframes figureSlideIn {
-          0% {
-            opacity: 0;
-            transform: translateX(120px) scale(0.97);
-          }
-          100% {
-            opacity: 1;
-            transform: translateX(0) scale(1);
-          }
-        }
-
-        @keyframes textSlideIn {
-          0% {
-            opacity: 0;
-            transform: translateX(-120px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes ringRotate {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-
-        @keyframes starRotate {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-
-        @media (max-width: 767px) {
-          .hero-fill-text {
-            font-size: clamp(34px, 10vw, 64px);
-            line-height: 0.95;
-            letter-spacing: -1px;
-          }
-
-          .hero-fill-text-second {
-            margin-top: 8px;
-          }
-        }
-      `}</style>
     </section>
   )
 }
