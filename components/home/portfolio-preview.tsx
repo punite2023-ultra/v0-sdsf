@@ -5,6 +5,12 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import { Raleway } from "next/font/google"
+
+const raleway = Raleway({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+})
 
 const categories = ["All", "Branding", "Web Design", "Development", "Marketing"]
 
@@ -68,21 +74,20 @@ export function PortfolioPreview() {
       : projects.filter((project) => project.category === activeCategory)
 
   return (
-    <section className="py-24 lg:py-32">
+    <section className="py-24 lg:py-32 bg-[#f3f3f6]">
       <div className="container mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             <ScrollReveal>
-              <span className="text-primary text-sm font-medium uppercase tracking-wider">
+              <span className={`text-primary text-sm font-medium uppercase tracking-wider ${raleway.className}`}>
                 Our Portfolio
               </span>
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
               <h2
-                className="mt-4 text-3xl font-bold md:text-4xl lg:text-5xl"
-                style={{ fontFamily: "var(--font-display)" }}
+                className={`mt-4 text-3xl font-bold md:text-4xl lg:text-5xl ${raleway.className}`}
               >
                 Featured Projects
               </h2>
@@ -113,10 +118,7 @@ export function PortfolioPreview() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {filteredProjects.map((project, index) => (
             <ScrollReveal key={project.id} delay={index * 100}>
-              <Link
-                href={project.href}
-                className="group block"
-              >
+              <Link href={project.href} className="group block">
                 <article className="overflow-hidden rounded-2xl transition-all duration-500 group-hover:-translate-y-2">
                   {/* Image Wrap */}
                   <div className="relative overflow-hidden rounded-2xl shadow-sm transition-all duration-500 group-hover:shadow-xl">
