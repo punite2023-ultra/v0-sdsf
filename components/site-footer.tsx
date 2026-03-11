@@ -44,7 +44,6 @@ export function SiteFooter() {
     <>
       {/* CTA SECTION */}
       <section className="bg-black py-20">
-
         <div className="container mx-auto px-6 lg:px-8">
 
           <div className="bg-[#62248e] rounded-3xl p-10 md:p-14 lg:p-16 text-center">
@@ -71,7 +70,6 @@ export function SiteFooter() {
           </div>
 
         </div>
-
       </section>
 
 
@@ -85,14 +83,14 @@ export function SiteFooter() {
             {/* BRAND */}
             <div className="lg:col-span-2">
 
-              <Link href="/" className="flex items-center mb-8">
+              <Link href="/" className="flex items-center mb-6">
 
                 <Image
                   src="/StarDigitalSolutionsLogoWhite.png"
                   alt="Star Digital Solutions"
-                  width={500}
-                  height={150}
-                  className="h-24 w-auto"
+                  width={220}
+                  height={60}
+                  className="h-12 w-auto"
                   priority
                 />
 
@@ -126,11 +124,9 @@ export function SiteFooter() {
 
             {/* COMPANY */}
             <div>
-
               <h3 className="font-semibold text-lg mb-4">Company</h3>
 
               <ul className="space-y-3">
-
                 {footerLinks.company.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -141,19 +137,15 @@ export function SiteFooter() {
                     </Link>
                   </li>
                 ))}
-
               </ul>
-
             </div>
 
 
             {/* SERVICES */}
             <div>
-
               <h3 className="font-semibold text-lg mb-4">Services</h3>
 
               <ul className="space-y-3">
-
                 {footerLinks.services.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -164,19 +156,15 @@ export function SiteFooter() {
                     </Link>
                   </li>
                 ))}
-
               </ul>
-
             </div>
 
 
             {/* SUPPORT */}
             <div>
-
               <h3 className="font-semibold text-lg mb-4">Support</h3>
 
               <ul className="space-y-3">
-
                 {footerLinks.support.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -187,9 +175,7 @@ export function SiteFooter() {
                     </Link>
                   </li>
                 ))}
-
               </ul>
-
             </div>
 
           </div>
