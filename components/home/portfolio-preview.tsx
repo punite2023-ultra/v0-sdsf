@@ -28,17 +28,17 @@ const projects = [
   {
     id: 3,
     title: "Dove Real Beauty Skincare Line",
-    category: "Social Media Marketin",
+    category: "Social Media Marketing",
     image:
       "https://plus.unsplash.com/premium_photo-1679511319174-d35c3ffe0dd0?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dw=800&h=600&fit=crop",
     href: "/portfolio/greenlife",
   },
   {
     id: 4,
-    title: "Artisan Coffee Co",
-    category: "Branding",
+    title: "Palmolive Naturals Body Wash",
+    category: "Influencer & Affiliate Marketing",
     image:
-      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=600&fit=crop",
+      "https://plus.unsplash.com/premium_photo-1764591621174-422ec90e7ee5?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=800&h=600&fit=crop",
     href: "/portfolio/artisan-coffee",
   },
   {
