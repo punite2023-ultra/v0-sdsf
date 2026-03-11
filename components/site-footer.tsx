@@ -2,6 +2,12 @@ import Link from "next/link"
 import Image from "next/image"
 import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Raleway } from "next/font/google"
+
+const raleway = Raleway({
+  subsets: ["latin"],
+  weight: ["800"], // ExtraBold
+})
 
 const footerLinks = {
   company: [
@@ -35,36 +41,39 @@ const socialLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="bg-[#62248e] text-white">
       {/* CTA Section */}
       <div className="container mx-auto px-6 lg:px-8 py-20">
-        <div className="bg-primary/10 rounded-3xl p-8 md:p-12 lg:p-16 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(var(--primary),0.1),transparent_50%)]" />
+        <div className="bg-white/10 rounded-3xl p-8 md:p-12 lg:p-16 text-center relative overflow-hidden">
+          
           <div className="relative z-10">
+            
             <h2
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4"
-              style={{ fontFamily: "var(--font-display)" }}
+              className={`${raleway.className} text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4`}
             >
               Ready to Start Your Project?
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
+
+            <p className="text-white/80 text-lg max-w-2xl mx-auto mb-8">
               {"Let's collaborate to create something extraordinary. Get in touch and let's discuss your vision."}
             </p>
+
             <Button
               asChild
               size="lg"
-              className="rounded-full px-8 bg-foreground text-background hover:bg-foreground/90"
+              className="rounded-full px-8 bg-white text-[#62248e] hover:bg-white/90"
             >
               <Link href="/contact" className="flex items-center gap-2">
                 Start a Project <ArrowUpRight className="w-4 h-4" />
               </Link>
             </Button>
+
           </div>
         </div>
       </div>
 
       {/* Main Footer */}
-      <div className="border-t border-background/10">
+      <div className="border-t border-white/20">
         <div className="container mx-auto px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
             
@@ -81,23 +90,23 @@ export function SiteFooter() {
                 />
               </Link>
 
-              <p className="text-background/70 mb-6 max-w-sm leading-relaxed">
+              <p className="text-white/70 mb-6 max-w-sm leading-relaxed">
                 We craft exceptional digital experiences that elevate brands and drive meaningful results for businesses worldwide.
               </p>
 
-              <div className="space-y-3 text-background/70">
+              <div className="space-y-3 text-white/70">
                 <div className="flex items-center gap-3">
-                  <MapPin className="w-5 h-5 text-primary" />
+                  <MapPin className="w-5 h-5 text-white" />
                   <span>123 Creative Street, Design City, DC 10001</span>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-primary" />
+                  <Phone className="w-5 h-5 text-white" />
                   <span>+1 (555) 123-4567</span>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-primary" />
+                  <Mail className="w-5 h-5 text-white" />
                   <span>hello@stardigitalsolutions.ph</span>
                 </div>
               </div>
@@ -111,7 +120,7 @@ export function SiteFooter() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-background/70 hover:text-primary transition-colors duration-300"
+                      className="text-white/70 hover:text-white transition-colors duration-300"
                     >
                       {link.label}
                     </Link>
@@ -128,7 +137,7 @@ export function SiteFooter() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-background/70 hover:text-primary transition-colors duration-300"
+                      className="text-white/70 hover:text-white transition-colors duration-300"
                     >
                       {link.label}
                     </Link>
@@ -145,7 +154,7 @@ export function SiteFooter() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-background/70 hover:text-primary transition-colors duration-300"
+                      className="text-white/70 hover:text-white transition-colors duration-300"
                     >
                       {link.label}
                     </Link>
@@ -153,16 +162,17 @@ export function SiteFooter() {
                 ))}
               </ul>
             </div>
+
           </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-background/10">
+      <div className="border-t border-white/20">
         <div className="container mx-auto px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
 
-            <p className="text-background/60 text-sm">
+            <p className="text-white/60 text-sm">
               {new Date().getFullYear()} Star Digital Solutions. All rights reserved.
             </p>
 
@@ -171,7 +181,7 @@ export function SiteFooter() {
                 <Link
                   key={social.label}
                   href={social.href}
-                  className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-[#62248e] transition-all duration-300"
                   aria-label={social.label}
                 >
                   <social.icon className="w-4 h-4" />
