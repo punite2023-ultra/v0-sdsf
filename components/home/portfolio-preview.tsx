@@ -5,46 +5,40 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
-import { Raleway } from "next/font/google"
-
-const raleway = Raleway({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-})
 
 const categories = ["All", "Branding", "Web Design", "Development", "Marketing"]
 
 const projects = [
   {
     id: 1,
-    title: "Luxe Fashion Brandss",
-    category: "Branding",
+    title: "GARNIER: The Unfiltered Glow Campaign",
+    category: "Content Creation & Branding",
     image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1582020738577-2e7a48043902?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fGxvdGlvbiUyMHByb2R1Y3RzfGVufDB8fDB8fHww?w=800&h=600&fit=crop",
     href: "/portfolio/luxe-fashion",
   },
   {
     id: 2,
-    title: "TechFlow Dashboard",
-    category: "Web Design",
+    title: "Colgate Optic White Advanced Toothpast",
+    category: "E-Commerce Strategy & Management",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1661347215653-9c8ca91685c9?q=80&w=930&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=800&h=600&fit=crop",
     href: "/portfolio/techflow",
   },
   {
     id: 3,
-    title: "GreenLife E-commerce",
-    category: "Development",
+    title: "Dove Real Beauty Skincare Line",
+    category: "Social Media Marketing",
     image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+      "https://plus.unsplash.com/premium_photo-1679511319174-d35c3ffe0dd0?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dw=800&h=600&fit=crop",
     href: "/portfolio/greenlife",
   },
   {
     id: 4,
-    title: "Artisan Coffee Co",
-    category: "Branding",
+    title: "Palmolive Naturals Body Wash",
+    category: "Influencer & Affiliate Marketing",
     image:
-      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=600&fit=crop",
+      "https://plus.unsplash.com/premium_photo-1764591621174-422ec90e7ee5?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=800&h=600&fit=crop",
     href: "/portfolio/artisan-coffee",
   },
   {
@@ -74,20 +68,22 @@ export function PortfolioPreview() {
       : projects.filter((project) => project.category === activeCategory)
 
   return (
-    <section className={`py-24 lg:py-32 bg-[#f3f3f6] ${raleway.className}`}>
+    <section className="py-24 lg:py-32">
       <div className="container mx-auto px-6 lg:px-8">
-        
         {/* Header */}
         <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             <ScrollReveal>
-              <span className="text-primary text-sm font-semibold uppercase tracking-wider">
+              <span className="text-primary text-sm font-medium uppercase tracking-wider">
                 Our Portfolio
               </span>
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
-              <h2 className="mt-4 text-3xl font-extrabold md:text-4xl lg:text-5xl">
+              <h2
+                className="mt-4 text-3xl font-bold md:text-4xl lg:text-5xl"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
                 Featured Projects
               </h2>
             </ScrollReveal>
@@ -117,10 +113,12 @@ export function PortfolioPreview() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {filteredProjects.map((project, index) => (
             <ScrollReveal key={project.id} delay={index * 100}>
-              <Link href={project.href} className="group block">
+              <Link
+                href={project.href}
+                className="group block"
+              >
                 <article className="overflow-hidden rounded-2xl transition-all duration-500 group-hover:-translate-y-2">
-
-                  {/* Image */}
+                  {/* Image Wrap */}
                   <div className="relative overflow-hidden rounded-2xl shadow-sm transition-all duration-500 group-hover:shadow-xl">
                     <div className="aspect-[4/3] overflow-hidden">
                       <Image
@@ -132,7 +130,7 @@ export function PortfolioPreview() {
                       />
                     </div>
 
-                    {/* Hover Overlay */}
+                    {/* Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                     {/* Hover Content */}
@@ -146,8 +144,7 @@ export function PortfolioPreview() {
                           <h3 className="text-xl font-semibold text-white opacity-0 transition-all duration-500 delay-75 group-hover:opacity-100">
                             {project.title}
                           </h3>
-
-                          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white opacity-0 transition-all duration-500 delay-100 group-hover:opacity-100">
+                          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white opacity-0 transition-all duration-500 delay-100 group-hover:translate-x-0 group-hover:opacity-100">
                             <ArrowUpRight className="h-4 w-4" />
                           </span>
                         </div>
@@ -164,14 +161,13 @@ export function PortfolioPreview() {
                       {project.title}
                     </h3>
                   </div>
-
                 </article>
               </Link>
             </ScrollReveal>
           ))}
         </div>
 
-        {/* View All */}
+        {/* View All Link */}
         <ScrollReveal delay={600}>
           <div className="mt-12 text-center">
             <Link
@@ -183,7 +179,6 @@ export function PortfolioPreview() {
             </Link>
           </div>
         </ScrollReveal>
-
       </div>
     </section>
   )
