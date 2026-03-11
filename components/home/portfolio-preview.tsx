@@ -6,7 +6,7 @@ import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
-const categories = ["All", "Branding", "Web Design", "Development", "Marketing"]
+const categories = ["All", "Content Creation & Branding", "E-Commerce Strategy & Management", "Social Media Marketint", "Influencer & Affiliate Marketing"]
 
 const projects = [
   {
