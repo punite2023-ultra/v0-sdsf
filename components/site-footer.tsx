@@ -90,8 +90,8 @@ export function SiteFooter() {
                 <Image
                   src="/StarDigitalSolutionsLogoWhite.png"
                   alt="Star Digital Solutions"
-                  width={280}
-                  height={70}
+                  width={400}
+                  height={120}
                   className="h-16 w-auto"
                   priority
                 />
