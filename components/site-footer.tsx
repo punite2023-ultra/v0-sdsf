@@ -85,14 +85,14 @@ export function SiteFooter() {
             {/* BRAND */}
             <div className="lg:col-span-2">
 
-              <Link href="/" className="flex items-center mb-6">
+              <Link href="/" className="flex items-center mb-8">
 
                 <Image
                   src="/StarDigitalSolutionsLogoWhite.png"
                   alt="Star Digital Solutions"
-                  width={400}
-                  height={120}
-                  className="h-16 w-auto"
+                  width={500}
+                  height={150}
+                  className="h-24 w-auto"
                   priority
                 />
 
