@@ -1,8 +1,11 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
+import { ArrowRight } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import { Button } from "@/components/ui/button"
 
 const stats = [
   { label: "Successful Campaign Launches", value: 95 },
@@ -10,64 +13,76 @@ const stats = [
   { label: "High Impact Project", value: 100 },
 ]
 
-function AnimatedStat({
+function AnimatedProgress({
   label,
   value,
-  startAnimation,
+  start,
   delay = 0,
 }: {
   label: string
   value: number
-  startAnimation: boolean
+  start: boolean
   delay?: number
 }) {
   const [count, setCount] = useState(0)
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    if (!startAnimation) return
+    if (!start) return
 
     const timeout = setTimeout(() => {
-      let start = 0
       const duration = 1600
-      const stepTime = 16
-      const totalSteps = Math.ceil(duration / stepTime)
-      const increment = value / totalSteps
+      const startTime = performance.now()
 
-      const timer = setInterval(() => {
-        start += increment
+      let frameId = 0
 
-        if (start >= value) {
+      const animate = (now: number) => {
+        const elapsed = now - startTime
+        const t = Math.min(elapsed / duration, 1)
+
+        // easeOutCubic
+        const eased = 1 - Math.pow(1 - t, 3)
+
+        const currentValue = Math.round(value * eased)
+        const currentProgress = value * eased
+
+        setCount(currentValue)
+        setProgress(currentProgress)
+
+        if (t < 1) {
+          frameId = requestAnimationFrame(animate)
+        } else {
           setCount(value)
           setProgress(value)
-          clearInterval(timer)
-        } else {
-          setCount(Math.round(start))
-          setProgress(start)
         }
-      }, stepTime)
+      }
 
-      return () => clearInterval(timer)
+      frameId = requestAnimationFrame(animate)
+
+      return () => cancelAnimationFrame(frameId)
     }, delay)
 
     return () => clearTimeout(timeout)
-  }, [startAnimation, value, delay])
+  }, [start, value, delay])
 
   return (
     <div className="space-y-4">
       <div className="flex items-end justify-between gap-4">
-        <h3 className="max-w-[75%] text-2xl font-extrabold uppercase leading-tight text-white md:text-3xl xl:text-4xl">
+        <h3 className="max-w-[78%] text-xl font-extrabold uppercase leading-tight text-white md:text-2xl xl:text-[2rem]">
           {label}
         </h3>
-        <span className="shrink-0 text-2xl font-extrabold text-white md:text-3xl xl:text-4xl">
+        <span className="shrink-0 text-xl font-extrabold text-white md:text-2xl xl:text-[2rem]">
           {count}%
         </span>
       </div>
 
-      <div className="h-5 w-full rounded-full bg-white/20 md:h-6">
+      <div className="h-5 w-full rounded-full bg-[#d99bea] md:h-6">
         <div
-          className="h-5 rounded-full bg-[linear-gradient(90deg,#7c2ae8_0%,#9f38e6_100%)] transition-all duration-300 ease-out md:h-6"
-          style={{ width: `${progress}%` }}
+          className="h-5 rounded-full bg-[#7d2cc9] md:h-6"
+          style={{
+            width: `${progress}%`,
+            transition: "width 80ms linear",
+          }}
         />
       </div>
     </div>
@@ -100,54 +115,101 @@ export function StatsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[linear-gradient(135deg,#d85aa8_0%,#de79bf_28%,#e7b8da_55%,#d97bc4_78%,#c85db2_100%)] py-20 md:py-28"
+      className="relative overflow-hidden bg-[linear-gradient(135deg,#cf59aa_0%,#d96cb8_24%,#e09cd0_52%,#dc8fcb_76%,#ce5eaf_100%)] py-20 md:py-24 xl:py-28"
     >
-      {/* soft background accents */}
+      {/* background glow */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-20 top-20 h-72 w-72 rounded-full bg-white/15 blur-3xl" />
-        <div className="absolute left-1/3 top-1/2 h-80 w-80 rounded-full bg-fuchsia-400/20 blur-3xl" />
-        <div className="absolute right-10 top-10 h-72 w-72 rounded-full bg-violet-500/20 blur-3xl" />
+        <div className="absolute -left-20 top-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute right-0 top-10 h-80 w-80 rounded-full bg-fuchsia-300/10 blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-purple-400/10 blur-3xl" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1500px] px-4 md:px-8 xl:px-10">
-        <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-          {/* LEFT IMAGE */}
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.95fr_1fr] xl:gap-14">
+          {/* LEFT */}
           <ScrollReveal>
-            <div className="relative mx-auto flex w-full max-w-[700px] justify-center lg:justify-start">
-              <div className="relative w-full max-w-[620px]">
-                <Image
-                  src="/images/Woman in Phone.jpg"
-                  alt="Woman holding phone"
-                  width={900}
-                  height={1100}
-                  className="h-auto w-full object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.28)]"
-                  priority
-                />
+            <div className="text-white">
+              <p className="mb-8 text-sm font-extrabold uppercase tracking-[0.14em] md:text-base">
+                Who We Are
+              </p>
+
+              <h2 className="text-5xl font-black uppercase leading-[0.92] tracking-tight md:text-6xl xl:text-[6rem]">
+                Creativity
+                <br />
+                Meets
+                <br />
+                Strategy.
+              </h2>
+
+              <p className="mt-6 max-w-[520px] text-lg leading-8 text-white/92 md:text-[1.05rem]">
+                With a team of passionate designers, marketers, and innovators,
+                we specialize in delivering unique solutions that elevate your
+                brand and captivate your audience.
+              </p>
+
+              <div className="mt-16 max-w-[520px] space-y-5">
+                <div>
+                  <p className="text-2xl font-extrabold uppercase md:text-[2rem]">
+                    Over 10 Years of Experience
+                  </p>
+                  <div className="mt-4 h-px w-full bg-white/70" />
+                </div>
+
+                <div>
+                  <p className="text-2xl font-extrabold uppercase md:text-[2rem]">
+                    Trusted by Global Brands
+                  </p>
+                </div>
               </div>
             </div>
           </ScrollReveal>
 
-          {/* RIGHT STATS CARD */}
+          {/* CENTER IMAGE */}
           <ScrollReveal delay={0.1}>
-            <div className="ml-auto w-full max-w-[760px] rounded-[32px] border border-white/15 bg-[rgba(255,255,255,0.08)] p-6 shadow-[0_20px_80px_rgba(112,34,130,0.18)] backdrop-blur-md md:p-8 xl:p-10">
-              <div className="space-y-10 md:space-y-12">
+            <div className="relative mx-auto flex w-full justify-center">
+              <Image
+                src="/images/woman-in-phone.png"
+                alt="Woman holding a phone"
+                width={820}
+                height={1100}
+                priority
+                className="h-auto w-full max-w-[560px] object-contain drop-shadow-[0_18px_50px_rgba(0,0,0,0.22)]"
+              />
+            </div>
+          </ScrollReveal>
+
+          {/* RIGHT */}
+          <ScrollReveal delay={0.2}>
+            <div className="text-white">
+              <div className="space-y-9 md:space-y-10">
                 {stats.map((stat, index) => (
-                  <AnimatedStat
+                  <AnimatedProgress
                     key={stat.label}
                     label={stat.label}
                     value={stat.value}
-                    startAnimation={startAnimation}
+                    start={startAnimation}
                     delay={index * 220}
                   />
                 ))}
               </div>
 
-              <div className="mt-10 max-w-[620px]">
-                <p className="text-base leading-8 text-white/90 md:text-lg">
-                  We create digital campaigns, brand visuals, and growth-focused
-                  strategies that help businesses launch strongly, stand out, and
-                  build real momentum online.
-                </p>
+              <p className="mt-10 max-w-[500px] text-lg leading-8 text-white/90">
+                We combine creative direction, digital execution, and strategic
+                thinking to launch impactful campaigns that help businesses grow
+                with clarity and confidence.
+              </p>
+
+              <div className="mt-10">
+                <Button
+                  asChild
+                  variant="outline"
+                  className="h-auto rounded-none border-2 border-[#8f2686] bg-transparent px-7 py-5 text-base font-extrabold uppercase tracking-wide text-[#8f0056] hover:bg-[#8f2686] hover:text-white"
+                >
+                  <Link href="/about" className="inline-flex items-center gap-2">
+                    Learn More About Us
+                    <ArrowRight className="h-5 w-5" />
+                  </Link>
+                </Button>
               </div>
             </div>
           </ScrollReveal>
