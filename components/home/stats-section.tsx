@@ -160,7 +160,7 @@ export function StatsSection() {
           <ScrollReveal delay={0.1}>
             <div className="relative mx-auto flex w-full justify-center">
               <Image
-                src="/images/woman-in-phone.jpg"
+                src="/images/Woman in Phone.jpg"
                 alt="Woman holding a phone"
                 width={900}
                 height={1200}
