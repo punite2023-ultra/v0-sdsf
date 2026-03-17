@@ -30,24 +30,20 @@ function AnimatedProgress({
   useEffect(() => {
     if (!start) return
 
-    const timeout = setTimeout(() => {
+    let frameId = 0
+    let timeoutId: ReturnType<typeof setTimeout>
+
+    timeoutId = setTimeout(() => {
       const duration = 1600
       const startTime = performance.now()
-
-      let frameId = 0
 
       const animate = (now: number) => {
         const elapsed = now - startTime
         const t = Math.min(elapsed / duration, 1)
-
-        // easeOutCubic
         const eased = 1 - Math.pow(1 - t, 3)
 
-        const currentValue = Math.round(value * eased)
-        const currentProgress = value * eased
-
-        setCount(currentValue)
-        setProgress(currentProgress)
+        setCount(Math.round(value * eased))
+        setProgress(value * eased)
 
         if (t < 1) {
           frameId = requestAnimationFrame(animate)
@@ -58,11 +54,12 @@ function AnimatedProgress({
       }
 
       frameId = requestAnimationFrame(animate)
-
-      return () => cancelAnimationFrame(frameId)
     }, delay)
 
-    return () => clearTimeout(timeout)
+    return () => {
+      clearTimeout(timeoutId)
+      cancelAnimationFrame(frameId)
+    }
   }, [start, value, delay])
 
   return (
@@ -76,13 +73,10 @@ function AnimatedProgress({
         </span>
       </div>
 
-      <div className="h-5 w-full rounded-full bg-[#d99bea] md:h-6">
+      <div className="h-5 w-full rounded-full bg-[#d79ae8] md:h-6">
         <div
-          className="h-5 rounded-full bg-[#7d2cc9] md:h-6"
-          style={{
-            width: `${progress}%`,
-            transition: "width 80ms linear",
-          }}
+          className="h-5 rounded-full bg-[#7c2bc8] md:h-6"
+          style={{ width: `${progress}%` }}
         />
       </div>
     </div>
@@ -115,13 +109,11 @@ export function StatsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[linear-gradient(135deg,#cf59aa_0%,#d96cb8_24%,#e09cd0_52%,#dc8fcb_76%,#ce5eaf_100%)] py-20 md:py-24 xl:py-28"
+      className="relative overflow-hidden bg-[linear-gradient(90deg,#cc59aa_0%,#d66bb8_20%,#e5c9df_50%,#de90cb_75%,#cf63af_100%)] py-20 md:py-24 xl:py-28"
     >
-      {/* background glow */}
+      {/* soft texture/glow */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-20 top-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
-        <div className="absolute right-0 top-10 h-80 w-80 rounded-full bg-fuchsia-300/10 blur-3xl" />
-        <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-purple-400/10 blur-3xl" />
+        <div className="absolute left-0 top-0 h-full w-full bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.08),transparent_35%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.08),transparent_30%),radial-gradient(circle_at_70%_75%,rgba(255,255,255,0.06),transparent_30%)]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1500px] px-4 md:px-8 xl:px-10">
@@ -129,11 +121,11 @@ export function StatsSection() {
           {/* LEFT */}
           <ScrollReveal>
             <div className="text-white">
-              <p className="mb-8 text-sm font-extrabold uppercase tracking-[0.14em] md:text-base">
+              <p className="mb-8 text-sm font-extrabold uppercase tracking-[0.12em] md:text-base">
                 Who We Are
               </p>
 
-              <h2 className="text-5xl font-black uppercase leading-[0.92] tracking-tight md:text-6xl xl:text-[6rem]">
+              <h2 className="text-5xl font-black uppercase leading-[0.9] tracking-tight md:text-6xl xl:text-[6rem]">
                 Creativity
                 <br />
                 Meets
@@ -142,9 +134,9 @@ export function StatsSection() {
               </h2>
 
               <p className="mt-6 max-w-[520px] text-lg leading-8 text-white/92 md:text-[1.05rem]">
-                With a team of passionate designers, marketers, and innovators,
-                we specialize in delivering unique solutions that elevate your
-                brand and captivate your audience.
+                With a team of passionate designers, marketers, and innovators, we
+                specialize in delivering unique solutions that elevate your brand
+                and captivate your audience.
               </p>
 
               <div className="mt-16 max-w-[520px] space-y-5">
@@ -168,12 +160,12 @@ export function StatsSection() {
           <ScrollReveal delay={0.1}>
             <div className="relative mx-auto flex w-full justify-center">
               <Image
-                src="/images/woman-in-phone.png"
+                src="/images/woman-in-phone.jpg"
                 alt="Woman holding a phone"
-                width={820}
-                height={1100}
+                width={900}
+                height={1200}
                 priority
-                className="h-auto w-full max-w-[560px] object-contain drop-shadow-[0_18px_50px_rgba(0,0,0,0.22)]"
+                className="relative z-10 h-auto w-full max-w-[620px] object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.22)]"
               />
             </div>
           </ScrollReveal>
@@ -194,16 +186,15 @@ export function StatsSection() {
               </div>
 
               <p className="mt-10 max-w-[500px] text-lg leading-8 text-white/90">
-                We combine creative direction, digital execution, and strategic
-                thinking to launch impactful campaigns that help businesses grow
-                with clarity and confidence.
+                Consectetuer adipiscing congue aptent placera senec efficitur
+                aptent malesuada sit conubia tincidunt iaculis.
               </p>
 
               <div className="mt-10">
                 <Button
                   asChild
                   variant="outline"
-                  className="h-auto rounded-none border-2 border-[#8f2686] bg-transparent px-7 py-5 text-base font-extrabold uppercase tracking-wide text-[#8f0056] hover:bg-[#8f2686] hover:text-white"
+                  className="h-auto rounded-none border-2 border-[#8f2f95] bg-transparent px-7 py-5 text-base font-extrabold uppercase tracking-wide text-[#a10058] hover:bg-[#8f2f95] hover:text-white"
                 >
                   <Link href="/about" className="inline-flex items-center gap-2">
                     Learn More About Us
