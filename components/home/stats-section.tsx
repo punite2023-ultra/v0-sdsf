@@ -116,7 +116,7 @@ export function StatsSection() {
             <div className="relative mx-auto flex w-full max-w-[700px] justify-center lg:justify-start">
               <div className="relative w-full max-w-[620px]">
                 <Image
-                  src="/images/woman-in-phone.jpg"
+                  src="/images/Woman in Phone.jpg"
                   alt="Woman holding phone"
                   width={900}
                   height={1100}
