@@ -35,6 +35,12 @@ const slides: Slide[] = [
     line2: "& AFFILIATE MARKETING",
     color: "#a6406a",
   },
+  {
+    image: "/HeroImage3.png",
+    line1: "SOCIAL MEDIA",
+    line2: "& LIVE SELLING",
+    color: "#c14d86",
+  },
 ]
 
 function StarCore() {
@@ -117,6 +123,32 @@ function StatBlock({
       </div>
 
       <div className="mt-4 h-[3px] w-[118px] bg-[#9c003a] md:mt-5 md:w-[150px]" />
+    </div>
+  )
+}
+
+function SliderDots({
+  activeIndex,
+  goToSlide,
+}: {
+  activeIndex: number
+  goToSlide: (index: number) => void
+}) {
+  return (
+    <div className="flex items-center gap-3">
+      {slides.map((_, index) => (
+        <button
+          key={index}
+          type="button"
+          aria-label={`Go to slide ${index + 1}`}
+          onClick={() => goToSlide(index)}
+          className={`rounded-full transition-all duration-300 ease-out ${
+            activeIndex === index
+              ? "h-4 w-4 scale-110 bg-gradient-to-r from-[#7c3aed] via-[#c026d3] to-[#ec4899] shadow-[0_0_14px_rgba(192,38,211,0.45)]"
+              : "h-4 w-4 bg-white/45 hover:bg-white/80"
+          }`}
+        />
+      ))}
     </div>
   )
 }
@@ -256,8 +288,8 @@ export function HeroSection() {
             <div className="hidden xl:block" />
           </div>
 
-          {/* Subtle controls desktop */}
-          <div className="absolute bottom-8 right-0 z-[20] hidden items-center gap-3 xl:flex">
+          {/* Desktop controls */}
+          <div className="absolute bottom-8 right-0 z-[20] hidden items-center gap-4 xl:flex">
             <button
               type="button"
               onClick={goPrev}
@@ -267,21 +299,7 @@ export function HeroSection() {
               <ChevronLeft className="h-4 w-4" />
             </button>
 
-            <div className="flex items-center gap-2">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  aria-label={`Go to slide ${index + 1}`}
-                  onClick={() => goToSlide(index)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    activeIndex === index
-                      ? "w-8 bg-white/85"
-                      : "w-2 bg-white/35 hover:bg-white/60"
-                  }`}
-                />
-              ))}
-            </div>
+            <SliderDots activeIndex={activeIndex} goToSlide={goToSlide} />
 
             <button
               type="button"
@@ -311,21 +329,7 @@ export function HeroSection() {
                 <ChevronLeft className="h-4 w-4" />
               </button>
 
-              <div className="flex items-center gap-2">
-                {slides.map((_, index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    aria-label={`Go to slide ${index + 1}`}
-                    onClick={() => goToSlide(index)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      activeIndex === index
-                        ? "w-8 bg-white/85"
-                        : "w-2 bg-white/35 hover:bg-white/60"
-                    }`}
-                  />
-                ))}
-              </div>
+              <SliderDots activeIndex={activeIndex} goToSlide={goToSlide} />
 
               <button
                 type="button"
