@@ -20,6 +20,20 @@ type Slide = {
   line1: string
   line2: string
   color: string
+  layout?: "simple" | "buzkit"
+  tagline?: string
+  description?: string
+  buttonText?: string
+  topRightCard?: {
+    value: string
+    label: string
+  }
+  bottomRightCard?: {
+    value: string
+    label: string
+  }
+  hasStars?: boolean
+  backgroundColor?: string
 }
 
 const slides: Slide[] = [
@@ -28,18 +42,34 @@ const slides: Slide[] = [
     line1: "CONTENT CREATION",
     line2: "& BRANDING",
     color: "#9c003a",
+    layout: "simple",
   },
   {
     image: "/HeroImage2.png",
     line1: "INFLUENCER",
     line2: "& AFFILIATE MARKETING",
     color: "#a6406a",
+    layout: "simple",
   },
   {
     image: "/HeroImage3.png",
-    line1: "THE LEADING",
-    line2: "AGENCY",
-    color: "#6366f1",
+    line1: "The",
+    line2: "Leading Agency",
+    color: "#2d25cc",
+    layout: "buzkit",
+    tagline: "THE BEST INFLUENCER AGENCY",
+    description: "for Digital Influencer Marketing",
+    buttonText: "LEARN MORE",
+    topRightCard: {
+      value: "100%",
+      label: "Top Rated Job",
+    },
+    bottomRightCard: {
+      value: "99.9%",
+      label: "Satisfied Users",
+    },
+    hasStars: true,
+    backgroundColor: "#e8e4f3",
   },
 ]
 
@@ -169,26 +199,144 @@ export function HeroSection() {
     setMouse({ x: 0, y: 0 })
   }
 
+  const isBuzkit = activeSlide.layout === "buzkit"
+
   return (
     <section
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative overflow-hidden text-white"
+      className={`relative overflow-hidden ${isBuzkit ? "bg-gradient-to-b from-[#e8e4f3] to-[#dfd8e8]" : "text-white"}`}
     >
-      <div className="absolute inset-0 -z-20">
-        <Image
-          src="/10121357.jpg"
-          alt="Hero background"
-          fill
-          priority
-          className="object-cover"
-        />
-      </div>
+      {!isBuzkit && (
+        <>
+          <div className="absolute inset-0 -z-20">
+            <Image
+              src="/10121357.jpg"
+              alt="Hero background"
+              fill
+              priority
+              className="object-cover"
+            />
+          </div>
+          <div className="absolute inset-0 -z-10 bg-black/45" />
+          <div className="absolute inset-0 opacity-[0.04] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:18px_18px]" />
+        </>
+      )}
 
-      <div className="absolute inset-0 -z-10 bg-black/45" />
-      <div className="absolute inset-0 opacity-[0.04] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:18px_18px]" />
+      {isBuzkit ? (
+        // Buzkit Layout
+        <div className="relative z-10 mx-auto flex min-h-[750px] max-w-[1400px] flex-col justify-center px-4 pb-0 pt-12 md:min-h-[850px] md:px-8 xl:px-10">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center">
+            {/* Left Content */}
+            <div className="flex flex-col gap-6 text-left">
+              {activeSlide.tagline && (
+                <div
+                  className={`${poppins.className} text-sm font-semibold uppercase tracking-wide text-[#6366f1]`}
+                >
+                  {activeSlide.tagline}
+                </div>
+              )}
+              <div>
+                <h1 className={`${anton.className} text-4xl md:text-5xl lg:text-6xl leading-tight text-[#2d2d2d]`}>
+                  <span>{activeSlide.line1}</span>{" "}
+                  <span className="text-[#6366f1] underline decoration-4 underline-offset-2">
+                    {activeSlide.line2}
+                  </span>
+                </h1>
+                {activeSlide.description && (
+                  <p className={`${anton.className} text-2xl md:text-3xl text-[#2d2d2d] mt-1`}>
+                    {activeSlide.description}
+                  </p>
+                )}
+              </div>
+              {/* Description text */}
+              <p className={`${poppins.className} text-[#6b5b95] leading-relaxed max-w-md`}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+              </p>
+              {activeSlide.buttonText && (
+                <button className={`${poppins.className} w-fit bg-[#6366f1] hover:bg-[#5558d9] text-white font-bold py-3 px-6 rounded-lg transition`}>
+                  {activeSlide.buttonText} →
+                </button>
+              )}
+            </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[720px] max-w-[1720px] flex-col justify-center px-4 pb-0 pt-6 md:min-h-[820px] md:px-8 xl:px-10">
+            {/* Right Content - Image with decorative elements and cards */}
+            <div className="relative flex items-center justify-center min-h-[450px]">
+              {/* Decorative stars */}
+              {activeSlide.hasStars && (
+                <>
+                  <div className="absolute top-20 right-32 text-[#6366f1] opacity-80">
+                    <StarCore />
+                  </div>
+                  <div className="absolute bottom-24 right-8 text-[#6366f1] opacity-60">
+                    <StarCore />
+                  </div>
+                </>
+              )}
+
+              {/* Blue circular background */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-80 h-80 md:w-96 md:h-96 bg-gradient-to-br from-[#6366f1] to-[#4f46e5] rounded-full blur-2xl opacity-70" />
+              </div>
+
+              {/* Image */}
+              <div
+                key={`image-${animKey}`}
+                className="relative z-10 w-full max-w-sm h-auto"
+              >
+                <Image
+                  src={activeSlide.image}
+                  alt={activeSlide.line1}
+                  width={400}
+                  height={500}
+                  priority
+                  className="object-contain w-full h-auto"
+                />
+              </div>
+
+              {/* Top right info card */}
+              {activeSlide.topRightCard && (
+                <div className="absolute top-20 right-0 md:right-4 bg-white rounded-lg shadow-lg p-4 md:p-6 z-20">
+                  <div className="flex items-center gap-2">
+                    <div className="w-10 h-10 rounded-full bg-[#6366f1] flex items-center justify-center text-white text-lg font-bold">
+                      👤
+                    </div>
+                    <div>
+                      <div className={`${poppins.className} text-[#6366f1] font-bold text-lg md:text-xl`}>
+                        {activeSlide.topRightCard.value}
+                      </div>
+                      <div className={`${poppins.className} text-[#666] text-xs md:text-sm font-medium`}>
+                        {activeSlide.topRightCard.label}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Bottom right info card */}
+              {activeSlide.bottomRightCard && (
+                <div className="absolute bottom-12 right-0 md:right-8 bg-white rounded-lg shadow-lg p-4 md:p-6 z-20">
+                  <div className="flex items-center gap-2">
+                    <div className="w-10 h-10 rounded-full bg-[#6366f1] flex items-center justify-center text-white text-lg font-bold">
+                      ❤️
+                    </div>
+                    <div>
+                      <div className={`${poppins.className} text-[#6366f1] font-bold text-lg md:text-xl`}>
+                        {activeSlide.bottomRightCard.value}
+                      </div>
+                      <div className={`${poppins.className} text-[#666] text-xs md:text-sm font-medium`}>
+                        {activeSlide.bottomRightCard.label}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      ) : (
+        // Original Layout
+        <div className="relative z-10 mx-auto flex min-h-[720px] max-w-[1720px] flex-col justify-center px-4 pb-0 pt-6 md:min-h-[820px] md:px-8 xl:px-10">
         <div className="relative min-h-[680px] w-full md:min-h-[760px]">
           {/* Left stats desktop */}
           <div
@@ -349,6 +497,7 @@ export function HeroSection() {
           </div>
         </div>
       </div>
+      )}
 
       <style jsx>{`
         .hero-fill-text {
