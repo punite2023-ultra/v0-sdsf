@@ -35,6 +35,12 @@ const slides: Slide[] = [
     line2: "& AFFILIATE MARKETING",
     color: "#a6406a",
   },
+  {
+    image: "/HeroImage3.png",
+    line1: "THE LEADING",
+    line2: "AGENCY",
+    color: "#6366f1",
+  },
 ]
 
 function StarCore() {
