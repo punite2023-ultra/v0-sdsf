@@ -44,7 +44,7 @@ const slides: Slide[] = [
     layout: "default",
   },
   {
-    image: "/HeroImage3.5.png",
+    image: "/HeroImage4.png",
     line1: "SOCIAL MEDIA",
     line2: "& LIVE SELLING",
     color: "#6f5cff",
