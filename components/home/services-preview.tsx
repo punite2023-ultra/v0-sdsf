@@ -11,23 +11,24 @@ import {
 } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Raleway } from "next/font/google"
+import { useLanguage } from "@/lib/language-context"
 
 const raleway = Raleway({
   subsets: ["latin"],
   weight: ["400", "800"],
 })
 
-const services = [
+const servicesData = [
   {
     icon: TrendingUp,
-    title: "Social Media Marketing",
-    description:
-      "Elevate brand awareness and engagement across major social media platforms through strategic campaigns and data-driven content.",
+    titleEn: "Service One",
+    titleZh: "服务一",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     details: [
-      "Social Media Strategy",
-      "Community Management",
-      "Content Scheduling",
-      "Performance Analytics",
+      "Lorem ipsum",
+      "Dolor sit amet",
+      "Consectetur adipiscing",
+      "Sed do eiusmod",
     ],
     iconBg: "bg-blue-500/12 text-blue-600",
     hoverBg: "hover:bg-blue-50",
@@ -36,14 +37,14 @@ const services = [
   },
   {
     icon: Palette,
-    title: "Content Creation & Branding",
-    description:
-      "Develop compelling visual and written content that resonates with target audiences while building a strong brand identity.",
+    titleEn: "Service Two",
+    titleZh: "服务二",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     details: [
-      "Creative Content Production",
-      "Brand Identity Design",
-      "Visual Storytelling",
-      "Campaign Creative Direction",
+      "Lorem ipsum",
+      "Dolor sit amet",
+      "Consectetur adipiscing",
+      "Sed do eiusmod",
     ],
     iconBg: "bg-purple-500/12 text-purple-600",
     hoverBg: "hover:bg-purple-50",
@@ -52,14 +53,14 @@ const services = [
   },
   {
     icon: Smartphone,
-    title: "E-Commerce Strategy & Management",
-    description:
-      "Streamline online store operations and optimize digital commerce strategies to increase efficiency and drive sales growth.",
+    titleEn: "Service Three",
+    titleZh: "服务三",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     details: [
-      "Marketplace Management",
-      "Store Optimization",
-      "Product Listing Strategy",
-      "Conversion Optimization",
+      "Lorem ipsum",
+      "Dolor sit amet",
+      "Consectetur adipiscing",
+      "Sed do eiusmod",
     ],
     iconBg: "bg-emerald-500/12 text-emerald-600",
     hoverBg: "hover:bg-emerald-50",
@@ -68,14 +69,14 @@ const services = [
   },
   {
     icon: BarChart3,
-    title: "Influencer & Affiliate Marketing",
-    description:
-      "Collaborate with trusted influencers and affiliates to expand brand reach, drive awareness, and boost conversions.",
+    titleEn: "Service Four",
+    titleZh: "服务四",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     details: [
-      "Influencer Partnerships",
-      "Affiliate Program Management",
-      "Campaign Coordination",
-      "Performance Tracking",
+      "Lorem ipsum",
+      "Dolor sit amet",
+      "Consectetur adipiscing",
+      "Sed do eiusmod",
     ],
     iconBg: "bg-orange-500/12 text-orange-600",
     hoverBg: "hover:bg-orange-50",
@@ -84,14 +85,14 @@ const services = [
   },
   {
     icon: Zap,
-    title: "Live Streaming & Social Commerce",
-    description:
-      "Boost engagement and sales through interactive live streaming experiences across major social commerce platforms.",
+    titleEn: "Service Five",
+    titleZh: "服务五",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     details: [
-      "Live Commerce Strategy",
-      "Host & Production Management",
-      "Real-Time Audience Engagement",
-      "Sales Performance Tracking",
+      "Lorem ipsum",
+      "Dolor sit amet",
+      "Consectetur adipiscing",
+      "Sed do eiusmod",
     ],
     iconBg: "bg-pink-500/12 text-pink-600",
     hoverBg: "hover:bg-pink-50",
@@ -100,14 +101,14 @@ const services = [
   },
   {
     icon: BarChart3,
-    title: "Digital Advertising & Performance Marketing",
-    description:
-      "Drive targeted traffic and maximize ROI through optimized advertising campaigns across search and social platforms.",
+    titleEn: "Service Six",
+    titleZh: "服务六",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     details: [
-      "Meta & TikTok Ads",
-      "Google Ads Management",
-      "Conversion Tracking",
-      "Campaign Optimization",
+      "Lorem ipsum",
+      "Dolor sit amet",
+      "Consectetur adipiscing",
+      "Sed do eiusmod",
     ],
     iconBg: "bg-indigo-500/12 text-indigo-600",
     hoverBg: "hover:bg-indigo-50",
@@ -121,11 +122,13 @@ function ServiceCard({
   index,
   isOpen,
   onToggle,
+  language,
 }: {
-  service: (typeof services)[number]
+  service: (typeof servicesData)[number]
   index: number
   isOpen: boolean
   onToggle: () => void
+  language: 'en' | 'zh'
 }) {
   const Icon = service.icon
 
@@ -147,7 +150,7 @@ function ServiceCard({
         <h3
           className={`${raleway.className} mb-4 flex items-start justify-between gap-3 text-[28px] font-[800] leading-[1.12] tracking-[-0.02em] text-foreground`}
         >
-          <span>{service.title}</span>
+          <span>{language === 'en' ? service.titleEn : service.titleZh}</span>
           <ArrowUpRight
             className={`mt-1 h-5 w-5 shrink-0 transition-all duration-300 ${
               isOpen
@@ -192,6 +195,7 @@ function ServiceCard({
 
 export function ServicesPreview() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const { language } = useLanguage()
 
   return (
     <section className="pt-8 pb-24 lg:pt-12 lg:pb-28">
@@ -201,7 +205,7 @@ export function ServicesPreview() {
             <span
               className={`${raleway.className} text-primary text-sm font-medium uppercase tracking-[0.18em]`}
             >
-              Our Services
+              {language === 'en' ? 'Our Services' : '我们的服务'}
             </span>
           </ScrollReveal>
 
@@ -209,24 +213,26 @@ export function ServicesPreview() {
             <h2
               className={`${raleway.className} mt-4 mb-6 text-4xl font-[800] leading-tight md:text-5xl lg:text-6xl`}
             >
-              Services We Offer
+              {language === 'en' ? 'Services We Offer' : '我们提供的服务'}
             </h2>
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
             <p className="mx-auto max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              We provide comprehensive digital solutions tailored to your unique
-              needs. Our expert team delivers results that exceed expectations.
+              {language === 'en'
+                ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.'
+                : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.'}
             </p>
           </ScrollReveal>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:gap-8 xl:grid-cols-3">
-          {services.map((service, index) => (
+          {servicesData.map((service, index) => (
             <ServiceCard
-              key={service.title}
+              key={index}
               service={service}
               index={index}
+              language={language}
               isOpen={openIndex === index}
               onToggle={() =>
                 setOpenIndex((prev) => (prev === index ? null : index))
