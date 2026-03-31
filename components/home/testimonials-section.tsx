@@ -9,7 +9,7 @@ import { useLanguage } from "@/lib/language-context"
 const testimonials = [
   {
     id: 1,
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     author: "Client One",
     role: "CEO, Company A",
     image: "https://i.pravatar.cc/200?img=1",
@@ -17,7 +17,7 @@ const testimonials = [
   },
   {
     id: 2,
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     author: "Client Two",
     role: "Marketing Director, Company B",
     image: "https://i.pravatar.cc/200?img=3",
@@ -25,7 +25,7 @@ const testimonials = [
   },
   {
     id: 3,
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     author: "Client Three",
     role: "Founder, Company C",
     image: "https://i.pravatar.cc/200?img=5",
@@ -65,12 +65,12 @@ export function TestimonialsSection() {
             </ScrollReveal>
             <ScrollReveal delay={100}>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-                What Our Clients Say
+                Lorem ipsum dolor sit amet, consectetur
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                We take pride in building lasting relationships with our clients. Here is what some of them have to say about working with us.
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
               </p>
             </ScrollReveal>
 
