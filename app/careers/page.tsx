@@ -7,57 +7,68 @@ import { jobs } from "@/lib/content"
 import { JobAccordion } from "@/components/careers/job-accordion"
 
 export const metadata = {
-  title: "Careers | SDSF - Social Digital Selling Force",
-  description: "Join our team and help brands succeed in TikTok Shop and social commerce. View open positions and company culture.",
+  title: "Lorem Ipsum | Lorem Ipsum",
+  description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 }
 
 const perks = [
   {
     icon: Zap,
-    title: "Fast-Growing Industry",
-    description: "Be part of the fastest-growing e-commerce trend in Southeast Asia.",
+    title: "Lorem Ipsum",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     icon: Users,
-    title: "Creative Team",
-    description: "Work with talented creators, strategists, and operators passionate about social commerce.",
+    title: "Dolor Sit Amet",
+    description:
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
     icon: Target,
-    title: "Impact-Driven",
-    description: "Directly impact brand growth and help sellers succeed in the social commerce space.",
+    title: "Consectetur Elit",
+    description:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
   },
   {
     icon: DollarSign,
-    title: "Competitive Compensation",
-    description: "Competitive salary, bonuses, and performance incentives based on impact.",
+    title: "Magna Aliqua",
+    description:
+      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   },
 ]
 
 const coreValues = [
   {
-    title: "Authenticity",
-    description: "We believe in genuine connections and authentic content over polished, corporate messaging.",
+    title: "Lorem Ipsum",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
-    title: "Creator First",
-    description: "Creators drive our success. We support, empower, and celebrate our team and creator partners.",
+    title: "Dolor Sit",
+    description:
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
-    title: "Data-Driven",
-    description: "We make decisions based on data and insights, not guesses or trends.",
+    title: "Amet Consectetur",
+    description:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
   },
   {
-    title: "Customer Success",
-    description: "Our clients' success is our success. We're committed to delivering real results and growth.",
+    title: "Adipiscing Elit",
+    description:
+      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   },
   {
-    title: "Innovation",
-    description: "We constantly experiment, learn, and evolve to stay ahead in the social commerce space.",
+    title: "Tempor Incididunt",
+    description:
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
   },
   {
-    title: "Community",
-    description: "We build strong communities both internally and with our clients and users.",
+    title: "Ut Enim",
+    description:
+      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.",
   },
 ]
 
@@ -71,16 +82,24 @@ export default function CareersPage() {
           <div className="container mx-auto px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <ScrollReveal>
-                <span className="text-primary font-medium text-sm uppercase tracking-wider">We're Hiring</span>
+                <span className="text-primary font-medium text-sm uppercase tracking-wider">
+                  Lorem Ipsum
+                </span>
               </ScrollReveal>
+
               <ScrollReveal delay={100}>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-                  Join Our Team
+                <h1
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  Lorem Ipsum Dolor Sit
                 </h1>
               </ScrollReveal>
+
               <ScrollReveal delay={200}>
                 <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-                  We're building the future of social commerce. Help us revolutionize how brands sell on TikTok, Shopee, and beyond.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
               </ScrollReveal>
             </div>
@@ -92,11 +111,14 @@ export default function CareersPage() {
           <div className="container mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>
-                  Why Join SDSF?
+                <h2
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  Lorem Ipsum Dolor
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  More than just a job—join a mission to transform e-commerce.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </p>
               </div>
             </ScrollReveal>
@@ -123,11 +145,14 @@ export default function CareersPage() {
           <div className="container mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>
-                  Our Core Values
+                <h2
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  Lorem Ipsum Amet
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  The principles that guide everything we do.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </p>
               </div>
             </ScrollReveal>
@@ -150,11 +175,14 @@ export default function CareersPage() {
           <div className="container mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>
-                  Open Positions
+                <h2
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  Lorem Ipsum Positions
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Currently hiring for {jobs.length} roles across our teams.
+                  Lorem ipsum dolor sit amet for {jobs.length} lorem roles.
                 </p>
               </div>
             </ScrollReveal>
@@ -163,28 +191,30 @@ export default function CareersPage() {
           </div>
         </section>
 
-
-
         {/* CTA Section */}
         <section className="py-20 lg:py-28 bg-primary">
           <div className="container mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <div className="max-w-3xl mx-auto text-center text-primary-foreground">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-                  Ready to Make an Impact?
+                <h2
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  Lorem Ipsum Impact
                 </h2>
                 <p className="text-lg text-primary-foreground/90 mb-8">
-                  Apply for any of our open positions and join us in revolutionizing social commerce.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
                 <Button
                   size="lg"
                   className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
                   asChild
                 >
-                  <a href="mailto:careers@sdsf.com">Send Your Application</a>
+                  <a href="mailto:careers@sdsf.com">Lorem Ipsum Application</a>
                 </Button>
                 <p className="text-sm text-primary-foreground/80 mt-4">
-                  Questions? Email us at careers@sdsf.com
+                  Lorem ipsum: careers@sdsf.com
                 </p>
               </div>
             </ScrollReveal>
