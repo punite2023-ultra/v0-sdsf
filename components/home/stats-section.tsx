@@ -84,7 +84,7 @@ export function StatsSection() {
   const sectionRef = useRef<HTMLElement | null>(null)
   const [startAnimation, setStartAnimation] = useState(false)
   const { language } = useLanguage()
-  const stats = language === 'en' ? statsEn : statsZh
+  const stats = language === "en" ? statsEn : statsZh
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -105,17 +105,10 @@ export function StatsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-cover bg-center bg-no-repeat py-24"
-      style={{
-        backgroundImage: "url('/images/Woman in Phone.jpg')",
-      }}
+      className="relative bg-[#62248e] py-24"
     >
-      {/* overlay gradient */}
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(194,70,156,0.95)_0%,rgba(212,108,183,0.85)_35%,rgba(226,180,213,0.45)_60%,rgba(205,93,171,0.9)_100%)]" />
-
       <div className="relative z-10 mx-auto max-w-[1500px] px-6">
         <div className="grid lg:grid-cols-3 gap-12 items-center">
-
           {/* LEFT TEXT */}
           <ScrollReveal>
             <div className="text-white">
@@ -139,19 +132,19 @@ export function StatsSection() {
 
               <div className="mt-12">
                 <p className="text-2xl font-bold uppercase">
-                  Over Lorem Dummy Text is me 
+                  Over Lorem Dummy Text is me
                 </p>
 
                 <div className="w-full h-[1px] bg-white my-4" />
 
                 <p className="text-2xl font-bold uppercase">
-                  Lorem IPsum Dolor Amet
+                  Lorem Ipsum Dolor Amet
                 </p>
               </div>
             </div>
           </ScrollReveal>
 
-          {/* EMPTY CENTER (phone already in background image) */}
+          {/* EMPTY CENTER */}
           <div />
 
           {/* RIGHT STATS */}
@@ -175,7 +168,7 @@ export function StatsSection() {
               <Button
                 asChild
                 variant="outline"
-                className="border-2 border-[#8f2f95] text-[#8f0058] font-bold uppercase"
+                className="border-2 border-white text-white font-bold uppercase hover:bg-white hover:text-[#62248e]"
               >
                 <Link href="/about" className="flex items-center gap-2">
                   Learn More About Us
