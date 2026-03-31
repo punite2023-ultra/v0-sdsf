@@ -9,11 +9,12 @@ import { Input } from "@/components/ui/input"
 import { blogArticles } from "@/lib/content"
 
 export const metadata = {
-  title: "Blog | SDSF - Social Digital Selling Force",
-  description: "Read our latest insights about TikTok Shop, live selling, e-commerce strategies, and social commerce tips.",
+  title: "Lorem Ipsum | Lorem Ipsum",
+  description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 }
 
-const categories = ["All", "E-Commerce", "Marketing", "Sales"]
+const categories = ["Lorem", "Ipsum", "Dolor", "Sit"]
 
 export default function BlogPage() {
   return (
@@ -25,16 +26,24 @@ export default function BlogPage() {
           <div className="container mx-auto px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <ScrollReveal>
-                <span className="text-primary font-medium text-sm uppercase tracking-wider">Our Blog</span>
+                <span className="text-primary font-medium text-sm uppercase tracking-wider">
+                  Lorem Ipsum
+                </span>
               </ScrollReveal>
+
               <ScrollReveal delay={100}>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-                  TikTok & Social Selling Insights
+                <h1
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  Lorem Ipsum Dolor Sit Amet
                 </h1>
               </ScrollReveal>
+
               <ScrollReveal delay={200}>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Stay updated with the latest strategies, tips, and insights about TikTok Shop, live selling, and social commerce success.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
               </ScrollReveal>
             </div>
@@ -60,24 +69,32 @@ export default function BlogPage() {
                   <div className="absolute inset-0 flex items-end p-8 lg:p-12">
                     <div>
                       <div className="inline-block text-xs font-medium text-primary-foreground uppercase tracking-wider mb-4 bg-primary/80 px-3 py-1 rounded-full">
-                        {blogArticles[0].category}
+                        Lorem Ipsum
                       </div>
-                      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4 max-w-3xl" style={{ fontFamily: 'var(--font-display)' }}>
-                        {blogArticles[0].title}
+
+                      <h2
+                        className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4 max-w-3xl"
+                        style={{ fontFamily: "var(--font-display)" }}
+                      >
+                        Lorem Ipsum Dolor Sit Amet
                       </h2>
+
                       <p className="text-lg text-primary-foreground/90 mb-6 max-w-2xl">
-                        {blogArticles[0].excerpt}
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua.
                       </p>
+
                       <div className="flex items-center gap-6 text-sm text-primary-foreground/80">
                         <div className="flex items-center gap-2">
                           <User className="w-4 h-4" />
-                          {blogArticles[0].author}
+                          Lorem Ipsum
                         </div>
                         <div className="flex items-center gap-2">
                           <Calendar className="w-4 h-4" />
-                          {blogArticles[0].date}
+                          Lorem Date
                         </div>
-                        <span>{blogArticles[0].readTime}</span>
+                        <span>Lorem Read Time</span>
                       </div>
                     </div>
                   </div>
@@ -105,33 +122,35 @@ export default function BlogPage() {
                         />
                         <div className="absolute top-4 left-4">
                           <span className="text-xs font-medium uppercase tracking-wider px-3 py-1 bg-primary text-primary-foreground rounded-full">
-                            {post.category}
+                            Lorem Ipsum
                           </span>
                         </div>
                       </div>
 
                       <div className="p-6 flex flex-col flex-1">
                         <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                          {post.title}
+                          Lorem Ipsum Dolor Sit
                         </h3>
+
                         <p className="text-muted-foreground text-sm mb-4 line-clamp-2 flex-1">
-                          {post.excerpt}
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                          sed do eiusmod tempor incididunt.
                         </p>
 
                         <div className="flex flex-wrap gap-3 text-xs text-muted-foreground mb-4 pt-4 border-t border-border">
                           <div className="flex items-center gap-1">
                             <User className="w-3.5 h-3.5" />
-                            {post.author}
+                            Lorem Ipsum
                           </div>
                           <div className="flex items-center gap-1">
                             <Calendar className="w-3.5 h-3.5" />
-                            {post.date}
+                            Lorem Date
                           </div>
-                          <div>{post.readTime}</div>
+                          <div>Lorem Read Time</div>
                         </div>
 
                         <div className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
-                          Read Article
+                          Lorem Ipsum
                           <ArrowRight className="w-4 h-4" />
                         </div>
                       </div>
@@ -149,27 +168,32 @@ export default function BlogPage() {
             <div className="max-w-2xl mx-auto">
               <ScrollReveal>
                 <div className="rounded-3xl bg-primary p-12 lg:p-16 text-center text-primary-foreground">
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>
-                    Subscribe to Our Newsletter
+                  <h2
+                    className="text-3xl md:text-4xl font-bold mb-4"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    Lorem Ipsum Dolor
                   </h2>
+
                   <p className="text-lg text-primary-foreground/90 mb-8">
-                    Get the latest articles and insights delivered directly to your inbox.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   </p>
 
                   <form className="flex flex-col sm:flex-row gap-3">
                     <Input
                       type="email"
-                      placeholder="Enter your email"
+                      placeholder="Lorem ipsum"
                       className="bg-primary-foreground text-foreground placeholder:text-muted-foreground rounded-full px-6 py-3 flex-1"
                       required
                     />
                     <Button className="rounded-full px-8 bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-                      Subscribe
+                      Lorem Ipsum
                     </Button>
                   </form>
 
                   <p className="text-xs text-primary-foreground/70 mt-4">
-                    We respect your privacy. Unsubscribe at any time.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
                 </div>
               </ScrollReveal>
