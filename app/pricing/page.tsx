@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
@@ -8,285 +8,400 @@ import { Check, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/language-context"
 
-const plans = [
-  {
-    nameEn: "Plan One",
-    nameZh: "计划一",
-    description: "Lorem ipsum dolor sit amet",
-    price: "$99",
-    period: "/month",
-    features: [
-      "Feature one",
-      "Feature two",
-      "Feature three",
-      "Feature four",
-      "Feature five",
-      "Feature six",
-    ],
-    notIncluded: [
-      "Advanced feature one",
-      "Advanced feature two",
-      "Advanced feature three",
-    ],
-    cta: "Get Started",
-  },
-  {
-    nameEn: "Plan Two",
-    nameZh: "计划二",
-    description: "Lorem ipsum dolor sit amet",
-    price: "$199",
-    period: "/month",
-    features: [
-      "Feature one",
-      "Feature two",
-      "Feature three",
-      "Feature four",
-      "Feature five",
-      "Feature six",
-      "Feature seven",
-      "Feature eight",
-    ],
-    notIncluded: [
-      "Advanced feature one",
-      "Mobile app",
-    ],
-    featured: true,
-    cta: "Get Started",
-  },
-  {
-    name: "Enterprise",
-    description: "For large-scale projects",
-    price: "Custom",
-    period: "pricing",
-    features: [
-      "Unlimited pages",
-      "Custom design",
-      "Full SEO optimization",
-      "Unlimited revisions",
-      "12-month support",
-      "Dedicated account manager",
-      "Advanced analytics",
-      "Custom integrations",
-      "Mobile app development",
-      "Performance optimization",
-    ],
-    notIncluded: [],
-    cta: "Contact Sales",
-  },
-]
-
-const addOns = [
-  { name: "Additional Page", price: "$299" },
-  { name: "E-Commerce Integration", price: "$1,499" },
-  { name: "Mobile App", price: "Custom" },
-  { name: "Content Writing (500 words)", price: "$199" },
-  { name: "Photography/Videography", price: "Custom" },
-  { name: "Hosting & Maintenance", price: "$299/month" },
-]
-
 export default function PricingPage() {
   const { language } = useLanguage()
+
+  const plans = [
+    {
+      nameEn: "Starter",
+      nameZh: "基础版",
+      descriptionEn: "Ideal for small businesses getting started online.",
+      descriptionZh: "适合刚开始拓展线上业务的小型企业。",
+      price: "$99",
+      periodEn: "/month",
+      periodZh: "/月",
+      featuresEn: [
+        "Brand direction support",
+        "Basic content planning",
+        "1 landing page design",
+        "Social media visuals",
+        "Monthly reporting",
+        "Email support",
+      ],
+      featuresZh: [
+        "品牌方向支持",
+        "基础内容规划",
+        "1个落地页设计",
+        "社交媒体视觉内容",
+        "每月报告",
+        "邮件支持",
+      ],
+      notIncludedEn: [
+        "Advanced automation",
+        "Paid ads management",
+        "Dedicated strategist",
+      ],
+      notIncludedZh: [
+        "高级自动化",
+        "付费广告管理",
+        "专属策略顾问",
+      ],
+      ctaEn: "Get Started",
+      ctaZh: "立即开始",
+    },
+    {
+      nameEn: "Professional",
+      nameZh: "专业版",
+      descriptionEn: "Best for growing brands that need stronger execution.",
+      descriptionZh: "适合需要更强执行力与增长支持的品牌。",
+      price: "$199",
+      periodEn: "/month",
+      periodZh: "/月",
+      featuresEn: [
+        "Everything in Starter",
+        "Campaign creative support",
+        "Advanced content planning",
+        "Performance-focused design",
+        "E-commerce consultation",
+        "Priority support",
+        "Monthly strategy call",
+        "Analytics insights",
+      ],
+      featuresZh: [
+        "包含基础版全部内容",
+        "营销活动创意支持",
+        "高级内容规划",
+        "以转化为导向的设计",
+        "电商咨询",
+        "优先支持",
+        "每月策略会议",
+        "数据分析洞察",
+      ],
+      notIncludedEn: ["Mobile app", "Custom enterprise integrations"],
+      notIncludedZh: ["移动应用开发", "企业级定制集成"],
+      featured: true,
+      ctaEn: "Get Started",
+      ctaZh: "立即开始",
+    },
+    {
+      nameEn: "Enterprise",
+      nameZh: "企业版",
+      descriptionEn: "Tailored solutions for larger teams and complex needs.",
+      descriptionZh: "为大型团队和复杂需求量身定制的解决方案。",
+      priceEn: "Custom",
+      priceZh: "定制报价",
+      periodEn: "pricing",
+      periodZh: "方案",
+      featuresEn: [
+        "Unlimited pages",
+        "Custom design system",
+        "Full SEO optimization",
+        "Unlimited revisions",
+        "12-month support",
+        "Dedicated account manager",
+        "Advanced analytics",
+        "Custom integrations",
+        "Mobile app development",
+        "Performance optimization",
+      ],
+      featuresZh: [
+        "不限页面数量",
+        "定制设计系统",
+        "完整SEO优化",
+        "不限修改次数",
+        "12个月支持",
+        "专属客户经理",
+        "高级数据分析",
+        "定制化集成",
+        "移动应用开发",
+        "性能优化",
+      ],
+      notIncludedEn: [],
+      notIncludedZh: [],
+      ctaEn: "Contact Sales",
+      ctaZh: "联系销售",
+    },
+  ]
+
+  const addOns = [
+    {
+      nameEn: "Additional Page",
+      nameZh: "额外页面",
+      price: "$299",
+    },
+    {
+      nameEn: "E-Commerce Integration",
+      nameZh: "电商集成",
+      price: "$1,499",
+    },
+    {
+      nameEn: "Mobile App",
+      nameZh: "移动应用",
+      price: "Custom",
+    },
+    {
+      nameEn: "Content Writing (500 words)",
+      nameZh: "文案撰写（500字）",
+      price: "$199",
+    },
+    {
+      nameEn: "Photography / Videography",
+      nameZh: "摄影 / 视频制作",
+      price: "Custom",
+    },
+    {
+      nameEn: "Hosting & Maintenance",
+      nameZh: "托管与维护",
+      price: "$299/month",
+    },
+  ]
+
+  const faqs = [
+    {
+      qEn: "Can I change plans anytime?",
+      qZh: "我可以随时更换方案吗？",
+      aEn:
+        "Yes, you can upgrade, downgrade, or cancel your plan at any time. Changes will take effect based on your billing cycle.",
+      aZh:
+        "可以，您可以随时升级、降级或取消方案，变更会根据您的计费周期生效。",
+    },
+    {
+      qEn: "What if I need more than what's included in my plan?",
+      qZh: "如果我的需求超出当前方案怎么办？",
+      aEn:
+        "We offer flexible add-ons and custom packages. We can build a solution around your goals and scope.",
+      aZh:
+        "我们提供灵活的附加服务和定制方案，可根据您的目标与项目范围进行配置。",
+    },
+    {
+      qEn: "Do you offer annual discounts?",
+      qZh: "你们提供年付折扣吗？",
+      aEn:
+        "Yes. Annual billing can be discussed depending on the service package and engagement scope.",
+      aZh:
+        "是的。根据服务方案和合作范围，我们可提供年付优惠。",
+    },
+    {
+      qEn: "What's included in support?",
+      qZh: "支持服务包含哪些内容？",
+      aEn:
+        "All plans include support during business hours. Higher-tier plans include faster response and more strategic guidance.",
+      aZh:
+        "所有方案都包含工作时间内支持。更高等级的方案会提供更快响应和更深入的策略支持。",
+    },
+  ]
 
   return (
     <>
       <Navigation />
-      <main>
-        {/* Hero Section */}
-        <section className="pt-32 pb-20 lg:pt-40 lg:pb-28">
-          <div className="container mx-auto px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto text-center">
-              <ScrollReveal>
-                <span className="text-primary font-medium text-sm uppercase tracking-wider">
-                  {language === 'en' ? 'Transparent Pricing' : '透明定价'}
-                </span>
-              </ScrollReveal>
-              <ScrollReveal delay={100}>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-                  {language === 'en' ? 'Simple Pricing' : '简单定价'}
-                </h1>
-              </ScrollReveal>
-              <ScrollReveal delay={200}>
-                <p className="text-xl text-muted-foreground leading-relaxed">
-                  {language === 'en'
-                    ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-                    : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'}
-                </p>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
 
-        {/* Pricing Plans */}
-        <section className="py-20 lg:py-28">
-          <div className="container mx-auto px-6 lg:px-8">
-            <div className="grid md:grid-cols-3 gap-8">
-              {plans.map((plan, index) => (
-                <ScrollReveal key={plan.name} delay={index * 100}>
-                  <div className={`relative rounded-2xl border transition-all duration-500 overflow-hidden group hover-lift ${
-                    plan.featured
-                      ? "border-primary bg-primary/5 shadow-xl md:scale-105"
-                      : "border-border bg-card hover:border-primary/30"
-                  }`}>
-                    {/* Badge for featured */}
+      <section className="pt-32 pb-20 lg:pb-24">
+        <div className="container mx-auto px-6 lg:px-8 text-center max-w-4xl">
+          <ScrollReveal>
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">
+              {language === "en" ? "Transparent Pricing" : "透明定价"}
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.05}>
+            <h1
+              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              {language === "en" ? "Simple Pricing" : "简单定价"}
+            </h1>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+              {language === "en"
+                ? "Flexible plans designed for businesses at different stages of growth."
+                : "为不同成长阶段的企业提供灵活透明的服务方案。"}
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="pb-20 lg:pb-24">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {plans.map((plan, index) => {
+              const planName = language === "en" ? plan.nameEn : plan.nameZh
+              const description =
+                language === "en" ? plan.descriptionEn : plan.descriptionZh
+              const price =
+                "priceEn" in plan
+                  ? language === "en"
+                    ? plan.priceEn
+                    : plan.priceZh
+                  : plan.price
+              const period = language === "en" ? plan.periodEn : plan.periodZh
+              const features =
+                language === "en" ? plan.featuresEn : plan.featuresZh
+              const notIncluded =
+                language === "en" ? plan.notIncludedEn : plan.notIncludedZh
+              const cta = language === "en" ? plan.ctaEn : plan.ctaZh
+
+              return (
+                <ScrollReveal key={planName} delay={index * 0.05}>
+                  <div
+                    className={`relative rounded-3xl border p-8 h-full flex flex-col ${
+                      plan.featured
+                        ? "border-primary shadow-xl bg-card"
+                        : "border-border bg-card"
+                    }`}
+                  >
                     {plan.featured && (
-                      <div className="absolute top-0 left-0 right-0 bg-primary text-primary-foreground text-center py-2 text-sm font-medium">
-                        Most Popular
+                      <div className="absolute -top-3 left-6 rounded-full bg-primary text-primary-foreground px-4 py-1 text-xs font-semibold">
+                        {language === "en" ? "Most Popular" : "最受欢迎"}
                       </div>
                     )}
 
-                    <div className={`p-8 ${plan.featured ? "pt-16" : ""}`}>
-                      <h3 className="text-2xl font-semibold mb-2">
-                        {language === 'en' ? plan.nameEn : plan.nameZh}
-                      </h3>
-                      <p className="text-muted-foreground text-sm mb-6">{plan.description}</p>
+                    <h3 className="text-2xl font-bold">{planName}</h3>
+                    <p className="mt-3 text-muted-foreground leading-relaxed">
+                      {description}
+                    </p>
 
-                      <div className="mb-8">
-                        <div className="text-4xl font-bold">{plan.price}</div>
-                        <div className="text-muted-foreground text-sm">{plan.period}</div>
-                      </div>
-
-                      <Button
-                        asChild
-                        className={`w-full rounded-full mb-8 ${
-                          plan.featured
-                            ? "bg-primary text-primary-foreground"
-                            : "bg-muted text-foreground hover:bg-muted/80"
-                        }`}
-                      >
-                        <Link href="/contact">{plan.cta}</Link>
-                      </Button>
-
-                      <div className="space-y-4">
-                        <div>
-                          <p className="text-xs uppercase font-semibold text-muted-foreground mb-3">Included</p>
-                          <ul className="space-y-3">
-                            {plan.features.map((feature) => (
-                              <li key={feature} className="flex items-start gap-3 text-sm">
-                                <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                                <span>{feature}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {plan.notIncluded.length > 0 && (
-                          <div className="pt-4 border-t border-border">
-                            <p className="text-xs uppercase font-semibold text-muted-foreground mb-3">Not Included</p>
-                            <ul className="space-y-2">
-                              {plan.notIncluded.map((feature) => (
-                                <li key={feature} className="flex items-center gap-3 text-sm text-muted-foreground">
-                                  <div className="w-5 h-5 rounded-full border border-border flex-shrink-0" />
-                                  <span>{feature}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                      </div>
+                    <div className="mt-6 flex items-end gap-2">
+                      <span className="text-4xl font-extrabold">{price}</span>
+                      <span className="text-muted-foreground mb-1">{period}</span>
                     </div>
+
+                    <Button asChild className="mt-6 rounded-full">
+                      <Link href={planName === "Enterprise" || planName === "企业版" ? "/contact" : "/contact"}>
+                        {cta}
+                      </Link>
+                    </Button>
+
+                    <div className="mt-8">
+                      <p className="text-sm font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-4">
+                        {language === "en" ? "Included" : "包含内容"}
+                      </p>
+
+                      <ul className="space-y-3">
+                        {features.map((feature) => (
+                          <li key={feature} className="flex items-start gap-3">
+                            <Check className="w-4 h-4 mt-1 text-primary shrink-0" />
+                            <span className="text-sm">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {notIncluded.length > 0 && (
+                      <div className="mt-8">
+                        <p className="text-sm font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-4">
+                          {language === "en" ? "Not Included" : "不包含"}
+                        </p>
+
+                        <ul className="space-y-3">
+                          {notIncluded.map((feature) => (
+                            <li
+                              key={feature}
+                              className="flex items-start gap-3 text-muted-foreground"
+                            >
+                              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-muted-foreground shrink-0" />
+                              <span className="text-sm">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 </ScrollReveal>
-              ))}
-            </div>
+              )
+            })}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Add-ons Section */}
-        <section className="py-20 lg:py-28 bg-muted/30">
-          <div className="container mx-auto px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <ScrollReveal>
-                <span className="text-primary font-medium text-sm uppercase tracking-wider">Add-ons</span>
-              </ScrollReveal>
-              <ScrollReveal delay={100}>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4" style={{ fontFamily: 'var(--font-display)' }}>
-                  Customize Your Package
-                </h2>
-              </ScrollReveal>
-            </div>
+      <section className="pb-20 lg:pb-24">
+        <div className="container mx-auto px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="max-w-4xl mx-auto">
+              <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">
+                {language === "en" ? "Add-ons" : "附加服务"}
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-center">
+                {language === "en" ? "Customize Your Package" : "定制您的服务组合"}
+              </h2>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {addOns.map((addon, index) => (
-                <ScrollReveal key={addon.name} delay={index * 50}>
-                  <div className="bg-card rounded-xl border border-border p-6 flex items-center justify-between hover-lift">
-                    <span className="font-medium">{addon.name}</span>
-                    <span className="text-primary font-semibold">{addon.price}</span>
+              <div className="mt-10 rounded-3xl border overflow-hidden">
+                {addOns.map((addon, index) => (
+                  <div
+                    key={`${addon.nameEn}-${index}`}
+                    className="flex items-center justify-between px-6 py-5 border-b last:border-b-0 bg-card"
+                  >
+                    <span className="font-medium">
+                      {language === "en" ? addon.nameEn : addon.nameZh}
+                    </span>
+                    <span className="text-muted-foreground">{addon.price}</span>
                   </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section className="py-20 lg:py-28">
-          <div className="container mx-auto px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto">
-              <div className="text-center mb-16">
-                <ScrollReveal>
-                  <h2 className="text-3xl md:text-4xl font-bold" style={{ fontFamily: 'var(--font-display)' }}>
-                    Common Questions
-                  </h2>
-                </ScrollReveal>
-              </div>
-
-              <div className="space-y-6">
-                {[
-                  {
-                    q: "Can I change plans anytime?",
-                    a: "Yes, you can upgrade, downgrade, or cancel your plan at any time with no penalty. Changes take effect at your next billing cycle."
-                  },
-                  {
-                    q: "What if I need more than what's included in my plan?",
-                    a: "We offer flexible add-ons and custom packages. Contact us to discuss your specific needs and we'll create a tailored solution."
-                  },
-                  {
-                    q: "Do you offer discounts for annual billing?",
-                    a: "Absolutely! We offer 20% discount for annual billing on all plans. Contact our sales team for more information."
-                  },
-                  {
-                    q: "What's included in the support?",
-                    a: "All plans include priority support during business hours. Enterprise plans include dedicated account managers and 24/7 support."
-                  },
-                ].map((faq, index) => (
-                  <ScrollReveal key={faq.q} delay={index * 100}>
-                    <div className="bg-card rounded-xl border border-border p-6">
-                      <h3 className="font-semibold text-lg mb-2">{faq.q}</h3>
-                      <p className="text-muted-foreground">{faq.a}</p>
-                    </div>
-                  </ScrollReveal>
                 ))}
               </div>
             </div>
-          </div>
-        </section>
+          </ScrollReveal>
+        </div>
+      </section>
 
-        {/* CTA Section */}
-        <section className="py-20 lg:py-28 bg-muted/30">
-          <div className="container mx-auto px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <ScrollReveal>
-                <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary to-primary/70 p-12 lg:p-16 text-center">
-                  <div className="relative z-10">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-                      Ready to Get Started?
-                    </h2>
-                    <p className="text-lg text-primary-foreground/90 mb-8">
-                      Choose your plan and let us help you achieve your digital goals.
+      <section className="pb-20 lg:pb-24">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <ScrollReveal>
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
+                {language === "en" ? "Common Questions" : "常见问题"}
+              </h2>
+            </ScrollReveal>
+
+            <div className="space-y-5">
+              {faqs.map((faq, index) => (
+                <ScrollReveal key={faq.qEn} delay={index * 0.05}>
+                  <div className="rounded-2xl border bg-card p-6">
+                    <h3 className="text-lg font-semibold">
+                      {language === "en" ? faq.qEn : faq.qZh}
+                    </h3>
+                    <p className="mt-3 text-muted-foreground leading-relaxed">
+                      {language === "en" ? faq.aEn : faq.aZh}
                     </p>
-                    <Button asChild size="lg" className="rounded-full px-8 bg-primary-foreground text-primary hover:bg-primary-foreground/90 group">
-                      <Link href="/contact" className="flex items-center gap-2">
-                        Schedule a Consultation
-                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                      </Link>
-                    </Button>
                   </div>
-                </div>
-              </ScrollReveal>
+                </ScrollReveal>
+              ))}
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+
+      <section className="pb-20 lg:pb-28">
+        <div className="container mx-auto px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="rounded-3xl bg-primary text-primary-foreground p-10 lg:p-14 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold">
+                {language === "en"
+                  ? "Ready to Get Started?"
+                  : "准备开始了吗？"}
+              </h2>
+
+              <p className="mt-4 text-primary-foreground/85 max-w-2xl mx-auto leading-relaxed">
+                {language === "en"
+                  ? "Choose your plan and let us help you achieve your digital goals."
+                  : "选择适合您的方案，让我们帮助您实现数字化增长目标。"}
+              </p>
+
+              <Button
+                asChild
+                size="lg"
+                className="mt-8 rounded-full bg-white text-primary hover:bg-white/90"
+              >
+                <Link href="/contact">
+                  {language === "en" ? "Schedule a Consultation" : "预约咨询"}
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+              </Button>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       <SiteFooter />
     </>
   )
