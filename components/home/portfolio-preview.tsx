@@ -18,73 +18,73 @@ export function PortfolioPreview() {
 
   const categories =
     language === "en"
-      ? ["All", "Lorem Ipsum1", "Lorem Ipsum2", "Lorem Ipsum3", "Lorem Ipsum4"]
-      : ["全部", "品牌", "网页设计", "营销", "电商"]
+      ? ["Lorem", "Ipsum", "Dolor", "Sit Amet", "Consectetur"]
+      : ["示例一", "示例二", "示例三", "示例四", "示例五"]
 
   const projects = [
     {
       id: 1,
-      titleEn: "Luxury Fashion Campaign",
-      titleZh: "高端时尚品牌活动",
-      categoryEn: "Branding",
-      categoryZh: "品牌",
+      titleEn: "Lorem Ipsum Dolor",
+      titleZh: "虚拟示例标题一",
+      categoryEn: "Ipsum",
+      categoryZh: "示例二",
       image:
         "https://images.unsplash.com/photo-1582020738577-2e7a48043902?w=900&auto=format&fit=crop&q=60",
       href: "/portfolio/luxe-fashion",
     },
     {
       id: 2,
-      titleEn: "Tech Product Landing Page",
-      titleZh: "科技产品落地页",
-      categoryEn: "Web Design",
-      categoryZh: "网页设计",
+      titleEn: "Sit Amet Consectetur",
+      titleZh: "虚拟示例标题二",
+      categoryEn: "Dolor",
+      categoryZh: "示例三",
       image:
         "https://images.unsplash.com/photo-1661347215653-9c8ca91685c9?q=80&w=930&auto=format&fit=crop",
       href: "/portfolio/techflow",
     },
     {
       id: 3,
-      titleEn: "Organic Lifestyle Brand",
-      titleZh: "有机生活方式品牌",
-      categoryEn: "Branding",
-      categoryZh: "品牌",
+      titleEn: "Adipiscing Elit Sed",
+      titleZh: "虚拟示例标题三",
+      categoryEn: "Ipsum",
+      categoryZh: "示例二",
       image:
         "https://plus.unsplash.com/premium_photo-1679511319174-d35c3ffe0dd0?q=80&w=774&auto=format&fit=crop",
       href: "/portfolio/greenlife",
     },
     {
       id: 4,
-      titleEn: "Coffee Brand Social Launch",
-      titleZh: "咖啡品牌社媒上线活动",
-      categoryEn: "Marketing",
-      categoryZh: "营销",
+      titleEn: "Tempor Incididunt Ut",
+      titleZh: "虚拟示例标题四",
+      categoryEn: "Sit Amet",
+      categoryZh: "示例四",
       image:
         "https://plus.unsplash.com/premium_photo-1764591621174-422ec90e7ee5?q=80&w=1548&auto=format&fit=crop",
       href: "/portfolio/artisan-coffee",
     },
     {
       id: 5,
-      titleEn: "Wellness Mobile Commerce Experience",
-      titleZh: "健康品牌移动电商体验",
-      categoryEn: "E-Commerce",
-      categoryZh: "电商",
+      titleEn: "Labore Et Dolore Magna",
+      titleZh: "虚拟示例标题五",
+      categoryEn: "Consectetur",
+      categoryZh: "示例五",
       image:
         "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
       href: "/portfolio/wellness-app",
     },
     {
       id: 6,
-      titleEn: "Growth Campaign Dashboard",
-      titleZh: "增长营销数据看板",
-      categoryEn: "Marketing",
-      categoryZh: "营销",
+      titleEn: "Ut Enim Ad Minim",
+      titleZh: "虚拟示例标题六",
+      categoryEn: "Sit Amet",
+      categoryZh: "示例四",
       image:
         "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
       href: "/portfolio/summit-marketing",
     },
   ]
 
-  const defaultCategory = language === "en" ? "All" : "全部"
+  const defaultCategory = language === "en" ? "Lorem" : "示例一"
   const [activeCategory, setActiveCategory] = useState(defaultCategory)
 
   useEffect(() => {
@@ -108,12 +108,14 @@ export function PortfolioPreview() {
             <p
               className={`${raleway.className} text-sm uppercase tracking-[0.22em] text-white/60 mb-4`}
             >
-              {language === "en" ? "Our Portfolio" : "我们的作品"}
+              {language === "en" ? "Lorem Ipsum" : "示例文字"}
             </p>
             <h2
               className={`${raleway.className} text-3xl md:text-4xl lg:text-5xl font-extrabold`}
             >
-              {language === "en" ? "Featured Projects" : "精选项目"}
+              {language === "en"
+                ? "Lorem Ipsum Dolor Sit"
+                : "虚拟展示标题文字"}
             </h2>
           </div>
         </ScrollReveal>
@@ -188,7 +190,7 @@ export function PortfolioPreview() {
               href="/portfolio"
               className="inline-flex items-center rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white hover:bg-white hover:text-black transition-colors"
             >
-              {language === "en" ? "View All Projects" : "查看全部项目"}
+              {language === "en" ? "Lorem Ipsum" : "示例按钮"}
               <ArrowUpRight className="w-4 h-4 ml-2" />
             </Link>
           </div>
