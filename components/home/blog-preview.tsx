@@ -1,13 +1,17 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight, Calendar } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import { useLanguage } from "@/lib/language-context"
 
 const blogPosts = [
   {
     id: 1,
-    title: "The Future of Web Design: Trends to Watch in 2026",
-    excerpt: "Explore the latest design trends shaping the digital landscape and how they can elevate your brand.",
+    titleEn: "Lorem Ipsum Dolor Sit Amet",
+    titleZh: "Lorem Ipsum Dolor Sit Amet",
+    excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=500&fit=crop",
     category: "Design",
     date: "Mar 5, 2026",
@@ -15,8 +19,9 @@ const blogPosts = [
   },
   {
     id: 2,
-    title: "How to Build a Strong Brand Identity",
-    excerpt: "Learn the essential steps to create a memorable brand that resonates with your target audience.",
+    titleEn: "Consectetur Adipiscing Elit",
+    titleZh: "Consectetur Adipiscing Elit",
+    excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     image: "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&h=500&fit=crop",
     category: "Branding",
     date: "Mar 1, 2026",
@@ -24,8 +29,9 @@ const blogPosts = [
   },
   {
     id: 3,
-    title: "Maximizing ROI with Digital Marketing",
-    excerpt: "Discover proven strategies to get the most out of your digital marketing investments.",
+    titleEn: "Sed Do Eiusmod Tempor",
+    titleZh: "Sed Do Eiusmod Tempor",
+    excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&h=500&fit=crop",
     category: "Marketing",
     date: "Feb 25, 2026",
@@ -34,6 +40,8 @@ const blogPosts = [
 ]
 
 export function BlogPreview() {
+  const { language } = useLanguage()
+
   return (
     <section className="py-24 lg:py-32">
       <div className="container mx-auto px-6 lg:px-8">
@@ -41,11 +49,11 @@ export function BlogPreview() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div className="max-w-2xl">
             <ScrollReveal>
-              <span className="text-primary font-medium text-sm uppercase tracking-wider">Our Blog</span>
+              <span className="text-primary font-medium text-sm uppercase tracking-wider">{language === 'en' ? 'Our Blog' : '我们的博客'}</span>
             </ScrollReveal>
             <ScrollReveal delay={100}>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4" style={{ fontFamily: 'var(--font-display)' }}>
-                Latest Insights
+                {language === 'en' ? 'Latest Insights' : '最新见解'}
               </h2>
             </ScrollReveal>
           </div>
@@ -54,7 +62,7 @@ export function BlogPreview() {
               href="/blog"
               className="inline-flex items-center gap-2 text-primary font-medium hover:gap-4 transition-all duration-300"
             >
-              View All Articles
+              {language === 'en' ? 'View All Articles' : '查看所有文章'}
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </ScrollReveal>
@@ -70,7 +78,7 @@ export function BlogPreview() {
                   <div className="relative rounded-2xl overflow-hidden mb-6 img-zoom">
                     <Image
                       src={post.image}
-                      alt={post.title}
+                      alt={language === 'en' ? post.titleEn : post.titleZh}
                       width={800}
                       height={500}
                       className="w-full aspect-[16/10] object-cover"
@@ -88,7 +96,7 @@ export function BlogPreview() {
                     {post.date}
                   </div>
                   <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
-                    {post.title}
+                    {language === 'en' ? post.titleEn : post.titleZh}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
                     {post.excerpt}
