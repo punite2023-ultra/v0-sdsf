@@ -14,9 +14,9 @@ const statsEn = [
 ]
 
 const statsZh = [
-  { label: "Lorem Ipsum", value: 95 },
-  { label: "Dolor Sit Amet", value: 85 },
-  { label: "Consectetur Adipiscing", value: 100 },
+  { label: "示例文字一", value: 95 },
+  { label: "示例文字二", value: 85 },
+  { label: "示例文字三", value: 100 },
 ]
 
 function AnimatedProgress({
@@ -108,33 +108,48 @@ export function StatsSection() {
           <ScrollReveal>
             <div className="text-white">
               <p className="mb-6 font-bold uppercase tracking-widest">
-                Who We Are
+                {language === "en" ? "Who We Are" : "关于我们"}
               </p>
 
               <h2 className="text-5xl font-black uppercase leading-[0.9] md:text-6xl xl:text-7xl">
-                Lorem
-                <br />
-                Ipsum
-                <br />
-                Loremify.
+                {language === "en" ? (
+                  <>
+                    Lorem
+                    <br />
+                    Ipsum
+                    <br />
+                    Loremify.
+                  </>
+                ) : (
+                  <>
+                    示例
+                    <br />
+                    中文
+                    <br />
+                    占位字。
+                  </>
+                )}
               </h2>
 
               <p className="mt-6 max-w-[450px] text-lg text-white/90">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod, Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod.
+                {language === "en"
+                  ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
+                  : "这是一段中文占位文字，用于展示该区域在切换语言后的版式效果。这是一段中文占位文字，用于展示该区域在切换语言后的版式效果。"}
               </p>
 
               <div className="mt-12">
                 <p className="text-2xl font-bold uppercase">
-                  Over Lorem Dummy Text is me
+                  {language === "en"
+                    ? "Over Lorem Dummy Text Is Me"
+                    : "这里是中文占位标题"}
                 </p>
 
                 <div className="my-4 h-[1px] w-full bg-white" />
 
                 <p className="text-2xl font-bold uppercase">
-                  Lorem Ipsum Dolor Amet
+                  {language === "en"
+                    ? "Lorem Ipsum Dolor Amet"
+                    : "这里是另一行中文文字"}
                 </p>
               </div>
             </div>
@@ -155,8 +170,9 @@ export function StatsSection() {
               ))}
 
               <p className="text-white/90">
-                Consectetuer adipiscing congue aptent placera senec efficitur
-                aptent malesuada sit conubia tincidunt iaculis.
+                {language === "en"
+                  ? "Consectetuer adipiscing congue aptent placera senec efficitur aptent malesuada sit conubia tincidunt iaculis."
+                  : "这是一段用于右侧说明区域的中文占位文字，方便测试中文界面的视觉呈现与整体排版。"}
               </p>
 
               <Button
@@ -165,7 +181,7 @@ export function StatsSection() {
                 className="border-2 border-white font-bold uppercase text-[#d946ef] hover:bg-white hover:text-[#a21caf]"
               >
                 <Link href="/about" className="flex items-center gap-2">
-                  Learn More About Us
+                  {language === "en" ? "Learn More About Us" : "了解更多"}
                   <ArrowRight size={18} />
                 </Link>
               </Button>
