@@ -27,10 +27,10 @@ export function AboutPreview() {
           "Duis aute irure dolor in reprehenderit in voluptate",
         ]
       : [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-          "Sed do eiusmod tempor incididunt ut labore et dolore",
-          "Ut enim ad minim veniam, quis nostrud exercitation",
-          "Duis aute irure dolor in reprehenderit in voluptate",
+          "虚拟文字内容用于展示排版效果",
+          "此处为占位文本并无实际含义",
+          "用于测试中文翻译界面与布局",
+          "方便后续替换正式品牌文案内容",
         ]
 
   useEffect(() => {
@@ -100,7 +100,7 @@ export function AboutPreview() {
                   {count}+
                 </div>
                 <p className="text-sm text-muted-foreground mt-1">
-                  {language === "en" ? "Lorem Ipsum Dolor" : "Lorem Ipsum Dolor"}
+                  {language === "en" ? "Lorem Ipsum Dolor" : "虚拟示例文本"}
                 </p>
               </div>
             </div>
@@ -111,7 +111,7 @@ export function AboutPreview() {
               <p
                 className={`${raleway.className} text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4`}
               >
-                {language === "en" ? "Lorem Ipsum" : "Lorem Ipsum"}
+                {language === "en" ? "Lorem Ipsum" : "示例标题"}
               </p>
 
               <h2
@@ -119,19 +119,19 @@ export function AboutPreview() {
               >
                 {language === "en"
                   ? "Lorem Ipsum Dolor Sit Amet Consectetur"
-                  : "Lorem Ipsum Dolor Sit Amet Consectetur"}
+                  : "这是用于中文展示的占位标题文字"}
               </h2>
 
               <p className="mt-6 text-muted-foreground leading-relaxed text-base md:text-lg">
                 {language === "en"
                   ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                  : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
+                  : "这是一段中文占位文本，用于模拟正式介绍内容的视觉效果与整体排版展示。"}
               </p>
 
               <p className="mt-4 text-muted-foreground leading-relaxed text-base md:text-lg">
                 {language === "en"
                   ? "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                  : "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}
+                  : "此段文字同样仅作为演示用途，方便后续替换成真实的品牌说明与服务介绍内容。"}
               </p>
 
               <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -146,7 +146,7 @@ export function AboutPreview() {
               <div className="mt-8">
                 <Button asChild size="lg" className="rounded-full px-8 group">
                   <Link href="/about">
-                    {language === "en" ? "Lorem Ipsum" : "Lorem Ipsum"}
+                    {language === "en" ? "Lorem Ipsum" : "了解更多"}
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
