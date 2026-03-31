@@ -145,8 +145,8 @@ export function SiteFooter() {
                 <Image
                   src="/StarDigitalSolutionsLogoWhite.png"
                   alt="Star Digital Solutions"
-                  width={180}
-                  height={42}
+                  width={200}
+                  height={62}
                   className="h-auto w-auto max-w-[180px]"
                 />
               </Link>
