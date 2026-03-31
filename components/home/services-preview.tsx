@@ -23,12 +23,19 @@ const servicesData = [
     icon: TrendingUp,
     titleEn: "Service One",
     titleZh: "服务一",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    details: [
+    descriptionEn: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    descriptionZh: "这是一段中文占位文本，用于展示卡片中的说明内容。",
+    detailsEn: [
       "Lorem ipsum",
       "Dolor sit amet",
       "Consectetur adipiscing",
       "Sed do eiusmod",
+    ],
+    detailsZh: [
+      "示例说明一",
+      "示例说明二",
+      "示例说明三",
+      "示例说明四",
     ],
     iconBg: "bg-blue-500/12 text-blue-600",
     hoverBg: "hover:bg-blue-50",
@@ -39,12 +46,19 @@ const servicesData = [
     icon: Palette,
     titleEn: "Service Two",
     titleZh: "服务二",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    details: [
+    descriptionEn: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    descriptionZh: "这是一段中文占位文本，用于展示卡片中的说明内容。",
+    detailsEn: [
       "Lorem ipsum",
       "Dolor sit amet",
       "Consectetur adipiscing",
       "Sed do eiusmod",
+    ],
+    detailsZh: [
+      "示例说明一",
+      "示例说明二",
+      "示例说明三",
+      "示例说明四",
     ],
     iconBg: "bg-purple-500/12 text-purple-600",
     hoverBg: "hover:bg-purple-50",
@@ -55,12 +69,19 @@ const servicesData = [
     icon: Smartphone,
     titleEn: "Service Three",
     titleZh: "服务三",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    details: [
+    descriptionEn: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    descriptionZh: "这是一段中文占位文本，用于展示卡片中的说明内容。",
+    detailsEn: [
       "Lorem ipsum",
       "Dolor sit amet",
       "Consectetur adipiscing",
       "Sed do eiusmod",
+    ],
+    detailsZh: [
+      "示例说明一",
+      "示例说明二",
+      "示例说明三",
+      "示例说明四",
     ],
     iconBg: "bg-emerald-500/12 text-emerald-600",
     hoverBg: "hover:bg-emerald-50",
@@ -71,12 +92,19 @@ const servicesData = [
     icon: BarChart3,
     titleEn: "Service Four",
     titleZh: "服务四",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    details: [
+    descriptionEn: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    descriptionZh: "这是一段中文占位文本，用于展示卡片中的说明内容。",
+    detailsEn: [
       "Lorem ipsum",
       "Dolor sit amet",
       "Consectetur adipiscing",
       "Sed do eiusmod",
+    ],
+    detailsZh: [
+      "示例说明一",
+      "示例说明二",
+      "示例说明三",
+      "示例说明四",
     ],
     iconBg: "bg-orange-500/12 text-orange-600",
     hoverBg: "hover:bg-orange-50",
@@ -87,12 +115,19 @@ const servicesData = [
     icon: Zap,
     titleEn: "Service Five",
     titleZh: "服务五",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    details: [
+    descriptionEn: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    descriptionZh: "这是一段中文占位文本，用于展示卡片中的说明内容。",
+    detailsEn: [
       "Lorem ipsum",
       "Dolor sit amet",
       "Consectetur adipiscing",
       "Sed do eiusmod",
+    ],
+    detailsZh: [
+      "示例说明一",
+      "示例说明二",
+      "示例说明三",
+      "示例说明四",
     ],
     iconBg: "bg-pink-500/12 text-pink-600",
     hoverBg: "hover:bg-pink-50",
@@ -103,12 +138,19 @@ const servicesData = [
     icon: BarChart3,
     titleEn: "Service Six",
     titleZh: "服务六",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    details: [
+    descriptionEn: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    descriptionZh: "这是一段中文占位文本，用于展示卡片中的说明内容。",
+    detailsEn: [
       "Lorem ipsum",
       "Dolor sit amet",
       "Consectetur adipiscing",
       "Sed do eiusmod",
+    ],
+    detailsZh: [
+      "示例说明一",
+      "示例说明二",
+      "示例说明三",
+      "示例说明四",
     ],
     iconBg: "bg-indigo-500/12 text-indigo-600",
     hoverBg: "hover:bg-indigo-50",
@@ -128,9 +170,12 @@ function ServiceCard({
   index: number
   isOpen: boolean
   onToggle: () => void
-  language: 'en' | 'zh'
+  language: "en" | "zh"
 }) {
   const Icon = service.icon
+  const description =
+    language === "en" ? service.descriptionEn : service.descriptionZh
+  const details = language === "en" ? service.detailsEn : service.detailsZh
 
   return (
     <ScrollReveal delay={index * 100}>
@@ -150,7 +195,7 @@ function ServiceCard({
         <h3
           className={`${raleway.className} mb-4 flex items-start justify-between gap-3 text-[28px] font-[800] leading-[1.12] tracking-[-0.02em] text-foreground`}
         >
-          <span>{language === 'en' ? service.titleEn : service.titleZh}</span>
+          <span>{language === "en" ? service.titleEn : service.titleZh}</span>
           <ArrowUpRight
             className={`mt-1 h-5 w-5 shrink-0 transition-all duration-300 ${
               isOpen
@@ -161,7 +206,7 @@ function ServiceCard({
         </h3>
 
         <p className="text-[17px] leading-[1.65] text-muted-foreground">
-          {service.description}
+          {description}
         </p>
 
         <div
@@ -170,7 +215,7 @@ function ServiceCard({
           }`}
         >
           <ul className="space-y-3">
-            {service.details.map((detail, i) => (
+            {details.map((detail, i) => (
               <li
                 key={detail}
                 className={`flex items-start gap-4 text-[15px] text-foreground transition-all duration-500 ${
@@ -205,7 +250,7 @@ export function ServicesPreview() {
             <span
               className={`${raleway.className} text-primary text-sm font-medium uppercase tracking-[0.18em]`}
             >
-              {language === 'en' ? 'Our Services' : '我们的服务'}
+              {language === "en" ? "Our Services" : "我们的服务"}
             </span>
           </ScrollReveal>
 
@@ -213,15 +258,15 @@ export function ServicesPreview() {
             <h2
               className={`${raleway.className} mt-4 mb-6 text-4xl font-[800] leading-tight md:text-5xl lg:text-6xl`}
             >
-              {language === 'en' ? 'Services We Offer' : '我们提供的服务'}
+              {language === "en" ? "Services We Offer" : "我们提供的服务"}
             </h2>
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
             <p className="mx-auto max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              {language === 'en'
-                ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.'
-                : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.'}
+              {language === "en"
+                ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+                : "这是一段中文占位文本，用于展示服务区域的介绍说明与版面效果。"}
             </p>
           </ScrollReveal>
         </div>
