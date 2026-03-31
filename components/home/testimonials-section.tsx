@@ -4,39 +4,40 @@ import { useState } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import { useLanguage } from "@/lib/language-context"
 
 const testimonials = [
   {
     id: 1,
-    content: "Working with Aurelia was an absolute pleasure. They transformed our vision into a stunning reality. Their attention to detail and creative approach exceeded all our expectations.",
-    author: "Sarah Mitchell",
-    role: "CEO, TechVentures",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    author: "Client One",
+    role: "CEO, Company A",
     image: "https://i.pravatar.cc/200?img=1",
-    company: "TechVentures",
+    company: "Company A",
   },
   {
     id: 2,
-    content: "The team delivered exceptional results on time and within budget. Their strategic thinking and execution capabilities are truly world-class. I highly recommend their services.",
-    author: "Michael Chen",
-    role: "Marketing Director, GlobalBrands",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    author: "Client Two",
+    role: "Marketing Director, Company B",
     image: "https://i.pravatar.cc/200?img=3",
-    company: "GlobalBrands",
+    company: "Company B",
   },
   {
     id: 3,
-    content: "Aurelia helped us reimagine our digital presence. The new website has significantly increased our conversions and user engagement. They truly understand modern design.",
-    author: "Emily Rodriguez",
-    role: "Founder, StartupHub",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    author: "Client Three",
+    role: "Founder, Company C",
     image: "https://i.pravatar.cc/200?img=5",
-    company: "StartupHub",
+    company: "Company C",
   },
   {
     id: 4,
-    content: "Professional, creative, and results-driven. The team went above and beyond to ensure our project was a success. We have seen a 200% increase in our online presence.",
-    author: "David Thompson",
-    role: "COO, InnovateCo",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    author: "Client Four",
+    role: "COO, Company D",
     image: "https://i.pravatar.cc/200?img=8",
-    company: "InnovateCo",
+    company: "Company D",
   },
 ]
 
