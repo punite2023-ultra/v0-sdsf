@@ -13,180 +13,181 @@ const raleway = Raleway({
   weight: ["400", "500", "600", "700", "800"],
 })
 
-const categories = ["All", "Lorem Ipsum1", "Lorem Ipsum2", "Lorem Ipsum3", "Lorem Ipsum4"]
-
-const projects = [
-  {
-    id: 1,
-    title: "Lorem Ipsum Dolor Project",
-    category: "Lorem Ipsum1",
-    image:
-      "https://images.unsplash.com/photo-1582020738577-2e7a48043902?w=900&auto=format&fit=crop&q=60",
-    href: "/portfolio/luxe-fashion",
-  },
-  {
-    id: 2,
-    title: "Consectetur Adipiscing Project",
-    category: "Lorem Ipsum2",
-    image:
-      "https://images.unsplash.com/photo-1661347215653-9c8ca91685c9?q=80&w=930&auto=format&fit=crop",
-    href: "/portfolio/techflow",
-  },
-  {
-    id: 3,
-    title: "Sed Do Eiusmod Project",
-    category: "Lorem Ipsum3",
-    image:
-      "https://plus.unsplash.com/premium_photo-1679511319174-d35c3ffe0dd0?q=80&w=774&auto=format&fit=crop",
-    href: "/portfolio/greenlife",
-  },
-  {
-    id: 4,
-    title: "Tempor Incididunt Project",
-    category: "Lorem Ipsum4",
-    image:
-      "https://plus.unsplash.com/premium_photo-1764591621174-422ec90e7ee5?q=80&w=1548&auto=format&fit=crop",
-    href: "/portfolio/artisan-coffee",
-  },
-  {
-    id: 5,
-    title: "Lorem Ipsum Dolor Anmet",
-    category: "Lorem Ipsum5",
-    image:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
-    href: "/portfolio/wellness-app",
-  },
-  {
-    id: 6,
-    title: "Lorem Ipsum Dolor Anmet",
-    category: "Lorem Ipsum6",
-    image:
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
-    href: "/portfolio/summit-marketing",
-  },
-]
-
 export function PortfolioPreview() {
-  const [activeCategory, setActiveCategory] = useState("All")
+  const { language } = useLanguage()
+
+  const categories =
+    language === "en"
+      ? ["All", "Branding", "Web Design", "Marketing", "E-Commerce"]
+      : ["全部", "品牌", "网页设计", "营销", "电商"]
+
+  const projects = [
+    {
+      id: 1,
+      titleEn: "Luxury Fashion Campaign",
+      titleZh: "高端时尚品牌活动",
+      categoryEn: "Branding",
+      categoryZh: "品牌",
+      image:
+        "https://images.unsplash.com/photo-1582020738577-2e7a48043902?w=900&auto=format&fit=crop&q=60",
+      href: "/portfolio/luxe-fashion",
+    },
+    {
+      id: 2,
+      titleEn: "Tech Product Landing Page",
+      titleZh: "科技产品落地页",
+      categoryEn: "Web Design",
+      categoryZh: "网页设计",
+      image:
+        "https://images.unsplash.com/photo-1661347215653-9c8ca91685c9?q=80&w=930&auto=format&fit=crop",
+      href: "/portfolio/techflow",
+    },
+    {
+      id: 3,
+      titleEn: "Organic Lifestyle Brand",
+      titleZh: "有机生活方式品牌",
+      categoryEn: "Branding",
+      categoryZh: "品牌",
+      image:
+        "https://plus.unsplash.com/premium_photo-1679511319174-d35c3ffe0dd0?q=80&w=774&auto=format&fit=crop",
+      href: "/portfolio/greenlife",
+    },
+    {
+      id: 4,
+      titleEn: "Coffee Brand Social Launch",
+      titleZh: "咖啡品牌社媒上线活动",
+      categoryEn: "Marketing",
+      categoryZh: "营销",
+      image:
+        "https://plus.unsplash.com/premium_photo-1764591621174-422ec90e7ee5?q=80&w=1548&auto=format&fit=crop",
+      href: "/portfolio/artisan-coffee",
+    },
+    {
+      id: 5,
+      titleEn: "Wellness Mobile Commerce Experience",
+      titleZh: "健康品牌移动电商体验",
+      categoryEn: "E-Commerce",
+      categoryZh: "电商",
+      image:
+        "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
+      href: "/portfolio/wellness-app",
+    },
+    {
+      id: 6,
+      titleEn: "Growth Campaign Dashboard",
+      titleZh: "增长营销数据看板",
+      categoryEn: "Marketing",
+      categoryZh: "营销",
+      image:
+        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
+      href: "/portfolio/summit-marketing",
+    },
+  ]
+
+  const [activeCategory, setActiveCategory] = useState(
+    language === "en" ? "All" : "全部"
+  )
 
   const filteredProjects =
-    activeCategory === "All"
+    activeCategory === (language === "en" ? "All" : "全部")
       ? projects
-      : projects.filter((project) => project.category === activeCategory)
+      : projects.filter((project) =>
+          language === "en"
+            ? project.categoryEn === activeCategory
+            : project.categoryZh === activeCategory
+        )
 
   return (
-    <section className="py-24 lg:py-32 bg-black">
+    <section className="py-20 lg:py-28 bg-black text-white">
       <div className="container mx-auto px-6 lg:px-8">
-
-        {/* Header */}
-        <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-2xl">
-            <ScrollReveal>
-              <span className={`text-white/70 text-sm font-medium uppercase tracking-wider ${raleway.className}`}>
-                Our Portfolio
-              </span>
-            </ScrollReveal>
-
-            <ScrollReveal delay={100}>
-              <h2 className={`mt-4 text-3xl font-bold md:text-4xl lg:text-5xl text-white ${raleway.className}`}>
-                Featured Projects
-              </h2>
-            </ScrollReveal>
-          </div>
-
-          {/* Filter Tabs */}
-          <ScrollReveal delay={200}>
-            <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setActiveCategory(category)}
-                  className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 ${
-                    activeCategory === category
-                      ? "bg-white text-black"
-                      : "bg-white/10 text-white/70 hover:bg-white/20"
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </ScrollReveal>
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          {filteredProjects.map((project, index) => (
-            <ScrollReveal key={project.id} delay={index * 100}>
-              <Link href={project.href} className="group block">
-                <article className="overflow-hidden rounded-2xl transition-all duration-500 group-hover:-translate-y-2">
-
-                  {/* Image */}
-                  <div className="relative overflow-hidden rounded-2xl transition-all duration-500 group-hover:shadow-[0_20px_50px_rgba(255,255,255,0.1)]">
-                    <div className="aspect-[4/3] overflow-hidden">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        width={800}
-                        height={600}
-                        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-                      />
-                    </div>
-
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
-                    {/* Hover Content */}
-                    <div className="absolute inset-x-0 bottom-0 z-10 p-6">
-                      <div className="translate-y-5 transition-transform duration-500 ease-out group-hover:translate-y-0">
-                        
-                        <span className="text-sm text-white/70 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                          {project.category}
-                        </span>
-
-                        <div className="mt-2 flex items-center gap-2">
-                          <h3 className="text-xl font-semibold text-white opacity-0 transition-all duration-500 delay-75 group-hover:opacity-100">
-                            {project.title}
-                          </h3>
-
-                          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white opacity-0 transition-all duration-500 delay-100 group-hover:opacity-100">
-                            <ArrowUpRight className="h-4 w-4" />
-                          </span>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Default Info */}
-                  <div className="px-1 pt-4">
-                    <span className="text-sm text-white/60">
-                      {project.category}
-                    </span>
-                    <h3 className="mt-1 text-lg font-semibold text-white">
-                      {project.title}
-                    </h3>
-                  </div>
-
-                </article>
-              </Link>
-            </ScrollReveal>
-          ))}
-        </div>
-
-        {/* View All */}
-        <ScrollReveal delay={600}>
-          <div className="mt-12 text-center">
-            <Link
-              href="/portfolio"
-              className="inline-flex items-center gap-2 font-medium text-white transition-all duration-300 hover:gap-4"
+        <ScrollReveal>
+          <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-14">
+            <p
+              className={`${raleway.className} text-sm uppercase tracking-[0.22em] text-white/60 mb-4`}
             >
-              View All Projects
-              <ArrowUpRight className="h-4 w-4" />
-            </Link>
+              {language === "en" ? "Our Portfolio" : "我们的作品"}
+            </p>
+            <h2
+              className={`${raleway.className} text-3xl md:text-4xl lg:text-5xl font-extrabold`}
+            >
+              {language === "en" ? "Featured Projects" : "精选项目"}
+            </h2>
           </div>
         </ScrollReveal>
 
+        <ScrollReveal delay={0.05}>
+          <div className="flex flex-wrap justify-center gap-3 mb-10 lg:mb-12">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 ${
+                  activeCategory === category
+                    ? "bg-white text-black"
+                    : "bg-white/10 text-white/70 hover:bg-white/20"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+          {filteredProjects.map((project, index) => {
+            const category = language === "en" ? project.categoryEn : project.categoryZh
+            const title = language === "en" ? project.titleEn : project.titleZh
+
+            return (
+              <ScrollReveal key={project.id} delay={index * 0.05}>
+                <Link
+                  href={project.href}
+                  className="group block rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:border-white/20 transition-all"
+                >
+                  <div className="relative h-[360px] overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+
+                    <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <p className="text-xs uppercase tracking-[0.2em] text-white/70 mb-2">
+                            {category}
+                          </p>
+                          <h3 className="text-xl md:text-2xl font-semibold leading-snug">
+                            {title}
+                          </h3>
+                        </div>
+
+                        <div className="w-11 h-11 rounded-full bg-white text-black flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                          <ArrowUpRight className="w-5 h-5" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </ScrollReveal>
+            )
+          })}
+        </div>
+
+        <ScrollReveal delay={0.1}>
+          <div className="mt-12 text-center">
+            <Link
+              href="/portfolio"
+              className="inline-flex items-center rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white hover:bg-white hover:text-black transition-colors"
+            >
+              {language === "en" ? "View All Projects" : "查看全部项目"}
+              <ArrowUpRight className="w-4 h-4 ml-2" />
+            </Link>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   )
