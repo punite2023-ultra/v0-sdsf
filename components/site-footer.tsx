@@ -143,7 +143,7 @@ export function SiteFooter() {
             <div className="xl:col-span-2">
               <Link href="/" className="inline-flex items-center">
                 <Image
-                  src="/StarDigitalSolutionsWhite.svg"
+                  src="/StarDigitalSolutionsWhite.png"
                   alt="Star Digital Solutions"
                   width={180}
                   height={42}
