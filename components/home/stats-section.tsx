@@ -43,7 +43,6 @@ function AnimatedProgress({
       const animate = (now: number) => {
         const elapsed = now - startTime
         const t = Math.min(elapsed / duration, 1)
-
         const eased = 1 - Math.pow(1 - t, 3)
 
         setCount(Math.round(value * eased))
@@ -60,12 +59,12 @@ function AnimatedProgress({
 
   return (
     <div className="space-y-4">
-      <div className="flex justify-between items-end">
-        <h3 className="text-xl md:text-2xl font-extrabold uppercase text-white">
+      <div className="flex items-end justify-between">
+        <h3 className="text-xl font-extrabold uppercase text-white md:text-2xl">
           {label}
         </h3>
 
-        <span className="text-xl md:text-2xl font-extrabold text-white">
+        <span className="text-xl font-extrabold text-white md:text-2xl">
           {count}%
         </span>
       </div>
@@ -103,20 +102,16 @@ export function StatsSection() {
   }, [])
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative bg-[#62248e] py-24"
-    >
+    <section ref={sectionRef} className="relative bg-[#62248e] py-24">
       <div className="relative z-10 mx-auto max-w-[1500px] px-6">
-        <div className="grid lg:grid-cols-3 gap-12 items-center">
-          {/* LEFT TEXT */}
+        <div className="grid items-center gap-12 lg:grid-cols-3">
           <ScrollReveal>
             <div className="text-white">
-              <p className="uppercase tracking-widest font-bold mb-6">
+              <p className="mb-6 font-bold uppercase tracking-widest">
                 Who We Are
               </p>
 
-              <h2 className="text-5xl md:text-6xl xl:text-7xl font-black leading-[0.9] uppercase">
+              <h2 className="text-5xl font-black uppercase leading-[0.9] md:text-6xl xl:text-7xl">
                 Lorem
                 <br />
                 Ipsum
@@ -125,9 +120,10 @@ export function StatsSection() {
               </h2>
 
               <p className="mt-6 max-w-[450px] text-lg text-white/90">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod,
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod, Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit, sed do eiusmod.
               </p>
 
               <div className="mt-12">
@@ -135,7 +131,7 @@ export function StatsSection() {
                   Over Lorem Dummy Text is me
                 </p>
 
-                <div className="w-full h-[1px] bg-white my-4" />
+                <div className="my-4 h-[1px] w-full bg-white" />
 
                 <p className="text-2xl font-bold uppercase">
                   Lorem Ipsum Dolor Amet
@@ -144,12 +140,10 @@ export function StatsSection() {
             </div>
           </ScrollReveal>
 
-          {/* EMPTY CENTER */}
           <div />
 
-          {/* RIGHT STATS */}
           <ScrollReveal delay={0.2}>
-            <div className="text-white space-y-10 max-w-[500px] ml-auto">
+            <div className="ml-auto max-w-[500px] space-y-10 text-white">
               {stats.map((stat, index) => (
                 <AnimatedProgress
                   key={stat.label}
@@ -168,7 +162,7 @@ export function StatsSection() {
               <Button
                 asChild
                 variant="outline"
-                className="border-2 border-white text-white font-bold uppercase hover:bg-white hover:text-[#62248e]"
+                className="border-2 border-white font-bold uppercase text-[#d946ef] hover:bg-white hover:text-[#a21caf]"
               >
                 <Link href="/about" className="flex items-center gap-2">
                   Learn More About Us
