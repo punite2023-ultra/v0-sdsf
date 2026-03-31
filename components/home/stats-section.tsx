@@ -124,28 +124,28 @@ export function StatsSection() {
               </p>
 
               <h2 className="text-5xl md:text-6xl xl:text-7xl font-black leading-[0.9] uppercase">
-                Creativity
+                Lorem Ipsum Dolory
                 <br />
-                Meets
+                Ipsum Dolor
                 <br />
-                Strategy.
+                Loremify It is.
               </h2>
 
               <p className="mt-6 max-w-[450px] text-lg text-white/90">
-                With a team of passionate designers, marketers, and innovators,
-                we specialize in delivering unique solutions that elevate your
-                brand and captivate your audience.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod,
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
               </p>
 
               <div className="mt-12">
                 <p className="text-2xl font-bold uppercase">
-                  Over 10 Years of Experience
+                  Over Lorem Dummy Text is me 
                 </p>
 
                 <div className="w-full h-[1px] bg-white my-4" />
 
                 <p className="text-2xl font-bold uppercase">
-                  Trusted by Global Brands
+                  Lorem IPsum Dolor Amet
                 </p>
               </div>
             </div>
