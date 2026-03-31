@@ -21,16 +21,16 @@ export function AboutPreview() {
   const features =
     language === "en"
       ? [
-          "Strategic digital solutions tailored to your brand",
-          "Creative execution backed by business goals",
-          "Collaborative process from concept to launch",
-          "Focused on measurable growth and long-term value",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "Sed do eiusmod tempor incididunt ut labore et dolore",
+          "Ut enim ad minim veniam, quis nostrud exercitation",
+          "Duis aute irure dolor in reprehenderit in voluptate",
         ]
       : [
-          "根据品牌需求定制的数字化解决方案",
-          "以商业目标为导向的创意执行",
-          "从概念到落地的协作式流程",
-          "专注可衡量增长与长期价值",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "Sed do eiusmod tempor incididunt ut labore et dolore",
+          "Ut enim ad minim veniam, quis nostrud exercitation",
+          "Duis aute irure dolor in reprehenderit in voluptate",
         ]
 
   useEffect(() => {
@@ -100,7 +100,7 @@ export function AboutPreview() {
                   {count}+
                 </div>
                 <p className="text-sm text-muted-foreground mt-1">
-                  {language === "en" ? "Years of Experience" : "年行业经验"}
+                  {language === "en" ? "Lorem Ipsum Dolor" : "Lorem Ipsum Dolor"}
                 </p>
               </div>
             </div>
@@ -111,27 +111,27 @@ export function AboutPreview() {
               <p
                 className={`${raleway.className} text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4`}
               >
-                {language === "en" ? "About Us" : "关于我们"}
+                {language === "en" ? "Lorem Ipsum" : "Lorem Ipsum"}
               </p>
 
               <h2
                 className={`${raleway.className} text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight`}
               >
                 {language === "en"
-                  ? "Creative Thinking with Strategic Execution"
-                  : "以创意思维驱动战略执行"}
+                  ? "Lorem Ipsum Dolor Sit Amet Consectetur"
+                  : "Lorem Ipsum Dolor Sit Amet Consectetur"}
               </h2>
 
               <p className="mt-6 text-muted-foreground leading-relaxed text-base md:text-lg">
                 {language === "en"
-                  ? "We help businesses grow through branding, content, design, and digital experiences that are both visually compelling and commercially effective."
-                  : "我们通过品牌、内容、设计与数字体验，帮助企业实现增长，让视觉表现与商业成果兼具。"}
+                  ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                  : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
               </p>
 
               <p className="mt-4 text-muted-foreground leading-relaxed text-base md:text-lg">
                 {language === "en"
-                  ? "Our approach blends creativity, clarity, and performance so every project feels intentional, polished, and built for results."
-                  : "我们的方式融合创意、清晰表达与执行表现，让每一个项目都更有目的、更专业，并真正服务于结果。"}
+                  ? "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                  : "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}
               </p>
 
               <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -146,7 +146,7 @@ export function AboutPreview() {
               <div className="mt-8">
                 <Button asChild size="lg" className="rounded-full px-8 group">
                   <Link href="/about">
-                    {language === "en" ? "Learn More" : "了解更多"}
+                    {language === "en" ? "Lorem Ipsum" : "Lorem Ipsum"}
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
