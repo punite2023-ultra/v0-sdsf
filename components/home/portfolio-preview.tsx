@@ -13,13 +13,13 @@ const raleway = Raleway({
   weight: ["400", "500", "600", "700", "800"],
 })
 
-const categories = ["All", "Branding", "Web Design", "Development", "Marketing"]
+const categories = ["All", "Lorem Ipsum1", "Lorem Ipsum2", "Lorem Ipsum3", "Lorem Ipsum4"]
 
 const projects = [
   {
     id: 1,
     title: "Lorem Ipsum Dolor Project",
-    category: "Content Creation & Branding",
+    category: "Lorem Ipsum1",
     image:
       "https://images.unsplash.com/photo-1582020738577-2e7a48043902?w=900&auto=format&fit=crop&q=60",
     href: "/portfolio/luxe-fashion",
@@ -27,7 +27,7 @@ const projects = [
   {
     id: 2,
     title: "Consectetur Adipiscing Project",
-    category: "E-Commerce Strategy & Management",
+    category: "Lorem Ipsum2",
     image:
       "https://images.unsplash.com/photo-1661347215653-9c8ca91685c9?q=80&w=930&auto=format&fit=crop",
     href: "/portfolio/techflow",
@@ -35,7 +35,7 @@ const projects = [
   {
     id: 3,
     title: "Sed Do Eiusmod Project",
-    category: "Social Media Marketing",
+    category: "Lorem Ipsum3",
     image:
       "https://plus.unsplash.com/premium_photo-1679511319174-d35c3ffe0dd0?q=80&w=774&auto=format&fit=crop",
     href: "/portfolio/greenlife",
@@ -43,23 +43,23 @@ const projects = [
   {
     id: 4,
     title: "Tempor Incididunt Project",
-    category: "Influencer & Affiliate Marketing",
+    category: "Lorem Ipsum4",
     image:
       "https://plus.unsplash.com/premium_photo-1764591621174-422ec90e7ee5?q=80&w=1548&auto=format&fit=crop",
     href: "/portfolio/artisan-coffee",
   },
   {
     id: 5,
-    title: "Wellness App",
-    category: "Development",
+    title: "Lorem Ipsum Dolor Anmet",
+    category: "Lorem Ipsum5",
     image:
       "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
     href: "/portfolio/wellness-app",
   },
   {
     id: 6,
-    title: "Summit Marketing",
-    category: "Marketing",
+    title: "Lorem Ipsum Dolor Anmet",
+    category: "Lorem Ipsum6",
     image:
       "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
     href: "/portfolio/summit-marketing",
