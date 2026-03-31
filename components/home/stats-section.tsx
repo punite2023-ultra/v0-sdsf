@@ -124,11 +124,11 @@ export function StatsSection() {
               </p>
 
               <h2 className="text-5xl md:text-6xl xl:text-7xl font-black leading-[0.9] uppercase">
-                Lorem Ipsum Dolory
+                Lorem Ipsum
                 <br />
                 Ipsum Dolor
                 <br />
-                Loremify It is.
+                Loremify.
               </h2>
 
               <p className="mt-6 max-w-[450px] text-lg text-white/90">
