@@ -1,3 +1,5 @@
+'use client'
+
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { ScrollReveal } from "@/components/scroll-reveal"
@@ -5,59 +7,78 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Award, Users, Target, Lightbulb } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/lib/language-context"
 
-export const metadata = {
-  title: "About Us | Star Digital Solutions Agency",
-  description: "Learn about our story, mission, and the talented team behind Aurelia Creative Agency.",
-}
-
-const values = [
+const valuesEn = [
   {
     icon: Lightbulb,
     title: "Innovation",
-    description: "We constantly push boundaries and explore new possibilities to deliver cutting-edge solutions.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     icon: Target,
     title: "Excellence",
-    description: "We are committed to delivering the highest quality work that exceeds expectations.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     icon: Users,
     title: "Collaboration",
-    description: "We believe in the power of teamwork and building strong partnerships with our clients.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     icon: Award,
     title: "Integrity",
-    description: "We operate with honesty, transparency, and ethical standards in everything we do.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+]
+
+const valuesZh = [
+  {
+    icon: Lightbulb,
+    title: "创新",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+  {
+    icon: Target,
+    title: "卓越",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+  {
+    icon: Users,
+    title: "协作",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+  {
+    icon: Award,
+    title: "诚信",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
 ]
 
 const team = [
   {
-    name: "Alexandra Chen",
-    role: "Founder & CEO",
+    name: "Team Member One",
+    role: "Position One",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop",
-    bio: "15+ years of experience in digital strategy and brand development.",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
-    name: "Marcus Johnson",
-    role: "Creative Director",
+    name: "Team Member Two",
+    role: "Position Two",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop",
-    bio: "Award-winning designer with a passion for creating memorable experiences.",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
-    name: "Sofia Rodriguez",
-    role: "Head of Development",
+    name: "Team Member Three",
+    role: "Position Three",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=500&fit=crop",
-    bio: "Full-stack expert specializing in scalable web applications.",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
-    name: "David Kim",
-    role: "Marketing Director",
+    name: "Team Member Four",
+    role: "Position Four",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop",
-    bio: "Data-driven marketer focused on ROI and growth strategies.",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     name: "Emma Wilson",
@@ -83,25 +104,30 @@ const milestones = [
 ]
 
 export default function AboutPage() {
+  const { language } = useLanguage()
+  const values = language === 'en' ? valuesEn : valuesZh
+
   return (
     <>
       <Navigation />
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-20 lg:pt-40 lg:pb-28">
-          <div className="container mx-auto px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto text-center">
+        <section className="relative min-h-[50vh] w-full overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10 pt-24">
+          <div className="container mx-auto px-6 lg:px-8 flex flex-col items-center justify-center py-20 lg:py-28">
+            <div className="max-w-4xl text-center">
               <ScrollReveal>
-                <span className="text-primary font-medium text-sm uppercase tracking-wider">About Us</span>
-              </ScrollReveal>
-              <ScrollReveal delay={100}>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-                  We Are a Team of Digital Growth Partners
+                <h1
+                  className="text-5xl lg:text-7xl font-bold text-foreground mb-6"
+                  style={{ fontFamily: 'var(--font-display)' }}
+                >
+                  {language === 'en' ? 'About Us' : '关于我们'}
                 </h1>
               </ScrollReveal>
               <ScrollReveal delay={200}>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                 Star Digital Solutions is dedicated to helping businesses strengthen their digital presence and achieve measurable growth through strategic marketing, creative content, and data-driven solutions.
+                  {language === 'en' 
+                    ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                    : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
                 </p>
               </ScrollReveal>
             </div>
@@ -132,27 +158,33 @@ export default function AboutPage() {
 
               <div>
                 <ScrollReveal>
-                  <span className="text-primary font-medium text-sm uppercase tracking-wider">Our Story</span>
+                  <span className="text-primary font-medium text-sm uppercase tracking-wider">
+                    {language === 'en' ? 'Our Story' : '我们的故事'}
+                  </span>
                 </ScrollReveal>
                 <ScrollReveal delay={100}>
                   <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-                    We Transform Brands Through Digital Strategy
+                    {language === 'en' ? 'Lorem Ipsum Dolor Sit Amet' : 'Lorem Ipsum Dolor Sit Amet'}
                   </h2>
                 </ScrollReveal>
                 <ScrollReveal delay={200}>
                   <p className="text-muted-foreground leading-relaxed mb-6">
-                    Star Digital Solutions Inc. helps brands grow in today’s fast-moving digital landscape through strategic marketing, creative content, and platform management.
+                    {language === 'en'
+                      ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                      : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
                   </p>
                 </ScrollReveal>
                 <ScrollReveal delay={300}>
                   <p className="text-muted-foreground leading-relaxed mb-8">
-                    Our team delivers data-driven solutions that strengthen brand presence, increase engagement, and drive measurable results across digital channels.
+                    {language === 'en'
+                      ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
+                      : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'}
                   </p>
                 </ScrollReveal>
                 <ScrollReveal delay={400}>
                   <Button asChild size="lg" className="rounded-full px-8 group">
                     <Link href="/contact" className="flex items-center gap-2">
-                      Work With Us
+                      {language === 'en' ? 'Work With Us' : '与我们合作'}
                       <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </Button>
@@ -168,17 +200,25 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
               <ScrollReveal>
                 <div className="bg-primary text-primary-foreground p-10 lg:p-12 rounded-3xl h-full">
-                  <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>Our Mission</h3>
+                  <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>
+                    {language === 'en' ? 'Our Mission' : '我们的使命'}
+                  </h3>
                   <p className="text-primary-foreground/90 leading-relaxed text-lg">
-                    We empower brands and businesses with innovative digital strategies, impactful content, and authentic partnerships that drive growth and visibility. By combining creativity, technology, and data-driven insights, we help brands succeed across today’s ever-evolving digital landscape.
+                    {language === 'en'
+                      ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                      : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
                   </p>
                 </div>
               </ScrollReveal>
               <ScrollReveal delay={100}>
                 <div className="bg-card border border-border p-10 lg:p-12 rounded-3xl h-full">
-                  <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>Our Vision</h3>
+                  <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>
+                    {language === 'en' ? 'Our Vision' : '我们的愿景'}
+                  </h3>
                   <p className="text-muted-foreground leading-relaxed text-lg">
-                    To become the trusted partner of brands worldwide by setting the standard for innovation, creativity, and excellence in digital marketing—helping businesses grow, connect with their audiences, and thrive in the evolving digital landscape.
+                    {language === 'en'
+                      ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                      : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
                   </p>
                 </div>
               </ScrollReveal>
@@ -191,11 +231,13 @@ export default function AboutPage() {
           <div className="container mx-auto px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <ScrollReveal>
-                <span className="text-primary font-medium text-sm uppercase tracking-wider">Our Values</span>
+                <span className="text-primary font-medium text-sm uppercase tracking-wider">
+                  {language === 'en' ? 'Our Values' : '我们的价值观'}
+                </span>
               </ScrollReveal>
               <ScrollReveal delay={100}>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4" style={{ fontFamily: 'var(--font-display)' }}>
-                  What We Stand For
+                  {language === 'en' ? 'What We Stand For' : '我们坚持的原则'}
                 </h2>
               </ScrollReveal>
             </div>
@@ -221,11 +263,13 @@ export default function AboutPage() {
           <div className="container mx-auto px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <ScrollReveal>
-                <span className="text-primary font-medium text-sm uppercase tracking-wider">Our Journey</span>
+                <span className="text-primary font-medium text-sm uppercase tracking-wider">
+                  {language === 'en' ? 'Our Journey' : '我们的旅程'}
+                </span>
               </ScrollReveal>
               <ScrollReveal delay={100}>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4" style={{ fontFamily: 'var(--font-display)' }}>
-                  Milestones
+                  {language === 'en' ? 'Milestones' : '里程碑'}
                 </h2>
               </ScrollReveal>
             </div>
@@ -267,16 +311,20 @@ export default function AboutPage() {
           <div className="container mx-auto px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <ScrollReveal>
-                <span className="text-primary font-medium text-sm uppercase tracking-wider">Our Team</span>
+                <span className="text-primary font-medium text-sm uppercase tracking-wider">
+                  {language === 'en' ? 'Our Team' : '我们的团队'}
+                </span>
               </ScrollReveal>
               <ScrollReveal delay={100}>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-                  Meet the Experts
+                  {language === 'en' ? 'Meet the Experts' : '认识专家'}
                 </h2>
               </ScrollReveal>
               <ScrollReveal delay={200}>
                 <p className="text-lg text-muted-foreground">
-                  Our diverse team of talented professionals brings together expertise from various disciplines to deliver exceptional results.
+                  {language === 'en'
+                    ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.'
+                    : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.'}
                 </p>
               </ScrollReveal>
             </div>
@@ -285,14 +333,10 @@ export default function AboutPage() {
               {team.map((member, index) => (
                 <ScrollReveal key={member.name} delay={index * 100}>
                   <div className="group bg-card rounded-2xl overflow-hidden border border-border hover-lift">
-                    <div className="aspect-[4/5] overflow-hidden img-zoom">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        width={400}
-                        height={500}
-                        className="w-full h-full object-cover"
-                      />
+                    <div className="aspect-[4/5] overflow-hidden img-zoom bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="text-6xl font-bold text-primary/40">{(index + 1) * 10}</div>
+                      </div>
                     </div>
                     <div className="p-6">
                       <h3 className="text-xl font-semibold">{member.name}</h3>
