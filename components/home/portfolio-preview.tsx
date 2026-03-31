@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
@@ -18,7 +18,7 @@ export function PortfolioPreview() {
 
   const categories =
     language === "en"
-      ? ["All", "Branding", "Web Design", "Marketing", "E-Commerce"]
+      ? ["All", "Lorem Ipsum1", "Lorem Ipsum2", "Lorem Ipsum3", "Lorem Ipsum4"]
       : ["全部", "品牌", "网页设计", "营销", "电商"]
 
   const projects = [
@@ -84,12 +84,15 @@ export function PortfolioPreview() {
     },
   ]
 
-  const [activeCategory, setActiveCategory] = useState(
-    language === "en" ? "All" : "全部"
-  )
+  const defaultCategory = language === "en" ? "All" : "全部"
+  const [activeCategory, setActiveCategory] = useState(defaultCategory)
+
+  useEffect(() => {
+    setActiveCategory(defaultCategory)
+  }, [language, defaultCategory])
 
   const filteredProjects =
-    activeCategory === (language === "en" ? "All" : "全部")
+    activeCategory === defaultCategory
       ? projects
       : projects.filter((project) =>
           language === "en"
@@ -135,8 +138,10 @@ export function PortfolioPreview() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
           {filteredProjects.map((project, index) => {
-            const category = language === "en" ? project.categoryEn : project.categoryZh
-            const title = language === "en" ? project.titleEn : project.titleZh
+            const category =
+              language === "en" ? project.categoryEn : project.categoryZh
+            const title =
+              language === "en" ? project.titleEn : project.titleZh
 
             return (
               <ScrollReveal key={project.id} delay={index * 0.05}>
