@@ -1,84 +1,95 @@
+'use client'
+
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import Link from "next/link"
 import { ArrowRight, Zap, Palette, Code, Megaphone, Smartphone, BarChart3 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/lib/language-context"
 
-export const metadata = {
-  title: "Services | Aurelia Creative Agency",
-  description: "Explore our comprehensive digital services including design, development, strategy, and marketing solutions.",
-}
-
-const services = [
+const servicesData = [
   {
     icon: Palette,
-    title: "Brand Strategy & Identity",
-    description: "Build a compelling brand identity that resonates with your target audience and sets you apart from competitors.",
-    features: ["Logo Design", "Brand Guidelines", "Visual Identity", "Brand Messaging"],
+    titleEn: "Service One",
+    titleZh: "服务一",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    features: ["Lorem ipsum", "Dolor sit amet", "Consectetur", "Adipiscing"],
     color: "from-blue-500 to-cyan-500",
   },
   {
     icon: Code,
-    title: "Web Development",
-    description: "Custom-built, high-performance websites and applications tailored to your business needs.",
-    features: ["Frontend Development", "Backend Systems", "E-commerce Solutions", "API Integration"],
+    titleEn: "Service Two",
+    titleZh: "服务二",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    features: ["Lorem ipsum", "Dolor sit amet", "Consectetur", "Adipiscing"],
     color: "from-purple-500 to-pink-500",
   },
   {
     icon: Smartphone,
-    title: "UX/UI Design",
-    description: "User-centered design that creates intuitive, beautiful interfaces that drive engagement.",
-    features: ["User Research", "Wireframing", "Prototyping", "Design Systems"],
+    titleEn: "Service Three",
+    titleZh: "服务三",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    features: ["Lorem ipsum", "Dolor sit amet", "Consectetur", "Adipiscing"],
     color: "from-green-500 to-emerald-500",
   },
   {
     icon: Megaphone,
-    title: "Digital Marketing",
-    description: "Strategic marketing campaigns that connect with your audience and drive measurable results.",
-    features: ["SEO Optimization", "Content Strategy", "Social Media", "PPC Campaigns"],
+    titleEn: "Service Four",
+    titleZh: "服务四",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    features: ["Lorem ipsum", "Dolor sit amet", "Consectetur", "Adipiscing"],
     color: "from-orange-500 to-red-500",
   },
   {
     icon: BarChart3,
-    title: "Analytics & Strategy",
-    description: "Data-driven insights and strategic recommendations to optimize your digital presence.",
-    features: ["Performance Analytics", "User Behavior Analysis", "Conversion Optimization", "Reporting"],
+    titleEn: "Service Five",
+    titleZh: "服务五",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    features: ["Lorem ipsum", "Dolor sit amet", "Consectetur", "Adipiscing"],
     color: "from-indigo-500 to-blue-500",
   },
   {
     icon: Zap,
-    title: "Marketing Automation",
-    description: "Streamline your marketing processes with automation tools that increase efficiency and ROI.",
-    features: ["Email Marketing", "Lead Nurturing", "Workflow Automation", "CRM Integration"],
+    titleEn: "Service Six",
+    titleZh: "服务六",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    features: ["Lorem ipsum", "Dolor sit amet", "Consectetur", "Adipiscing"],
     color: "from-yellow-500 to-orange-500",
   },
 ]
 
-const process = [
+const processSteps = [
   {
     step: "1",
-    title: "Discovery & Strategy",
-    description: "We start by understanding your business goals, target audience, and competitive landscape to develop a tailored strategy.",
+    titleEn: "Step One",
+    titleZh: "步骤一",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     step: "2",
-    title: "Design & Planning",
-    description: "Our team creates detailed wireframes, prototypes, and visual designs that align with your brand and objectives.",
+    titleEn: "Step Two",
+    titleZh: "步骤二",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     step: "3",
-    title: "Development & Build",
-    description: "We build your solution using the latest technologies, best practices, and rigorous quality assurance.",
+    titleEn: "Step Three",
+    titleZh: "步骤三",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     step: "4",
-    title: "Launch & Optimize",
-    description: "We launch your project and continuously monitor performance to identify optimization opportunities.",
+    titleEn: "Step Four",
+    titleZh: "步骤四",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
 ]
 
 export default function ServicesPage() {
+  const { language } = useLanguage()
+  const services = servicesData
+
   return (
     <>
       <Navigation />
@@ -88,15 +99,20 @@ export default function ServicesPage() {
           <div className="container mx-auto px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <ScrollReveal>
-                <span className="text-primary font-medium text-sm uppercase tracking-wider">Our Services</span>
+                <span className="text-primary font-medium text-sm uppercase tracking-wider">
+                  {language === 'en' ? 'Our Services' : '我们的服务'}
+                </span>
               </ScrollReveal>
               <ScrollReveal delay={100}>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-                  Comprehensive Digital Solutions
+                  {language === 'en' ? 'Digital Solutions' : '数字解决方案'}
                 </h1>
               </ScrollReveal>
               <ScrollReveal delay={200}>
                 <p className="text-xl text-muted-foreground leading-relaxed">
+                  {language === 'en'
+                    ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+                    : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'}
                   From strategy and design to development and marketing, we provide end-to-end digital solutions tailored to your business needs.
                 </p>
               </ScrollReveal>
@@ -119,7 +135,9 @@ export default function ServicesPage() {
                         <service.icon className="w-7 h-7" />
                       </div>
                       
-                      <h3 className="text-2xl font-semibold mb-3">{service.title}</h3>
+                      <h3 className="text-2xl font-semibold mb-3">
+                        {language === 'en' ? service.titleEn : service.titleZh}
+                      </h3>
                       <p className="text-muted-foreground leading-relaxed mb-6">{service.description}</p>
                       
                       <div className="space-y-2">
@@ -143,22 +161,26 @@ export default function ServicesPage() {
           <div className="container mx-auto px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <ScrollReveal>
-                <span className="text-primary font-medium text-sm uppercase tracking-wider">Our Process</span>
+                <span className="text-primary font-medium text-sm uppercase tracking-wider">
+                  {language === 'en' ? 'Our Process' : '我们的流程'}
+                </span>
               </ScrollReveal>
               <ScrollReveal delay={100}>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4" style={{ fontFamily: 'var(--font-display)' }}>
-                  How We Work
+                  {language === 'en' ? 'How We Work' : '我们如何工作'}
                 </h2>
               </ScrollReveal>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {process.map((item, index) => (
-                <ScrollReveal key={item.title} delay={index * 150}>
+              {processSteps.map((item, index) => (
+                <ScrollReveal key={item.step} delay={index * 150}>
                   <div className="relative">
                     <div className="bg-card rounded-2xl border border-border p-8 h-full">
                       <div className="text-5xl font-bold text-primary/20 mb-4">{item.step}</div>
-                      <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                      <h3 className="text-xl font-semibold mb-3">
+                        {language === 'en' ? item.titleEn : item.titleZh}
+                      </h3>
                       <p className="text-muted-foreground leading-relaxed">{item.description}</p>
                     </div>
                     
