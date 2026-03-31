@@ -1,3 +1,5 @@
+'use client'
+
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { ScrollReveal } from "@/components/scroll-reveal"
@@ -5,49 +7,43 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
-export const metadata = {
-  title: "Portfolio | Aurelia Creative Agency",
-  description: "Explore our collection of successful projects and case studies that showcase our expertise and creativity.",
-}
+import { useLanguage } from "@/lib/language-context"
 
 const projects = [
   {
     id: 1,
-    title: "GARNIER: The Unfiltered Glow Campaign",
-    category: "Content Creation & Branding",
-    description: "Developed an authenticity-driven content and branding campaign for Garnier’s Vitamin C Serum.",
-    image: "https://images.unsplash.com/photo-1582020738577-2e7a48043902?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fGxvdGlvbiUyMHByb2R1Y3RzfGVufDB8fDB8fHww?w=800&h=600&fit=crop",
-    tags: ["E-Commerce", "Design", "Development"],
+    title: "Project One",
+    category: "Category One",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    image: "https://images.unsplash.com/photo-1582020738577-2e7a48043902?w=900&auto=format&fit=crop&q=60",
+    tags: ["Lorem", "Ipsum", "Dolor"],
     year: "2024",
-    results: ["150% Engagement Increase", "40% Positive Brand Sentiment", "25% Online Sales Growth"],
+    results: ["Lorem ipsum", "Dolor sit amet", "Consectetur"],
   },
   {
     id: 2,
-    title: "Colgate Optic White Advanced Toothpaste",
-    category: "E-Commerce Strategy & Management",
-    description:
-      "Executed a full e-commerce optimization strategy for Colgate, enhancing product discoverability, improving listing performance, and managing promotional campaigns",
-    image: "https://images.unsplash.com/photo-1661347215653-9c8ca91685c9?q=80&w=930&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=800&h=600&fit=crop",
-    tags: ["Management", "Development", "Strategy"],
+    title: "Project Two",
+    category: "Category Two",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    image: "https://images.unsplash.com/photo-1661347215653-9c8ca91685c9?q=80&w=930&auto=format&fit=crop",
+    tags: ["Lorem", "Ipsum", "Dolor"],
     year: "2024",
-    results: ["10K+ active users", "$2M ARR", "5-star rating"],
+    results: ["Lorem ipsum", "Dolor sit amet", "Consectetur"],
   },
   {
     id: 3,
-    title: "Dove Real Beauty Skincare Line",
-    category: "Social Media Marketing",
-    description:
-      "Strengthen Unilever’s social media presence and increase audience engagement by creating an authentic, purpose-driven content strategy",
-    image: "https://plus.unsplash.com/premium_photo-1679511319174-d35c3ffe0dd0?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dw=800&h=600&fit=crop",
-    tags: ["Branding", "Social Media", "Marketing"],
+    title: "Project Three",
+    category: "Category Three",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    image: "https://plus.unsplash.com/premium_photo-1679511319174-d35c3ffe0dd0?q=80&w=774&auto=format&fit=crop",
+    tags: ["Lorem", "Ipsum", "Dolor"],
     year: "2023",
-    results: ["100+ brand touchpoints", "Consistent visual language", "Market recognition"],
+    results: ["Lorem ipsum", "Dolor sit amet", "Consectetur"],
   },
   {
     id: 4,
-    title: "Palmolive Naturals Body Wash",
-    category: "Influencer & Affiliate Marketing",
+    title: "Project Four",
+    category: "Category Four",
     description: "Increase product awareness and online sales by leveraging influencer partnerships and affiliate-driven content.",
     image: "https://plus.unsplash.com/premium_photo-1764591621174-422ec90e7ee5?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=800&h=600&fit=crop",
     tags: ["Indfluencer", "Development", "Affiliate"],
@@ -77,12 +73,14 @@ const projects = [
 ]
 
 export default function PortfolioPage() {
+  const { language } = useLanguage()
+
   return (
     <>
       <Navigation />
       <main>
-        {/* Hero */}
-        <section className="pt-32 pb-8 lg:pt-40 lg:pb-10">
+        {/* Hero Section */}
+        <section className="pt-32 pb-20 lg:pt-40 lg:pb-28">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <ScrollReveal>
@@ -90,7 +88,7 @@ export default function PortfolioPage() {
                   className="text-primary font-medium text-sm uppercase tracking-wider"
                   style={{ fontFamily: "var(--font-raleway)" }}
                 >
-                  Our Work
+                  {language === 'en' ? 'Our Work' : '我们的作品'}
                 </span>
               </ScrollReveal>
 
@@ -99,13 +97,15 @@ export default function PortfolioPage() {
                   className="text-4xl md:text-5xl lg:text-6xl font-extrabold mt-4 mb-6 uppercase"
                   style={{ fontFamily: "var(--font-raleway)" }}
                 >
-                  FEATURED PROJECTS
+                  {language === 'en' ? 'Featured Projects' : '精选项目'}
                 </h1>
               </ScrollReveal>
 
               <ScrollReveal delay={200}>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Explore our collection of successful projects that showcase our expertise, creativity, and commitment to excellence.
+                  {language === 'en'
+                    ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+                    : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'}
                 </p>
               </ScrollReveal>
             </div>
