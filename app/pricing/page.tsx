@@ -1,53 +1,53 @@
+'use client'
+
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import Link from "next/link"
 import { Check, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
-export const metadata = {
-  title: "Pricing | Aurelia Creative Agency",
-  description: "Transparent pricing for our digital services. Choose the perfect plan for your project.",
-}
+import { useLanguage } from "@/lib/language-context"
 
 const plans = [
   {
-    name: "Starter",
-    description: "Perfect for small businesses and startups",
-    price: "$2,499",
+    nameEn: "Plan One",
+    nameZh: "计划一",
+    description: "Lorem ipsum dolor sit amet",
+    price: "$99",
     period: "/month",
     features: [
-      "Up to 5 pages",
-      "Responsive design",
-      "Basic SEO optimization",
-      "1 round of revisions",
-      "3-month support",
-      "Email support",
+      "Feature one",
+      "Feature two",
+      "Feature three",
+      "Feature four",
+      "Feature five",
+      "Feature six",
     ],
     notIncluded: [
-      "Advanced features",
-      "Custom integrations",
-      "Analytics setup",
+      "Advanced feature one",
+      "Advanced feature two",
+      "Advanced feature three",
     ],
     cta: "Get Started",
   },
   {
-    name: "Professional",
-    description: "Ideal for growing businesses",
-    price: "$5,999",
+    nameEn: "Plan Two",
+    nameZh: "计划二",
+    description: "Lorem ipsum dolor sit amet",
+    price: "$199",
     period: "/month",
     features: [
-      "Up to 15 pages",
-      "Advanced design",
-      "Complete SEO suite",
-      "Unlimited revisions",
-      "6-month support",
-      "Phone & email support",
-      "Analytics setup",
-      "CMS integration",
+      "Feature one",
+      "Feature two",
+      "Feature three",
+      "Feature four",
+      "Feature five",
+      "Feature six",
+      "Feature seven",
+      "Feature eight",
     ],
     notIncluded: [
-      "Custom development",
+      "Advanced feature one",
       "Mobile app",
     ],
     featured: true,
@@ -85,6 +85,8 @@ const addOns = [
 ]
 
 export default function PricingPage() {
+  const { language } = useLanguage()
+
   return (
     <>
       <Navigation />
@@ -94,16 +96,20 @@ export default function PricingPage() {
           <div className="container mx-auto px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <ScrollReveal>
-                <span className="text-primary font-medium text-sm uppercase tracking-wider">Transparent Pricing</span>
+                <span className="text-primary font-medium text-sm uppercase tracking-wider">
+                  {language === 'en' ? 'Transparent Pricing' : '透明定价'}
+                </span>
               </ScrollReveal>
               <ScrollReveal delay={100}>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-                  Simple, Honest Pricing
+                  {language === 'en' ? 'Simple Pricing' : '简单定价'}
                 </h1>
               </ScrollReveal>
               <ScrollReveal delay={200}>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Choose a plan that works for your budget and business needs. No hidden fees, no surprises.
+                  {language === 'en'
+                    ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+                    : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'}
                 </p>
               </ScrollReveal>
             </div>
@@ -129,7 +135,9 @@ export default function PricingPage() {
                     )}
 
                     <div className={`p-8 ${plan.featured ? "pt-16" : ""}`}>
-                      <h3 className="text-2xl font-semibold mb-2">{plan.name}</h3>
+                      <h3 className="text-2xl font-semibold mb-2">
+                        {language === 'en' ? plan.nameEn : plan.nameZh}
+                      </h3>
                       <p className="text-muted-foreground text-sm mb-6">{plan.description}</p>
 
                       <div className="mb-8">
