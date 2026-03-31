@@ -14,10 +14,10 @@ const raleway = Raleway({
 })
 
 const features = [
-  "Strategic digital solutions tailored to your brand",
-  "Experienced team of digital specialists and creators",
-  "Transparent communication and performance reporting",
-  "Data-driven strategies focused on measurable growth",
+  "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+  "Sed do eiusmod tempor incididunt ut labore et dolore",
+  "Ut enim ad minim veniam quis nostrud exercitation",
+  "Duis aute irure dolor in reprehenderit in voluptate",
 ]
 
 export function AboutPreview() {
@@ -45,12 +45,10 @@ export function AboutPreview() {
     <section className="bg-muted/30 pt-12 pb-24 lg:pt-16 lg:pb-28">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-
           {/* Images */}
           <ScrollReveal direction="left">
             <div className="relative">
               <div className="grid grid-cols-2 gap-4">
-
                 <div className="space-y-4">
                   <div className="img-zoom overflow-hidden rounded-2xl">
                     <Image
@@ -94,25 +92,23 @@ export function AboutPreview() {
                     />
                   </div>
                 </div>
-
               </div>
 
               {/* Experience Badge */}
               <div className="absolute -bottom-6 -right-6 rounded-2xl bg-primary p-6 text-primary-foreground shadow-xl">
                 <div className="text-4xl font-bold">{count}+</div>
-                <div className="text-sm opacity-90">Years of Excellence</div>
+                <div className="text-sm opacity-90">Lorem Ipsum</div>
               </div>
             </div>
           </ScrollReveal>
 
           {/* Content */}
           <div>
-
             <ScrollReveal>
               <span
                 className={`${raleway.className} text-primary text-base font-semibold uppercase tracking-[0.14em]`}
               >
-                What We Do
+                Lorem Ipsum
               </span>
             </ScrollReveal>
 
@@ -120,23 +116,21 @@ export function AboutPreview() {
               <h2
                 className={`${raleway.className} mt-4 mb-6 text-3xl font-extrabold md:text-4xl lg:text-5xl`}
               >
-                We Transform Brands Through Digital Strategy
+                Lorem Ipsum Dolor Sit Amet
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
               <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
-                Star Digital Solutions Inc. helps brands grow in today’s
-                fast-moving digital landscape through strategic marketing,
-                creative content, and platform management.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={300}>
               <p className="mb-8 leading-relaxed text-muted-foreground">
-                Our team delivers data-driven solutions that strengthen brand
-                presence, increase engagement, and drive measurable results
-                across digital channels.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat.
               </p>
             </ScrollReveal>
 
@@ -155,12 +149,11 @@ export function AboutPreview() {
             <ScrollReveal delay={500}>
               <Button asChild size="lg" className="group rounded-full px-8">
                 <Link href="/about" className="flex items-center gap-2">
-                  Learn More About Us
+                  Lorem Ipsum
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
             </ScrollReveal>
-
           </div>
         </div>
       </div>
