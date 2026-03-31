@@ -9,46 +9,24 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useState } from "react"
-import { useLanguage } from "@/lib/language-context"
 
-const contactInfoEn = [
+const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "contact@sdsf.com",
-    href: "mailto:contact@sdsf.com",
+    value: "hello@aurelia.com",
+    href: "mailto:hello@aurelia.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (555) 000-0000",
-    href: "tel:+15550000000",
+    value: "+1 (555) 123-4567",
+    href: "tel:+15551234567",
   },
   {
     icon: MapPin,
     label: "Address",
-    value: "City, Country",
-    href: "#",
-  },
-]
-
-const contactInfoZh = [
-  {
-    icon: Mail,
-    label: "电子邮件",
-    value: "contact@sdsf.com",
-    href: "mailto:contact@sdsf.com",
-  },
-  {
-    icon: Phone,
-    label: "电话",
-    value: "+1 (555) 000-0000",
-    href: "tel:+15550000000",
-  },
-  {
-    icon: MapPin,
-    label: "地址",
-    value: "城市，国家",
+    value: "San Francisco, CA 94105",
     href: "#",
   },
 ]
@@ -79,11 +57,8 @@ export default function ContactPage() {
     }, 3000)
   }
 
-  const { language } = useLanguage()
-  const contactInfo = language === 'en' ? contactInfoEn : contactInfoZh
-
   return (
-    <div>
+    <>
       <Navigation />
       <main>
         {/* Hero Section */}
@@ -91,20 +66,16 @@ export default function ContactPage() {
           <div className="container mx-auto px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <ScrollReveal>
-                <span className="text-primary font-medium text-sm uppercase tracking-wider">
-                  {language === 'en' ? 'Get In Touch' : '联系我们'}
-                </span>
+                <span className="text-primary font-medium text-sm uppercase tracking-wider">Get In Touch</span>
               </ScrollReveal>
               <ScrollReveal delay={100}>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-                  {language === 'en' ? "Let's Work Together" : '让我们一起工作'}
+                  Let's Work Together
                 </h1>
               </ScrollReveal>
               <ScrollReveal delay={200}>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  {language === 'en'
-                    ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-                    : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'}
+                  Have a project in mind? We'd love to hear about it. Reach out to us and let's create something amazing together.
                 </p>
               </ScrollReveal>
             </div>
@@ -119,7 +90,7 @@ export default function ContactPage() {
               <div className="lg:col-span-1">
                 <ScrollReveal>
                   <h2 className="text-2xl font-bold mb-8" style={{ fontFamily: 'var(--font-display)' }}>
-                    {language === 'en' ? 'Contact Information' : '联系信息'}
+                    Contact Information
                   </h2>
                 </ScrollReveal>
 
