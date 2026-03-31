@@ -6,6 +6,7 @@ import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Raleway } from "next/font/google"
+import { useLanguage } from "@/lib/language-context"
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -17,7 +18,7 @@ const categories = ["All", "Branding", "Web Design", "Development", "Marketing"]
 const projects = [
   {
     id: 1,
-    title: "GARNIER: The Unfiltered Glow Campaign",
+    title: "Lorem Ipsum Dolor Project",
     category: "Content Creation & Branding",
     image:
       "https://images.unsplash.com/photo-1582020738577-2e7a48043902?w=900&auto=format&fit=crop&q=60",
@@ -25,7 +26,7 @@ const projects = [
   },
   {
     id: 2,
-    title: "Colgate Optic White Advanced Toothpast",
+    title: "Consectetur Adipiscing Project",
     category: "E-Commerce Strategy & Management",
     image:
       "https://images.unsplash.com/photo-1661347215653-9c8ca91685c9?q=80&w=930&auto=format&fit=crop",
@@ -33,7 +34,7 @@ const projects = [
   },
   {
     id: 3,
-    title: "Dove Real Beauty Skincare Line",
+    title: "Sed Do Eiusmod Project",
     category: "Social Media Marketing",
     image:
       "https://plus.unsplash.com/premium_photo-1679511319174-d35c3ffe0dd0?q=80&w=774&auto=format&fit=crop",
@@ -41,7 +42,7 @@ const projects = [
   },
   {
     id: 4,
-    title: "Palmolive Naturals Body Wash",
+    title: "Tempor Incididunt Project",
     category: "Influencer & Affiliate Marketing",
     image:
       "https://plus.unsplash.com/premium_photo-1764591621174-422ec90e7ee5?q=80&w=1548&auto=format&fit=crop",
