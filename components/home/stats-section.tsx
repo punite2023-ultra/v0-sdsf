@@ -5,11 +5,18 @@ import { useEffect, useRef, useState } from "react"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import { useLanguage } from "@/lib/language-context"
 
-const stats = [
-  { label: "Successful Campaign Launches", value: 95 },
-  { label: "Innovative Design", value: 85 },
-  { label: "High Impact Project", value: 100 },
+const statsEn = [
+  { label: "Lorem Ipsum", value: 95 },
+  { label: "Dolor Sit Amet", value: 85 },
+  { label: "Consectetur Adipiscing", value: 100 },
+]
+
+const statsZh = [
+  { label: "Lorem Ipsum", value: 95 },
+  { label: "Dolor Sit Amet", value: 85 },
+  { label: "Consectetur Adipiscing", value: 100 },
 ]
 
 function AnimatedProgress({
@@ -76,6 +83,8 @@ function AnimatedProgress({
 export function StatsSection() {
   const sectionRef = useRef<HTMLElement | null>(null)
   const [startAnimation, setStartAnimation] = useState(false)
+  const { language } = useLanguage()
+  const stats = language === 'en' ? statsEn : statsZh
 
   useEffect(() => {
     const observer = new IntersectionObserver(
