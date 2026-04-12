@@ -19,7 +19,7 @@ export function HeroSectionSimple() {
         {/* Text Content */}
         <div className="w-full max-w-3xl text-center space-y-6">
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight drop-shadow-lg">
-            {language === 'en' ? 'Star Digital Solutions' : '星数字解决方案'}
+            {language === 'en' ? 'Star Engine Online' : '星数字解决方案'}
           </h1>
 
           <p className="text-lg sm:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto drop-shadow">
