@@ -31,8 +31,26 @@ export function HeroSectionSimple() {
   }, [])
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-black pt-24">
-      
+    <section className="relative min-h-screen w-full overflow-hidden pt-24">
+
+      {/* 🎬 VIDEO BACKGROUND */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          {/* 🔁 Replace with your actual file */}
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        </video>
+
+        {/* 🔥 Overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+      </div>
+
+      {/* CONTENT */}
       <div className="relative z-10 flex flex-col items-center justify-center gap-8 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
 
         <div className="w-full max-w-3xl text-center space-y-6">
