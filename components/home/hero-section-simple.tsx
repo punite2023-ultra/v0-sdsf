@@ -39,7 +39,7 @@ export function HeroSectionSimple() {
           
           {/* Title */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight drop-shadow-lg">
-            {language === 'en' ? 'Star Digital Solutions' : '星数字解决方案'}
+            {language === 'en' ? 'Star Engine Online' : '星数字解决方案'}
           </h1>
 
           {/* 🚀 Launch Label */}
