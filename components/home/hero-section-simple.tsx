@@ -34,7 +34,7 @@ export function HeroSectionSimple() {
     <section className="relative min-h-screen w-full overflow-hidden pt-24">
 
       {/* 🎬 VIDEO BACKGROUND */}
-      <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 -z-10 overflow-hidden">
         <video
           autoPlay
           loop
