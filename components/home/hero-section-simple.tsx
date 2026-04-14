@@ -46,7 +46,7 @@ export function HeroSectionSimple() {
         <div className="w-full max-w-3xl text-center space-y-6">
           
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white drop-shadow-lg">
-            {language === 'en' ? 'A new star is entering the digital orbit. <br /> Stay tuned.' : '颗新星即将进入数字轨道。敬请期待。'}
+            {language === 'en' ? 'A new star is entering the digital orbit.    Stay tuned.' : '颗新星即将进入数字轨道。敬请期待。'}
           </h1>
 
           <p className="text-sm tracking-widest text-[#ff002f] uppercase">
