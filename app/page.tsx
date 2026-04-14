@@ -13,17 +13,20 @@ export default function HomePage() {
   return (
     <>
       <Navigation />
+
       <main>
         <HeroSectionSimple />
-        <ClientsMarquee />
-        <AboutPreview />
-        <ServicesPreview />
-        <PortfolioPreview />
-        <StatsSection />
-        <TestimonialsSection />
-        <BlogPreview />
+
+        {/* <ClientsMarquee /> */}
+        {/* <AboutPreview /> */}
+        {/* <ServicesPreview /> */}
+        {/* <PortfolioPreview /> */}
+        {/* <StatsSection /> */}
+        {/* <TestimonialsSection /> */}
+        {/* <BlogPreview /> */}
       </main>
-      <SiteFooter />
+
+      {/* <SiteFooter /> */}
     </>
   )
 }
