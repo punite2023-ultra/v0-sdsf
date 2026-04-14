@@ -55,7 +55,7 @@ export function HeroSectionSimple() {
                 Stay tuned.
               </>
             ) : (
-              '星数字解决方案'
+              '颗新星即将进入数字轨道。敬请期待。'
             )}
           </h1>
 
