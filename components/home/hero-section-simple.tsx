@@ -12,6 +12,10 @@ export function HeroSectionSimple() {
   function getTimeRemaining() {
     const total = launchDate.getTime() - new Date().getTime()
 
+    if (total <= 0) {
+      return { days: 0, hours: 0, minutes: 0, seconds: 0 }
+    }
+
     const seconds = Math.floor((total / 1000) % 60)
     const minutes = Math.floor((total / 1000 / 60) % 60)
     const hours = Math.floor((total / (1000 * 60 * 60)) % 24)
@@ -30,10 +34,9 @@ export function HeroSectionSimple() {
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden pt-24">
-
-      {/* 🎬 VIDEO BACKGROUND */}
+      {/* VIDEO BACKGROUND */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+        <video autoPlay loop muted playsInline className="h-full w-full object-cover">
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
 
@@ -42,95 +45,134 @@ export function HeroSectionSimple() {
 
       {/* CONTENT */}
       <div className="relative z-10 flex flex-col items-center justify-center gap-8 px-4 py-24">
-
-        <div className="w-full max-w-3xl text-center space-y-6">
-          
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white drop-shadow-lg">
-            {language === 'en' ? 'A new star is entering the digital orbit.    Stay tuned.' : '颗新星即将进入数字轨道。敬请期待。'}
+        <div className="w-full max-w-5xl space-y-6 text-center">
+          <h1 className="text-4xl font-bold leading-tight text-white drop-shadow-lg sm:text-5xl lg:text-7xl">
+            {language === 'en' ? (
+              <>
+                A new star is entering
+                <br />
+                the digital orbit.
+                <br />
+                Stay tuned.
+              </>
+            ) : (
+              '星数字解决方案'
+            )}
           </h1>
 
-          <p className="text-sm tracking-widest text-[#ff002f] uppercase">
+          <p className="text-sm uppercase tracking-[0.35em] text-[#ff9f1a]">
             {language === 'en' ? 'Launching Soon' : '即将上线'}
           </p>
 
-          {/* ⏳ Countdown */}
-          <div className="flex justify-center gap-4 text-white font-mono text-lg sm:text-2xl">
+          {/* ANIMATED COUNTDOWN */}
+          <div className="flex flex-wrap items-start justify-center gap-4 sm:gap-6">
             <TimeBox label="DAYS" value={timeLeft.days} />
-            <TimeBox label="HRS" value={timeLeft.hours} />
-            <TimeBox label="MIN" value={timeLeft.minutes} />
-            <TimeBox label="SEC" value={timeLeft.seconds} />
+            <TimeBox label="HOURS" value={timeLeft.hours} />
+            <TimeBox label="MINUTES" value={timeLeft.minutes} />
+            <TimeBox label="SECONDS" value={timeLeft.seconds} />
           </div>
 
-          <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-lg text-white/90 sm:text-xl">
             {language === 'en'
               ? 'We are building something powerful. Stay tuned for the launch.'
               : '我们正在打造强大的系统，敬请期待。'}
           </p>
 
-          {/* 🔥 Social Section */}
+          {/* SOCIAL */}
           <div className="flex flex-col items-center gap-4 pt-6">
-
-            <p className="text-white text-sm sm:text-base opacity-90">
+            <p className="text-sm text-white opacity-90 sm:text-base">
               {language === 'en'
                 ? 'Follow us on social media for updates'
                 : '关注我们的社交媒体以获取最新动态'}
             </p>
 
             <div className="flex gap-6">
-
-              {/* Facebook */}
               <a
                 href="https://www.facebook.com/stardigitalsolutionsph"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-[#1877F2] transition transform hover:scale-110"
+                className="text-white transition hover:scale-110 hover:text-[#1877F2]"
               >
-                <svg fill="currentColor" viewBox="0 0 24 24" className="w-7 h-7">
-                  <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.7-1.6 1.5v1.8H17l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/>
+                <svg fill="currentColor" viewBox="0 0 24 24" className="h-7 w-7">
+                  <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.7-1.6 1.5v1.8H17l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z" />
                 </svg>
               </a>
 
-              {/* Instagram */}
               <a
                 href="https://www.instagram.com/stardigitalsolutionsph/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-pink-400 transition transform hover:scale-110"
+                className="text-white transition hover:scale-110 hover:text-pink-400"
               >
-                <svg fill="currentColor" viewBox="0 0 24 24" className="w-7 h-7">
-                  <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.8a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+                <svg fill="currentColor" viewBox="0 0 24 24" className="h-7 w-7">
+                  <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.8a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
                 </svg>
               </a>
 
-              {/* TikTok */}
               <a
                 href="https://www.tiktok.com/@stardigitalsolutionsph"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-cyan-400 transition transform hover:scale-110"
+                className="text-white transition hover:scale-110 hover:text-cyan-400"
               >
-                <svg fill="currentColor" viewBox="0 0 24 24" className="w-7 h-7">
-                  <path d="M21 8.5a6.5 6.5 0 0 1-4-1.4v6.9a5.5 5.5 0 1 1-5.5-5.5c.3 0 .7 0 1 .1v2.7a2.8 2.8 0 1 0 2.8 2.8V2h2.7a6.5 6.5 0 0 0 3 3.6v2.9z"/>
+                <svg fill="currentColor" viewBox="0 0 24 24" className="h-7 w-7">
+                  <path d="M21 8.5a6.5 6.5 0 0 1-4-1.4v6.9a5.5 5.5 0 1 1-5.5-5.5c.3 0 .7 0 1 .1v2.7a2.8 2.8 0 1 0 2.8 2.8V2h2.7a6.5 6.5 0 0 0 3 3.6v2.9z" />
                 </svg>
               </a>
-
             </div>
           </div>
-
         </div>
       </div>
     </section>
   )
 }
 
-// 🔲 Timer Box
 function TimeBox({ label, value }: { label: string; value: number }) {
+  const formattedValue = value.toString().padStart(2, '0')
+
   return (
-    <div className="flex flex-col items-center bg-white/10 px-4 py-3 rounded-xl backdrop-blur-md min-w-[70px]">
-      <span className="text-2xl font-bold">
-        {value.toString().padStart(2, '0')}
+    <div className="flex flex-col items-center">
+      <div className="relative flex h-[110px] w-[88px] items-center justify-center overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.45)] sm:h-[140px] sm:w-[120px]">
+        <div className="absolute inset-x-0 top-1/2 z-10 h-[2px] -translate-y-1/2 bg-black/60" />
+        <div className="absolute left-0 right-0 top-1/2 z-0 h-10 -translate-y-1/2 bg-black/10" />
+
+        <AnimatedNumber value={formattedValue} />
+      </div>
+
+      <span className="mt-3 text-xs uppercase tracking-[0.2em] text-[#ffb020] sm:text-sm">
+        {label}
       </span>
-      <span className="text-xs opacity-70">{label}</span>
     </div>
+  )
+}
+
+function AnimatedNumber({ value }: { value: string }) {
+  return (
+    <>
+      <span
+        key={value}
+        className="block select-none text-6xl font-extrabold leading-none text-white drop-shadow-[0_2px_1px_rgba(0,0,0,0.45)] sm:text-8xl animate-[flipTick_0.45s_ease-out]"
+        style={{ transformStyle: 'preserve-3d' }}
+      >
+        {value}
+      </span>
+
+      <style jsx>{`
+        @keyframes flipTick {
+          0% {
+            opacity: 0.2;
+            transform: perspective(500px) rotateX(-85deg) translateY(-10px);
+          }
+          45% {
+            opacity: 1;
+            transform: perspective(500px) rotateX(12deg) translateY(0);
+          }
+          100% {
+            opacity: 1;
+            transform: perspective(500px) rotateX(0deg) translateY(0);
+          }
+        }
+      `}</style>
+    </>
   )
 }
