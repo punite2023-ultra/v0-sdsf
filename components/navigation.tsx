@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/language-context"
 
 const navLinksEn = [
-  { href: "/", label: "Home" },
+  { href: "/", label: "Launch Seqeunce" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Portfolio" },
@@ -19,7 +19,7 @@ const navLinksEn = [
 ]
 
 const navLinksZh = [
-  { href: "/", label: "首页" },
+  { href: "/", label: "发射顺序" },
   { href: "/about", label: "关于" },
   { href: "/services", label: "服务" },
   { href: "/portfolio", label: "作品集" },
