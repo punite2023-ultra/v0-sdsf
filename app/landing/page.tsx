@@ -121,19 +121,6 @@ const testimonials = [
   },
 ]
 
-const marqueeLogos = [
-  "Logoipsum One",
-  "Logoipsum Two",
-  "Logoipsum Three",
-  "Logoipsum Four",
-  "Logoipsum Five",
-  "Logoipsum Six",
-  "Logoipsum Seven",
-  "Logoipsum Eight",
-  "Logoipsum Nine",
-  "Logoipsum Ten",
-]
-
 export default function LandingPage() {
   return (
     <>
@@ -196,24 +183,19 @@ export default function LandingPage() {
                 Built for organizations that value connection
               </h2>
               <p className="mt-4 text-white/75">
-                Logoipsum-style placeholder logos marquee
+                Use this section for client logos, partner logos, or brands you’ve worked with.
               </p>
             </div>
 
-            <div className="relative mt-12 overflow-hidden">
-              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-black to-transparent" />
-              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-black to-transparent" />
-
-              <div className="flex w-max animate-[marquee_30s_linear_infinite] gap-6">
-                {[...marqueeLogos, ...marqueeLogos].map((logo, index) => (
-                  <div
-                    key={`${logo}-${index}`}
-                    className="flex h-24 min-w-[220px] items-center justify-center rounded-2xl border border-white/10 bg-black/40 px-8"
-                  >
-                    <LogoIpsumPlaceholder index={index} label={logo} />
-                  </div>
-                ))}
-              </div>
+            <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+              {["Client One", "Client Two", "Client Three", "Client Four", "Client Five", "Client Six"].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-6 text-center text-sm text-white/70"
+                >
+                  {item}
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -335,7 +317,8 @@ export default function LandingPage() {
                 Ready to build a stronger, more connected digital experience?
               </h2>
               <p className="mx-auto mt-5 max-w-3xl text-white/80">
-                Show your visitors a clear next step with a strong CTA section.
+                Show your visitors a clear next step with a strong CTA section like the one
+                used on StellarUp’s homepage. 
               </p>
 
               <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -366,7 +349,7 @@ export default function LandingPage() {
                 What our clients say
               </h2>
               <p className="mt-4 text-white/75">
-                Add your best customer feedback here.
+                StellarUp’s homepage also uses a testimonial section near the bottom. 
               </p>
             </div>
 
@@ -388,66 +371,6 @@ export default function LandingPage() {
       </main>
 
       <SiteFooter />
-
-      <style jsx global>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-      `}</style>
     </>
-  )
-}
-
-function LogoIpsumPlaceholder({
-  label,
-  index,
-}: {
-  label: string
-  index: number
-}) {
-  const variants = [
-    { shape: "circle", text: "logoipsum" },
-    { shape: "square", text: "logoipsum" },
-    { shape: "triangle", text: "logoipsum" },
-    { shape: "diamond", text: "logoipsum" },
-    { shape: "ring", text: "logoipsum" },
-  ]
-
-  const variant = variants[index % variants.length]
-
-  return (
-    <div className="flex items-center gap-3 text-white/80">
-      <div className="flex h-10 w-10 items-center justify-center">
-        {variant.shape === "circle" && (
-          <div className="h-8 w-8 rounded-full border-2 border-white/70" />
-        )}
-        {variant.shape === "square" && (
-          <div className="h-8 w-8 rounded-md border-2 border-white/70" />
-        )}
-        {variant.shape === "triangle" && (
-          <div className="h-0 w-0 border-l-[16px] border-r-[16px] border-b-[28px] border-l-transparent border-r-transparent border-b-white/70" />
-        )}
-        {variant.shape === "diamond" && (
-          <div className="h-7 w-7 rotate-45 border-2 border-white/70" />
-        )}
-        {variant.shape === "ring" && (
-          <div className="h-8 w-8 rounded-full border-[5px] border-white/70" />
-        )}
-      </div>
-
-      <div className="text-left">
-        <div className="text-base font-semibold leading-none tracking-wide">
-          {variant.text}
-        </div>
-        <div className="mt-1 text-xs uppercase tracking-[0.25em] text-white/45">
-          {label.replace("Logoipsum ", "")}
-        </div>
-      </div>
-    </div>
   )
 }
