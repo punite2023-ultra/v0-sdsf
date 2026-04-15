@@ -118,8 +118,8 @@ export default function LandingPage() {
     <>
       <Navigation />
 
-      <main className="bg-black text-white">
-        <section className="relative overflow-hidden pt-36 pb-24">
+      <main>
+        <section className="relative overflow-hidden bg-black pt-36 pb-24 text-white">
           <div className="absolute inset-0 -z-10">
             <video autoPlay loop muted playsInline className="h-full w-full object-cover">
               <source src="/videos/hero-bg.mp4" type="video/mp4" />
@@ -130,7 +130,7 @@ export default function LandingPage() {
 
           <div className="mx-auto max-w-7xl px-6">
             <div className="mx-auto max-w-5xl text-center">
-              <p className="mb-5 text-sm uppercase tracking-[0.35em] text-[#ff9f1a]">
+              <p className="mb-5 text-sm uppercase tracking-[0.35em] text-[#ffb020]">
                 Star Digital Solutions
               </p>
 
@@ -165,32 +165,32 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="border-y border-white/10 bg-white/[0.03] py-16">
+        <section className="border-y border-black/10 bg-[#f8f5ef] py-16 text-[#1b1b1b]">
           <div className="mx-auto max-w-7xl px-6">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm uppercase tracking-[0.3em] text-[#ff9f1a]">
+              <p className="text-sm uppercase tracking-[0.3em] text-[#7b1fa2]">
                 Trusted by growing teams
               </p>
               <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
                 Built for brands that want scalable growth
               </h2>
-              <p className="mt-4 text-white/75">
+              <p className="mt-4 text-[#4b4b4b]">
                 Showcase trusted partnerships, client logos, and brand credibility with a
                 premium scrolling marquee.
               </p>
             </div>
 
             <div className="relative mt-12 overflow-hidden">
-              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-black to-transparent" />
-              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-black to-transparent" />
+              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[#f8f5ef] to-transparent" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[#f8f5ef] to-transparent" />
 
               <div className="flex w-max animate-[marquee_30s_linear_infinite] gap-6">
                 {[...marqueeLogos, ...marqueeLogos].map((logo, index) => (
                   <div
                     key={`${logo}-${index}`}
-                    className="flex h-24 min-w-[220px] items-center justify-center rounded-2xl border border-white/10 bg-black/40 px-8"
+                    className="flex h-24 min-w-[220px] items-center justify-center rounded-2xl border border-black/10 bg-white px-8 shadow-sm"
                   >
-                    <LogoIpsumPlaceholder index={index} label={logo} />
+                    <LogoIpsumPlaceholderLight index={index} label={logo} />
                   </div>
                 ))}
               </div>
@@ -198,9 +198,9 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="py-20 text-center">
-          <div className="mx-auto max-w-6xl px-6">
-            <p className="text-sm uppercase tracking-[0.3em] text-[#ff9f1a]">
+        <section className="bg-[#ede7f6] py-20 text-[#1b1024]">
+          <div className="mx-auto max-w-6xl px-6 text-center">
+            <p className="text-sm uppercase tracking-[0.3em] text-[#7b1fa2]">
               Proven results
             </p>
             <h2 className="mt-4 text-3xl font-bold sm:text-5xl">
@@ -211,19 +211,19 @@ export default function LandingPage() {
               {results.map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-6"
+                  className="rounded-2xl border border-[#d6c8ec] bg-white/70 p-6"
                 >
                   <h3 className="text-3xl font-bold text-[#ff002f]">{item.value}</h3>
-                  <p className="mt-2 text-white/70">{item.label}</p>
+                  <p className="mt-2 text-[#5d4d6d]">{item.label}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="py-24">
+        <section className="bg-black py-24 text-white">
           <div className="mx-auto max-w-6xl px-6 text-center">
-            <p className="text-sm uppercase tracking-[0.3em] text-[#ff9f1a]">
+            <p className="text-sm uppercase tracking-[0.3em] text-[#ffb020]">
               About Star Digital Solutions
             </p>
 
@@ -249,9 +249,9 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="py-24 bg-white/[0.03]">
+        <section className="bg-[#f4efe8] py-24 text-[#201a17]">
           <div className="mx-auto max-w-6xl px-6 text-center">
-            <p className="text-sm uppercase tracking-[0.3em] text-[#ff9f1a]">
+            <p className="text-sm uppercase tracking-[0.3em] text-[#7b1fa2]">
               Growth challenges
             </p>
 
@@ -259,20 +259,20 @@ export default function LandingPage() {
               Struggling to grow your business online?
             </h2>
 
-            <p className="mx-auto mt-6 max-w-2xl text-white/70">
+            <p className="mx-auto mt-6 max-w-2xl text-[#5a514c]">
               Many brands waste time and money on marketing that looks busy but does not
               convert. We build systems that turn traffic into customers and customers into
               long-term growth.
             </p>
 
             <div className="mt-10 grid gap-6 md:grid-cols-3">
-              <div className="rounded-xl border border-white/10 p-6">
+              <div className="rounded-xl border border-black/10 bg-white/70 p-6">
                 Low sales despite strong traffic
               </div>
-              <div className="rounded-xl border border-white/10 p-6">
+              <div className="rounded-xl border border-black/10 bg-white/70 p-6">
                 No clear marketing strategy
               </div>
-              <div className="rounded-xl border border-white/10 p-6">
+              <div className="rounded-xl border border-black/10 bg-white/70 p-6">
                 Poor conversion and retention
               </div>
             </div>
@@ -280,7 +280,7 @@ export default function LandingPage() {
             <div className="mt-10">
               <a
                 href="/contact"
-                className="rounded-full bg-[#ff002f] px-6 py-3 font-semibold transition hover:scale-105 hover:bg-[#ff264f]"
+                className="rounded-full bg-[#ff002f] px-6 py-3 font-semibold text-white transition hover:scale-105 hover:bg-[#ff264f]"
               >
                 Fix My Growth Strategy
               </a>
@@ -288,10 +288,10 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="py-24">
+        <section className="bg-[#2b133a] py-24 text-white">
           <div className="mx-auto max-w-7xl px-6">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm uppercase tracking-[0.3em] text-[#ff9f1a]">
+              <p className="text-sm uppercase tracking-[0.3em] text-[#ffb020]">
                 Services
               </p>
               <h2 className="mt-4 text-3xl font-bold sm:text-5xl">
@@ -307,7 +307,7 @@ export default function LandingPage() {
               {services.map((service) => (
                 <div
                   key={service.title}
-                  className="rounded-3xl border border-white/10 bg-white/[0.04] p-6"
+                  className="rounded-3xl border border-white/10 bg-white/5 p-6"
                 >
                   <h3 className="text-xl font-semibold">{service.title}</h3>
                   <p className="mt-3 text-white/75">{service.description}</p>
@@ -317,16 +317,16 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="py-24 bg-white/[0.03]">
+        <section className="bg-[#f8f5ef] py-24 text-[#1b1b1b]">
           <div className="mx-auto max-w-7xl px-6">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm uppercase tracking-[0.3em] text-[#ff9f1a]">
+              <p className="text-sm uppercase tracking-[0.3em] text-[#7b1fa2]">
                 Who we support
               </p>
               <h2 className="mt-4 text-3xl font-bold sm:text-5xl">
                 Flexible support for different growth environments
               </h2>
-              <p className="mt-4 text-white/75">
+              <p className="mt-4 text-[#4b4b4b]">
                 Whether you are managing a company, community, education program, or accelerator,
                 our systems can support engagement and growth.
               </p>
@@ -336,14 +336,14 @@ export default function LandingPage() {
               {audienceCards.map((card) => (
                 <div
                   key={card.title}
-                  className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_12px_40px_rgba(0,0,0,0.25)]"
+                  className="rounded-3xl border border-black/10 bg-white p-6 shadow-sm"
                 >
-                  <div className="mb-4 h-12 w-12 rounded-2xl bg-[#7b1fa2]/25" />
+                  <div className="mb-4 h-12 w-12 rounded-2xl bg-[#7b1fa2]/15" />
                   <h3 className="text-xl font-semibold">{card.title}</h3>
-                  <p className="mt-3 text-white/75">{card.description}</p>
+                  <p className="mt-3 text-[#575757]">{card.description}</p>
                   <a
                     href="/contact"
-                    className="mt-5 inline-block text-sm font-semibold text-[#ff9f1a]"
+                    className="mt-5 inline-block text-sm font-semibold text-[#7b1fa2]"
                   >
                     Find Out More
                   </a>
@@ -353,30 +353,30 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="py-24">
+        <section className="bg-[#e8e0f4] py-24 text-[#1f1328]">
           <div className="mx-auto max-w-7xl px-6">
             <div className="grid items-start gap-10 md:grid-cols-3">
-              <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
-                <h3 className="text-xl font-semibold text-[#ff9f1a]">Mission</h3>
-                <p className="mt-4 text-white/75 leading-relaxed">
+              <div className="rounded-3xl border border-[#d6c8ec] bg-white/70 p-8">
+                <h3 className="text-xl font-semibold text-[#7b1fa2]">Mission</h3>
+                <p className="mt-4 leading-relaxed text-[#5b4b68]">
                   We empower brands and businesses through innovative strategies, data-driven
                   execution, and meaningful partnerships that drive sustainable growth and
                   long-term visibility.
                 </p>
               </div>
 
-              <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
-                <h3 className="text-xl font-semibold text-[#ff9f1a]">Vision</h3>
-                <p className="mt-4 text-white/75 leading-relaxed">
+              <div className="rounded-3xl border border-[#d6c8ec] bg-white/70 p-8">
+                <h3 className="text-xl font-semibold text-[#7b1fa2]">Vision</h3>
+                <p className="mt-4 leading-relaxed text-[#5b4b68]">
                   To become a leading and trusted brand growth partner, recognized for
                   innovation, operational excellence, integrity, and transformative impact in
                   the digital marketing and e-commerce industry.
                 </p>
               </div>
 
-              <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
-                <h3 className="text-xl font-semibold text-[#ff9f1a]">Core Values</h3>
-                <div className="mt-4 space-y-3 text-white/75">
+              <div className="rounded-3xl border border-[#d6c8ec] bg-white/70 p-8">
+                <h3 className="text-xl font-semibold text-[#7b1fa2]">Core Values</h3>
+                <div className="mt-4 space-y-3 text-[#5b4b68]">
                   {values.map((value) => (
                     <p key={value}>{value}</p>
                   ))}
@@ -386,11 +386,11 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="py-24 bg-white/[0.03]">
+        <section className="bg-black py-24 text-white">
           <div className="mx-auto max-w-7xl px-6">
             <div className="grid items-center gap-12 lg:grid-cols-2">
               <div>
-                <p className="text-sm uppercase tracking-[0.3em] text-[#ff9f1a]">
+                <p className="text-sm uppercase tracking-[0.3em] text-[#ffb020]">
                   Integrations
                 </p>
                 <h2 className="mt-4 text-3xl font-bold sm:text-5xl">
@@ -406,7 +406,7 @@ export default function LandingPage() {
                 {integrations.map((item) => (
                   <div
                     key={item}
-                    className="rounded-2xl border border-white/10 bg-black/30 px-4 py-6 text-center text-white/80"
+                    className="rounded-2xl border border-white/10 bg-white/5 px-4 py-6 text-center text-white/80"
                   >
                     {item}
                   </div>
@@ -416,16 +416,16 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="py-24">
+        <section className="bg-[#f4efe8] py-24 text-[#1f1a17]">
           <div className="mx-auto max-w-6xl px-6">
-            <div className="rounded-[2rem] border border-white/10 bg-gradient-to-r from-[#120018] via-[#1e0827] to-[#100012] p-10 text-center shadow-[0_20px_80px_rgba(0,0,0,0.35)] sm:p-14">
-              <p className="text-sm uppercase tracking-[0.3em] text-[#ff9f1a]">
+            <div className="rounded-[2rem] border border-black/10 bg-gradient-to-r from-[#ffffff] via-[#f7f1ea] to-[#efe7de] p-10 text-center shadow-sm sm:p-14">
+              <p className="text-sm uppercase tracking-[0.3em] text-[#7b1fa2]">
                 Ready to scale?
               </p>
               <h2 className="mt-4 text-3xl font-bold sm:text-5xl">
                 Ready to grow your business with a strategy that works?
               </h2>
-              <p className="mx-auto mt-5 max-w-3xl text-white/80">
+              <p className="mx-auto mt-5 max-w-3xl text-[#5c514a]">
                 Let’s build a system that strengthens your brand, improves performance, and
                 turns growth into a repeatable process.
               </p>
@@ -433,13 +433,13 @@ export default function LandingPage() {
               <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <a
                   href="/contact"
-                  className="rounded-full bg-[#ff002f] px-8 py-4 text-lg font-semibold transition hover:scale-105 hover:bg-[#ff264f]"
+                  className="rounded-full bg-[#ff002f] px-8 py-4 text-lg font-semibold text-white transition hover:scale-105 hover:bg-[#ff264f]"
                 >
                   Book Free Strategy Call
                 </a>
                 <a
                   href="/services"
-                  className="rounded-full border border-white/20 bg-white/5 px-8 py-4 font-semibold text-white transition hover:bg-white hover:text-black"
+                  className="rounded-full border border-black/15 bg-white px-8 py-4 font-semibold text-[#1f1a17] transition hover:bg-black hover:text-white"
                 >
                   Explore Services
                 </a>
@@ -448,10 +448,10 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="py-24 bg-white/[0.03]">
+        <section className="bg-[#2b133a] py-24 text-white">
           <div className="mx-auto max-w-7xl px-6">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm uppercase tracking-[0.3em] text-[#ff9f1a]">
+              <p className="text-sm uppercase tracking-[0.3em] text-[#ffb020]">
                 Testimonials
               </p>
               <h2 className="mt-4 text-3xl font-bold sm:text-5xl">
@@ -466,10 +466,10 @@ export default function LandingPage() {
               {testimonials.map((item) => (
                 <div
                   key={item.title}
-                  className="rounded-3xl border border-white/10 bg-white/[0.04] p-8"
+                  className="rounded-3xl border border-white/10 bg-white/5 p-8"
                 >
                   <p className="text-lg leading-8 text-white/85">“{item.quote}”</p>
-                  <p className="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-[#ff9f1a]">
+                  <p className="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-[#ffb020]">
                     {item.title}
                   </p>
                 </div>
@@ -495,7 +495,7 @@ export default function LandingPage() {
   )
 }
 
-function LogoIpsumPlaceholder({
+function LogoIpsumPlaceholderLight({
   label,
   index,
 }: {
@@ -513,22 +513,22 @@ function LogoIpsumPlaceholder({
   const variant = variants[index % variants.length]
 
   return (
-    <div className="flex items-center gap-3 text-white/80">
+    <div className="flex items-center gap-3 text-[#222]">
       <div className="flex h-10 w-10 items-center justify-center">
         {variant.shape === "circle" && (
-          <div className="h-8 w-8 rounded-full border-2 border-white/70" />
+          <div className="h-8 w-8 rounded-full border-2 border-[#222]" />
         )}
         {variant.shape === "square" && (
-          <div className="h-8 w-8 rounded-md border-2 border-white/70" />
+          <div className="h-8 w-8 rounded-md border-2 border-[#222]" />
         )}
         {variant.shape === "triangle" && (
-          <div className="h-0 w-0 border-l-[16px] border-r-[16px] border-b-[28px] border-l-transparent border-r-transparent border-b-white/70" />
+          <div className="h-0 w-0 border-l-[16px] border-r-[16px] border-b-[28px] border-l-transparent border-r-transparent border-b-[#222]" />
         )}
         {variant.shape === "diamond" && (
-          <div className="h-7 w-7 rotate-45 border-2 border-white/70" />
+          <div className="h-7 w-7 rotate-45 border-2 border-[#222]" />
         )}
         {variant.shape === "ring" && (
-          <div className="h-8 w-8 rounded-full border-[5px] border-white/70" />
+          <div className="h-8 w-8 rounded-full border-[5px] border-[#222]" />
         )}
       </div>
 
@@ -536,7 +536,7 @@ function LogoIpsumPlaceholder({
         <div className="text-base font-semibold leading-none tracking-wide">
           {variant.text}
         </div>
-        <div className="mt-1 text-xs uppercase tracking-[0.25em] text-white/45">
+        <div className="mt-1 text-xs uppercase tracking-[0.25em] text-[#666]">
           {label.replace("Logoipsum ", "")}
         </div>
       </div>
