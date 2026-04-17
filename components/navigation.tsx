@@ -8,8 +8,7 @@ import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/language-context"
 
 const navLinksEn = [
-  { href: "/", label: "Launch Sequence" },
-  { href: "/landing", label: "Landing Page" },
+  { href: "/", label: "Home" }, // ✅ FIXED
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Portfolio" },
@@ -20,8 +19,7 @@ const navLinksEn = [
 ]
 
 const navLinksZh = [
-  { href: "/", label: "发射顺序" },
-  { href: "/landing", label: "着陆页" },
+  { href: "/", label: "主页" }, // ✅ FIXED
   { href: "/about", label: "关于" },
   { href: "/services", label: "服务" },
   { href: "/portfolio", label: "作品集" },
@@ -73,6 +71,7 @@ export function Navigation() {
             />
           </Link>
 
+          {/* DESKTOP NAV */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
@@ -91,6 +90,7 @@ export function Navigation() {
             ))}
           </div>
 
+          {/* LANGUAGE SWITCH */}
           <div className="hidden lg:flex items-center gap-2">
             <button
               onClick={() => setLanguage("en")}
@@ -118,6 +118,7 @@ export function Navigation() {
             </button>
           </div>
 
+          {/* CTA BUTTON */}
           <div className="hidden lg:block">
             <Button
               asChild
@@ -129,6 +130,7 @@ export function Navigation() {
             </Button>
           </div>
 
+          {/* MOBILE MENU BUTTON */}
           <button
             className="lg:hidden p-2 hover:bg-muted rounded-lg transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -150,6 +152,7 @@ export function Navigation() {
           </button>
         </nav>
 
+        {/* MOBILE MENU */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-500 ${
             isMobileMenuOpen
