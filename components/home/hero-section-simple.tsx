@@ -39,55 +39,75 @@ export function HeroSectionSimple() {
         }
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#050014] text-white">
-      {/* Background */}
+    <section className="relative overflow-hidden border-b border-white/15 bg-[#0A0118] text-white">
+      {/* Background video */}
       <div className="absolute inset-0">
-        <video autoPlay loop muted playsInline className="h-full w-full object-cover opacity-40">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="h-full w-full object-cover opacity-30"
+          poster="/images/hero-fallback.jpg"
+        >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
-
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(140,69,255,0.18),transparent_35%),linear-gradient(180deg,rgba(5,0,20,0.82)_0%,rgba(7,3,24,0.88)_45%,rgba(5,0,20,0.96)_100%)]" />
       </div>
 
-      {/* Soft glow */}
-      <div className="absolute left-1/2 top-[18%] h-[320px] w-[820px] -translate-x-1/2 rounded-full bg-fuchsia-500/10 blur-[140px]" />
+      {/* Pattern overlay */}
+      <div
+        className="absolute inset-0 opacity-20"
+        style={{
+          backgroundImage: "url('/images/bg-pattern.png')",
+          backgroundPosition: "center",
+          backgroundRepeat: "repeat",
+          backgroundSize: "auto",
+        }}
+      />
 
-      {/* Optional subtle grid lines */}
-      <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] [background-size:80px_80px]" />
+      {/* Main radial/gradient overlay based on Digimax JSON */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_center,rgba(10,1,24,0.45)_10%,rgba(10,1,24,0.92)_85%)]" />
 
-      <div className="relative z-10 flex min-h-screen items-center justify-center px-6 pt-24">
-        <div className="mx-auto max-w-5xl text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center rounded-full border border-fuchsia-400/60 bg-transparent px-6 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-[0_0_30px_rgba(217,70,239,0.12)]">
-            {t.badge}
-          </div>
+      {/* Extra soft glow */}
+      <div className="absolute left-1/2 top-[14%] h-[280px] w-[760px] -translate-x-1/2 rounded-full bg-violet-500/10 blur-[140px]" />
 
-          {/* Title */}
-          <h1 className="mx-auto mt-8 max-w-5xl text-5xl font-bold leading-[0.95] tracking-[-0.04em] text-white sm:text-6xl md:text-7xl lg:text-[6.2rem]">
-            {t.title}
-          </h1>
+      <div className="relative z-10 px-4 pt-28 md:px-8 md:pt-32 lg:pt-[7em]">
+        <div className="mx-auto max-w-[720px]">
+          <div className="px-4 py-14 md:px-8 md:py-20 lg:px-8 lg:py-[7em]">
+            <div className="text-center">
+              {/* Badge */}
+              <div className="inline-flex items-center rounded-full border border-white/25 px-[14px] py-[3px] text-xs font-semibold uppercase tracking-[0.18em] text-white/90">
+                {t.badge}
+              </div>
 
-          {/* Description */}
-          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-white/60 sm:text-xl">
-            {t.description}
-          </p>
+              {/* Title */}
+              <h1 className="mx-auto mt-6 max-w-5xl text-5xl font-bold leading-[0.95] tracking-[-0.04em] text-white sm:text-6xl md:text-7xl lg:text-[6rem]">
+                {t.title}
+              </h1>
 
-          {/* Buttons */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-5">
-            <Link
-              href="/contact"
-              className="inline-flex min-w-[220px] items-center justify-center rounded-full bg-[linear-gradient(90deg,#a855f7_0%,#ec4899_55%,#f59e0b_100%)] px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-white transition duration-300 hover:scale-[1.03]"
-            >
-              {t.primary}
-            </Link>
+              {/* Description */}
+              <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-white/70 sm:text-lg">
+                {t.description}
+              </p>
 
-            <Link
-              href="/about"
-              className="inline-flex min-w-[220px] items-center justify-center rounded-full border border-white/60 bg-transparent px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-white transition duration-300 hover:scale-[1.03] hover:bg-white hover:text-[#12051f]"
-            >
-              {t.secondary}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+              {/* Buttons */}
+              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <Link
+                  href="/contact"
+                  className="inline-flex min-w-[200px] items-center justify-center rounded-full bg-[linear-gradient(135deg,#B47CFD_0%,#E8178A_100%)] px-8 py-4 text-sm font-semibold uppercase tracking-[0.16em] text-white transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_12px_30px_rgba(180,124,253,0.25)]"
+                >
+                  {t.primary}
+                </Link>
+
+                <Link
+                  href="/about"
+                  className="inline-flex min-w-[200px] items-center justify-center rounded-full border border-white/25 bg-transparent px-8 py-4 text-sm font-semibold uppercase tracking-[0.16em] text-white transition-all duration-300 hover:border-white/40 hover:bg-white/10"
+                >
+                  {t.secondary}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
