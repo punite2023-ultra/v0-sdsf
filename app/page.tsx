@@ -1,7 +1,7 @@
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { HeroSectionSimple } from "@/components/home/hero-section-simple"
-import { ClientsMarquee } from "@/components/home/clients-marquee"
+import { BrandShowcaseSlider } from "@/components/home/brand-showcase-slider"
 import { AboutPreview } from "@/components/home/about-preview"
 import { ServicesPreview } from "@/components/home/services-preview"
 import { StatsSection } from "@/components/home/stats-section"
@@ -13,10 +13,9 @@ export default function HomePage() {
   return (
     <>
       <Navigation />
-
       <main>
         <HeroSectionSimple />
-        <ClientsMarquee />
+        <BrandShowcaseSlider />
         <AboutPreview />
         <ServicesPreview />
         <StatsSection />
@@ -24,7 +23,6 @@ export default function HomePage() {
         <TestimonialsSection />
         <BlogPreview />
       </main>
-
       <SiteFooter />
     </>
   )
