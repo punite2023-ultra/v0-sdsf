@@ -17,7 +17,7 @@ const projects: Project[] = [
   {
     category: "Events,
     title: "Q1 Townhall Meeting",
-    image: "https://images.unsplash.com/photo-1508944509701-d6dc5aae4d82?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+    image: "/images/featured-project-2.jpg",
     client: "Star Digital Solutions",
     date: "15 Jan 2026",
     location: "Sunland Corportaion",
