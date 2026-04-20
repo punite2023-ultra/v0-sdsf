@@ -18,7 +18,7 @@ const navLinksEn = [
     ],
   },
   { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
+  { href: "/news-events", label: "News & Events" },
   { href: "/pricing", label: "Pricing" },
   { href: "/blog", label: "Blog" },
   { href: "/careers", label: "Careers" },
@@ -36,7 +36,7 @@ const navLinksZh = [
     ],
   },
   { href: "/services", label: "服务" },
-  { href: "/portfolio", label: "作品集" },
+  { href: "/news-events", label: "新闻与活动" },
   { href: "/pricing", label: "定价" },
   { href: "/blog", label: "博客" },
   { href: "/careers", label: "招聘" },
@@ -94,20 +94,17 @@ export function Navigation() {
           {/* DESKTOP NAV */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => {
-              if (link.children) {
+              if ("children" in link && link.children) {
                 return (
                   <div key={link.label} className="relative group">
                     <span
                       className={`cursor-pointer text-sm font-medium ${
-                        useLightNav
-                          ? "text-white"
-                          : "text-[#62248e]"
+                        useLightNav ? "text-white" : "text-[#62248e]"
                       }`}
                     >
                       {link.label}
                     </span>
 
-                    {/* DROPDOWN */}
                     <div className="absolute left-0 top-full mt-3 hidden w-48 rounded-xl border border-white/10 bg-[#0a0118] p-2 shadow-lg group-hover:block">
                       {link.children.map((child) => (
                         <Link
@@ -184,7 +181,9 @@ export function Navigation() {
 
           {/* MOBILE BUTTON */}
           <button
-            className="lg:hidden p-2"
+            className={`lg:hidden p-2 ${
+              useLightNav ? "text-white" : "text-[#62248e]"
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -197,7 +196,7 @@ export function Navigation() {
 
         {/* MOBILE MENU */}
         {isMobileMenuOpen && (
-          <div className="mt-6 bg-card rounded-2xl p-6">
+          <div className="mt-6 rounded-2xl bg-card p-6">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <div key={link.label}>
@@ -209,7 +208,7 @@ export function Navigation() {
                     {link.label}
                   </Link>
 
-                  {link.children && (
+                  {"children" in link && link.children && (
                     <div className="ml-4 mt-2 flex flex-col gap-2">
                       {link.children.map((child) => (
                         <Link
@@ -226,8 +225,10 @@ export function Navigation() {
                 </div>
               ))}
 
-              <Button asChild className="rounded-full mt-4">
-                <Link href="/contact">Get Started</Link>
+              <Button asChild className="mt-4 rounded-full">
+                <Link href="/contact">
+                  {language === "en" ? "Get Started" : "开始使用"}
+                </Link>
               </Button>
             </div>
           </div>
