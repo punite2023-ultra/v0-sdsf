@@ -18,12 +18,12 @@ type StatItem = {
 
 const stats: StatItem[] = [
   {
-    value: 56,
-    suffix: "K+",
-    labelEn: "PROJECT DONE",
-    labelZh: "已完成项目",
-    noteEn: "Brand, content, and growth campaigns delivered.",
-    noteZh: "已完成品牌、内容与增长项目。",
+    value: 100,
+    suffix: "+",
+    labelEn: "TSP / MCN BRANDS",
+    labelZh: "合作品牌",
+    noteEn: "From Beauty / FMCG / Retail / Lifestyle.",
+    noteZh: "涵盖美妆、快消、零售与生活方式品牌。",
   },
   {
     value: 38,
@@ -142,26 +142,38 @@ export function ServicesPreview() {
               and Growth-Driven Digital Execution.
             </>
           ),
-          leftEyebrow: "OUR VALUE",
+          leftEyebrow: "OUR VALUES",
           leftTitle: (
             <>
-              Smart Designs, Sharp Results —
+              Ownership. Integrity. Excellence —
               <br />
-              Choose Star Digital for
+              The Principles Behind Every
               <br />
-              Digital Excellence.
+              Result We Deliver.
             </>
           ),
           leftDescription:
-            "我们将策略、创意执行与数字增长系统结合起来，帮助品牌提升曝光、优化内容表现，并建立更强的市场竞争力。",
+            "We own every outcome, operate with transparency, and never compromise on quality. We adapt fast, work together, and continuously evolve to create meaningful, measurable impact.",
           visionTitle: "OUR VISION",
-          visionHeading: "Elevate Your Digital Presence with Star Digital Expertise.",
+          visionHeading: (
+            <>
+              To Be the Trusted Partner Powering
+              <br />
+              Meaningful Brand Growth in the Digital Era.
+            </>
+          ),
           visionDescription:
-            "通过清晰策略、优质创意与高效执行，帮助品牌在数字环境中持续成长。",
+            "To become a leading and trusted brand growth partner, recognized for driving meaningful and transformative impact across digital marketing and e-commerce.",
           missionTitle: "OUR MISSION",
-          missionHeading: "Turn Creative Direction into Measurable Business Growth.",
+          missionHeading: (
+            <>
+              Driving Sustainable Growth Through
+              <br />
+              Strategy, Execution, and Partnership.
+            </>
+          ),
           missionDescription:
-            "从品牌建设到营销执行，我们专注打造真正带来成果的数字体验。",
+            "We combine innovation, data-driven execution, and meaningful partnerships to build long-term visibility and scalable growth. Through creativity, technology, and operational excellence, we deliver measurable results across digital channels.",
           button: "LEARN MORE",
         }
       : {
@@ -173,26 +185,38 @@ export function ServicesPreview() {
               and Growth-Driven Digital Execution.
             </>
           ),
-          leftEyebrow: "OUR VALUE",
+          leftEyebrow: "OUR VALUES",
           leftTitle: (
             <>
-              Smart Designs, Sharp Results —
+              Ownership. Integrity. Excellence —
               <br />
-              Choose Star Digital for
+              The Principles Behind Every
               <br />
-              Digital Excellence.
+              Result We Deliver.
             </>
           ),
           leftDescription:
-            "We combine strategy, design, content, and performance marketing to help brands build stronger digital presence, sharper positioning, and better business results.",
+            "We own every outcome, operate with transparency, and never compromise on quality. We adapt fast, work together, and continuously evolve to create meaningful, measurable impact.",
           visionTitle: "OUR VISION",
-          visionHeading: "Elevate Your Digital Presence with Star Digital Expertise.",
+          visionHeading: (
+            <>
+              To Be the Trusted Partner Powering
+              <br />
+              Meaningful Brand Growth in the Digital Era.
+            </>
+          ),
           visionDescription:
-            "To become a leading and trusted brand growth partner, recognized for driving meaningful and transformative impact in the digital marketing and e-commerce industry.",
+            "To become a leading and trusted brand growth partner, recognized for driving meaningful and transformative impact across digital marketing and e-commerce.",
           missionTitle: "OUR MISSION",
-          missionHeading: "Turn Creative Direction into Measurable Business Growth.",
+          missionHeading: (
+            <>
+              Driving Sustainable Growth Through
+              <br />
+              Strategy, Execution, and Partnership.
+            </>
+          ),
           missionDescription:
-            "From brand development to campaign execution, we create digital experiences designed to move brands forward.",
+            "We combine innovation, data-driven execution, and meaningful partnerships to build long-term visibility and scalable growth. Through creativity, technology, and operational excellence, we deliver measurable results across digital channels.",
           button: "LEARN MORE",
         }
 
@@ -245,7 +269,6 @@ export function ServicesPreview() {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1.8fr_0.95fr]">
-          {/* LEFT FEATURE CARD */}
           <div
             className={`relative overflow-hidden rounded-[22px] border border-white/10 bg-white/[0.03] transition-all duration-[1100ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
               inView
@@ -322,7 +345,6 @@ export function ServicesPreview() {
             </div>
           </div>
 
-          {/* RIGHT SIDE CARDS */}
           <div className="flex flex-col gap-6">
             {rightCards.map((card) => (
               <div
@@ -359,7 +381,6 @@ export function ServicesPreview() {
           </div>
         </div>
 
-        {/* STATS STRIP */}
         <div
           className={`mt-8 overflow-hidden rounded-[20px] border border-white/10 bg-[linear-gradient(90deg,#BE88FF_0%,#F27FC4_55%,#FF8EB3_100%)] shadow-[0_25px_60px_rgba(0,0,0,0.18)] transition-all duration-[1100ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
             inView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
