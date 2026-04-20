@@ -16,13 +16,10 @@ export function AboutPreview() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true)
       },
-      {
-        threshold: 0.25,
-      }
+      { threshold: 0.25 }
     )
 
     if (sectionRef.current) observer.observe(sectionRef.current)
-
     return () => observer.disconnect()
   }, [])
 
@@ -32,32 +29,38 @@ export function AboutPreview() {
           eyebrow: "WHO WE ARE",
           title: (
             <>
-              Your Digital Future, Our
+              Powering Brands Through
               <br />
-              Expertise: Star Digital
-              <br />
-              Delivers Excellence.
+              Content, Commerce, and Creators
             </>
           ),
           description:
-            "Star Digital Solutions combines strategy, creative execution, and digital growth systems to help brands build stronger visibility, sharper positioning, and better performance.",
-          cta: "DISCOVER MORE",
+            "Star Digital Solutions helps brands grow through e-commerce strategy, creator partnerships, affiliate marketing, and multi-channel network execution. Where Brands Become the Star of the Market.",
+          paragraph1:
+            "From global brands to rising names, we build campaigns that don’t just shine, they convert, scale, and lead.",
+          paragraph2:
+            "Built for brands ready to scale on digital platforms that move fast.",
+          primaryCta: "WORK WITH US",
+          secondaryCta: "VIEW OUR STORY",
           badgeText: "PREMIUM SERVICES • AND SUPPORT • ",
         }
       : {
           eyebrow: "WHO WE ARE",
           title: (
             <>
-              Your Digital Future, Our
+              Powering Brands Through
               <br />
-              Expertise: Star Digital
-              <br />
-              Delivers Excellence.
+              Content, Commerce, and Creators
             </>
           ),
           description:
-            "Star Digital Solutions combines strategy, creative execution, and digital growth systems to help brands build stronger visibility, sharper positioning, and better performance.",
-          cta: "DISCOVER MORE",
+            "Star Digital Solutions helps brands grow through e-commerce strategy, creator partnerships, affiliate marketing, and multi-channel network execution. Where Brands Become the Star of the Market.",
+          paragraph1:
+            "From global brands to rising names, we build campaigns that don’t just shine, they convert, scale, and lead.",
+          paragraph2:
+            "Built for brands ready to scale on digital platforms that move fast.",
+          primaryCta: "WORK WITH US",
+          secondaryCta: "VIEW OUR STORY",
           badgeText: "PREMIUM SERVICES • AND SUPPORT • ",
         }
 
@@ -75,7 +78,7 @@ export function AboutPreview() {
 
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-          
+
           {/* IMAGE */}
           <div
             className={`relative transition-all duration-[1100ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
@@ -83,7 +86,7 @@ export function AboutPreview() {
             }`}
           >
             <div className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 p-4 shadow-[0_25px_80px_rgba(0,0,0,0.35)]">
-              
+
               <div className="relative overflow-hidden rounded-[20px]">
                 <div
                   className={`relative aspect-[1.35/1] transition-all duration-[1400ms] ${
@@ -115,7 +118,7 @@ export function AboutPreview() {
               }`}
             >
               <div className="badge-float relative flex h-[120px] w-[120px] items-center justify-center rounded-full border-2 border-white/70 bg-[linear-gradient(135deg,#C78BFF_0%,#A95FF0_100%)] shadow-[0_18px_45px_rgba(169,95,240,0.35)]">
-                
+
                 <div className="absolute inset-[8px] rounded-full border border-white/50" />
 
                 <div className="badge-spin absolute inset-0 flex items-center justify-center">
@@ -123,10 +126,7 @@ export function AboutPreview() {
                     <defs>
                       <path
                         id="circlePath"
-                        d="M 50,50
-                           m -38,0
-                           a 38,38 0 1,1 76,0
-                           a 38,38 0 1,1 -76,0"
+                        d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0"
                       />
                     </defs>
                     <text fill="white" fontSize="9" fontWeight="700" letterSpacing="1.5">
@@ -144,55 +144,45 @@ export function AboutPreview() {
 
           {/* TEXT */}
           <div className="max-w-[560px]">
-            
-            <div
-              className={`transition-all duration-[800ms] ${
-                isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
-              }`}
-            >
-              <p className="text-[13px] font-semibold uppercase tracking-[0.18em] text-[#ff5ab7]">
-                {t.eyebrow}
-              </p>
+
+            <p className="text-[13px] font-semibold uppercase tracking-[0.18em] text-[#ff5ab7]">
+              {t.eyebrow}
+            </p>
+
+            <h2 className="mt-5 max-w-[540px] text-[42px] font-extrabold leading-[1.02] tracking-[-0.05em] text-white sm:text-[50px] lg:text-[60px]">
+              {t.title}
+            </h2>
+
+            <p className="mt-6 max-w-[520px] text-[15px] leading-[1.7] text-white/60">
+              {t.description}
+            </p>
+
+            <p className="mt-5 max-w-[520px] text-[14px] leading-[1.7] text-white/70">
+              {t.paragraph1}
+            </p>
+
+            <p className="mt-3 max-w-[520px] text-[14px] leading-[1.7] text-white/70">
+              {t.paragraph2}
+            </p>
+
+            {/* CTA */}
+            <div className="mt-9 flex flex-wrap gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(90deg,#B47CFD_0%,#FF8A5B_100%)] px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-white shadow-[0_12px_30px_rgba(180,124,253,0.22)] transition-all duration-300 hover:scale-[1.03]"
+              >
+                {t.primaryCta}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+
+              <Link
+                href="/about"
+                className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-white/80 transition-all duration-300 hover:border-white hover:text-white"
+              >
+                {t.secondaryCta}
+              </Link>
             </div>
 
-            <div
-              className={`transition-all duration-[900ms] ${
-                isVisible ? "translate-x-0 opacity-100" : "translate-x-12 opacity-0"
-              }`}
-              style={{ transitionDelay: "120ms" }}
-            >
-              <h2 className="mt-5 max-w-[540px] text-[42px] font-extrabold leading-[1.02] tracking-[-0.05em] text-white sm:text-[50px] lg:text-[60px]">
-                {t.title}
-              </h2>
-            </div>
-
-            <div
-              className={`transition-all duration-[1000ms] ${
-                isVisible ? "translate-x-0 opacity-100" : "translate-x-14 opacity-0"
-              }`}
-              style={{ transitionDelay: "220ms" }}
-            >
-              <p className="mt-6 max-w-[520px] text-[15px] leading-[1.7] text-white/60">
-                {t.description}
-              </p>
-            </div>
-
-            <div
-              className={`transition-all duration-[1100ms] ${
-                isVisible ? "translate-x-0 opacity-100" : "translate-x-16 opacity-0"
-              }`}
-              style={{ transitionDelay: "320ms" }}
-            >
-              <div className="mt-9">
-                <Link
-                  href="/about"
-                  className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(90deg,#B47CFD_0%,#FF8A5B_100%)] px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-white shadow-[0_12px_30px_rgba(180,124,253,0.22)] transition-all duration-300 hover:scale-[1.03]"
-                >
-                  {t.cta}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
       </div>
