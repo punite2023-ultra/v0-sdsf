@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
-import { ArrowRight, Phone, Star } from "lucide-react"
+import { Phone, Star } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 function GridPattern({ className = "" }: { className?: string }) {
@@ -70,27 +70,38 @@ function StatCount({
   )
 }
 
-function RocketIllustration() {
+function RocketIllustrationCompact() {
   return (
-    <div className="pointer-events-none absolute bottom-0 right-[-8px] top-[-30px] flex items-end justify-end md:right-[-10px]">
-      <div className="relative h-[380px] w-[180px] md:h-[430px] md:w-[210px]">
-        <div className="absolute bottom-0 left-1/2 h-28 w-28 -translate-x-1/2 rounded-full bg-cyan-300/25 blur-2xl" />
-        <div className="absolute bottom-[-12px] left-1/2 h-28 w-32 -translate-x-1/2 rounded-t-full bg-slate-200" />
-        <div className="absolute bottom-[70px] left-1/2 h-[250px] w-[76px] -translate-x-1/2 rounded-t-[42px] bg-[#ececec] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)]" />
-        <div className="absolute bottom-[300px] left-1/2 h-[48px] w-[76px] -translate-x-1/2 overflow-hidden rounded-t-[999px]">
-          <div className="absolute inset-0 bg-[#ef3d3d]" />
-          <div className="absolute inset-x-0 bottom-2 h-[2px] bg-[#9d1a1a]/60" />
+    <div className="pointer-events-none absolute bottom-0 right-[-8px] top-[8px] flex items-end justify-end md:right-[-4px]">
+      <div className="relative h-[360px] w-[170px] md:h-[390px] md:w-[190px]">
+        <div className="absolute bottom-0 left-1/2 h-24 w-28 -translate-x-1/2 rounded-full bg-cyan-300/20 blur-2xl" />
+
+        <div className="absolute bottom-[0px] left-[0px] h-[70px] w-[120px] rounded-t-[90px] bg-[#3ca7c5]" />
+        <div className="absolute bottom-[0px] left-[70px] h-[56px] w-[94px] rounded-t-[90px] bg-[#3ca7c5]" />
+        <div className="absolute bottom-[0px] left-[118px] h-[90px] w-[120px] rounded-t-[100px] bg-[#dce7ec]" />
+        <div className="absolute bottom-[0px] left-[86px] h-[64px] w-[86px] rounded-t-[80px] bg-[#eef3f5]" />
+
+        <div className="absolute bottom-[64px] left-1/2 h-[230px] w-[72px] -translate-x-1/2 rounded-t-[42px] bg-[#ededed]" />
+
+        <div className="absolute bottom-[286px] left-1/2 h-[52px] w-[72px] -translate-x-1/2 overflow-hidden rounded-t-[999px]">
+          <div className="absolute inset-0 bg-[#ef3535]" />
+          <div className="absolute inset-x-0 bottom-2 h-[2px] bg-[#b11e1e]/60" />
         </div>
-        <div className="absolute bottom-[235px] left-1/2 h-[74px] w-[74px] -translate-x-1/2 rounded-full border-[8px] border-[#f8f8f8] bg-[#f59e0b] shadow-[inset_0_0_0_3px_rgba(0,0,0,0.12)]" />
-        <div className="absolute bottom-[150px] left-[20px] h-[110px] w-[22px] skew-y-[16deg] rounded-b-[999px] bg-[#ef3d3d]" />
-        <div className="absolute bottom-[150px] right-[20px] h-[110px] w-[22px] -skew-y-[16deg] rounded-b-[999px] bg-[#ef3d3d]" />
-        <div className="absolute bottom-[170px] left-1/2 h-[110px] w-[8px] -translate-x-1/2 rounded-full bg-[#8f8f8f]" />
-        <div className="absolute bottom-[78px] left-1/2 h-[106px] w-[18px] -translate-x-1/2 rounded-b-[999px] bg-[#ef3d3d]" />
-        <div className="absolute bottom-[16px] left-1/2 h-[124px] w-[62px] -translate-x-1/2 overflow-hidden">
-          <div className="absolute left-1/2 top-0 h-full w-full -translate-x-1/2 rounded-b-[999px] bg-[#f5b144]" />
-          <div className="absolute left-1/2 top-[12px] h-full w-[30px] -translate-x-1/2 rounded-b-[999px] bg-[#ffe34d]" />
+
+        <div className="absolute bottom-[224px] left-1/2 h-[68px] w-[68px] -translate-x-1/2 rounded-full border-[8px] border-[#fafafa] bg-[#ef9722] shadow-[inset_0_0_0_3px_rgba(0,0,0,0.12)]" />
+
+        <div className="absolute bottom-[148px] left-[22px] h-[102px] w-[20px] skew-y-[14deg] rounded-b-[999px] bg-[#ef3535]" />
+        <div className="absolute bottom-[148px] right-[22px] h-[102px] w-[20px] -skew-y-[14deg] rounded-b-[999px] bg-[#ef3535]" />
+
+        <div className="absolute bottom-[160px] left-1/2 h-[102px] w-[8px] -translate-x-1/2 rounded-full bg-[#8f8f8f]" />
+        <div className="absolute bottom-[82px] left-1/2 h-[96px] w-[16px] -translate-x-1/2 rounded-b-[999px] bg-[#ef3535]" />
+
+        <div className="absolute bottom-[34px] left-1/2 h-[106px] w-[56px] -translate-x-1/2 overflow-hidden">
+          <div className="absolute left-1/2 top-0 h-full w-full -translate-x-1/2 rounded-b-[999px] bg-[#f4b24a]" />
+          <div className="absolute left-1/2 top-[10px] h-full w-[28px] -translate-x-1/2 rounded-b-[999px] bg-[#ffe548]" />
         </div>
-        <div className="absolute bottom-0 left-1/2 h-[88px] w-[16px] -translate-x-1/2 bg-[#f5f5f5]" />
+
+        <div className="absolute bottom-[2px] left-1/2 h-[84px] w-[14px] -translate-x-1/2 bg-[#f5f5f5]" />
       </div>
     </div>
   )
@@ -174,7 +185,7 @@ export function TrustedPartnerSection() {
 
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
         <div className="mb-8 grid gap-5 md:mb-10 md:grid-cols-[1.08fr_0.92fr] md:items-start">
-          <h2 className="max-w-[720px] text-[34px] font-semibold leading-[1.12] tracking-[-0.03em] text-white sm:text-[42px] md:text-[56px]">
+          <h2 className="max-w-[760px] text-[34px] font-semibold leading-[1.12] tracking-[-0.03em] text-white sm:text-[42px] md:text-[56px]">
             {t.heading}
           </h2>
 
@@ -183,13 +194,13 @@ export function TrustedPartnerSection() {
           </p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-[1.65fr_0.8fr_0.66fr]">
+        <div className="grid gap-5 lg:grid-cols-[1.58fr_0.78fr_0.64fr]">
           <div className="grid gap-5">
-            <div className="relative overflow-hidden rounded-[24px] bg-[radial-gradient(circle_at_top_left,#1b0140_0%,#0b001d_58%,#080018_100%)] min-h-[360px] md:min-h-[420px]">
+            <div className="relative overflow-hidden rounded-[24px] bg-[radial-gradient(circle_at_top_left,#1b0140_0%,#0b001d_58%,#080018_100%)] min-h-[340px] md:min-h-[390px]">
               <GridPattern />
-              <div className="grid min-h-[360px] grid-cols-1 md:min-h-[420px] md:grid-cols-[0.9fr_1.1fr]">
+              <div className="grid min-h-[340px] grid-cols-1 md:min-h-[390px] md:grid-cols-[0.95fr_1.05fr]">
                 <div className="relative z-10 flex flex-col justify-center px-7 py-8 md:px-10">
-                  <h3 className="max-w-[360px] text-[28px] font-light leading-[1.2] tracking-[-0.03em] text-[#b77dff] md:text-[34px]">
+                  <h3 className="max-w-[360px] text-[28px] font-light leading-[1.22] tracking-[-0.03em] text-[#b77dff] md:text-[34px]">
                     {t.card1Title}
                   </h3>
 
@@ -218,43 +229,44 @@ export function TrustedPartnerSection() {
               </div>
             </div>
 
-            <div className="grid gap-5 md:grid-cols-[0.72fr_1.28fr]">
-              <div className="relative overflow-hidden rounded-[24px] border border-white/14 bg-[radial-gradient(circle_at_top_left,#23113f_0%,#100022_75%,#090015_100%)] min-h-[290px]">
+            <div className="grid gap-5 md:grid-cols-[0.7fr_1.3fr]">
+              <div className="relative overflow-hidden rounded-[24px] border border-white/14 bg-[radial-gradient(circle_at_top_left,#23113f_0%,#100022_75%,#090015_100%)] min-h-[260px]">
                 <GridPattern />
                 <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 py-8 text-center">
-                  <div className="text-[68px] font-semibold leading-none tracking-[-0.06em] text-white md:text-[84px]">
+                  <div className="text-[66px] font-semibold leading-none tracking-[-0.06em] text-white md:text-[84px]">
                     <StatCount end={4} suffix=".7+" start={startCount} />
                   </div>
 
-                  <h4 className="mt-3 text-[24px] font-medium leading-tight text-white md:text-[28px]">
+                  <h4 className="mt-3 text-[23px] font-medium leading-tight text-white md:text-[28px]">
                     {t.card3Title}
                   </h4>
 
-                  <div className="mt-6 flex items-center gap-2">
+                  <div className="mt-5 flex items-center gap-1.5">
                     {[0, 1, 2, 3].map((i) => (
                       <Star
                         key={i}
-                        className="h-8 w-8 fill-[#ffb36b] text-[#ffb36b]"
+                        className="h-7 w-7 fill-[#ffb36b] text-[#ffb36b]"
                       />
                     ))}
-                    <Star className="h-8 w-8 fill-[#2a2040] text-[#2a2040]" />
+                    <Star className="h-7 w-7 fill-[#2a2040] text-[#2a2040]" />
                   </div>
 
-                  <p className="mt-7 max-w-[300px] text-[16px] leading-[1.55] text-white/50">
+                  <p className="mt-6 max-w-[300px] text-[16px] leading-[1.55] text-white/50">
                     {t.card3Desc}
                   </p>
                 </div>
               </div>
 
-              <div className="relative overflow-hidden rounded-[24px] bg-[linear-gradient(135deg,#b983ff_0%,#7b4ac6_45%,#4c257a_100%)] min-h-[290px]">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_center,rgba(255,255,255,0.16),transparent_55%)]" />
-                <div className="grid min-h-[290px] grid-cols-1 md:grid-cols-[0.95fr_1.05fr]">
-                  <div className="relative z-10 flex flex-col justify-center px-8 py-8 md:px-9">
-                    <h3 className="max-w-[350px] text-[28px] font-light leading-[1.18] tracking-[-0.03em] text-white md:text-[34px]">
+              <div className="relative overflow-hidden rounded-[24px] bg-[linear-gradient(135deg,#b983ff_0%,#7b4ac6_48%,#4c257a_100%)] min-h-[260px]">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_center,rgba(255,255,255,0.15),transparent_58%)]" />
+
+                <div className="grid min-h-[260px] grid-cols-[0.9fr_1.1fr]">
+                  <div className="relative z-10 flex flex-col justify-center px-8 py-8 md:px-10">
+                    <h3 className="max-w-[340px] text-[28px] font-light leading-[1.18] tracking-[-0.03em] text-white md:text-[34px]">
                       {t.card4Title}
                     </h3>
 
-                    <p className="mt-5 max-w-[360px] text-[16px] leading-[1.55] text-white/90 md:text-[17px]">
+                    <p className="mt-5 max-w-[330px] text-[16px] leading-[1.55] text-white/90 md:text-[17px]">
                       {t.card4Desc}
                     </p>
 
@@ -266,10 +278,10 @@ export function TrustedPartnerSection() {
                     </Link>
                   </div>
 
-                  <div className="relative min-h-[220px]">
-                    <div className="absolute inset-0">
+                  <div className="relative overflow-hidden">
+                    <div className="absolute bottom-[-4px] right-[-60px] top-[12px] w-[420px]">
                       <Image
-                        src="/placeholder.svg?height=520&width=560"
+                        src="/placeholder.svg?height=560&width=620"
                         alt="Mobile app preview"
                         fill
                         className="object-contain object-right-bottom opacity-95"
@@ -281,23 +293,25 @@ export function TrustedPartnerSection() {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-[24px] bg-[#2d2640] min-h-[360px] md:min-h-[600px]">
+          <div className="relative overflow-hidden rounded-[24px] bg-[#2f2940] min-h-[340px] md:min-h-[560px]">
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0))]" />
-            <div className="absolute bottom-0 left-0 right-0 h-28 bg-[radial-gradient(circle_at_bottom_left,#3ba9c8_0%,#3ba9c8_35%,transparent_36%),radial-gradient(circle_at_32%_100%,#3ba9c8_0%,#3ba9c8_24%,transparent_25%),radial-gradient(circle_at_58%_100%,#3ba9c8_0%,#3ba9c8_24%,transparent_25%),radial-gradient(circle_at_82%_100%,#dce6ec_0%,#dce6ec_32%,transparent_33%)]" />
-            <div className="relative z-10 px-8 pb-12 pt-14 md:px-10 md:pt-16">
+
+            <div className="relative z-10 px-8 pb-10 pt-14 md:px-10 md:pt-16">
               <h3 className="max-w-[220px] text-[28px] font-medium leading-[1.22] tracking-[-0.03em] text-white md:text-[34px]">
                 {t.card2Title}
               </h3>
 
-              <p className="mt-6 max-w-[220px] text-[16px] leading-[1.55] text-white/50 md:text-[17px]">
+              <p className="mt-6 max-w-[210px] text-[16px] leading-[1.55] text-white/50 md:text-[17px]">
                 {t.card2Desc}
               </p>
             </div>
-            <RocketIllustration />
+
+            <RocketIllustrationCompact />
           </div>
 
-          <div className="relative overflow-hidden rounded-[24px] bg-[linear-gradient(180deg,#b77dff_0%,#f07fc1_100%)] min-h-[360px] md:min-h-[600px]">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_center,rgba(255,255,255,0.18),transparent_48%)]" />
+          <div className="relative overflow-hidden rounded-[24px] bg-[linear-gradient(180deg,#b77dff_0%,#f07fc1_100%)] min-h-[340px] md:min-h-[560px]">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_center,rgba(255,255,255,0.16),transparent_48%)]" />
+
             <div className="relative z-10 flex h-full flex-col items-center justify-center px-8 py-10 text-center">
               <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white/95 shadow-[0_10px_40px_rgba(255,255,255,0.16)]">
                 <Phone className="h-10 w-10 text-[#b77dff]" strokeWidth={1.8} />
