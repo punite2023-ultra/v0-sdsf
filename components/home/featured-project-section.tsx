@@ -15,18 +15,18 @@ type Project = {
 
 const projects: Project[] = [
   {
-    category: "Digital Branding",
-    title: "Loka Perfume & Co",
-    image: "/images/featured-project-1.jpg",
-    client: "Brian Imanuel",
-    date: "15 Jan 2024",
-    location: "Jakarta",
-    budget: "$10,000",
+    category: "Events,
+    title: "Q1 Townhall Meeting",
+    image: "https://images.unsplash.com/photo-1508944509701-d6dc5aae4d82?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+    client: "Star Digital Solutions",
+    date: "15 Jan 2026",
+    location: "Sunland Corportaion",
+    Topic: "$10,000",
     description:
       "A premium branding and packaging concept built to elevate product storytelling.",
   },
   {
-    category: "Digital Marketing",
+    category: "News",
     title: "Compass Shoes",
     image: "/images/featured-project-2.jpg",
     client: "Sophie Lewis",
@@ -37,7 +37,7 @@ const projects: Project[] = [
       "A modern campaign direction focused on awareness and engagement.",
   },
   {
-    category: "App Development",
+    category: "Brand Launching",
     title: "Digital Dynamics",
     image: "/images/featured-project-3.jpg",
     client: "Brian Imanuel",
@@ -48,7 +48,7 @@ const projects: Project[] = [
       "A polished digital product experience designed for usability.",
   },
   {
-    category: "SEO",
+    category: "TSP",
     title: "Fresh Bites Catering",
     image: "/images/featured-project-4.jpg",
     client: "Brian Imanuel",
@@ -59,7 +59,7 @@ const projects: Project[] = [
       "An SEO-led growth project to increase visibility and traffic.",
   },
   {
-    category: "Graphic Design",
+    category: "MCN",
     title: "Harmony Spa & Wellness",
     image: "/images/featured-project-5.jpg",
     client: "Brian Imanuel",
@@ -103,12 +103,12 @@ export function FeaturedProjectSection() {
         {/* HEADER */}
         <div className="mx-auto mb-12 max-w-3xl text-center">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-[#d972ff]">
-            FEATURED PROJECT
+            NEWS AND EVENTS
           </p>
 
           <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
-            Unleashing the Power of Innovation
-            <br /> and Creativity.
+            Stay Updated with 
+            <br /> Star Digital Solutions
           </h2>
         </div>
 
