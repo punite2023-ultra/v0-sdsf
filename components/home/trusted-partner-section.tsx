@@ -96,7 +96,7 @@ function RocketIllustration() {
   )
 }
 
-export function RustedPartnerSection() {
+export function TrustedPartnerSection() {
   const sectionRef = useRef<HTMLElement | null>(null)
   const [startCount, setStartCount] = useState(false)
   const { language } = useLanguage()
