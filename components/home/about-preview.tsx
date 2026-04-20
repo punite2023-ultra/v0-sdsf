@@ -29,7 +29,7 @@ export function AboutPreview() {
           eyebrow: "WHO WE ARE",
           title: (
             <>
-              Elevating brands through content, 
+              Elevating brands through contenst, 
               <br />
               commerce, and creators.
             </>
