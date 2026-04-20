@@ -13,9 +13,9 @@ export function HeroSectionSimple() {
           badge: "WELCOME TO STAR DIGITAL",
           title: (
             <>
-              Your Path to Digital
+              ALIGNING THE STARS FOR 
               <br />
-              Excellence
+              YOUR DIGITAL SUCCESS
             </>
           ),
           description:
