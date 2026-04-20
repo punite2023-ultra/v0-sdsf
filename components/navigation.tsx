@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/language-context"
 
@@ -68,6 +68,11 @@ export function Navigation() {
     return pathname === href
   }
 
+  const isParentActive = (href: string, children?: { href: string; label: string }[]) => {
+    if (pathname === href) return true
+    return children?.some((child) => pathname === child.href) ?? false
+  }
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -95,25 +100,33 @@ export function Navigation() {
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => {
               if ("children" in link && link.children) {
+                const active = isParentActive(link.href, link.children)
+
                 return (
                   <div key={link.label} className="relative group">
-                    <span
-                      className={`cursor-pointer text-sm font-medium ${
-                        useLightNav ? "text-white" : "text-[#62248e]"
+                    <Link
+                      href={link.href}
+                      className={`inline-flex items-center gap-1 text-sm font-medium transition ${
+                        active
+                          ? "text-[#ff002f]"
+                          : useLightNav
+                          ? "text-white hover:text-[#ff002f]"
+                          : "text-[#62248e] hover:text-[#ff002f]"
                       }`}
                     >
                       {link.label}
-                    </span>
+                      <ChevronDown className="h-4 w-4" />
+                    </Link>
 
-                    <div className="absolute left-0 top-full mt-3 hidden w-48 rounded-xl border border-white/10 bg-[#0a0118] p-2 shadow-lg group-hover:block">
+                    <div className="absolute left-0 top-full mt-3 hidden min-w-[220px] rounded-[28px] border border-white/10 bg-[#070012] p-4 shadow-xl group-hover:block">
                       {link.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className={`block rounded-lg px-4 py-2 text-sm transition ${
+                          className={`block rounded-xl px-4 py-3 text-base transition ${
                             isActive(child.href)
                               ? "text-[#ff002f]"
-                              : "text-white/80 hover:bg-white/10 hover:text-white"
+                              : "text-white/85 hover:bg-white/5 hover:text-white"
                           }`}
                         >
                           {child.label}
@@ -186,11 +199,7 @@ export function Navigation() {
             }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </nav>
 
