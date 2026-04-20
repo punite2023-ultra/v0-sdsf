@@ -57,7 +57,6 @@ export function BrandShowcaseSlider() {
     return allBrands.slice(start, start + itemsPerPage)
   }, [page])
 
-  // ✅ AUTO SLIDE
   useEffect(() => {
     const interval = setInterval(() => {
       setPage((prev) => (prev + 1) % totalPages)
@@ -70,7 +69,7 @@ export function BrandShowcaseSlider() {
     <section className="relative bg-[#080015] px-4 py-14 md:px-8 md:py-20">
       <div className="mx-auto max-w-7xl">
         <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.02)_100%)] px-6 py-10 shadow-[0_25px_80px_rgba(0,0,0,0.35)] md:px-10 md:py-14 lg:px-14 lg:py-16">
-          
+
           {/* GLOW */}
           <div className="pointer-events-none absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-fuchsia-400/20 blur-[100px]" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(180,124,253,0.10),transparent_35%)]" />
@@ -79,17 +78,35 @@ export function BrandShowcaseSlider() {
           <div className="pointer-events-none absolute left-0 right-0 top-[58%] h-px bg-white/6" />
 
           <div className="relative z-10">
-            
-            {/* TITLE */}
+
+            {/* NEW TITLE */}
             <div className="mx-auto max-w-4xl text-center">
               <h2 className="text-balance text-3xl font-extrabold leading-tight tracking-[-0.04em] text-white sm:text-4xl md:text-5xl lg:text-[56px]">
-                Join over 300,000+ businesses to
-                <br />
-                create unique brand designs.
+                Trusted By Leading Brands
               </h2>
+
+              <p className="mt-4 text-lg text-white/70 md:text-xl">
+                Partnered with Brands That Shape the Market
+              </p>
+
+              <p className="mt-6 text-sm text-white/60 md:text-base leading-relaxed">
+                We’ve worked with a growing portfolio of brands across beauty, personal care,
+                FMCG, fashion, tech, and lifestyle.
+              </p>
+
+              <p className="mt-4 text-sm md:text-base text-white font-medium leading-relaxed">
+                L’Oréal Paris, Maybelline New York, Colgate, Vaseline, Olay, Dove, Pantene,
+                Garnier, Nivea, Safeguard, Head & Shoulders, Happy Skin, blk Cosmetics,
+                Vice Cosmetics, Nestlé, Huawei, Philips, Bench, Huggies, and more.
+              </p>
+
+              <p className="mt-6 text-sm text-white/60 md:text-base leading-relaxed">
+                From household names to fast-rising challengers, we help brands launch,
+                scale, and perform across the platforms that matter most.
+              </p>
             </div>
 
-            {/* LOGOS */}
+            {/* LOGO SLIDER */}
             <div className="mt-12 grid grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-y-12">
               {visibleBrands.map((brand, index) => {
                 const Icon = brand.icon
@@ -110,7 +127,7 @@ export function BrandShowcaseSlider() {
               })}
             </div>
 
-            {/* DOTS (LIKE YOUR IMAGE) */}
+            {/* DOTS */}
             <div className="mt-12 flex items-center justify-center gap-3">
               {Array.from({ length: totalPages }).map((_, index) => (
                 <button
