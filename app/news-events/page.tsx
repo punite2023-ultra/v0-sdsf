@@ -1,98 +1,164 @@
 "use client"
 
+import Image from "next/image"
+import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { ScrollReveal } from "@/components/scroll-reveal"
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowRight, CalendarDays, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ArrowRight, CalendarDays, MapPin } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 const newsEvents = [
   {
     id: 1,
-    type: "Event",
-    title: "TikTok Shop Growth Summit 2026",
-    subtitle: "Live Commerce & Creator Ecosystems",
-    description:
-      "A focused event on platform growth, creator activation, affiliate systems, and conversion-led campaign strategies for modern brands.",
+    categoryEn: "Industry Event",
+    categoryZh: "行业活动",
+    titleEn: "TikTok Shop Growth Forum",
+    titleZh: "TikTok Shop 增长论坛",
     image:
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1600&auto=format&fit=crop",
-    date: "May 12, 2026",
-    location: "Manila, Philippines",
-    tags: ["Live Commerce", "Creators", "Growth"],
-    cta: "View Event",
+      "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop",
+    organizerEn: "Star Digital Solutions",
+    organizerZh: "星际数字方案",
+    dateEn: "15 Jan 2026",
+    dateZh: "2026年1月15日",
+    locationEn: "Manila",
+    locationZh: "马尼拉",
+    audienceEn: "Brand Leaders",
+    audienceZh: "品牌负责人",
+    descriptionEn:
+      "A live session on platform growth, creator-led commerce, and digital acceleration strategies for fast-moving brands.",
+    descriptionZh:
+      "围绕平台增长、创作者驱动商业与品牌数字加速策略展开的现场活动。",
   },
   {
     id: 2,
-    type: "News",
-    title: "Star Digital Expands Multi-Channel Services",
-    subtitle: "Scaling Content, Commerce, and Partnerships",
-    description:
-      "An update on how Star Digital Solutions is expanding its support across affiliate marketing, creator management, and e-commerce execution.",
+    categoryEn: "News Update",
+    categoryZh: "新闻更新",
+    titleEn: "Affiliate Network Expansion",
+    titleZh: "联盟网络扩展",
     image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop",
-    date: "April 28, 2026",
-    location: "Digital Release",
-    tags: ["Agency Update", "Affiliate", "E-commerce"],
-    cta: "Read Article",
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop",
+    organizerEn: "Growth Team",
+    organizerZh: "增长团队",
+    dateEn: "18 Jan 2026",
+    dateZh: "2026年1月18日",
+    locationEn: "Singapore",
+    locationZh: "新加坡",
+    audienceEn: "Partners",
+    audienceZh: "合作伙伴",
+    descriptionEn:
+      "An update on expanded affiliate partnerships and creator collaborations designed to drive stronger cross-market performance.",
+    descriptionZh:
+      "关于联盟合作与创作者协作扩展的最新消息，旨在推动跨市场更强劲的增长表现。",
   },
   {
     id: 3,
-    type: "Event",
-    title: "Brand Campaign Strategy Workshop",
-    subtitle: "Planning Campaigns That Convert",
-    description:
-      "A hands-on workshop for brands looking to connect strategy, creators, and commerce into one measurable campaign system.",
+    categoryEn: "Featured Event",
+    categoryZh: "精选活动",
+    titleEn: "Live Commerce Summit",
+    titleZh: "直播电商峰会",
     image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop",
-    date: "June 03, 2026",
-    location: "Singapore",
-    tags: ["Workshop", "Strategy", "Campaigns"],
-    cta: "View Event",
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
+    organizerEn: "Commerce Division",
+    organizerZh: "电商团队",
+    dateEn: "22 Jan 2026",
+    dateZh: "2026年1月22日",
+    locationEn: "Jakarta",
+    locationZh: "雅加达",
+    audienceEn: "Retail Brands",
+    audienceZh: "零售品牌",
+    descriptionEn:
+      "A focused event exploring conversion-led content, creator alignment, and platform-native campaigns built for scale.",
+    descriptionZh:
+      "聚焦以转化为导向的内容、创作者协同与为规模增长而打造的平台型营销活动。",
   },
   {
     id: 4,
-    type: "News",
-    title: "Inside the Future of Affiliate-Driven Growth",
-    subtitle: "Where Performance Meets Partnership",
-    description:
-      "A perspective piece exploring the growing role of affiliates, creators, and platform-native commerce in digital brand scaling.",
+    categoryEn: "Press Release",
+    categoryZh: "新闻稿",
+    titleEn: "Digital Strategy Report 2026",
+    titleZh: "2026 数字策略报告",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop",
-    date: "May 20, 2026",
-    location: "Editorial",
-    tags: ["Affiliate", "Insights", "Performance"],
-    cta: "Read Article",
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop",
+    organizerEn: "Insights Team",
+    organizerZh: "洞察团队",
+    dateEn: "28 Jan 2026",
+    dateZh: "2026年1月28日",
+    locationEn: "Hong Kong",
+    locationZh: "香港",
+    audienceEn: "Executives",
+    audienceZh: "管理层",
+    descriptionEn:
+      "A report covering market shifts, creator economy trends, and the next wave of e-commerce growth opportunities.",
+    descriptionZh:
+      "一份涵盖市场变化、创作者经济趋势以及下一波电商增长机会的策略报告。",
   },
   {
     id: 5,
-    type: "Event",
-    title: "Creator Network Activation Forum",
-    subtitle: "Building Stronger Talent Ecosystems",
-    description:
-      "A gathering centered on creator partnerships, brand collaboration systems, and scalable network management for long-term performance.",
+    categoryEn: "Workshop",
+    categoryZh: "研讨会",
+    titleEn: "Creator Partnership Masterclass",
+    titleZh: "创作者合作大师课",
     image:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1600&auto=format&fit=crop",
-    date: "July 15, 2026",
-    location: "Bangkok, Thailand",
-    tags: ["Creators", "MCN", "Partnerships"],
-    cta: "View Event",
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+    organizerEn: "Partnership Team",
+    organizerZh: "合作团队",
+    dateEn: "05 Feb 2026",
+    dateZh: "2026年2月5日",
+    locationEn: "Bangkok",
+    locationZh: "曼谷",
+    audienceEn: "Marketing Teams",
+    audienceZh: "营销团队",
+    descriptionEn:
+      "A practical workshop on structuring creator ecosystems, affiliate incentives, and partnership campaigns that convert.",
+    descriptionZh:
+      "围绕创作者生态搭建、联盟激励机制与高转化合作营销的实战型研讨会。",
   },
   {
     id: 6,
-    type: "News",
-    title: "Why Commerce-Led Content Is Winning",
-    subtitle: "A New Era of Digital Brand Growth",
-    description:
-      "An editorial on why brands are moving beyond awareness-focused content and toward systems designed to convert, scale, and sustain growth.",
+    categoryEn: "Company News",
+    categoryZh: "公司新闻",
+    titleEn: "Star Digital Launches New Growth Services",
+    titleZh: "Star Digital 推出全新增长服务",
     image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop",
-    date: "August 01, 2026",
-    location: "Industry Report",
-    tags: ["Content", "Commerce", "Conversion"],
-    cta: "Read Article",
+      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop",
+    organizerEn: "Star Digital",
+    organizerZh: "Star Digital",
+    dateEn: "12 Feb 2026",
+    dateZh: "2026年2月12日",
+    locationEn: "Global",
+    locationZh: "全球",
+    audienceEn: "Brands",
+    audienceZh: "品牌客户",
+    descriptionEn:
+      "A major service update introducing expanded support across affiliate growth, campaign execution, and digital scale systems.",
+    descriptionZh:
+      "一次重要服务升级，新增联盟增长、营销执行与数字化规模系统支持。",
+  },
+]
+
+const testimonials = [
+  {
+    name: "Sarah Thompson",
+    company: "THOMPSON & CO.",
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    review:
+      "Star Digital’s events and updates keep us ahead of trends. Their strategic perspective helps us move faster and with more confidence.",
+  },
+  {
+    name: "Michael Chen",
+    company: "BRIGHT ELECTRONICS",
+    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    review:
+      "Their growth-focused sessions gave our team a clearer understanding of where creators, commerce, and conversion are heading next.",
+  },
+  {
+    name: "Ryan Miller",
+    company: "FRESH BITES CATERING",
+    image: "https://randomuser.me/api/portraits/men/51.jpg",
+    review:
+      "The mix of industry insight and practical guidance made their News & Events page genuinely valuable for our next phase of planning.",
   },
 ]
 
@@ -102,224 +168,272 @@ export default function NewsEventsPage() {
   const t =
     language === "zh"
       ? {
-          eyebrow: "新闻与活动",
-          title: "最新动态",
-          description:
-            "探索 Star Digital Solutions 的最新新闻、活动、行业观点与品牌增长更新。",
-          sectionEyebrow: "精选更新",
-          sectionTitle: "新闻、活动与行业亮点",
-          metaDate: "日期",
-          metaLocation: "地点",
-          ctaTitle: "准备好与我们共同成长了吗？",
-          ctaDescription:
-            "从品牌活动到数字增长执行，我们帮助品牌通过内容、商业与创作者生态实现更强的市场表现。",
-          primary: "联系我们",
-          secondary: "查看服务",
+          heroTitle: "新闻与活动",
+          heroDesc: "探索推动品牌、商业与创作者增长的最新动态、重要活动与行业见解。",
+          sectionTag: "精选内容",
+          sectionTitle: "释放内容、活动与行业洞察的增长力量。",
+          organizer: "主办方",
+          date: "日期",
+          location: "地点",
+          audience: "对象",
+          learnMore: "了解更多",
+          bannerTitle: "推动数字卓越：发现 Star Digital 的增长优势。",
+          bannerDesc:
+            "从行业活动到品牌新闻，我们通过内容、商业与创作者生态帮助品牌保持领先。",
+          bannerBtn: "查看更多",
+          reviewsTag: "客户反馈",
+          reviewsTitle: "客户反馈与评价",
         }
       : {
-          eyebrow: "News & Events",
-          title: "Latest Updates",
-          description:
-            "Explore the latest news, events, industry insights, and growth updates from Star Digital Solutions.",
-          sectionEyebrow: "Featured Updates",
-          sectionTitle: "News, Events & Industry Highlights",
-          metaDate: "Date",
-          metaLocation: "Location",
-          ctaTitle: "Ready to Grow With Us?",
-          ctaDescription:
-            "From brand campaigns to digital growth execution, we help brands move through content, commerce, and creator ecosystems with more impact.",
-          primary: "Contact Us",
-          secondary: "Explore Services",
+          heroTitle: "News & Events",
+          heroDesc:
+            "Explore the latest updates, featured events, and industry insights shaping growth across content, commerce, and creators.",
+          sectionTag: "Featured Updates",
+          sectionTitle: "Unleashing the Power of Growth, News, and Events.",
+          organizer: "Organizer",
+          date: "Date",
+          location: "Location",
+          audience: "Audience",
+          learnMore: "Learn More",
+          bannerTitle: "Pioneering Digital Excellence: Discover the Star Digital Advantage.",
+          bannerDesc:
+            "From industry events to brand updates, we help businesses stay ahead through content, commerce, and creator-led growth systems.",
+          bannerBtn: "Discover More",
+          reviewsTag: "Testimonial",
+          reviewsTitle: "Client Feedback & Reviews",
         }
 
   return (
     <>
       <Navigation />
 
-      <main className="bg-background text-foreground">
-        {/* Hero */}
-        <section className="relative overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_top,rgba(126,34,206,0.22),transparent_45%),linear-gradient(180deg,#0A0118_0%,#0B0614_60%,#0A0118_100%)] pt-32 pb-20 lg:pt-40 lg:pb-28">
-          <div className="absolute inset-0 opacity-20 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/asfalt-light.png')]" />
-          <div className="container relative mx-auto px-6 lg:px-8">
-            <div className="mx-auto max-w-4xl rounded-[2rem] border border-white/10 bg-white/[0.03] px-6 py-14 backdrop-blur-sm md:px-10 lg:px-14">
-              <ScrollReveal>
-                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary">
-                  {t.eyebrow}
-                </p>
-              </ScrollReveal>
-
-              <ScrollReveal delay={100}>
-                <h1
-                  className="mt-4 text-4xl font-extrabold uppercase leading-tight md:text-5xl lg:text-6xl"
-                  style={{ fontFamily: "var(--font-raleway)" }}
-                >
-                  {t.title}
-                </h1>
-              </ScrollReveal>
-
-              <ScrollReveal delay={200}>
-                <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                  {t.description}
-                </p>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
-
-        {/* Grid Header */}
-        <section className="pt-14 pb-4 lg:pt-20">
-          <div className="container mx-auto px-6 lg:px-8">
-            <div className="mx-auto max-w-3xl text-center">
-              <ScrollReveal>
-                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">
-                  {t.sectionEyebrow}
-                </p>
-              </ScrollReveal>
-
-              <ScrollReveal delay={100}>
-                <h2
-                  className="mt-3 text-3xl font-extrabold uppercase md:text-4xl"
-                  style={{ fontFamily: "var(--font-raleway)" }}
-                >
-                  {t.sectionTitle}
-                </h2>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
-
-        {/* Cards */}
-        <section className="pb-20 pt-6 lg:pb-28">
-          <div className="container mx-auto px-6 lg:px-8">
-            <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-              {newsEvents.map((item, index) => (
-                <ScrollReveal key={item.id} delay={index * 100}>
-                  <article className="group relative overflow-hidden rounded-2xl border border-white/10 bg-card/40 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_60px_rgba(255,255,255,0.08)]">
-                    <div className="relative h-[380px] overflow-hidden">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        width={1000}
-                        height={1200}
-                        className="h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-110 group-hover:opacity-80"
-                      />
-
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0118] via-[#0A0118]/55 to-transparent" />
-
-                      <div className="absolute left-5 top-5 inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-md">
-                        {item.type}
-                      </div>
-
-                      <div className="absolute inset-x-0 bottom-0 p-5">
-                        <div className="mb-4 inline-block rounded-full bg-primary/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
-                          {item.subtitle}
-                        </div>
-
-                        <h3 className="text-2xl font-bold leading-tight text-white transition-colors duration-300 group-hover:text-primary">
-                          {item.title}
-                        </h3>
-                      </div>
-
-                      {/* Hover Panel */}
-                      <div className="absolute inset-x-0 bottom-0 translate-y-[78%] border-t border-white/10 bg-[#0c0618]/95 p-5 backdrop-blur-xl transition-transform duration-700 group-hover:translate-y-0">
-                        <div className="grid grid-cols-2 gap-4 border-b border-white/10 pb-4">
-                          <div>
-                            <p className="mb-1 text-[11px] uppercase tracking-[0.18em] text-primary/90">
-                              {t.metaDate}
-                            </p>
-                            <div className="flex items-center gap-2 text-sm text-white/90">
-                              <CalendarDays className="h-4 w-4 text-primary" />
-                              <span>{item.date}</span>
-                            </div>
-                          </div>
-
-                          <div>
-                            <p className="mb-1 text-[11px] uppercase tracking-[0.18em] text-primary/90">
-                              {t.metaLocation}
-                            </p>
-                            <div className="flex items-center gap-2 text-sm text-white/90">
-                              <MapPin className="h-4 w-4 text-primary" />
-                              <span>{item.location}</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        <p className="mt-4 text-sm leading-relaxed text-white/75">
-                          {item.description}
-                        </p>
-
-                        <div className="mt-4 flex flex-wrap gap-2">
-                          {item.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-white/70"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-
-                        <Link
-                          href="/contact"
-                          className="mt-5 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-primary transition-transform duration-300 hover:translate-x-1"
-                        >
-                          {item.cta}
-                          <ArrowRight className="h-4 w-4" />
-                        </Link>
-                      </div>
-                    </div>
-                  </article>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="pb-20 lg:pb-28">
-          <div className="container mx-auto px-6 lg:px-8">
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#6f0b95] via-[#8a08a6] to-[#6f0b95] px-8 py-16 md:px-14 md:py-20">
-              <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-white/10" />
-              <div className="pointer-events-none absolute -right-24 -bottom-24 h-72 w-72 rounded-full bg-white/10" />
-
-              <div className="relative mx-auto max-w-4xl text-center">
+      <main className="min-h-screen bg-[#0A0118] text-white">
+        {/* HERO */}
+        <section className="relative overflow-hidden border-b border-white/15 rounded-bl-[28px] md:rounded-bl-[60px] lg:rounded-bl-[100px] pt-28 md:pt-32">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(164,95,255,0.28),transparent_24%),linear-gradient(180deg,#0A0118_0%,#0A0118_100%)]" />
+          <div className="absolute inset-0 opacity-20 bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:90px_90px]" />
+          <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto flex min-h-[260px] max-w-3xl items-center justify-center py-16 text-center md:min-h-[320px]">
+              <div>
                 <ScrollReveal>
-                  <h2
-                    className="text-3xl font-extrabold uppercase text-white md:text-4xl lg:text-5xl"
+                  <h1
+                    className="text-4xl font-extrabold md:text-5xl lg:text-6xl"
                     style={{ fontFamily: "var(--font-raleway)" }}
                   >
-                    {t.ctaTitle}
-                  </h2>
+                    {t.heroTitle}
+                  </h1>
                 </ScrollReveal>
 
                 <ScrollReveal delay={100}>
-                  <p className="mt-6 text-lg leading-relaxed text-white/90 md:text-xl">
-                    {t.ctaDescription}
+                  <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
+                    {t.heroDesc}
                   </p>
-                </ScrollReveal>
-
-                <ScrollReveal delay={200}>
-                  <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-                    <Button
-                      asChild
-                      size="lg"
-                      className="rounded-full bg-[#7b029e] px-8 text-white transition-colors duration-300 hover:bg-[#682e94]"
-                    >
-                      <Link href="/contact">{t.primary}</Link>
-                    </Button>
-
-                    <Button
-                      asChild
-                      size="lg"
-                      className="rounded-full px-8 text-white transition-colors duration-300 hover:bg-[#682e94]"
-                      style={{ backgroundColor: "#c0485e" }}
-                    >
-                      <Link href="/services">{t.secondary}</Link>
-                    </Button>
-                  </div>
                 </ScrollReveal>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* SECTION TITLE */}
+        <section className="px-6 pb-10 pt-20 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <ScrollReveal>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#ff5ebc]">
+                {t.sectionTag}
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={100}>
+              <h2
+                className="mx-auto mt-4 max-w-2xl text-3xl font-extrabold leading-tight md:text-5xl"
+                style={{ fontFamily: "var(--font-raleway)" }}
+              >
+                {t.sectionTitle}
+              </h2>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* NEWS GRID */}
+        <section className="px-6 pb-20 lg:px-8 lg:pb-28">
+          <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {newsEvents.map((item, index) => (
+              <ScrollReveal key={item.id} delay={index * 80}>
+                <article className="group relative overflow-hidden rounded-xl border border-white/10 bg-[#130424]">
+                  <div className="relative h-[540px]">
+                    <div className="absolute inset-0 z-0">
+                      <Image
+                        src={item.image}
+                        alt={language === "zh" ? item.titleZh : item.titleEn}
+                        fill
+                        className="object-cover opacity-50 grayscale transition-all duration-500 group-hover:opacity-75 group-hover:scale-[1.04]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-[#140620]/45 via-[#12041f]/25 to-[#0a0118]" />
+                    </div>
+
+                    <div className="relative z-10 flex h-full flex-col justify-between">
+                      <div className="bg-[radial-gradient(circle_at_top_left,rgba(255,176,123,0.18),transparent_38%),linear-gradient(180deg,rgba(18,4,31,0.8),rgba(10,1,24,0))] px-5 pb-5 pt-5">
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#ff5ebc]">
+                          {language === "zh" ? item.categoryZh : item.categoryEn}
+                        </p>
+                        <h3 className="mt-2 text-2xl font-semibold leading-tight text-white">
+                          {language === "zh" ? item.titleZh : item.titleEn}
+                        </h3>
+                      </div>
+
+                      <div className="relative overflow-hidden">
+                        <div className="border-t border-white/10 bg-[#130424]/90 px-5 py-5 backdrop-blur-sm transition-transform duration-700 translate-y-[170px] group-hover:translate-y-0">
+                          <div className="grid grid-cols-2 gap-y-5 border-b border-white/10 pb-5">
+                            <div>
+                              <p className="text-[10px] uppercase tracking-[0.16em] text-white/45">
+                                {t.organizer}
+                              </p>
+                              <p className="mt-1 text-sm font-medium text-white/90">
+                                {language === "zh" ? item.organizerZh : item.organizerEn}
+                              </p>
+                            </div>
+
+                            <div>
+                              <p className="text-[10px] uppercase tracking-[0.16em] text-white/45">
+                                {t.date}
+                              </p>
+                              <p className="mt-1 text-sm font-medium text-white/90">
+                                {language === "zh" ? item.dateZh : item.dateEn}
+                              </p>
+                            </div>
+
+                            <div>
+                              <p className="text-[10px] uppercase tracking-[0.16em] text-white/45">
+                                {t.location}
+                              </p>
+                              <p className="mt-1 text-sm font-medium text-white/90">
+                                {language === "zh" ? item.locationZh : item.locationEn}
+                              </p>
+                            </div>
+
+                            <div>
+                              <p className="text-[10px] uppercase tracking-[0.16em] text-white/45">
+                                {t.audience}
+                              </p>
+                              <p className="mt-1 text-sm font-medium text-white/90">
+                                {language === "zh" ? item.audienceZh : item.audienceEn}
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="pt-5">
+                            <p className="text-sm leading-relaxed text-white/70">
+                              {language === "zh" ? item.descriptionZh : item.descriptionEn}
+                            </p>
+
+                            <Link
+                              href="/contact"
+                              className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-white transition hover:text-[#ffb07b]"
+                            >
+                              {t.learnMore}
+                              <ArrowRight className="h-4 w-4" />
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </ScrollReveal>
+            ))}
+          </div>
+        </section>
+
+        {/* PROMO BANNER */}
+        <section className="px-6 pb-20 lg:px-8 lg:pb-28">
+          <div className="mx-auto max-w-7xl">
+            <div className="relative overflow-hidden rounded-xl border border-white/10">
+              <div className="absolute inset-0">
+                <Image
+                  src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1600&auto=format&fit=crop"
+                  alt="News and events banner"
+                  fill
+                  className="object-cover opacity-45"
+                />
+                <div className="absolute inset-0 bg-[#0A0118]/45" />
+              </div>
+
+              <div className="relative min-h-[360px] px-6 py-8 md:px-14 md:py-14">
+                <div className="max-w-[520px] rounded-xl border border-white/10 bg-[#2a1b46]/70 p-8 backdrop-blur-md">
+                  <h3
+                    className="text-3xl font-extrabold leading-tight text-white md:text-4xl"
+                    style={{ fontFamily: "var(--font-raleway)" }}
+                  >
+                    {t.bannerTitle}
+                  </h3>
+                  <p className="mt-4 text-sm leading-relaxed text-white/70 md:text-base">
+                    {t.bannerDesc}
+                  </p>
+
+                  <Button
+                    asChild
+                    className="mt-6 rounded-full border-0 bg-gradient-to-r from-[#a65cff] to-[#ffb07b] px-6 text-[#0A0118] hover:opacity-90"
+                  >
+                    <Link href="/contact">{t.bannerBtn}</Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIALS */}
+        <section className="px-6 pb-20 lg:px-8 lg:pb-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <ScrollReveal>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#ff5ebc]">
+                {t.reviewsTag}
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={100}>
+              <h2
+                className="mt-4 text-3xl font-extrabold md:text-5xl"
+                style={{ fontFamily: "var(--font-raleway)" }}
+              >
+                {t.reviewsTitle}
+              </h2>
+            </ScrollReveal>
+          </div>
+
+          <div className="mx-auto mt-12 grid max-w-7xl gap-5 md:grid-cols-3">
+            {testimonials.map((item, index) => (
+              <ScrollReveal key={item.name} delay={index * 100}>
+                <div className="rounded-xl border border-white/10 bg-white/[0.06] p-8 text-center">
+                  <div className="mx-auto mb-5 h-14 w-14 overflow-hidden rounded-full border border-white/20">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      width={56}
+                      height={56}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+
+                  <p className="text-sm leading-relaxed text-white/70">
+                    {item.review}
+                  </p>
+
+                  <div className="mt-6">
+                    <p className="text-base font-semibold text-white">{item.name}</p>
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-[#ff5ebc]">
+                      {item.company}
+                    </p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <div className="mt-8 flex items-center justify-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#ff5ebc]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
           </div>
         </section>
       </main>
