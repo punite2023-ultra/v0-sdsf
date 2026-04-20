@@ -8,6 +8,7 @@ import { StatsSection } from "@/components/home/stats-section"
 import { PortfolioPreview } from "@/components/home/portfolio-preview"
 import { TrustedPartnerSection } from "@/components/home/trusted-partner-section"
 import { HowItWorksSection } from "@/components/home/how-it-works-section"
+import { FeaturedProjectSection } from "@/components/home/featured-project-section"
 import { TestimonialsSection } from "@/components/home/testimonials-section"
 import { BlogPreview } from "@/components/home/blog-preview"
 
@@ -24,6 +25,7 @@ export default function HomePage() {
         <PortfolioPreview />
         <HowItWorksSection />
         <TrustedPartnerSection />
+        <FeaturedProjectSection />
         <TestimonialsSection />
         <BlogPreview />
       </main>
