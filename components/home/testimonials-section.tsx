@@ -26,11 +26,11 @@ export function TestimonialsSection() {
       : {
           title: (
             <>
-              Pioneering Digital
+              Pioneering Digital Excellence:
               <br />
-              Excellence: Discover the
+              Discover the Star Digital
               <br />
-              Star Digital Advantage.
+              Advantage.
             </>
           ),
           description:
@@ -39,11 +39,12 @@ export function TestimonialsSection() {
         }
 
   return (
-    <section className="relative bg-[#070012] py-20 lg:py-24">
+    <section className="relative bg-[#070012] py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[#0b0216] min-h-[420px] sm:min-h-[500px] lg:min-h-[560px]">
-            {/* background image */}
+          <div className="relative overflow-hidden rounded-[28px] border border-white/10 min-h-[420px]">
+            
+            {/* Background Image */}
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
@@ -52,34 +53,35 @@ export function TestimonialsSection() {
               }}
             />
 
-            {/* dark overlay */}
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,0,18,0.86)_0%,rgba(13,3,24,0.72)_34%,rgba(11,2,22,0.48)_62%,rgba(7,0,18,0.8)_100%)]" />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,0,18,0.92)_0%,rgba(10,2,20,0.85)_40%,rgba(7,0,18,0.7)_70%,rgba(7,0,18,0.9)_100%)]" />
 
-            {/* subtle purple tint */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_left_center,rgba(168,85,247,0.18),transparent_42%)]" />
+            {/* Content */}
+            <div className="relative z-10 flex items-center h-full px-6 sm:px-10">
+              
+              {/* GLASS BOX */}
+              <div className="max-w-[560px] rounded-[22px] border border-white/10 bg-white/5 backdrop-blur-md p-6 sm:p-8">
+                
+                {/* TITLE */}
+                <h2
+                  className="text-[32px] sm:text-[38px] lg:text-[42px] font-semibold leading-[1.15] tracking-[-0.02em] text-white"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {t.title}
+                </h2>
 
-            {/* inner content */}
-            <div className="relative z-10 flex min-h-[420px] items-end p-5 sm:min-h-[500px] sm:p-8 lg:min-h-[560px] lg:p-10">
-              <div className="w-full max-w-[930px] rounded-[26px] border border-white/10 bg-[rgba(28,14,48,0.55)] p-6 backdrop-blur-md sm:p-8 lg:max-w-[900px] lg:p-12">
-                <div className="max-w-[720px]">
-                  <h2
-                    className="text-4xl font-bold leading-[1.08] tracking-[-0.03em] text-white sm:text-5xl lg:text-[70px]"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    {t.title}
-                  </h2>
+                {/* DESCRIPTION */}
+                <p className="mt-4 text-[14px] sm:text-[15px] leading-6 text-white/65 max-w-[480px]">
+                  {t.description}
+                </p>
 
-                  <p className="mt-6 max-w-[760px] text-base leading-8 text-white/65 sm:text-lg lg:text-[20px] lg:leading-9">
-                    {t.description}
-                  </p>
-
-                  <Link
-                    href="/contact"
-                    className="mt-8 inline-flex h-14 items-center justify-center rounded-full bg-gradient-to-r from-[#b96cff] via-[#df7dff] to-[#ffa07a] px-8 text-[13px] font-semibold uppercase tracking-[0.28em] text-white transition duration-300 hover:scale-[1.03]"
-                  >
-                    {t.button}
-                  </Link>
-                </div>
+                {/* BUTTON */}
+                <Link
+                  href="/contact"
+                  className="mt-6 inline-flex h-11 items-center justify-center rounded-full bg-gradient-to-r from-[#b96cff] to-[#ff9a7a] px-6 text-[11px] font-semibold uppercase tracking-[0.25em] text-white transition hover:scale-[1.04]"
+                >
+                  {t.button}
+                </Link>
               </div>
             </div>
           </div>
