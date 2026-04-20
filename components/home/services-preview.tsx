@@ -188,7 +188,7 @@ export function ServicesPreview() {
           visionTitle: "OUR VISION",
           visionHeading: "Elevate Your Digital Presence with Star Digital Expertise.",
           visionDescription:
-            "Build stronger visibility through clear strategy, compelling creative, and growth-focused execution across every digital touchpoint.",
+            "To become a leading and trusted brand growth partner, recognized for driving meaningful and transformative impact in the digital marketing and e-commerce industry.",
           missionTitle: "OUR MISSION",
           missionHeading: "Turn Creative Direction into Measurable Business Growth.",
           missionDescription:
