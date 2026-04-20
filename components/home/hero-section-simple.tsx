@@ -13,9 +13,9 @@ export function HeroSectionSimple() {
           badge: "WELCOME TO STAR DIGITAL",
           title: (
             <>
-              ALIGNING THE STARS FOR
+             Aligning the Stars 
               <br />
-              YOUR DIGITAL SUCCESS
+              for Your Digital Success
             </>
           ),
           description:
@@ -27,9 +27,9 @@ export function HeroSectionSimple() {
           badge: "WELCOME TO STAR DIGITAL",
           title: (
             <>
-              ALIGNING THE STARS FOR
+              Aligning the Stars 
               <br />
-              YOUR DIGITAL SUCCESS
+              for Your Digital Success
             </>
           ),
           description:
