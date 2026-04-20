@@ -1,53 +1,42 @@
 "use client"
 
-import Link from "next/link"
 import Image from "next/image"
-import { ArrowUpRight, Calendar } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { useLanguage } from "@/lib/language-context"
 
-const blogPosts = [
+const testimonials = [
   {
     id: 1,
-    titleEn: "Lorem Ipsum Dolor Sit Amet",
-    titleZh: "示例中文标题一",
-    excerptEn: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    excerptZh: "这是一段中文占位文字，用于展示博客摘要内容。",
+    name: "Sarah Thompson",
+    company: "THOMPSON & CO.",
     image:
-      "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=500&fit=crop",
-    categoryEn: "Design",
-    categoryZh: "设计",
-    dateEn: "Mar 5, 2026",
-    dateZh: "2026年3月5日",
-    href: "/blog/future-web-design-trends",
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop",
+    quoteEn:
+      "Digimax transformed our online presence! Their web development expertise and creative design elevated our brand, attracting more customers than ever before.",
+    quoteZh:
+      "Digimax 改变了我们的线上形象。他们在网页开发和创意设计方面的专业能力提升了我们的品牌，并吸引了更多客户。",
   },
   {
     id: 2,
-    titleEn: "Consectetur Adipiscing Elit",
-    titleZh: "示例中文标题二",
-    excerptEn: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    excerptZh: "这是一段中文占位文字，用于展示博客摘要内容。",
+    name: "Michael Chen",
+    company: "BRIGHT ELECTRONICS",
     image:
-      "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&h=500&fit=crop",
-    categoryEn: "Branding",
-    categoryZh: "品牌",
-    dateEn: "Mar 1, 2026",
-    dateZh: "2026年3月1日",
-    href: "/blog/build-strong-brand-identity",
+      "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=300&h=300&fit=crop",
+    quoteEn:
+      "Choosing Digimax for digital marketing was a game-changer. Our SEO ranking skyrocketed, leading to increased visibility and a significant boost in sales.",
+    quoteZh:
+      "选择 Digimax 负责数字营销带来了巨大改变。我们的 SEO 排名大幅提升，品牌曝光更高，销售表现也显著增长。",
   },
   {
     id: 3,
-    titleEn: "Sed Do Eiusmod Tempor",
-    titleZh: "示例中文标题三",
-    excerptEn: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    excerptZh: "这是一段中文占位文字，用于展示博客摘要内容。",
+    name: "Ryan Miller",
+    company: "FRESH BITES CATERING",
     image:
-      "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&h=500&fit=crop",
-    categoryEn: "Marketing",
-    categoryZh: "营销",
-    dateEn: "Feb 25, 2026",
-    dateZh: "2026年2月25日",
-    href: "/blog/maximizing-roi-digital-marketing",
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop",
+    quoteEn:
+      "Data analysis by Digimax provided invaluable insights. Their expertise helped us make informed decisions, leading to remarkable business growth.",
+    quoteZh:
+      "Digimax 的数据分析为我们提供了非常有价值的洞察。他们的专业帮助我们做出更明智的决策，并推动了业务增长。",
   },
 ]
 
@@ -55,81 +44,78 @@ export function BlogPreview() {
   const { language } = useLanguage()
 
   return (
-    <section className="py-24 lg:py-32">
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-          <div className="max-w-2xl">
-            <ScrollReveal>
-              <span className="text-primary font-medium text-sm uppercase tracking-wider">
-                {language === "en" ? "Our Blog" : "我们的博客"}
-              </span>
-            </ScrollReveal>
+    <section className="relative overflow-hidden bg-[#070012] py-24 lg:py-32">
+      <div className="absolute inset-0 opacity-[0.06]">
+        <div
+          className="h-full w-full"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
+            backgroundSize: "96px 96px",
+          }}
+        />
+      </div>
 
-            <ScrollReveal delay={100}>
-              <h2
-                className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                {language === "en" ? "Latest Insights" : "最新见解"}
-              </h2>
-            </ScrollReveal>
-          </div>
+      <div className="container relative mx-auto px-6 lg:px-8">
+        <div className="mb-14 text-center">
+          <ScrollReveal>
+            <span className="text-[#ff79c8] font-semibold text-sm uppercase tracking-[0.28em]">
+              {language === "en" ? "Testimonial" : "客户评价"}
+            </span>
+          </ScrollReveal>
 
-          <ScrollReveal delay={200}>
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-primary font-medium hover:gap-4 transition-all duration-300"
+          <ScrollReveal delay={100}>
+            <h2
+              className="mt-5 text-4xl font-bold tracking-[-0.03em] text-white md:text-5xl lg:text-6xl"
+              style={{ fontFamily: "var(--font-display)" }}
             >
-              {language === "en" ? "View All Articles" : "查看所有文章"}
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
+              {language === "en"
+                ? "Client Feedback & Reviews"
+                : "客户反馈与评价"}
+            </h2>
           </ScrollReveal>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post, index) => {
-            const title = language === "en" ? post.titleEn : post.titleZh
-            const excerpt = language === "en" ? post.excerptEn : post.excerptZh
-            const category =
-              language === "en" ? post.categoryEn : post.categoryZh
-            const date = language === "en" ? post.dateEn : post.dateZh
+        <div className="grid gap-8 lg:grid-cols-3">
+          {testimonials.map((item, index) => {
+            const quote = language === "en" ? item.quoteEn : item.quoteZh
 
             return (
-              <ScrollReveal key={post.id} delay={index * 100}>
-                <article className="group">
-                  <Link href={post.href} className="block">
-                    <div className="relative rounded-2xl overflow-hidden mb-6 img-zoom">
+              <ScrollReveal key={item.id} delay={index * 100}>
+                <article className="group relative h-full overflow-hidden rounded-[28px] border border-white/10 bg-[#2a2339]/95 px-8 py-10 text-center transition-all duration-500 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+                  <div className="mb-8 flex justify-center">
+                    <div className="relative h-[120px] w-[120px] overflow-hidden rounded-full border-[6px] border-white/20 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
                       <Image
-                        src={post.image}
-                        alt={title}
-                        width={800}
-                        height={500}
-                        className="w-full aspect-[16/10] object-cover"
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        className="object-cover"
                       />
-                      <div className="absolute top-4 left-4">
-                        <span className="bg-background/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium">
-                          {category}
-                        </span>
-                      </div>
                     </div>
+                  </div>
 
-                    <div className="flex items-center gap-2 text-muted-foreground text-sm mb-3">
-                      <Calendar className="w-4 h-4" />
-                      {date}
-                    </div>
+                  <p className="mx-auto max-w-[520px] text-[17px] leading-[1.7] text-white/55 md:text-[18px]">
+                    {quote}
+                  </p>
 
-                    <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
-                      {title}
+                  <div className="mt-10">
+                    <h3 className="text-[20px] font-semibold italic text-white">
+                      {item.name}
                     </h3>
-
-                    <p className="text-muted-foreground leading-relaxed">
-                      {excerpt}
+                    <p className="mt-2 text-[15px] font-semibold italic uppercase tracking-wide text-[#ff79c8]">
+                      {item.company}
                     </p>
-                  </Link>
+                  </div>
                 </article>
               </ScrollReveal>
             )
           })}
+        </div>
+
+        <div className="mt-10 flex items-center justify-center gap-3">
+          <span className="h-2.5 w-2.5 rounded-full bg-[#ff79c8]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-white/40" />
+          <span className="h-2.5 w-2.5 rounded-full bg-white/40" />
         </div>
       </div>
     </section>
