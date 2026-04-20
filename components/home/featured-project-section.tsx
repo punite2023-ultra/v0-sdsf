@@ -23,7 +23,7 @@ const projects: Project[] = [
     location: "Jakarta",
     budget: "$10,000",
     description:
-      "A premium branding and packaging concept built to elevate product storytelling and shelf presence.",
+      "A premium branding and packaging concept built to elevate product storytelling.",
   },
   {
     category: "Digital Marketing",
@@ -34,7 +34,7 @@ const projects: Project[] = [
     location: "Bandung",
     budget: "$8,000",
     description:
-      "A modern campaign direction focused on awareness, stronger engagement, and improved conversion.",
+      "A modern campaign direction focused on awareness and engagement.",
   },
   {
     category: "App Development",
@@ -45,7 +45,7 @@ const projects: Project[] = [
     location: "Jakarta",
     budget: "$10,000",
     description:
-      "A polished digital product experience designed for clarity, usability, and future scale.",
+      "A polished digital product experience designed for usability.",
   },
   {
     category: "SEO",
@@ -56,7 +56,7 @@ const projects: Project[] = [
     location: "Jakarta",
     budget: "$10,000",
     description:
-      "An SEO-led growth project structured to increase visibility, qualified traffic, and inbound leads.",
+      "An SEO-led growth project to increase visibility and traffic.",
   },
   {
     category: "Graphic Design",
@@ -67,7 +67,7 @@ const projects: Project[] = [
     location: "Jakarta",
     budget: "$10,000",
     description:
-      "A calm and premium visual system crafted to reflect trust, elegance, and brand consistency.",
+      "A calm and premium visual system crafted for brand consistency.",
   },
   {
     category: "Digital Branding",
@@ -78,13 +78,15 @@ const projects: Project[] = [
     location: "Jakarta",
     budget: "$10,000",
     description:
-      "A refined visual identity direction with editorial-style art direction and premium positioning.",
+      "A refined visual identity with premium positioning.",
   },
 ]
 
 export function FeaturedProjectSection() {
   return (
     <section className="relative overflow-hidden bg-[#070012] px-4 py-20 text-white sm:px-6 lg:px-8">
+      
+      {/* GRID BACKGROUND */}
       <div className="absolute inset-0 opacity-[0.08]">
         <div
           className="h-full w-full"
@@ -97,111 +99,84 @@ export function FeaturedProjectSection() {
       </div>
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mx-auto mb-14 max-w-3xl text-center">
+        
+        {/* HEADER */}
+        <div className="mx-auto mb-12 max-w-3xl text-center">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-[#d972ff]">
-            Featured Project
+            FEATURED PROJECT
           </p>
 
           <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
             Unleashing the Power of Innovation
-            <br className="hidden sm:block" /> and Creativity.
+            <br /> and Creativity.
           </h2>
         </div>
 
+        {/* PROJECT GRID */}
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project, index) => (
             <article
-              key={`${project.title}-${index}`}
-              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-all duration-500 hover:border-white/20 hover:shadow-[0_0_40px_rgba(255,255,255,0.08)]"
+              key={index}
+              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-all duration-500 hover:border-white/20"
             >
-              <div className="absolute inset-0">
-                <div
-                  className="h-full w-full bg-cover bg-center grayscale transition-transform duration-700 group-hover:scale-105"
-                  style={{ backgroundImage: `url(${project.image})` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-[#10041d]/55 via-[#0a0118]/35 to-[#090012]/90" />
-              </div>
+              {/* IMAGE */}
+              <div
+                className="absolute inset-0 bg-cover bg-center grayscale transition-transform duration-700 group-hover:scale-105"
+                style={{ backgroundImage: `url(${project.image})` }}
+              />
 
-              <div className="relative flex min-h-[500px] flex-col justify-between">
+              {/* OVERLAY */}
+              <div className="absolute inset-0 bg-gradient-to-b from-[#10041d]/50 via-transparent to-[#090012]/90" />
+
+              <div className="relative flex min-h-[460px] flex-col justify-between">
+                
+                {/* TOP */}
                 <div className="p-6">
-                  <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#ff7fd4]">
+                  <p className="mb-2 text-[11px] uppercase tracking-[0.25em] text-[#ff7fd4]">
                     {project.category}
                   </p>
 
-                  <h3 className="text-2xl font-medium tracking-[-0.02em] text-white">
+                  <h3 className="text-xl font-medium text-white">
                     {project.title}
                   </h3>
                 </div>
 
-                <div className="translate-y-[58%] border-t border-white/10 bg-[#150c25]/85 p-6 backdrop-blur-md transition-transform duration-500 group-hover:translate-y-0">
-                  <div className="grid grid-cols-2 gap-x-6 gap-y-5 border-b border-white/10 pb-5">
-                    <InfoItem label="Client" value={project.client} />
-                    <InfoItem label="Date" value={project.date} />
-                    <InfoItem label="Location" value={project.location} />
-                    <InfoItem label="Budget" value={project.budget} />
+                {/* HOVER PANEL */}
+                <div className="translate-y-[60%] border-t border-white/10 bg-[#150c25]/90 p-6 backdrop-blur-md transition duration-500 group-hover:translate-y-0">
+                  
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <Info label="Client" value={project.client} />
+                    <Info label="Date" value={project.date} />
+                    <Info label="Location" value={project.location} />
+                    <Info label="Budget" value={project.budget} />
                   </div>
 
-                  <div className="pt-5">
-                    <p className="mb-5 text-sm leading-7 text-white/70">
-                      {project.description}
-                    </p>
+                  <p className="mt-4 text-sm text-white/70">
+                    {project.description}
+                  </p>
 
-                    <Link
-                      href="/portfolio"
-                      className="inline-flex h-10 items-center justify-center rounded-full border border-white/10 bg-gradient-to-r from-[#cc7bff] to-[#ff8ab5] px-5 text-[11px] font-semibold uppercase tracking-[0.24em] text-white transition-transform duration-300 hover:scale-[1.03]"
-                    >
-                      Learn More
-                    </Link>
-                  </div>
+                  <Link
+                    href="/portfolio"
+                    className="mt-5 inline-block rounded-full bg-gradient-to-r from-[#cc7bff] to-[#ff8ab5] px-5 py-2 text-[11px] uppercase tracking-widest text-white"
+                  >
+                    Learn More
+                  </Link>
                 </div>
               </div>
             </article>
           ))}
         </div>
 
-        <div className="mt-10 overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03]">
-          <div className="relative min-h-[360px]">
-            <div
-              className="absolute inset-0 bg-cover bg-center grayscale"
-              style={{ backgroundImage: "url('/images/featured-project-banner.jpg')" }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#090012]/90 via-[#0c0218]/65 to-[#090012]/30" />
-
-            <div className="relative flex min-h-[360px] items-end p-5 sm:p-8 lg:p-12">
-              <div className="max-w-xl rounded-[24px] border border-white/10 bg-[#160d28]/70 p-6 backdrop-blur-md sm:p-8">
-                <h3 className="text-2xl font-semibold leading-tight text-white sm:text-3xl">
-                  Pioneering Digital Excellence:
-                  <br />
-                  Discover the Star Digital Advantage.
-                </h3>
-
-                <p className="mt-4 max-w-lg text-sm leading-7 text-white/70">
-                  We combine strong creative direction, conversion-focused design,
-                  and digital execution to help brands launch, grow, and stand out.
-                </p>
-
-                <Link
-                  href="/portfolio"
-                  className="mt-6 inline-flex h-11 items-center justify-center rounded-full bg-gradient-to-r from-[#d07fff] to-[#ff9ab8] px-6 text-[11px] font-semibold uppercase tracking-[0.24em] text-white transition-transform duration-300 hover:scale-[1.03]"
-                >
-                  Discover More
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )
 }
 
-function InfoItem({ label, value }: { label: string; value: string }) {
+function Info({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <p className="mb-1 text-[11px] uppercase tracking-[0.18em] text-white/45">
-        {label}
-      </p>
-      <p className="text-sm font-medium text-white/90">{value}</p>
+      <p className="text-[10px] uppercase text-white/40">{label}</p>
+      <p className="text-white/90">{value}</p>
     </div>
   )
 }
