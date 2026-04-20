@@ -2,12 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import {
-  Phone,
-  Star,
-  ArrowRight,
-  Rocket,
-} from "lucide-react"
+import { Phone, Star, Rocket } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 export function TrustedPartnerSection() {
@@ -42,126 +37,142 @@ export function TrustedPartnerSection() {
           heading:
             "Navigating Digital Horizons with Digimax: Your Trusted Partner.",
           intro:
-            "We help brands move with confidence through strategy, design, and digital execution that feels modern, clear, and built for growth.",
+            "Inceptos euismod aenean vulputate senectus penatibus letius. Nunc neque faucibus egestas molestie cubilia inceptos in facilisi venenatis suspendisse nisi class ut torquent nec felis senectus feugiat.",
           feature1Title: "Timely and Transparent Communication",
           feature1Desc:
-            "From strategy to delivery, we keep every step clear, collaborative, and aligned with your business goals.",
+            "Donec massa lacus tortor dis vulputate neque odio venenatis ex ad interdum",
           feature2Title: "Boost Traffic & Sales",
           feature2Desc:
-            "Smarter digital strategy, stronger visibility, and more conversion-focused execution for long-term growth.",
+            "Platea rhoncus semper consectetur letius facilisi nec curabitur placerat montes lacinia tincidunt",
           supportTitle: "Premium Support",
           supportPhone: "(888) 4000-2234",
           supportDesc:
-            "Reliable support and guidance to help your brand stay active, responsive, and ready for what’s next.",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
           ratingLabel: "Client Ratings",
           ratingDesc:
-            "We focus on delivering quality experiences that earn trust, satisfaction, and long-term client relationships.",
+            "Duis nibh quis aptent tristique nisl aliquam nullam mattis pulvinar",
           responsiveTitle: "Responsive and Scalable Solutions",
           responsiveDesc:
-            "From launch to expansion, we create digital systems that stay flexible, modern, and ready to grow with you.",
+            "Donec massa lacus tortor dis vulputate neque odio venenatis ex ad interdum",
           learnMore: "Learn More",
           callNow: "Call Now!",
         }
 
   return (
-    <section className="relative overflow-hidden bg-[#070015] py-16 md:py-20">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.12),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(236,72,153,0.08),transparent_30%)]" />
+    <section className="relative overflow-hidden bg-[#070015] py-14 md:py-18">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.10),transparent_35%)]" />
 
-      <div className="relative z-10 mx-auto max-w-[1500px] px-4 md:px-6">
-        {/* top */}
-        <div className="mb-6 grid gap-6 lg:mb-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
-          <h2 className="max-w-[650px] text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-white md:text-5xl xl:text-[54px]">
+      <div className="relative z-10 mx-auto max-w-[1580px] px-4 md:px-6">
+        {/* heading row */}
+        <div className="mb-7 grid gap-6 lg:mb-8 lg:grid-cols-[1.08fr_0.92fr]">
+          <h2 className="max-w-[860px] text-[34px] font-semibold leading-[1.08] tracking-[-0.04em] text-white md:text-[56px] xl:text-[66px]">
             {t.heading}
           </h2>
 
-          <p className="max-w-[700px] text-sm leading-7 text-white/58 md:text-base md:leading-8">
-            {t.intro}
-          </p>
+          <div className="pt-1 lg:pl-4">
+            <p className="max-w-[760px] text-sm leading-7 text-white/58 md:text-[17px] md:leading-[1.75]">
+              {t.intro}
+            </p>
+
+            {/* floating dots */}
+            <span className="mt-4 block h-2.5 w-2.5 rounded-full bg-[#26d3ff] shadow-[0_0_18px_rgba(38,211,255,0.7)]" />
+            <span className="ml-24 mt-14 block h-2.5 w-2.5 rounded-full bg-[#26d3ff] opacity-80 shadow-[0_0_18px_rgba(38,211,255,0.7)]" />
+          </div>
         </div>
 
-        {/* grid */}
-        <div className="grid gap-4 lg:grid-cols-12 lg:grid-rows-[360px_320px]">
-          {/* left big card */}
-          <div className="group relative overflow-hidden rounded-[22px] border border-white/8 bg-[linear-gradient(135deg,#17002e_0%,#0c001a_100%)] lg:col-span-6">
-            <div className="relative z-10 flex h-full flex-col justify-between gap-6 p-6 md:p-8 lg:flex-row lg:items-center">
-              <div className="max-w-[330px]">
-                <h3 className="text-2xl font-medium leading-tight text-[#b57cff] md:text-[34px]">
+        {/* mosaic */}
+        <div className="grid gap-5 lg:grid-cols-12 lg:grid-rows-[410px_315px]">
+          {/* large left */}
+          <div className="relative overflow-hidden rounded-[24px] bg-[linear-gradient(135deg,#130029_0%,#090013_100%)] lg:col-span-7">
+            <div className="flex h-full flex-col justify-between gap-6 p-8 md:p-10 lg:flex-row lg:items-center">
+              <div className="max-w-[430px]">
+                <h3 className="text-[30px] font-medium leading-[1.22] text-[#b67cff] md:text-[38px]">
                   {t.feature1Title}
                 </h3>
 
-                <p className="mt-4 text-sm leading-7 text-white/55 md:text-base">
+                <p className="mt-6 max-w-[420px] text-[17px] leading-9 text-white/56">
                   {t.feature1Desc}
                 </p>
 
                 <Link
                   href="/contact"
-                  className="mt-6 inline-flex items-center rounded-full bg-[linear-gradient(90deg,#a855f7_0%,#c084fc_100%)] px-6 py-3 text-xs font-bold uppercase tracking-[0.24em] text-white transition-transform duration-300 hover:scale-[1.04]"
+                  className="mt-8 inline-flex items-center rounded-full bg-[linear-gradient(90deg,#b985ff_0%,#a866ff_100%)] px-9 py-4 text-[13px] font-bold uppercase tracking-[0.25em] text-white transition-transform duration-300 hover:scale-[1.03]"
                 >
                   {t.learnMore}
                 </Link>
               </div>
 
-              <div className="relative mx-auto w-full max-w-[360px] lg:max-w-[390px]">
-                <div className="relative aspect-[1.1/0.78] w-full">
+              <div className="relative flex w-full justify-end lg:w-[48%]">
+                <div className="relative h-[270px] w-full max-w-[520px] md:h-[320px]">
                   <Image
-                    src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?q=80&w=1200&auto=format&fit=crop"
+                    src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?q=80&w=1400&auto=format&fit=crop"
                     alt="Desktop setup"
                     fill
-                    className="object-contain drop-shadow-[0_18px_32px_rgba(0,0,0,0.35)] transition-transform duration-500 group-hover:scale-[1.02]"
+                    className="object-contain object-right-bottom"
+                    priority
                   />
                 </div>
               </div>
             </div>
           </div>
 
-          {/* rocket card */}
-          <div className="relative overflow-hidden rounded-[22px] border border-white/8 bg-[#2a2238] lg:col-span-3">
-            <div className="relative z-10 flex h-full flex-col justify-between p-6 md:p-8">
-              <div className="max-w-[185px]">
-                <h3 className="text-[22px] font-medium leading-tight text-white md:text-[26px]">
+          {/* rocket */}
+          <div className="relative overflow-hidden rounded-[24px] bg-[#2d243c] lg:col-span-4">
+            <div className="h-full p-8 md:p-10">
+              <div className="max-w-[260px]">
+                <h3 className="text-[30px] font-medium leading-[1.28] text-white md:text-[34px]">
                   {t.feature2Title}
                 </h3>
 
-                <p className="mt-4 text-sm leading-7 text-white/55 md:text-base">
+                <p className="mt-6 text-[17px] leading-9 text-white/50">
                   {t.feature2Desc}
                 </p>
               </div>
 
-              <div className="pointer-events-none absolute bottom-0 right-[-14px] top-[8px] flex items-center">
-                <Rocket className="h-[250px] w-[250px] text-white/90 opacity-95 md:h-[280px] md:w-[280px]" strokeWidth={1.2} />
+              <div className="pointer-events-none absolute bottom-[26px] right-[-8px]">
+                <Rocket
+                  className="h-[310px] w-[310px] text-white/95"
+                  strokeWidth={1.15}
+                />
               </div>
 
               <div
-                className="pointer-events-none absolute bottom-0 left-0 right-0 h-16 rounded-b-[22px] bg-[#39b8d6]/80"
-                style={{ clipPath: "ellipse(64% 70% at 50% 100%)" }}
+                className="pointer-events-none absolute bottom-0 left-0 right-0 h-[92px] bg-[#39b8d6]"
+                style={{ clipPath: "ellipse(75% 70% at 50% 100%)" }}
+              />
+              <div
+                className="pointer-events-none absolute bottom-0 left-[54%] h-[110px] w-[180px] -translate-x-1/2 rounded-t-[120px] bg-[#dce6eb]"
+              />
+              <div
+                className="pointer-events-none absolute bottom-0 left-[61%] h-[82px] w-[128px] -translate-x-1/2 rounded-t-[120px] bg-[#f0f0f0]"
               />
             </div>
           </div>
 
-          {/* support tall */}
-          <div className="relative overflow-hidden rounded-[22px] bg-[linear-gradient(180deg,#b985ff_0%,#ee7bc2_100%)] lg:col-span-3 lg:row-span-2">
-            <div className="flex h-full flex-col items-center justify-between px-6 py-8 text-center md:px-8">
-              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/95 text-[#b985ff]">
+          {/* support */}
+          <div className="relative overflow-hidden rounded-[24px] bg-[linear-gradient(180deg,#bc86ff_0%,#ea79c0_100%)] lg:col-span-1 lg:row-span-2 min-h-[300px] lg:min-h-0">
+            <div className="flex h-full min-h-[300px] flex-col items-center justify-between px-6 py-8 text-center lg:min-h-0 lg:px-7">
+              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white text-[#b985ff]">
                 <Phone className="h-9 w-9" strokeWidth={1.7} />
               </div>
 
               <div>
-                <h3 className="text-2xl font-medium text-white md:text-[28px]">
+                <h3 className="text-[24px] font-medium text-white lg:text-[28px]">
                   {t.supportTitle}
                 </h3>
 
-                <p className="mt-3 text-[30px] font-medium tracking-[-0.03em] text-white md:text-[38px]">
+                <p className="mt-3 text-[28px] font-medium tracking-[-0.03em] text-white lg:text-[34px]">
                   {t.supportPhone}
                 </p>
 
-                <p className="mx-auto mt-6 max-w-[250px] text-base leading-8 text-white/88">
+                <p className="mx-auto mt-6 max-w-[250px] text-[15px] leading-8 text-white/90 lg:max-w-[240px]">
                   {t.supportDesc}
                 </p>
               </div>
 
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-[#070015] px-9 py-3.5 text-xs font-bold uppercase tracking-[0.24em] text-white transition-transform duration-300 hover:scale-[1.04]"
+                className="inline-flex items-center justify-center rounded-full bg-[#060010] px-8 py-3.5 text-[12px] font-bold uppercase tracking-[0.26em] text-white transition-transform duration-300 hover:scale-[1.03]"
               >
                 {t.callNow}
               </Link>
@@ -169,89 +180,131 @@ export function TrustedPartnerSection() {
           </div>
 
           {/* ratings */}
-          <div className="relative overflow-hidden rounded-[22px] border border-white/10 bg-[linear-gradient(135deg,#140028_0%,#070012_100%)] lg:col-span-3">
-            <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:56px_56px]" />
+          <div className="relative overflow-hidden rounded-[24px] border border-white/14 bg-[linear-gradient(135deg,#16012d_0%,#080013_100%)] lg:col-span-3">
+            <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:56px_56px]" />
 
-            <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 py-8 text-center">
-              <div className="text-5xl font-semibold tracking-[-0.04em] text-white md:text-6xl">
+            <div className="relative z-10 flex h-full flex-col items-center justify-center px-8 py-10 text-center">
+              <div className="text-[78px] font-semibold leading-none tracking-[-0.05em] text-white">
                 4.7+
               </div>
 
-              <p className="mt-3 text-2xl font-medium text-white md:text-[26px]">
+              <p className="mt-4 text-[30px] font-medium text-white">
                 {t.ratingLabel}
               </p>
 
-              <div className="mt-5 flex items-center gap-1.5">
+              <div className="mt-7 flex items-center gap-1.5">
                 {[1, 2, 3, 4].map((item) => (
                   <Star
                     key={item}
-                    className="h-7 w-7 fill-[#f5ad72] text-[#f5ad72]"
+                    className="h-8 w-8 fill-[#f6ad72] text-[#f6ad72]"
                   />
                 ))}
-                <Star className="h-7 w-7 fill-[#382b55] text-[#382b55]" />
+                <Star className="h-8 w-8 fill-[#2d2145] text-[#2d2145]" />
               </div>
 
-              <p className="mt-6 max-w-[260px] text-sm leading-7 text-white/55 md:text-base">
+              <p className="mt-9 max-w-[340px] text-[16px] leading-8 text-white/52">
                 {t.ratingDesc}
               </p>
             </div>
           </div>
 
-          {/* responsive solution */}
-          <div className="relative overflow-hidden rounded-[22px] bg-[linear-gradient(135deg,#b784ff_0%,#5b2f91_100%)] lg:col-span-6">
-            <div className="relative z-10 flex h-full flex-col justify-between gap-6 p-6 md:p-8 lg:flex-row lg:items-center">
-              <div className="max-w-[340px]">
-                <h3 className="text-2xl font-medium leading-tight text-white md:text-[34px]">
+          {/* responsive card */}
+          <div className="relative overflow-hidden rounded-[24px] bg-[linear-gradient(135deg,#b985ff_0%,#5d3092_100%)] lg:col-span-8">
+            <div className="flex h-full flex-col justify-between gap-6 p-8 md:p-10 lg:flex-row lg:items-center">
+              <div className="max-w-[470px]">
+                <h3 className="text-[34px] font-medium leading-[1.2] text-white md:text-[40px]">
                   {t.responsiveTitle}
                 </h3>
 
-                <p className="mt-4 text-sm leading-7 text-white/88 md:text-base">
+                <p className="mt-6 max-w-[420px] text-[17px] leading-9 text-white/92">
                   {t.responsiveDesc}
                 </p>
 
                 <Link
                   href="/services"
-                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#070015] px-6 py-3 text-xs font-bold uppercase tracking-[0.24em] text-white transition-transform duration-300 hover:scale-[1.04]"
+                  className="mt-8 inline-flex items-center rounded-full bg-[#060010] px-10 py-4 text-[13px] font-bold uppercase tracking-[0.26em] text-white transition-transform duration-300 hover:scale-[1.03]"
                 >
                   {t.learnMore}
                 </Link>
               </div>
 
-              {/* compact phone mockup */}
-              <div className="relative mx-auto flex w-full max-w-[380px] items-end justify-center md:max-w-[420px]">
-                {/* front phone */}
-                <div className="relative h-[220px] w-[210px] rounded-[28px] bg-white/85 shadow-[0_18px_40px_rgba(255,255,255,0.16)] md:h-[250px] md:w-[240px]">
-                  <div className="absolute inset-[10px] rounded-[22px] bg-[#f6f4f8]" />
-                  <div className="absolute left-1/2 top-3 h-2 w-16 -translate-x-1/2 rounded-full bg-[#e8e2ee]" />
-                  <div className="absolute left-[18px] right-[18px] top-[40px] h-[10px] rounded-full bg-[#ebe6f2]" />
-                  <div className="absolute left-[18px] top-[62px] h-[90px] w-[72px] rounded-2xl bg-white shadow-inner" />
-                  <div className="absolute right-[18px] top-[62px] h-[90px] w-[110px] rounded-2xl bg-[#7d9bff]" />
-                  <div className="absolute bottom-[22px] left-[18px] right-[18px] h-[56px] rounded-2xl bg-white shadow-inner" />
-                  <div className="absolute bottom-[34px] left-[36px] right-[36px] flex items-end justify-between">
-                    {[28, 42, 70, 44, 58, 36, 50].map((h, i) => (
-                      <div
-                        key={i}
-                        className="w-3 rounded-full bg-[#dfe6ff]"
-                        style={{ height: `${h}px` }}
-                      />
-                    ))}
+              <div className="relative flex w-full justify-end lg:w-[44%]">
+                <div className="relative h-[250px] w-[330px] md:h-[300px] md:w-[390px]">
+                  {/* back phone */}
+                  <div className="absolute bottom-[8px] right-0 h-[235px] w-[160px] rounded-[34px] bg-[#efeff1] opacity-90 shadow-[0_18px_40px_rgba(255,255,255,0.10)] md:h-[270px] md:w-[185px]">
+                    <div className="absolute inset-[10px] rounded-[28px] bg-[#f6f5f7]" />
+                    <div className="absolute left-1/2 top-4 h-2.5 w-16 -translate-x-1/2 rounded-full bg-[#e5e4e8]" />
+                    <div className="absolute left-[22px] right-[22px] top-[60px] h-[96px] rounded-[18px] bg-[#7495ff]" />
+                    <div className="absolute bottom-[28px] left-[22px] right-[22px] h-[58px] rounded-[16px] bg-white" />
                   </div>
-                  <div
-                    className="absolute bottom-[34px] left-[92px] w-3 rounded-full bg-[#5f85ff]"
-                    style={{ height: "84px" }}
-                  />
-                </div>
 
-                {/* back phone */}
-                <div className="-ml-10 hidden md:block">
-                  <div className="relative h-[210px] w-[150px] rounded-[28px] bg-white/80 shadow-[0_18px_36px_rgba(255,255,255,0.14)]">
-                    <div className="absolute inset-[10px] rounded-[22px] bg-[#f6f4f8]" />
-                    <div className="absolute left-1/2 top-3 h-2 w-14 -translate-x-1/2 rounded-full bg-[#e8e2ee]" />
-                    <div className="absolute left-[22px] right-[22px] top-[48px] h-[76px] rounded-2xl bg-[#7d9bff]" />
-                    <div className="absolute bottom-[28px] left-[22px] right-[22px] h-[48px] rounded-2xl bg-white" />
+                  {/* front phone */}
+                  <div className="absolute bottom-0 right-[92px] h-[260px] w-[190px] rounded-[36px] bg-[#f1f1f2] shadow-[0_18px_40px_rgba(255,255,255,0.14)] md:h-[315px] md:w-[230px]">
+                    <div className="absolute inset-[10px] rounded-[30px] bg-[#f7f7f8]" />
+                    <div className="absolute left-1/2 top-4 h-2.5 w-16 -translate-x-1/2 rounded-full bg-[#e2e3e7]" />
+                    <div className="absolute left-[20px] top-[56px] text-[11px] font-semibold text-[#666] md:text-[12px]">
+                      $4,652.00 <span className="text-[#b1b1b1]">USD</span>
+                    </div>
+
+                    <div className="absolute left-[20px] right-[20px] top-[86px] grid grid-cols-2 gap-3">
+                      <div className="rounded-[16px] bg-white p-3 text-center text-[10px] text-[#9aa1ae] shadow-sm">
+                        Exchange
+                      </div>
+                      <div className="rounded-[16px] bg-white p-3 text-center text-[10px] text-[#9aa1ae] shadow-sm">
+                        Withdraw
+                      </div>
+                    </div>
+
+                    <div className="absolute left-[20px] right-[20px] top-[146px] h-[90px] rounded-[16px] bg-[#fbfbfc]">
+                      <div className="absolute bottom-[16px] left-[18px] right-[18px] flex items-end justify-between">
+                        {[38, 56, 82, 52, 76, 48, 62].map((h, i) => (
+                          <div
+                            key={i}
+                            className="w-3 rounded-full bg-[#ebebee]"
+                            style={{ height: `${h}px` }}
+                          />
+                        ))}
+                      </div>
+                      <div
+                        className="absolute bottom-[16px] left-[88px] w-3 rounded-full bg-[#6286ff]"
+                        style={{ height: "98px" }}
+                      />
+                    </div>
+
+                    <div className="absolute bottom-[16px] left-[20px] right-[20px] h-[48px] rounded-[16px] bg-white" />
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* keep support visible on mobile/tablet nicely */}
+        <div className="mt-5 lg:hidden">
+          <div className="relative overflow-hidden rounded-[24px] bg-[linear-gradient(180deg,#bc86ff_0%,#ea79c0_100%)]">
+            <div className="flex flex-col items-center justify-between gap-8 px-6 py-8 text-center">
+              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white text-[#b985ff]">
+                <Phone className="h-9 w-9" strokeWidth={1.7} />
+              </div>
+
+              <div>
+                <h3 className="text-[24px] font-medium text-white">
+                  {t.supportTitle}
+                </h3>
+                <p className="mt-3 text-[28px] font-medium tracking-[-0.03em] text-white">
+                  {t.supportPhone}
+                </p>
+                <p className="mx-auto mt-6 max-w-[320px] text-[15px] leading-8 text-white/90">
+                  {t.supportDesc}
+                </p>
+              </div>
+
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-[#060010] px-8 py-3.5 text-[12px] font-bold uppercase tracking-[0.26em] text-white"
+              >
+                {t.callNow}
+              </Link>
             </div>
           </div>
         </div>
