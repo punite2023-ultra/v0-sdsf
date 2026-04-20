@@ -158,38 +158,6 @@ export function FeaturedProjectSection() {
             </article>
           ))}
         </div>
-
-        <div className="mt-10 overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03]">
-          <div className="relative min-h-[360px]">
-            <div
-              className="absolute inset-0 bg-cover bg-center grayscale"
-              style={{ backgroundImage: "url('/images/featured-project-banner.jpg')" }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#090012]/90 via-[#0c0218]/65 to-[#090012]/30" />
-
-            <div className="relative flex min-h-[360px] items-end p-5 sm:p-8 lg:p-12">
-              <div className="max-w-xl rounded-[24px] border border-white/10 bg-[#160d28]/70 p-6 backdrop-blur-md sm:p-8">
-                <h3 className="text-2xl font-semibold leading-tight text-white sm:text-3xl">
-                  Pioneering Digital Excellence:
-                  <br />
-                  Discover the Star Digital Advantage.
-                </h3>
-
-                <p className="mt-4 max-w-lg text-sm leading-7 text-white/70">
-                  We combine strong creative direction, conversion-focused design,
-                  and digital execution to help brands launch, grow, and stand out.
-                </p>
-
-                <Link
-                  href="/portfolio"
-                  className="mt-6 inline-flex h-11 items-center justify-center rounded-full bg-gradient-to-r from-[#d07fff] to-[#ff9ab8] px-6 text-[11px] font-semibold uppercase tracking-[0.24em] text-white transition-transform duration-300 hover:scale-[1.03]"
-                >
-                  Discover More
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )
