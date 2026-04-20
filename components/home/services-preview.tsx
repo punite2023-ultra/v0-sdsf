@@ -91,18 +91,18 @@ function CountUp({
   useEffect(() => {
     if (!startAnimation) return
 
-    let frame = 0
-    const totalFrames = 75
+    const duration = 1400
     let animationFrameId = 0
+    const startTime = performance.now()
 
-    const animate = () => {
-      frame += 1
-      const progress = frame / totalFrames
-      const eased = 1 - Math.pow(1 - progress, 3)
-      const next = end * eased
+    const animate = (time: number) => {
+      const progress = Math.min((time - startTime) / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 4)
+      const value = end * eased
+
+      setCount(value)
 
       if (progress < 1) {
-        setCount(next)
         animationFrameId = requestAnimationFrame(animate)
       } else {
         setCount(end)
@@ -114,9 +114,14 @@ function CountUp({
     return () => cancelAnimationFrame(animationFrameId)
   }, [end, startAnimation])
 
+  const formatNumber = (num: number) => {
+    if (decimals > 0) return num.toFixed(decimals)
+    return Math.floor(num).toLocaleString()
+  }
+
   return (
     <span>
-      {count.toFixed(decimals)}
+      {formatNumber(count)}
       {suffix}
     </span>
   )
