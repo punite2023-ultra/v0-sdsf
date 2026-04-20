@@ -1,426 +1,411 @@
 "use client"
 
+import Link from "next/link"
+import Image from "next/image"
+import {
+  ArrowUpRight,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Dribbble,
+} from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { ScrollReveal } from "@/components/scroll-reveal"
-import Link from "next/link"
-import { ArrowRight, Award, Users, Target, Lightbulb } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/language-context"
 
-const valuesEn = [
-  {
-    icon: Lightbulb,
-    title: "Lorem Ipsum",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  },
-  {
-    icon: Target,
-    title: "Dolor Sit",
-    description: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    icon: Users,
-    title: "Amet Consectetur",
-    description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-  },
-  {
-    icon: Award,
-    title: "Adipiscing Elit",
-    description: "Duis aute irure dolor in reprehenderit in voluptate velit esse.",
-  },
+const logoItems = [
+  "logoipsum",
+  "logoipsum",
+  "logoipsum",
+  "logoipsum",
+  "logoipsum",
+  "logoipsum",
+  "LOGOIPSUM",
+  "LOQIPSUM",
 ]
 
-const valuesZh = [
-  {
-    icon: Lightbulb,
-    title: "Lorem Ipsum",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  },
-  {
-    icon: Target,
-    title: "Dolor Sit",
-    description: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    icon: Users,
-    title: "Amet Consectetur",
-    description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-  },
-  {
-    icon: Award,
-    title: "Adipiscing Elit",
-    description: "Duis aute irure dolor in reprehenderit in voluptate velit esse.",
-  },
+const stats = [
+  { value: "56K+", labelEn: "Project Done", labelZh: "已完成项目" },
+  { value: "38K+", labelEn: "Happy Client", labelZh: "满意客户" },
+  { value: "4.7", labelEn: "Client Ratings", labelZh: "客户评分" },
+  { value: "35+", labelEn: "Award Winning", labelZh: "获奖数量" },
 ]
 
 const team = [
   {
-    name: "Lorem Ipsum One",
-    role: "Dummy Position One",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    name: "Brandon James",
+    roleEn: "FOUNDER",
+    roleZh: "创始人",
   },
   {
-    name: "Lorem Ipsum Two",
-    role: "Dummy Position Two",
-    bio: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    name: "Alex Parker",
+    roleEn: "CO-FOUNDER",
+    roleZh: "联合创始人",
   },
   {
-    name: "Lorem Ipsum Three",
-    role: "Dummy Position Three",
-    bio: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    name: "Victoria Thomas",
+    roleEn: "BUSINESS MANAGER",
+    roleZh: "商务经理",
   },
   {
-    name: "Lorem Ipsum Four",
-    role: "Dummy Position Four",
-    bio: "Duis aute irure dolor in reprehenderit in voluptate velit esse.",
-  },
-  {
-    name: "Lorem Ipsum Five",
-    role: "Dummy Position Five",
-    bio: "Excepteur sint occaecat cupidatat non proident, sunt in culpa.",
-  },
-  {
-    name: "Lorem Ipsum Six",
-    role: "Dummy Position Six",
-    bio: "Mollit anim id est laborum lorem ipsum dolor sit amet.",
+    name: "Brandon James",
+    roleEn: "FOUNDER",
+    roleZh: "创始人",
   },
 ]
 
-const milestones = [
-  {
-    year: "2009",
-    title: "Lorem Ipsum",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  },
-  {
-    year: "2012",
-    title: "Dolor Sit",
-    description: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    year: "2015",
-    title: "Amet Consectetur",
-    description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-  },
-  {
-    year: "2018",
-    title: "Adipiscing Elit",
-    description: "Duis aute irure dolor in reprehenderit in voluptate velit esse.",
-  },
-  {
-    year: "2022",
-    title: "Tempor Incididunt",
-    description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa.",
-  },
-  {
-    year: "2024",
-    title: "Magna Aliqua",
-    description: "Mollit anim id est laborum lorem ipsum dolor sit amet.",
-  },
-]
+function GradientOrb({
+  className = "",
+}: {
+  className?: string
+}) {
+  return (
+    <div
+      className={`pointer-events-none absolute rounded-full bg-[radial-gradient(circle,rgba(236,72,153,0.35)_0%,rgba(168,85,247,0.18)_35%,rgba(10,1,24,0)_72%)] blur-2xl ${className}`}
+    />
+  )
+}
+
+function LogoMark() {
+  return (
+    <div className="flex items-center gap-3">
+      <div className="relative h-9 w-8">
+        <div className="absolute bottom-0 left-0 h-6 w-3 rounded-sm bg-pink-500" />
+        <div className="absolute bottom-0 left-3.5 h-8 w-3 rounded-sm bg-violet-400" />
+      </div>
+      <span className="text-2xl font-bold tracking-tight text-white">digimax</span>
+    </div>
+  )
+}
+
+function TeamCard({
+  name,
+  role,
+  index,
+}: {
+  name: string
+  role: string
+  index: number
+}) {
+  return (
+    <div className="group rounded-[18px] border border-white/10 bg-white/[0.02] p-3 transition-all duration-300 hover:-translate-y-1 hover:border-pink-400/40 hover:bg-white/[0.04]">
+      <div className="relative overflow-hidden rounded-[14px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.03))]">
+        <div className="aspect-[0.92] w-full bg-[radial-gradient(circle_at_50%_25%,rgba(255,255,255,0.22),rgba(255,255,255,0.08)_35%,rgba(255,255,255,0.02)_72%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(180,124,253,0.14),rgba(255,255,255,0.02))]" />
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#12031f] to-transparent" />
+        <div className="absolute inset-0 flex items-center justify-center text-[72px] font-bold text-white/10">
+          {index + 1}
+        </div>
+      </div>
+
+      <div className="pt-4 text-center">
+        <h3 className="text-[15px] font-semibold text-pink-300">{name}</h3>
+        <p className="mt-1 text-[11px] font-medium tracking-[0.18em] text-white/70">
+          {role}
+        </p>
+
+        <div className="mt-4 flex items-center justify-center gap-2">
+          {[Facebook, Twitter, Linkedin, Dribbble].map((Icon, i) => (
+            <a
+              key={i}
+              href="#"
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white text-white/80 transition hover:border-pink-400/50 hover:bg-pink-500 hover:text-white"
+            >
+              <Icon className="h-3.5 w-3.5" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function AboutPage() {
   const { language } = useLanguage()
-  const values = language === "en" ? valuesEn : valuesZh
+
+  const t =
+    language === "zh"
+      ? {
+          heroTitle: "About us",
+          heroSubtitle: "您的数字旅程从这里开始：深入了解 Digimax 的专业实力。",
+          who: "WHO WE ARE",
+          aboutTitle: "Your Digital Future, Our Expertise: Digimax Delivers Excellence.",
+          aboutBody:
+            "Pede inceptos dui diam felis vehicula rutrum ridiculus at consectetur nam et mollis vitae netus duis pellentesque ligula aenean taciti eget tincidunt commodo tristique elit.",
+          discover: "DISCOVER MORE",
+          logosTitle: "Join over 300,000+ businesses to create unique brand designs.",
+          valueLabel: "OUR VALUE",
+          valueTitle: "Smart Designs, Sharp Results - Choose Digimax for Digital Excellence.",
+          valueBody:
+            "Neque sodales elementum fames ac nunc pellentesque penatibus. Consectetuer donec nascetur fames metus est faucibus sodales commodo natoque consequat fusce.",
+          learnMore: "LEARN MORE",
+          visionLabel: "OUR VISION",
+          visionTitle: "Elevate Your Digital Presence with Digimax Expertise.",
+          visionBody:
+            "Ac neque commodo litora nam mattis platea dui molestie aenean integer potenti imperdiet class semper.",
+          missionLabel: "OUR MISSION",
+          missionTitle: "Unleash Your Potential in the Digital Realm with Digimax.",
+          missionBody:
+            "Ac neque commodo litora nam mattis platea dui molestie aenean integer potenti imperdiet class semper.",
+          teamTitle: "Meet our team",
+          teamBody: "Alone we can do so little, together we can do so much.",
+        }
+      : {
+          heroTitle: "About us",
+          heroSubtitle: "Your Digital Journey Starts Here: Dive into Digimax's Expertise.",
+          who: "WHO WE ARE",
+          aboutTitle: "Your Digital Future, Our Expertise: Digimax Delivers Excellence.",
+          aboutBody:
+            "Pede inceptos dui diam felis vehicula rutrum ridiculus at consectetur nam et mollis vitae netus duis pellentesque ligula aenean taciti eget tincidunt commodo tristique elit.",
+          discover: "DISCOVER MORE",
+          logosTitle: "Join over 300,000+ businesses to create unique brand designs.",
+          valueLabel: "OUR VALUE",
+          valueTitle: "Smart Designs, Sharp Results - Choose Digimax for Digital Excellence.",
+          valueBody:
+            "Neque sodales elementum fames ac nunc pellentesque penatibus. Consectetuer donec nascetur fames metus est faucibus sodales commodo natoque consequat fusce.",
+          learnMore: "LEARN MORE",
+          visionLabel: "OUR VISION",
+          visionTitle: "Elevate Your Digital Presence with Digimax Expertise.",
+          visionBody:
+            "Ac neque commodo litora nam mattis platea dui molestie aenean integer potenti imperdiet class semper.",
+          missionLabel: "OUR MISSION",
+          missionTitle: "Unleash Your Potential in the Digital Realm with Digimax.",
+          missionBody:
+            "Ac neque commodo litora nam mattis platea dui molestie aenean integer potenti imperdiet class semper.",
+          teamTitle: "Meet our team",
+          teamBody: "Alone we can do so little, together we can do so much.",
+        }
 
   return (
     <>
       <Navigation />
-      <main>
-        {/* Hero Section */}
-        <section className="relative min-h-[50vh] w-full overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10 pt-24">
-          <div className="container mx-auto flex flex-col items-center justify-center px-6 py-20 lg:px-8 lg:py-28">
-            <div className="max-w-4xl text-center">
-              <ScrollReveal>
-                <h1
-                  className="mb-6 text-5xl font-bold text-foreground lg:text-7xl"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  {language === "en" ? "Lorem Ipsum" : "Lorem Ipsum"}
-                </h1>
-              </ScrollReveal>
 
-              <ScrollReveal delay={200}>
-                <p className="text-xl leading-relaxed text-muted-foreground">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
+      <main className="min-h-screen overflow-hidden bg-[#0a0118] text-white">
+        {/* page background */}
+        <div className="pointer-events-none fixed inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.18)_1px,transparent_1px)] [background-size:56px_56px]" />
+
+        {/* hero */}
+        <section className="relative overflow-hidden pt-24">
+          <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
+            <div className="relative overflow-hidden rounded-bl-[30px] rounded-br-[30px] border-b border-white/15 bg-[radial-gradient(circle_at_top,rgba(180,124,253,0.22),rgba(10,1,24,0.96)_38%,rgba(10,1,24,1)_68%)] px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
+              <GradientOrb className="left-1/2 top-10 h-48 w-48 -translate-x-1/2" />
+
+              <ScrollReveal>
+                <div className="mx-auto max-w-3xl text-center">
+                  <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
+                    {t.heroTitle}
+                  </h1>
+                  <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/75 md:text-lg">
+                    {t.heroSubtitle}
+                  </p>
+                </div>
               </ScrollReveal>
             </div>
           </div>
         </section>
 
-        {/* Story Section */}
-        <section className="bg-muted/30 py-20 lg:py-28">
-          <div className="container mx-auto px-6 lg:px-8">
-            <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-              <ScrollReveal direction="left">
-                <div className="relative">
-                  <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-primary/20 to-secondary/20">
-                    <div className="flex aspect-[4/3] items-center justify-center">
-                      <div className="text-center">
-                        <div className="text-6xl font-bold text-primary/40">
-                          01
-                        </div>
-                      </div>
-                    </div>
+        {/* who we are */}
+        <section className="relative py-14 sm:py-16 lg:py-20">
+          <div className="mx-auto grid max-w-[1400px] items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8">
+            <ScrollReveal>
+              <div className="relative rounded-[28px] border border-white/10 bg-white/[0.03] p-3">
+                <div className="relative overflow-hidden rounded-[22px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))]">
+                  <div className="aspect-[1.15] w-full bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.20),rgba(255,255,255,0.08)_35%,rgba(255,255,255,0.02)_70%)]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(180,124,253,0.22),rgba(255,255,255,0.02))]" />
+                  <div className="absolute inset-0 flex items-center justify-center text-6xl font-bold text-white/10 md:text-8xl">
+                    01
                   </div>
 
-                  <div className="absolute -bottom-8 -right-8 hidden rounded-2xl bg-primary p-8 text-primary-foreground shadow-xl md:block">
-                    <div className="text-5xl font-bold">15+</div>
-                    <div className="text-sm opacity-90">Lorem Ipsum</div>
+                  <div className="absolute right-3 top-3 flex h-24 w-24 items-center justify-center rounded-full border border-white/30 bg-[#b47cfd] text-center text-[11px] font-semibold leading-tight text-white shadow-[0_0_40px_rgba(180,124,253,0.45)]">
+                    Premium
+                    <br />
+                    Service
+                    <br />& Support
                   </div>
                 </div>
-              </ScrollReveal>
-
-              <div>
-                <ScrollReveal>
-                  <span className="text-sm font-medium uppercase tracking-wider text-primary">
-                    {language === "en" ? "Lorem Ipsum" : "Lorem Ipsum"}
-                  </span>
-                </ScrollReveal>
-
-                <ScrollReveal delay={100}>
-                  <h2
-                    className="mt-4 mb-6 text-3xl font-bold md:text-4xl"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    Lorem Ipsum Dolor Sit Amet
-                  </h2>
-                </ScrollReveal>
-
-                <ScrollReveal delay={200}>
-                  <p className="mb-6 leading-relaxed text-muted-foreground">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                </ScrollReveal>
-
-                <ScrollReveal delay={300}>
-                  <p className="mb-8 leading-relaxed text-muted-foreground">
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
-                </ScrollReveal>
-
-                <ScrollReveal delay={400}>
-                  <Button asChild size="lg" className="group rounded-full px-8">
-                    <Link href="/contact" className="flex items-center gap-2">
-                      Lorem Ipsum
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </Button>
-                </ScrollReveal>
               </div>
-            </div>
-          </div>
-        </section>
+            </ScrollReveal>
 
-        {/* Mission & Vision */}
-        <section className="py-20 lg:py-28">
-          <div className="container mx-auto px-6 lg:px-8">
-            <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
-              <ScrollReveal>
-                <div className="h-full rounded-3xl bg-primary p-10 text-primary-foreground lg:p-12">
-                  <h3
-                    className="mb-4 text-2xl font-bold"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    {language === "en" ? "Lorem Mission" : "Lorem Mission"}
-                  </h3>
+            <ScrollReveal>
+              <div className="lg:pl-6">
+                <p className="text-xs font-semibold tracking-[0.22em] text-pink-300">
+                  {t.who}
+                </p>
 
-                  <p className="text-lg leading-relaxed text-primary-foreground/90">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                </div>
-              </ScrollReveal>
-
-              <ScrollReveal delay={100}>
-                <div className="h-full rounded-3xl border border-border bg-card p-10 lg:p-12">
-                  <h3
-                    className="mb-4 text-2xl font-bold"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    {language === "en" ? "Lorem Vision" : "Lorem Vision"}
-                  </h3>
-
-                  <p className="text-lg leading-relaxed text-muted-foreground">
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
-                </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
-
-        {/* Values */}
-        <section className="bg-muted/30 py-20 lg:py-28">
-          <div className="container mx-auto px-6 lg:px-8">
-            <div className="mx-auto mb-16 max-w-3xl text-center">
-              <ScrollReveal>
-                <span className="text-sm font-medium uppercase tracking-wider text-primary">
-                  {language === "en" ? "Lorem Values" : "Lorem Values"}
-                </span>
-              </ScrollReveal>
-
-              <ScrollReveal delay={100}>
-                <h2
-                  className="mt-4 text-3xl font-bold md:text-4xl lg:text-5xl"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  Lorem Ipsum Dolor Sit
+                <h2 className="mt-4 max-w-xl text-3xl font-bold leading-tight text-white md:text-5xl">
+                  {t.aboutTitle}
                 </h2>
+
+                <p className="mt-6 max-w-xl text-sm leading-7 text-white/65 md:text-base">
+                  {t.aboutBody}
+                </p>
+
+                <div className="mt-8">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center rounded-full bg-[linear-gradient(90deg,#b47cfd,#ff7eb6)] px-6 py-3 text-xs font-bold tracking-[0.18em] text-white transition hover:scale-[1.02]"
+                  >
+                    {t.discover}
+                  </Link>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* logos */}
+        <section className="relative pb-14 sm:pb-16 lg:pb-20">
+          <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
+            <ScrollReveal>
+              <div className="relative overflow-hidden rounded-[16px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] px-5 py-10 sm:px-8 lg:px-12">
+                <GradientOrb className="left-1/2 top-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2" />
+
+                <h3 className="mx-auto max-w-3xl text-center text-2xl font-semibold leading-tight text-white md:text-4xl">
+                  {t.logosTitle}
+                </h3>
+
+                <div className="mt-10 grid grid-cols-2 gap-y-8 sm:grid-cols-4">
+                  {logoItems.map((item, index) => (
+                    <div
+                      key={`${item}-${index}`}
+                      className="flex items-center justify-center px-4 text-center text-lg font-semibold text-white/45 transition hover:text-white/80"
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* value / vision / mission */}
+        <section className="relative pb-16 sm:pb-20 lg:pb-24">
+          <div className="mx-auto grid max-w-[1400px] gap-6 px-4 sm:px-6 lg:grid-cols-[1.7fr_1fr] lg:px-8">
+            <ScrollReveal>
+              <div className="group relative overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.03] p-3">
+                <div className="relative overflow-hidden rounded-[14px]">
+                  <div className="aspect-[1.45] w-full bg-[radial-gradient(circle_at_30%_35%,rgba(255,255,255,0.14),rgba(255,255,255,0.05)_35%,rgba(255,255,255,0.02)_72%)]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(10,1,24,0.65))]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.18),rgba(0,0,0,0.05))]" />
+                  <div className="absolute inset-0 flex items-center justify-center text-7xl font-bold text-white/10">
+                    VALUE
+                  </div>
+
+                  <div className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#d473ff] text-black shadow-[0_0_24px_rgba(212,115,255,0.55)]">
+                    <ArrowUpRight className="h-4 w-4" />
+                  </div>
+
+                  <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+                    <p className="text-[11px] font-semibold tracking-[0.22em] text-pink-300">
+                      {t.valueLabel}
+                    </p>
+                    <h3 className="mt-3 max-w-2xl text-2xl font-bold leading-tight text-white md:text-4xl">
+                      {t.valueTitle}
+                    </h3>
+                    <p className="mt-4 max-w-2xl text-sm leading-7 text-white/65">
+                      {t.valueBody}
+                    </p>
+                    <Link
+                      href="/services"
+                      className="mt-6 inline-flex rounded-full bg-[linear-gradient(90deg,#b47cfd,#ff7eb6)] px-5 py-2.5 text-[11px] font-bold tracking-[0.16em] text-white"
+                    >
+                      {t.learnMore}
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid gap-6">
+              <ScrollReveal>
+                <div className="relative overflow-hidden rounded-[20px] border border-white/10 bg-[linear-gradient(135deg,#b47cfd,#d98cff)] p-6 sm:p-8">
+                  <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/25 text-white">
+                    <ArrowUpRight className="h-4 w-4" />
+                  </div>
+                  <p className="text-[11px] font-semibold tracking-[0.2em] text-white/80">
+                    {t.visionLabel}
+                  </p>
+                  <h3 className="mt-4 max-w-sm text-2xl font-semibold leading-tight text-white">
+                    {t.visionTitle}
+                  </h3>
+                  <p className="mt-4 max-w-sm text-sm leading-7 text-white/80">
+                    {t.visionBody}
+                  </p>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal>
+                <div className="relative overflow-hidden rounded-[20px] border border-white/10 bg-[linear-gradient(135deg,#ff82b3,#f06cb6)] p-6 sm:p-8">
+                  <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/25 text-white">
+                    <ArrowUpRight className="h-4 w-4" />
+                  </div>
+                  <p className="text-[11px] font-semibold tracking-[0.2em] text-white/80">
+                    {t.missionLabel}
+                  </p>
+                  <h3 className="mt-4 max-w-sm text-2xl font-semibold leading-tight text-white">
+                    {t.missionTitle}
+                  </h3>
+                  <p className="mt-4 max-w-sm text-sm leading-7 text-white/80">
+                    {t.missionBody}
+                  </p>
+                </div>
               </ScrollReveal>
             </div>
+          </div>
+        </section>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-              {values.map((value, index) => (
-                <ScrollReveal key={value.title} delay={index * 100}>
-                  <div className="hover-lift h-full rounded-2xl border border-border bg-card p-8 text-center">
-                    <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                      <value.icon className="h-8 w-8" />
-                    </div>
-                    <h3 className="mb-3 text-xl font-semibold">{value.title}</h3>
-                    <p className="leading-relaxed text-muted-foreground">
-                      {value.description}
-                    </p>
+        {/* stats */}
+        <section className="relative">
+          <div className="bg-[linear-gradient(90deg,#b47cfd_0%,#cf7df0_35%,#ff7eb6_100%)]">
+            <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-y-6 px-4 py-8 sm:px-6 md:grid-cols-4 lg:px-8">
+              {stats.map((item, index) => (
+                <div
+                  key={item.labelEn}
+                  className={`text-center ${index !== stats.length - 1 ? "md:border-r md:border-white/20" : ""}`}
+                >
+                  <div className="text-3xl font-extrabold tracking-tight text-white md:text-5xl">
+                    {item.value}
                   </div>
-                </ScrollReveal>
+                  <div className="mt-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/85">
+                    {language === "zh" ? item.labelZh : item.labelEn}
+                  </div>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Timeline */}
-        <section className="py-20 lg:py-28">
-          <div className="container mx-auto px-6 lg:px-8">
-            <div className="mx-auto mb-16 max-w-3xl text-center">
-              <ScrollReveal>
-                <span className="text-sm font-medium uppercase tracking-wider text-primary">
-                  {language === "en" ? "Lorem Journey" : "Lorem Journey"}
-                </span>
-              </ScrollReveal>
-
-              <ScrollReveal delay={100}>
-                <h2
-                  className="mt-4 text-3xl font-bold md:text-4xl lg:text-5xl"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  Lorem Milestones
+        {/* team */}
+        <section className="relative py-16 sm:py-20 lg:py-24">
+          <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
+            <ScrollReveal>
+              <div className="mb-10 flex flex-col gap-4 md:mb-12 md:flex-row md:items-start md:justify-between">
+                <h2 className="text-3xl font-bold text-white md:text-5xl">
+                  {t.teamTitle}
                 </h2>
-              </ScrollReveal>
-            </div>
-
-            <div className="mx-auto max-w-4xl">
-              <div className="relative">
-                <div className="absolute top-0 bottom-0 left-8 w-px bg-border md:left-1/2 md:-translate-x-px" />
-
-                {milestones.map((milestone, index) => (
-                  <ScrollReveal key={milestone.year} delay={index * 100}>
-                    <div
-                      className={`relative mb-12 flex items-center gap-8 ${
-                        index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                      }`}
-                    >
-                      <div
-                        className={`hidden flex-1 md:block ${
-                          index % 2 === 0 ? "md:text-right" : "md:text-left"
-                        }`}
-                      >
-                        <div className="text-3xl font-bold text-primary">
-                          {milestone.year}
-                        </div>
-                        <div className="mt-1 text-xl font-semibold">
-                          {milestone.title}
-                        </div>
-                        <div className="mt-2 text-muted-foreground">
-                          {milestone.description}
-                        </div>
-                      </div>
-
-                      <div className="absolute left-8 z-10 h-4 w-4 -translate-x-1/2 rounded-full bg-primary md:left-1/2" />
-
-                      <div className="flex-1 pl-16 md:pl-0">
-                        <div className="md:hidden">
-                          <div className="text-3xl font-bold text-primary">
-                            {milestone.year}
-                          </div>
-                          <div className="mt-1 text-xl font-semibold">
-                            {milestone.title}
-                          </div>
-                          <div className="mt-2 text-muted-foreground">
-                            {milestone.description}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </ScrollReveal>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Team Section */}
-        <section className="bg-muted/30 py-20 lg:py-28">
-          <div className="container mx-auto px-6 lg:px-8">
-            <div className="mx-auto mb-16 max-w-3xl text-center">
-              <ScrollReveal>
-                <span className="text-sm font-medium uppercase tracking-wider text-primary">
-                  {language === "en" ? "Lorem Team" : "Lorem Team"}
-                </span>
-              </ScrollReveal>
-
-              <ScrollReveal delay={100}>
-                <h2
-                  className="mt-4 mb-6 text-3xl font-bold md:text-4xl lg:text-5xl"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  Lorem Ipsum Experts
-                </h2>
-              </ScrollReveal>
-
-              <ScrollReveal delay={200}>
-                <p className="text-lg text-muted-foreground">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                <p className="max-w-xs text-sm leading-7 text-white/55">
+                  {t.teamBody}
                 </p>
-              </ScrollReveal>
-            </div>
+              </div>
+            </ScrollReveal>
 
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {team.map((member, index) => (
-                <ScrollReveal key={member.name} delay={index * 100}>
-                  <div className="group hover-lift overflow-hidden rounded-2xl border border-border bg-card">
-                    <div className="img-zoom flex aspect-[4/5] items-center justify-center bg-gradient-to-br from-primary/20 to-secondary/20">
-                      <div className="text-center">
-                        <div className="text-6xl font-bold text-primary/40">
-                          {(index + 1) * 10}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="p-6">
-                      <h3 className="text-xl font-semibold">{member.name}</h3>
-                      <div className="mt-1 text-sm font-medium text-primary">
-                        {member.role}
-                      </div>
-                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                        {member.bio}
-                      </p>
-                    </div>
-                  </div>
+                <ScrollReveal key={`${member.name}-${index}`} delay={index * 100}>
+                  <TeamCard
+                    index={index}
+                    name={member.name}
+                    role={language === "zh" ? member.roleZh : member.roleEn}
+                  />
                 </ScrollReveal>
               ))}
             </div>
           </div>
         </section>
       </main>
+
       <SiteFooter />
     </>
   )
