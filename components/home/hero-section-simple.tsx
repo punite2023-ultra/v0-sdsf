@@ -19,7 +19,7 @@ export function HeroSectionSimple() {
             </>
           ),
           description:
-            "Star Digital Solutions combines strategy, creative execution, and digital growth systems to help brands build a stronger presence and better results.",
+            "Star Digital Solutions helps brands grow through e-commerce strategy, creator partnerships, affiliate marketing, and multi-channel network execution.",
           primary: "Get Started",
           secondary: "Learn More",
         }
