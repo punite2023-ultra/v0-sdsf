@@ -134,14 +134,17 @@ export function ServicesPreview() {
   const t =
     language === "zh"
       ? {
-          eyebrow: "WHAT WE OFFER",
+          eyebrow: "WHO WE ARE",
           heading: (
             <>
-              Smart Strategy, Bold Content,
+              At our core, we are more than a service provider —
               <br />
-              and Growth-Driven Digital Execution.
+              We are a growth partner.
             </>
           ),
+          headingDescription:
+            "We work side-by-side with brands to understand their vision, challenges, and opportunities. This allows us to craft solutions that are not only creative but also scalable and results-driven. Whether it’s launching a new brand or optimizing an existing one, we bring together strategy, creativity, and data to move businesses forward.",
+
           leftEyebrow: "OUR VALUES",
           leftTitle: (
             <>
@@ -154,6 +157,7 @@ export function ServicesPreview() {
           ),
           leftDescription:
             "We own every outcome, operate with transparency, and never compromise on quality. We adapt fast, work together, and continuously evolve to create meaningful, measurable impact.",
+
           visionTitle: "OUR VISION",
           visionHeading: (
             <>
@@ -164,6 +168,7 @@ export function ServicesPreview() {
           ),
           visionDescription:
             "To become a leading and trusted brand growth partner, recognized for driving meaningful and transformative impact across digital marketing and e-commerce.",
+
           missionTitle: "OUR MISSION",
           missionHeading: (
             <>
@@ -177,14 +182,17 @@ export function ServicesPreview() {
           button: "LEARN MORE",
         }
       : {
-          eyebrow: "WHAT WE OFFER",
+          eyebrow: "WHO WE ARE",
           heading: (
             <>
-              Smart Strategy, Bold Content,
+              At our core, we are more than a service provider —
               <br />
-              and Growth-Driven Digital Execution.
+              We are a growth partner.
             </>
           ),
+          headingDescription:
+            "We work side-by-side with brands to understand their vision, challenges, and opportunities. This allows us to craft solutions that are not only creative but also scalable and results-driven. Whether it’s launching a new brand or optimizing an existing one, we bring together strategy, creativity, and data to move businesses forward.",
+
           leftEyebrow: "OUR VALUES",
           leftTitle: (
             <>
@@ -197,6 +205,7 @@ export function ServicesPreview() {
           ),
           leftDescription:
             "We own every outcome, operate with transparency, and never compromise on quality. We adapt fast, work together, and continuously evolve to create meaningful, measurable impact.",
+
           visionTitle: "OUR VISION",
           visionHeading: (
             <>
@@ -207,6 +216,7 @@ export function ServicesPreview() {
           ),
           visionDescription:
             "To become a leading and trusted brand growth partner, recognized for driving meaningful and transformative impact across digital marketing and e-commerce.",
+
           missionTitle: "OUR MISSION",
           missionHeading: (
             <>
@@ -259,13 +269,22 @@ export function ServicesPreview() {
           </p>
 
           <h2
-            className={`mx-auto mt-4 max-w-[820px] text-balance text-[32px] font-extrabold leading-[1.02] tracking-[-0.05em] text-white transition-all duration-[900ms] md:text-[46px] lg:text-[56px] ${
+            className={`mx-auto mt-4 max-w-[980px] text-balance text-[32px] font-extrabold leading-[1.02] tracking-[-0.05em] text-white transition-all duration-[900ms] md:text-[46px] lg:text-[56px] ${
               inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
             style={{ transitionDelay: "120ms" }}
           >
             {t.heading}
           </h2>
+
+          <p
+            className={`mx-auto mt-6 max-w-[860px] text-balance text-[15px] leading-[1.8] text-white/70 transition-all duration-[1000ms] md:text-[17px] ${
+              inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            }`}
+            style={{ transitionDelay: "220ms" }}
+          >
+            {t.headingDescription}
+          </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1.8fr_0.95fr]">
