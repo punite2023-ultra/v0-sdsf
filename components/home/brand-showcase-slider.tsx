@@ -1,49 +1,36 @@
 "use client"
 
 import { useMemo, useState, useEffect } from "react"
-import {
-  Leaf,
-  HeartPulse,
-  Hexagon,
-  Home,
-  Orbit,
-  Brain,
-  Sparkles,
-  Circle,
-} from "lucide-react"
+import Image from "next/image"
 
 type Brand = {
   name: string
-  icon: React.ComponentType<{ className?: string }>
+  logo: string
 }
 
+// 🔥 Replace these URLs later with real logo assets (SVG preferred)
 const allBrands: Brand[] = [
-  { name: "botanix", icon: Leaf },
-  { name: "grovia", icon: Orbit },
-  { name: "healio", icon: HeartPulse },
-  { name: "lunera", icon: Circle },
-  { name: "neurova", icon: Brain },
-  { name: "omnix", icon: Hexagon },
-  { name: "ovara", icon: Sparkles },
-  { name: "roovon", icon: Home },
+  { name: "L'Oréal", logo: "/logos/loreal.svg" },
+  { name: "Maybelline", logo: "/logos/maybelline.svg" },
+  { name: "Colgate", logo: "/logos/colgate.svg" },
+  { name: "Vaseline", logo: "/logos/vaseline.svg" },
+  { name: "Olay", logo: "/logos/olay.svg" },
+  { name: "Dove", logo: "/logos/dove.svg" },
+  { name: "Pantene", logo: "/logos/pantene.svg" },
+  { name: "Garnier", logo: "/logos/garnier.svg" },
 
-  { name: "velora", icon: Circle },
-  { name: "zyntra", icon: Hexagon },
-  { name: "solvix", icon: Orbit },
-  { name: "aurion", icon: Sparkles },
-  { name: "novira", icon: Leaf },
-  { name: "klyro", icon: Circle },
-  { name: "metavo", icon: Brain },
-  { name: "bravix", icon: Home },
+  { name: "Nivea", logo: "/logos/nivea.svg" },
+  { name: "Safeguard", logo: "/logos/safeguard.svg" },
+  { name: "Head & Shoulders", logo: "/logos/headshoulders.svg" },
+  { name: "Happy Skin", logo: "/logos/happyskin.svg" },
+  { name: "blk Cosmetics", logo: "/logos/blk.svg" },
+  { name: "Vice Cosmetics", logo: "/logos/vice.svg" },
+  { name: "Nestlé", logo: "/logos/nestle.svg" },
+  { name: "Huawei", logo: "/logos/huawei.svg" },
 
-  { name: "orvian", icon: Orbit },
-  { name: "lumora", icon: Sparkles },
-  { name: "virella", icon: Leaf },
-  { name: "nexora", icon: Hexagon },
-  { name: "clarix", icon: Circle },
-  { name: "helixa", icon: HeartPulse },
-  { name: "trivon", icon: Home },
-  { name: "syntra", icon: Brain },
+  { name: "Philips", logo: "/logos/philips.svg" },
+  { name: "Bench", logo: "/logos/bench.svg" },
+  { name: "Huggies", logo: "/logos/huggies.svg" },
 ]
 
 export function BrandShowcaseSlider() {
@@ -79,7 +66,7 @@ export function BrandShowcaseSlider() {
 
           <div className="relative z-10">
 
-            {/* NEW TITLE */}
+            {/* UPDATED TITLE */}
             <div className="mx-auto max-w-4xl text-center">
               <h2 className="text-balance text-3xl font-extrabold leading-tight tracking-[-0.04em] text-white sm:text-4xl md:text-5xl lg:text-[56px]">
                 Trusted By Leading Brands
@@ -94,37 +81,29 @@ export function BrandShowcaseSlider() {
                 FMCG, fashion, tech, and lifestyle.
               </p>
 
-              <p className="mt-4 text-sm md:text-base text-white font-medium leading-relaxed">
-                L’Oréal Paris, Maybelline New York, Colgate, Vaseline, Olay, Dove, Pantene,
-                Garnier, Nivea, Safeguard, Head & Shoulders, Happy Skin, blk Cosmetics,
-                Vice Cosmetics, Nestlé, Huawei, Philips, Bench, Huggies, and more.
-              </p>
-
               <p className="mt-6 text-sm text-white/60 md:text-base leading-relaxed">
                 From household names to fast-rising challengers, we help brands launch,
                 scale, and perform across the platforms that matter most.
               </p>
             </div>
 
-            {/* LOGO SLIDER */}
+            {/* LOGO GRID */}
             <div className="mt-12 grid grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-y-12">
-              {visibleBrands.map((brand, index) => {
-                const Icon = brand.icon
-
-                return (
-                  <div
-                    key={`${brand.name}-${page}-${index}`}
-                    className="group flex items-center justify-center px-4 opacity-70 transition duration-300 hover:opacity-100"
-                  >
-                    <div className="flex items-center gap-3 text-[#b8b0c8] transition duration-300 group-hover:text-white">
-                      <Icon className="h-9 w-9 shrink-0 opacity-90 md:h-10 md:w-10" />
-                      <span className="text-3xl font-bold tracking-[-0.04em] md:text-4xl">
-                        {brand.name}
-                      </span>
-                    </div>
+              {visibleBrands.map((brand, index) => (
+                <div
+                  key={`${brand.name}-${page}-${index}`}
+                  className="group flex items-center justify-center px-4 opacity-60 transition duration-300 hover:opacity-100"
+                >
+                  <div className="relative h-10 w-[140px] grayscale transition duration-300 group-hover:grayscale-0">
+                    <Image
+                      src={brand.logo}
+                      alt={brand.name}
+                      fill
+                      className="object-contain"
+                    />
                   </div>
-                )
-              })}
+                </div>
+              ))}
             </div>
 
             {/* DOTS */}
