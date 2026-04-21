@@ -54,7 +54,7 @@ export function AboutPreview() {
                 <div className="space-y-4">
                   <div className="img-zoom overflow-hidden rounded-2xl">
                     <Image
-                      src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=500&fit=crop"
+                      src="https://unsplash.com/photos/black-smartphone-taking-photo-of-yellow-round-fruits-8zsBofKrhP8=400&h=500&fit=crop"
                       alt="Team meeting"
                       width={400}
                       height={500}
