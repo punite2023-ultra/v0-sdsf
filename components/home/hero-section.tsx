@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Anton, Poppins } from "next/font/google"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { useMemo, useState, type MouseEvent } from "react"
+import { useEffect, useMemo, useState, type MouseEvent } from "react"
 
 const anton = Anton({
   subsets: ["latin"],
@@ -35,26 +35,6 @@ const slides: Slide[] = [
     line2: "& BRANDING",
     color: "#9c003a",
     layout: "default",
-  },
-  {
-    image: "/HeroImage2.png",
-    line1: "INFLUENCER",
-    line2: "& AFFILIATE MARKETING",
-    color: "#a6406a",
-    layout: "default",
-  },
-  {
-    image: "/HeroImage4.png",
-    line1: "SOCIAL MEDIA",
-    line2: "& LIVE SELLING",
-    color: "#6f5cff",
-    layout: "buzkit",
-    eyebrow: "TOP SOCIAL COMMERCE AGENCY",
-    description:
-      "We help brands grow through social-first campaigns, creator-led content, and live selling strategies designed to turn attention into measurable conversions.",
-    primaryCta: "LEARN MORE",
-    primaryHref: "/services",
-    logos: ["TikTok Live", "Creator Network", "Social Commerce", "Campaign Growth"],
   },
 ]
 
@@ -89,18 +69,24 @@ function Counter({
 }) {
   const [count, setCount] = useState(0)
 
-  useState(() => {
+  useEffect(() => {
     const startTime = performance.now()
+    let frameId: number
 
     const tick = (now: number) => {
       const progress = Math.min((now - startTime) / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
       setCount(Math.floor(value * eased))
-      if (progress < 1) requestAnimationFrame(tick)
+
+      if (progress < 1) {
+        frameId = requestAnimationFrame(tick)
+      }
     }
 
-    requestAnimationFrame(tick)
-  })
+    frameId = requestAnimationFrame(tick)
+
+    return () => cancelAnimationFrame(frameId)
+  }, [value, duration])
 
   return <>{count}</>
 }
@@ -439,7 +425,7 @@ export function HeroSection() {
               type="button"
               disabled
               aria-label="Previous slide"
-              className={`flex h-10 w-10 items-center justify-center rounded-full border backdrop-blur-sm transition opacity-50 ${
+              className={`flex h-10 w-10 items-center justify-center rounded-full border backdrop-blur-sm opacity-50 ${
                 isBuzkitSlide
                   ? "border-[#cfc7ff] bg-white/70 text-[#4f46e5]"
                   : "border-white/20 bg-black/15 text-white/75"
@@ -454,7 +440,7 @@ export function HeroSection() {
               type="button"
               disabled
               aria-label="Next slide"
-              className={`flex h-10 w-10 items-center justify-center rounded-full border backdrop-blur-sm transition opacity-50 ${
+              className={`flex h-10 w-10 items-center justify-center rounded-full border backdrop-blur-sm opacity-50 ${
                 isBuzkitSlide
                   ? "border-[#cfc7ff] bg-white/70 text-[#4f46e5]"
                   : "border-white/20 bg-black/15 text-white/75"
@@ -478,7 +464,7 @@ export function HeroSection() {
                 type="button"
                 disabled
                 aria-label="Previous slide"
-                className={`flex h-9 w-9 items-center justify-center rounded-full border backdrop-blur-sm transition opacity-50 ${
+                className={`flex h-9 w-9 items-center justify-center rounded-full border backdrop-blur-sm opacity-50 ${
                   isBuzkitSlide
                     ? "border-[#cfc7ff] bg-white/70 text-[#4f46e5]"
                     : "border-white/20 bg-black/15 text-white/75"
@@ -493,7 +479,7 @@ export function HeroSection() {
                 type="button"
                 disabled
                 aria-label="Next slide"
-                className={`flex h-9 w-9 items-center justify-center rounded-full border backdrop-blur-sm transition opacity-50 ${
+                className={`flex h-9 w-9 items-center justify-center rounded-full border backdrop-blur-sm opacity-50 ${
                   isBuzkitSlide
                     ? "border-[#cfc7ff] bg-white/70 text-[#4f46e5]"
                     : "border-white/20 bg-black/15 text-white/75"
