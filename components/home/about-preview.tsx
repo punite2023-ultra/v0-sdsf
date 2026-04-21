@@ -71,7 +71,7 @@ export function AboutPreview() {
 
             <ScrollReveal delay={100}>
               <h2
-                className={`${anton.className} max-w-[1500px] text-[3rem] uppercase leading-[0.88] tracking-[-0.03em] text-white sm:text-[4rem] md:text-[5.2rem] lg:text-[6.25rem] xl:text-[7.1rem]`}
+                className={`${anton.className} max-w-[1500px] text-[60px] uppercase leading-[0.9] tracking-[-0.03em] text-white md:text-[64px] lg:text-[64px] xl:text-[64px]`}
               >
                 Where Content, Commerce, and Creators Power Brands to the Spotlight
               </h2>
@@ -109,7 +109,7 @@ export function AboutPreview() {
                       <>
                         <div className="mb-7 flex items-start justify-between gap-4">
                           <h3
-                            className={`${anton.className} max-w-[68%] text-[2rem] uppercase leading-[0.9] tracking-[-0.03em] sm:text-[2.35rem] lg:text-[2.75rem]`}
+                            className={`${anton.className} max-w-[68%] text-[32px] uppercase leading-[0.95] tracking-[-0.02em]`}
                           >
                             {service.title}
                           </h3>
@@ -126,7 +126,7 @@ export function AboutPreview() {
                         <div className="mb-6 h-px bg-white/12" />
 
                         <p
-                          className={`${poppins.className} max-w-[92%] text-[0.98rem] leading-7 text-white/82 md:text-[1rem]`}
+                          className={`${poppins.className} max-w-[92%] text-[14px] leading-[1.6] text-white/82 md:text-[15px]`}
                         >
                           {service.description}
                         </p>
@@ -147,7 +147,7 @@ export function AboutPreview() {
 
                         <div className="mt-8 flex items-end justify-between gap-4">
                           <h3
-                            className={`${anton.className} max-w-[72%] text-[2.15rem] uppercase leading-[0.9] tracking-[-0.03em] sm:text-[2.5rem] lg:text-[2.9rem]`}
+                            className={`${anton.className} max-w-[72%] text-[32px] uppercase leading-[0.95] tracking-[-0.02em]`}
                           >
                             {service.title}
                           </h3>
@@ -162,7 +162,7 @@ export function AboutPreview() {
                         </div>
 
                         <p
-                          className={`${poppins.className} mt-5 max-w-[92%] text-[0.98rem] leading-7 text-white/86 md:text-[1rem]`}
+                          className={`${poppins.className} mt-5 max-w-[92%] text-[14px] leading-[1.6] text-white/86 md:text-[15px]`}
                         >
                           {service.description}
                         </p>
