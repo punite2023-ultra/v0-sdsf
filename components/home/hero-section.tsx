@@ -39,19 +39,31 @@ function Counter({
   return <>{count}</>
 }
 
-function StatBlock({ value, label }: { value: number; label: string }) {
+function StatBlock({
+  value,
+  label,
+}: {
+  value: number
+  label: string
+}) {
   return (
     <div className="w-[150px] md:w-[180px]">
       <div className="flex items-start gap-1.5">
-        <div className={`${poppins.className} text-[42px] font-semibold text-white md:text-[56px]`}>
+        <div
+          className={`${poppins.className} text-[42px] font-semibold leading-none text-white md:text-[56px]`}
+        >
           <Counter value={value} />
         </div>
-        <div className={`${poppins.className} mt-[6px] text-[18px] font-semibold text-[#9c003a]`}>
+        <div
+          className={`${poppins.className} mt-[6px] text-[18px] font-semibold text-[#9c003a]`}
+        >
           +
         </div>
       </div>
 
-      <div className={`${poppins.className} mt-2 text-[12px] font-semibold uppercase text-white`}>
+      <div
+        className={`${poppins.className} mt-2 text-[12px] font-semibold uppercase text-white`}
+      >
         {label}
       </div>
 
@@ -75,23 +87,23 @@ export function HeroSection() {
       onMouseMove={handleMouseMove}
       className="relative overflow-hidden text-white"
     >
-      {/* Background */}
+      {/* BACKGROUND */}
       <div className="absolute inset-0 -z-20">
         <Image
           src="/10121357.jpg"
-          alt="Hero background"
+          alt="Background"
           fill
           priority
           className="object-cover"
         />
       </div>
 
-      {/* Overlay */}
+      {/* DARK OVERLAY */}
       <div className="absolute inset-0 -z-10 bg-black/50" />
 
-      {/* Content */}
+      {/* CONTENT */}
       <div className="relative z-10 mx-auto flex min-h-[820px] max-w-[1720px] items-center justify-center px-4">
-        
+
         {/* LEFT STATS */}
         <div
           className="absolute left-10 top-[200px] hidden xl:flex flex-col gap-8"
@@ -106,24 +118,29 @@ export function HeroSection() {
 
         {/* CENTER TEXT */}
         <div
-          className="text-center"
+          className="text-center z-10"
           style={{
             transform: `translate(${mouse.x * 4}px, ${mouse.y * 2}px)`,
           }}
         >
-          <h1 className={`${anton.className} text-[64px] md:text-[120px] leading-[0.9] uppercase`}>
+          <h1
+            className={`${anton.className} text-[64px] md:text-[120px] leading-[0.9] uppercase`}
+          >
             CONTENT CREATION
           </h1>
-          <h1 className={`${anton.className} text-[64px] md:text-[120px] leading-[0.9] uppercase text-[#9c003a]`}>
+
+          <h1
+            className={`${anton.className} text-[64px] md:text-[120px] leading-[0.9] uppercase text-[#9c003a]`}
+          >
             & BRANDING
           </h1>
         </div>
 
-        {/* HERO IMAGE */}
+        {/* HERO IMAGE (FIXED CENTER) */}
         <div
-          className="absolute left-1/2 top-1/2 w-[90vw] h-[90vh] -translate-x-1/2 -translate-y-1/2"
+          className="absolute left-1/2 top-[55%] z-0 w-full max-w-[900px] h-[70vh] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
           style={{
-            transform: `translate(calc(-50% + ${mouse.x * 8}px), calc(-50% + ${mouse.y * 5}px))`,
+            transform: `translate(calc(-50% + ${mouse.x * 6}px), calc(-50% + ${mouse.y * 4}px))`,
           }}
         >
           <Image
@@ -131,7 +148,7 @@ export function HeroSection() {
             alt="Hero"
             fill
             priority
-            className="object-contain"
+            className="object-contain object-center"
           />
         </div>
       </div>
