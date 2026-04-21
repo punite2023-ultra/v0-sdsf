@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Anton, Poppins } from "next/font/google"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { useEffect, useMemo, useState, type MouseEvent } from "react"
+import { useMemo, useState, type MouseEvent } from "react"
 
 const anton = Anton({
   subsets: ["latin"],
@@ -89,7 +89,7 @@ function Counter({
 }) {
   const [count, setCount] = useState(0)
 
-  useEffect(() => {
+  useState(() => {
     const startTime = performance.now()
 
     const tick = (now: number) => {
@@ -100,7 +100,7 @@ function Counter({
     }
 
     requestAnimationFrame(tick)
-  }, [value, duration])
+  })
 
   return <>{count}</>
 }
@@ -140,10 +140,8 @@ function StatBlock({
 
 function SliderDots({
   activeIndex,
-  goToSlide,
 }: {
   activeIndex: number
-  goToSlide: (index: number) => void
 }) {
   return (
     <div className="flex items-center gap-3">
@@ -151,12 +149,12 @@ function SliderDots({
         <button
           key={index}
           type="button"
-          aria-label={`Go to slide ${index + 1}`}
-          onClick={() => goToSlide(index)}
+          aria-label={`Slide ${index + 1}`}
+          disabled
           className={`rounded-full transition-all duration-300 ease-out ${
             activeIndex === index
               ? "h-4 w-4 scale-110 bg-gradient-to-r from-[#7c3aed] via-[#c026d3] to-[#ec4899] shadow-[0_0_14px_rgba(192,38,211,0.45)]"
-              : "h-4 w-4 bg-white/45 hover:bg-white/80"
+              : "h-4 w-4 bg-white/45"
           }`}
         />
       ))}
@@ -216,35 +214,11 @@ function LogoPill({ label }: { label: string }) {
 
 export function HeroSection() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 })
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [animKey, setAnimKey] = useState(0)
+  const activeIndex = 0
+  const animKey = 0
 
-  const activeSlide = useMemo(() => slides[activeIndex], [activeIndex])
+  const activeSlide = useMemo(() => slides[0], [])
   const isBuzkitSlide = activeSlide.layout === "buzkit"
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % slides.length)
-      setAnimKey((k) => k + 1)
-    }, 5500)
-
-    return () => clearInterval(interval)
-  }, [])
-
-  const goToSlide = (index: number) => {
-    setActiveIndex(index)
-    setAnimKey((k) => k + 1)
-  }
-
-  const goPrev = () => {
-    setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length)
-    setAnimKey((k) => k + 1)
-  }
-
-  const goNext = () => {
-    setActiveIndex((prev) => (prev + 1) % slides.length)
-    setAnimKey((k) => k + 1)
-  }
 
   const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
@@ -463,27 +437,27 @@ export function HeroSection() {
           >
             <button
               type="button"
-              onClick={goPrev}
+              disabled
               aria-label="Previous slide"
-              className={`flex h-10 w-10 items-center justify-center rounded-full border backdrop-blur-sm transition ${
+              className={`flex h-10 w-10 items-center justify-center rounded-full border backdrop-blur-sm transition opacity-50 ${
                 isBuzkitSlide
-                  ? "border-[#cfc7ff] bg-white/70 text-[#4f46e5] hover:border-[#b6adff] hover:text-[#4338ca]"
-                  : "border-white/20 bg-black/15 text-white/75 hover:border-white/40 hover:text-white"
+                  ? "border-[#cfc7ff] bg-white/70 text-[#4f46e5]"
+                  : "border-white/20 bg-black/15 text-white/75"
               }`}
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
 
-            <SliderDots activeIndex={activeIndex} goToSlide={goToSlide} />
+            <SliderDots activeIndex={activeIndex} />
 
             <button
               type="button"
-              onClick={goNext}
+              disabled
               aria-label="Next slide"
-              className={`flex h-10 w-10 items-center justify-center rounded-full border backdrop-blur-sm transition ${
+              className={`flex h-10 w-10 items-center justify-center rounded-full border backdrop-blur-sm transition opacity-50 ${
                 isBuzkitSlide
-                  ? "border-[#cfc7ff] bg-white/70 text-[#4f46e5] hover:border-[#b6adff] hover:text-[#4338ca]"
-                  : "border-white/20 bg-black/15 text-white/75 hover:border-white/40 hover:text-white"
+                  ? "border-[#cfc7ff] bg-white/70 text-[#4f46e5]"
+                  : "border-white/20 bg-black/15 text-white/75"
               }`}
             >
               <ChevronRight className="h-4 w-4" />
@@ -502,27 +476,27 @@ export function HeroSection() {
             <div className="flex items-center justify-between pt-2">
               <button
                 type="button"
-                onClick={goPrev}
+                disabled
                 aria-label="Previous slide"
-                className={`flex h-9 w-9 items-center justify-center rounded-full border backdrop-blur-sm transition ${
+                className={`flex h-9 w-9 items-center justify-center rounded-full border backdrop-blur-sm transition opacity-50 ${
                   isBuzkitSlide
-                    ? "border-[#cfc7ff] bg-white/70 text-[#4f46e5] hover:border-[#b6adff] hover:text-[#4338ca]"
-                    : "border-white/20 bg-black/15 text-white/75 hover:border-white/40 hover:text-white"
+                    ? "border-[#cfc7ff] bg-white/70 text-[#4f46e5]"
+                    : "border-white/20 bg-black/15 text-white/75"
                 }`}
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
 
-              <SliderDots activeIndex={activeIndex} goToSlide={goToSlide} />
+              <SliderDots activeIndex={activeIndex} />
 
               <button
                 type="button"
-                onClick={goNext}
+                disabled
                 aria-label="Next slide"
-                className={`flex h-9 w-9 items-center justify-center rounded-full border backdrop-blur-sm transition ${
+                className={`flex h-9 w-9 items-center justify-center rounded-full border backdrop-blur-sm transition opacity-50 ${
                   isBuzkitSlide
-                    ? "border-[#cfc7ff] bg-white/70 text-[#4f46e5] hover:border-[#b6adff] hover:text-[#4338ca]"
-                    : "border-white/20 bg-black/15 text-white/75 hover:border-white/40 hover:text-white"
+                    ? "border-[#cfc7ff] bg-white/70 text-[#4f46e5]"
+                    : "border-white/20 bg-black/15 text-white/75"
                 }`}
               >
                 <ChevronRight className="h-4 w-4" />
