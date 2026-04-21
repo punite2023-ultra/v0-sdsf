@@ -1,192 +1,47 @@
 "use client"
 
-import Link from "next/link"
-import Image from "next/image"
-import { ArrowUpRight, Sparkles } from "lucide-react"
-import { ScrollReveal } from "@/components/scroll-reveal"
-import { Anton, Poppins } from "next/font/google"
+import { Sparkles } from "lucide-react"
+import { Raleway, Anton } from "next/font/google"
+
+const raleway = Raleway({
+  subsets: ["latin"],
+  weight: ["800"],
+})
 
 const anton = Anton({
   subsets: ["latin"],
   weight: "400",
 })
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-})
-
-const services = [
-  {
-    title: "PERFORMANCE & GROWTH STRATEGY",
-    description:
-      "At Star Digital Solutions, we transform strategy into growth—leveraging e-commerce, creator partnerships, affiliate marketing, and multi-channel networks to drive measurable performance.",
-    image:
-      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1200&h=900&fit=crop",
-    href: "/services",
-    featured: false,
-  },
-  {
-    title: "SCALABLE CAMPAIGN DESIGN",
-    description:
-      "From established brands to emerging stars, we create campaigns designed not just to shine—but to convert, scale, and lead.",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=900&fit=crop",
-    href: "/services",
-    featured: true,
-  },
-  {
-    title: "AGILE DIGITAL INNOVATION",
-    description:
-      "Built for brands ready to move faster and stand out in today’s digital landscape.",
-    image:
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=1200&h=900&fit=crop",
-    href: "/services",
-    featured: false,
-  },
-]
-
 export function AboutPreview() {
   return (
-    <section className="relative overflow-hidden bg-[#171717] py-16 text-white md:py-20 lg:py-24">
+    <section className="relative overflow-hidden bg-[#171717] py-20 text-white md:py-24 lg:py-28">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.05),transparent_44%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:72px_72px] opacity-20" />
 
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 flex flex-col gap-6 lg:mb-14 lg:flex-row lg:items-start lg:justify-between">
-          <div className="max-w-6xl">
-            <ScrollReveal>
-              <div className="mb-5 flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center text-[#d7ff00]">
-                  <Sparkles className="h-7 w-7 fill-current" />
-                </div>
-
-                <span
-                  className={`${anton.className} text-sm uppercase tracking-[0.08em] text-white md:text-base`}
-                >
-                  What We Do
-                </span>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={100}>
-              <h2
-                className={`${anton.className} max-w-[1500px] text-[60px] uppercase leading-[0.9] tracking-[-0.03em] text-white md:text-[64px] lg:text-[64px] xl:text-[64px]`}
-              >
-                Where Content, Commerce, and Creators Power Brands to the Spotlight
-              </h2>
-            </ScrollReveal>
+      <div className="relative z-10 mx-auto flex max-w-[1600px] flex-col items-center px-6 text-center lg:px-8">
+        <div className="mb-6 flex items-center justify-center gap-4">
+          <div className="flex h-10 w-10 items-center justify-center text-[#d7ff00]">
+            <Sparkles className="h-8 w-8 fill-current" />
           </div>
 
-          <ScrollReveal delay={150}>
-            <div className="shrink-0 lg:pt-4">
-              <Link
-                href="/services"
-                className={`${anton.className} inline-flex items-center gap-4 border-2 border-[#d7ff00] px-6 py-4 text-sm uppercase tracking-[0.12em] text-white transition hover:bg-[#d7ff00] hover:text-black md:px-8 md:py-5 md:text-base`}
-              >
-                All Services
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-black">
-                  <ArrowUpRight className="h-4 w-4" />
-                </span>
-              </Link>
-            </div>
-          </ScrollReveal>
+          <span
+            className={`${anton.className} text-[20px] uppercase leading-none tracking-[0.04em] text-white md:text-[22px]`}
+          >
+            What We Do
+          </span>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3 xl:gap-10">
-          {services.map((service, index) => {
-            const isFeatured = service.featured
-
-            return (
-              <ScrollReveal key={service.title} delay={index * 120}>
-                <article
-                  className={`group overflow-hidden ${
-                    isFeatured ? "bg-[#682e94] text-white" : "bg-[#262626] text-white"
-                  }`}
-                >
-                  <div className="p-7 md:p-8">
-                    {!isFeatured && (
-                      <>
-                        <div className="mb-7 flex items-start justify-between gap-4">
-                          <h3
-                            className={`${anton.className} max-w-[68%] text-[32px] uppercase leading-[0.95] tracking-[-0.02em]`}
-                          >
-                            {service.title}
-                          </h3>
-
-                          <Link
-                            href={service.href}
-                            className="mt-1 flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#7f2064] text-white transition duration-300 group-hover:scale-105"
-                            aria-label={`View ${service.title}`}
-                          >
-                            <ArrowUpRight className="h-11 w-11" strokeWidth={2.3} />
-                          </Link>
-                        </div>
-
-                        <div className="mb-6 h-px bg-white/12" />
-
-                        <p
-                          className={`${poppins.className} max-w-[92%] text-[14px] leading-[1.6] text-white/82 md:text-[15px]`}
-                        >
-                          {service.description}
-                        </p>
-                      </>
-                    )}
-
-                    {isFeatured && (
-                      <>
-                        <div className="overflow-hidden border-[12px] border-[#682e94] bg-black">
-                          <Image
-                            src={service.image}
-                            alt={service.title}
-                            width={1200}
-                            height={900}
-                            className="h-[260px] w-full object-cover grayscale transition duration-500 group-hover:scale-[1.03]"
-                          />
-                        </div>
-
-                        <div className="mt-8 flex items-end justify-between gap-4">
-                          <h3
-                            className={`${anton.className} max-w-[72%] text-[32px] uppercase leading-[0.95] tracking-[-0.02em]`}
-                          >
-                            {service.title}
-                          </h3>
-
-                          <Link
-                            href={service.href}
-                            className="flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#7f2064] text-white transition duration-300 group-hover:scale-105"
-                            aria-label={`View ${service.title}`}
-                          >
-                            <ArrowUpRight className="h-11 w-11" strokeWidth={2.3} />
-                          </Link>
-                        </div>
-
-                        <p
-                          className={`${poppins.className} mt-5 max-w-[92%] text-[14px] leading-[1.6] text-white/86 md:text-[15px]`}
-                        >
-                          {service.description}
-                        </p>
-                      </>
-                    )}
-                  </div>
-
-                  {!isFeatured && (
-                    <div className="px-7 pb-7 md:px-8 md:pb-8">
-                      <div className="overflow-hidden">
-                        <Image
-                          src={service.image}
-                          alt={service.title}
-                          width={1200}
-                          height={900}
-                          className="h-[220px] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                        />
-                      </div>
-                    </div>
-                  )}
-                </article>
-              </ScrollReveal>
-            )
-          })}
+        <div className="mx-auto max-w-[1500px]">
+          <div className="mx-auto inline-block">
+            <h2
+              className={`${raleway.className} text-center text-[54px] font-extrabold uppercase leading-[0.92] tracking-[-0.04em] text-white sm:text-[64px] md:text-[78px] lg:text-[98px] xl:text-[112px]`}
+            >
+              Where Content, Commerce, and Creators
+              <br />
+              Power Brands to the Spotlight
+            </h2>
+          </div>
         </div>
       </div>
     </section>
