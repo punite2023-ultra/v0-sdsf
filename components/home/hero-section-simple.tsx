@@ -1,8 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
-import { motion } from "framer-motion"
+import { ArrowRight } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 export function HeroSectionSimple() {
@@ -11,170 +10,278 @@ export function HeroSectionSimple() {
   const t =
     language === "zh"
       ? {
-          eyebrow: "STAR DIGITAL SOLUTIONS",
-          titleTop: "A new star",
-          titleBottom: "is entering the digital orbit.",
+          badge: "WELCOME TO STAR DIGITAL",
+          title: (
+            <>
+             Aligning the Stars 
+              <br />
+              for Your Digital Success
+            </>
+          ),
           description:
-            "We help brands scale through e-commerce strategy, creator partnerships, affiliate marketing, and digital growth systems built for modern commerce.",
-          primary: "Work With Us",
-          secondary: "View Our Story",
-          stat1: "Creators",
-          stat2: "Campaigns",
-          stat3: "Growth Systems",
+            "Star Digital Solutions helps brands grow through e-commerce strategy, creator partnerships, affiliate marketing, and multi-channel network execution.",
+          primary: "Get Started",
+          secondary: "Learn More",
         }
       : {
-          eyebrow: "STAR DIGITAL SOLUTIONS",
-          titleTop: "A new star",
-          titleBottom: "is entering the digital orbit.",
+          badge: "WELCOME TO STAR DIGITAL",
+          title: (
+            <>
+              Aligning the Stars 
+              <br />
+              for Your Digital Success
+            </>
+          ),
           description:
-            "We help brands scale through e-commerce strategy, creator partnerships, affiliate marketing, and digital growth systems built for modern commerce.",
-          primary: "Work With Us",
-          secondary: "View Our Story",
-          stat1: "Creators",
-          stat2: "Campaigns",
-          stat3: "Growth Systems",
+            "Star Digital Solutions combines strategy, creative execution, and digital growth systems to help brands build a stronger presence and better results.",
+          primary: "Get Started",
+          secondary: "Learn More",
         }
 
   return (
-    <section className="relative overflow-hidden bg-black text-white">
-      {/* Background glow */}
+    <section className="hero-wrap relative overflow-hidden border-b border-white/10 bg-[#080015] text-white">
+      {/* VIDEO */}
       <div className="absolute inset-0">
-        <div className="absolute left-[-10%] top-[-10%] h-[420px] w-[420px] rounded-full bg-fuchsia-600/20 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] h-[420px] w-[420px] rounded-full bg-violet-500/20 blur-[140px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_35%),linear-gradient(to_bottom,rgba(255,255,255,0.03),transparent_35%)]" />
-        <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] [background-size:120px_120px]" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="h-full w-full object-cover opacity-20"
+          poster="/images/hero-fallback.jpg"
+        >
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        </video>
       </div>
 
-      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-between px-6 pb-10 pt-28 sm:px-8 lg:px-12 lg:pt-36">
-        <div className="grid items-end gap-16 lg:grid-cols-[1.15fr_0.85fr]">
-          {/* Left content */}
-          <div className="max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.28em] text-white/70 backdrop-blur-sm"
-            >
-              <span className="inline-block h-2 w-2 rounded-full bg-fuchsia-400" />
-              {t.eyebrow}
-            </motion.div>
+      {/* DARK OVERLAY */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_center,rgba(140,69,255,0.16),transparent_22%),linear-gradient(180deg,rgba(8,0,21,0.66)_0%,rgba(8,0,21,0.94)_72%,rgba(8,0,21,1)_100%)]" />
 
-            <motion.h1
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.08 }}
-              className="max-w-5xl text-[clamp(3.25rem,9vw,7.5rem)] font-semibold leading-[0.9] tracking-[-0.05em]"
-            >
-              <span className="block">{t.titleTop}</span>
-              <span className="block text-white/90">{t.titleBottom}</span>
-            </motion.h1>
+      {/* LIGHT PATHS / FLOW LINES */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-70">
+        <div className="hero-path hero-path-1" />
+        <div className="hero-path hero-path-2" />
+        <div className="hero-path hero-path-3" />
+      </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut", delay: 0.16 }}
-              className="mt-8 max-w-xl"
-            >
-              <p className="text-sm leading-7 text-white/68 sm:text-base sm:leading-8">
+      {/* GLOW BLOBS */}
+      <div className="pointer-events-none absolute left-1/2 top-[16%] h-[320px] w-[760px] -translate-x-1/2 rounded-full bg-fuchsia-500/10 blur-[140px]" />
+      <div className="pointer-events-none absolute left-1/2 top-[10%] h-[180px] w-[300px] -translate-x-1/2 rounded-full bg-violet-500/20 blur-[90px]" />
+
+      <div className="relative z-10 px-4 pt-28 md:px-8 md:pt-32 lg:pt-[7em]">
+        <div className="mx-auto max-w-[720px]">
+          <div className="px-4 py-16 md:px-8 md:py-20 lg:px-8 lg:py-[7em]">
+            <div className="text-center">
+              {/* BADGE */}
+              <div className="badge-hero inline-flex items-center justify-center rounded-full px-4 py-[7px] text-[10px] font-semibold uppercase tracking-[0.22em] text-white shadow-[0_0_30px_rgba(225,23,138,0.18)] md:px-5 md:text-[11px]">
+                <span className="relative z-[2]">{t.badge}</span>
+              </div>
+
+              {/* TITLE */}
+              <h1 className="hero-title mx-auto mt-6 max-w-5xl text-[42px] font-extrabold leading-[0.92] tracking-[-0.045em] text-white sm:text-[56px] md:text-[68px] lg:text-[78px]">
+                {t.title}
+              </h1>
+
+              {/* DESCRIPTION */}
+              <p className="hero-copy mx-auto mt-5 max-w-[620px] text-[13px] leading-6 text-white/60 sm:text-[14px] sm:leading-7 md:text-[15px]">
                 {t.description}
               </p>
-            </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut", delay: 0.24 }}
-              className="mt-10 flex flex-col gap-4 sm:flex-row"
-            >
-              <Link
-                href="/contact"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:scale-[1.02]"
-              >
-                {t.primary}
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </Link>
+              {/* BUTTONS */}
+              <div className="hero-actions mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <Link
+                  href="/contact"
+                  className="inline-flex min-w-[170px] items-center justify-center rounded-full bg-[linear-gradient(90deg,#B47CFD_0%,#E8178A_100%)] px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_10px_35px_rgba(180,124,253,0.32)]"
+                >
+                  {t.primary}
+                </Link>
 
-              <Link
-                href="/about/our-story"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-medium text-white/88 backdrop-blur-sm transition hover:bg-white/10"
-              >
-                {t.secondary}
-              </Link>
-            </motion.div>
-          </div>
-
-          {/* Right visual card */}
-          <motion.div
-            initial={{ opacity: 0, y: 36 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut", delay: 0.12 }}
-            className="relative lg:ml-auto lg:w-full lg:max-w-[460px]"
-          >
-            <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-fuchsia-500/10" />
-
-              <div className="relative space-y-10">
-                <div>
-                  <p className="text-[11px] uppercase tracking-[0.24em] text-white/45">
-                    Digital Growth Platform
-                  </p>
-                  <p className="mt-4 max-w-sm text-2xl font-medium leading-tight text-white/92">
-                    Where strategy, creators, commerce, and content move in one orbit.
-                  </p>
-                </div>
-
-                <div className="grid gap-4 sm:grid-cols-3 sm:gap-3">
-                  <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
-                    <div className="text-2xl font-semibold tracking-[-0.04em]">01</div>
-                    <div className="mt-2 text-xs uppercase tracking-[0.18em] text-white/45">
-                      {t.stat1}
-                    </div>
-                  </div>
-
-                  <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
-                    <div className="text-2xl font-semibold tracking-[-0.04em]">02</div>
-                    <div className="mt-2 text-xs uppercase tracking-[0.18em] text-white/45">
-                      {t.stat2}
-                    </div>
-                  </div>
-
-                  <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
-                    <div className="text-2xl font-semibold tracking-[-0.04em]">03</div>
-                    <div className="mt-2 text-xs uppercase tracking-[0.18em] text-white/45">
-                      {t.stat3}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="rounded-2xl border border-dashed border-white/12 p-5">
-                  <p className="text-sm leading-7 text-white/62">
-                    Built for brands ready to scale on digital platforms that move fast.
-                  </p>
-                </div>
+                <Link
+                  href="/about"
+                  className="inline-flex min-w-[170px] items-center justify-center rounded-full border border-white/25 bg-transparent px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:border-white/40 hover:bg-white/8"
+                >
+                  {t.secondary}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </div>
             </div>
-          </motion.div>
-        </div>
-
-        {/* Bottom strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.28 }}
-          className="mt-16 flex flex-col gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between"
-        >
-          <p className="max-w-md text-xs uppercase tracking-[0.22em] text-white/40">
-            Aligning the stars for your digital success
-          </p>
-
-          <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.18em] text-white/50">
-            <span className="rounded-full border border-white/10 px-3 py-2">E-commerce</span>
-            <span className="rounded-full border border-white/10 px-3 py-2">Affiliate</span>
-            <span className="rounded-full border border-white/10 px-3 py-2">Creators</span>
-            <span className="rounded-full border border-white/10 px-3 py-2">Campaigns</span>
           </div>
-        </motion.div>
+        </div>
       </div>
+
+      <style jsx>{`
+        .badge-hero {
+          position: relative;
+          overflow: hidden;
+          border: 1px solid rgba(255, 255, 255, 0.18);
+          background:
+            linear-gradient(
+              90deg,
+              rgba(180, 124, 253, 0.22) 0%,
+              rgba(232, 23, 138, 0.18) 50%,
+              rgba(180, 124, 253, 0.22) 100%
+            );
+          backdrop-filter: blur(10px);
+          animation: badgeFloat 4s ease-in-out infinite;
+        }
+
+        .badge-hero::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            120deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.16) 45%,
+            transparent 70%
+          );
+          transform: translateX(-140%);
+          animation: badgeShine 3.8s ease-in-out infinite;
+        }
+
+        .hero-title {
+          opacity: 0;
+          transform: translateY(22px);
+          filter: blur(10px);
+          animation: heroReveal 0.9s ease forwards;
+          text-wrap: balance;
+        }
+
+        .hero-copy {
+          opacity: 0;
+          transform: translateY(20px);
+          filter: blur(8px);
+          animation: heroReveal 0.9s ease forwards;
+          animation-delay: 0.16s;
+        }
+
+        .hero-actions {
+          opacity: 0;
+          transform: translateY(18px);
+          filter: blur(8px);
+          animation: heroReveal 0.9s ease forwards;
+          animation-delay: 0.28s;
+        }
+
+        .hero-path {
+          position: absolute;
+          left: 50%;
+          width: 1200px;
+          height: 240px;
+          border-radius: 999px;
+          transform: translateX(-50%);
+          border: 1px solid rgba(255, 255, 255, 0.05);
+          filter: blur(0.2px);
+        }
+
+        .hero-path-1 {
+          top: 18%;
+          background:
+            radial-gradient(circle at center, rgba(180, 124, 253, 0.08), transparent 55%);
+          box-shadow:
+            0 0 60px rgba(180, 124, 253, 0.08),
+            inset 0 0 30px rgba(255, 255, 255, 0.02);
+          animation: pathDrift1 11s ease-in-out infinite;
+        }
+
+        .hero-path-2 {
+          top: 28%;
+          width: 1400px;
+          height: 280px;
+          border-color: rgba(255, 255, 255, 0.035);
+          background:
+            radial-gradient(circle at center, rgba(232, 23, 138, 0.06), transparent 58%);
+          animation: pathDrift2 14s ease-in-out infinite;
+        }
+
+        .hero-path-3 {
+          top: 24%;
+          width: 1000px;
+          height: 190px;
+          border-color: rgba(255, 255, 255, 0.04);
+          animation: pathDrift3 9s ease-in-out infinite;
+        }
+
+        @keyframes heroReveal {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+          }
+        }
+
+        @keyframes badgeFloat {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-2px);
+          }
+        }
+
+        @keyframes badgeShine {
+          0% {
+            transform: translateX(-140%);
+          }
+          50% {
+            transform: translateX(140%);
+          }
+          100% {
+            transform: translateX(140%);
+          }
+        }
+
+        @keyframes pathDrift1 {
+          0%,
+          100% {
+            transform: translateX(-50%) scaleX(1) translateY(0px);
+            opacity: 0.7;
+          }
+          50% {
+            transform: translateX(-50%) scaleX(1.04) translateY(8px);
+            opacity: 1;
+          }
+        }
+
+        @keyframes pathDrift2 {
+          0%,
+          100% {
+            transform: translateX(-50%) scaleX(1) translateY(0px);
+            opacity: 0.45;
+          }
+          50% {
+            transform: translateX(-50%) scaleX(1.06) translateY(-10px);
+            opacity: 0.8;
+          }
+        }
+
+        @keyframes pathDrift3 {
+          0%,
+          100% {
+            transform: translateX(-50%) scaleX(1) translateY(0px);
+            opacity: 0.35;
+          }
+          50% {
+            transform: translateX(-50%) scaleX(1.03) translateY(6px);
+            opacity: 0.65;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .hero-path {
+            width: 760px;
+          }
+
+          .hero-path-2 {
+            width: 860px;
+          }
+
+          .hero-path-3 {
+            width: 640px;
+          }
+        }
+      `}</style>
     </section>
   )
 }
