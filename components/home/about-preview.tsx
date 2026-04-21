@@ -1,14 +1,13 @@
 "use client"
 
-import Link from "next/link"
 import Image from "next/image"
-import { ArrowUpRight, Sparkles } from "lucide-react"
+import { Sparkles, ArrowUpRight } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
-import { Anton, Poppins } from "next/font/google"
+import { Raleway, Poppins } from "next/font/google"
 
-const anton = Anton({
+const raleway = Raleway({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["800"],
 })
 
 const poppins = Poppins({
@@ -53,16 +52,17 @@ export function AboutPreview() {
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:72px_72px] opacity-20" />
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 flex flex-col gap-6 lg:mb-14 lg:flex-row lg:items-start lg:justify-between">
+        {/* Top heading area */}
+        <div className="mb-10 flex flex-col items-center text-center lg:mb-14">
           <div className="max-w-6xl">
             <ScrollReveal>
-              <div className="mb-5 flex items-center gap-3">
+              <div className="mb-5 flex items-center justify-center gap-3">
                 <div className="flex h-9 w-9 items-center justify-center text-[#d7ff00]">
                   <Sparkles className="h-7 w-7 fill-current" />
                 </div>
 
                 <span
-                  className={`${anton.className} text-sm uppercase tracking-[0.08em] text-white md:text-base`}
+                  className={`${raleway.className} text-sm uppercase tracking-[0.08em] text-white md:text-base`}
                 >
                   What We Do
                 </span>
@@ -71,28 +71,15 @@ export function AboutPreview() {
 
             <ScrollReveal delay={100}>
               <h2
-                className={`${anton.className} max-w-[1500px] text-[60px] uppercase leading-[0.9] tracking-[-0.03em] text-white md:text-[64px] lg:text-[64px] xl:text-[64px]`}
+                className={`${raleway.className} mx-auto max-w-[1500px] text-center text-[60px] leading-[0.9] tracking-[-0.03em] text-white md:text-[64px] lg:text-[64px] xl:text-[64px]`}
               >
                 Where Content, Commerce, and Creators Power Brands to the Spotlight
               </h2>
             </ScrollReveal>
           </div>
-
-          <ScrollReveal delay={150}>
-            <div className="shrink-0 lg:pt-4">
-              <Link
-                href="/services"
-                className={`${anton.className} inline-flex items-center gap-4 border-2 border-[#d7ff00] px-6 py-4 text-sm uppercase tracking-[0.12em] text-white transition hover:bg-[#d7ff00] hover:text-black md:px-8 md:py-5 md:text-base`}
-              >
-                All Services
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-black">
-                  <ArrowUpRight className="h-4 w-4" />
-                </span>
-              </Link>
-            </div>
-          </ScrollReveal>
         </div>
 
+        {/* Services grid stays the same */}
         <div className="grid gap-6 lg:grid-cols-3 xl:gap-10">
           {services.map((service, index) => {
             const isFeatured = service.featured
@@ -109,18 +96,18 @@ export function AboutPreview() {
                       <>
                         <div className="mb-7 flex items-start justify-between gap-4">
                           <h3
-                            className={`${anton.className} max-w-[68%] text-[32px] uppercase leading-[0.95] tracking-[-0.02em]`}
+                            className={`${raleway.className} max-w-[68%] text-[32px] leading-[0.95] tracking-[-0.02em]`}
                           >
                             {service.title}
                           </h3>
 
-                          <Link
+                          <a
                             href={service.href}
                             className="mt-1 flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#7f2064] text-white transition duration-300 group-hover:scale-105"
                             aria-label={`View ${service.title}`}
                           >
                             <ArrowUpRight className="h-11 w-11" strokeWidth={2.3} />
-                          </Link>
+                          </a>
                         </div>
 
                         <div className="mb-6 h-px bg-white/12" />
@@ -147,18 +134,18 @@ export function AboutPreview() {
 
                         <div className="mt-8 flex items-end justify-between gap-4">
                           <h3
-                            className={`${anton.className} max-w-[72%] text-[32px] uppercase leading-[0.95] tracking-[-0.02em]`}
+                            className={`${raleway.className} max-w-[72%] text-[32px] leading-[0.95] tracking-[-0.02em]`}
                           >
                             {service.title}
                           </h3>
 
-                          <Link
+                          <a
                             href={service.href}
                             className="flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#7f2064] text-white transition duration-300 group-hover:scale-105"
                             aria-label={`View ${service.title}`}
                           >
                             <ArrowUpRight className="h-11 w-11" strokeWidth={2.3} />
-                          </Link>
+                          </a>
                         </div>
 
                         <p
