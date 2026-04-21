@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Facebook, Instagram, Play, Youtube } from "lucide-react"
+import { Facebook, Instagram, Play, Youtube } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 const stats = [
@@ -23,28 +23,24 @@ export function HeroSectionSimple() {
   const t =
     language === "zh"
       ? {
-          navCta: "开启项目",
           titleTop: "ALIGNING THE",
           titleBottom: "STARS FOR DIGITAL SUCCESS",
           description:
             "Star Digital Solutions combines strategy, content, commerce, and creator-led execution to help brands grow with clarity and momentum.",
           primary: "See Our Works",
-          socialLabel: "Follow us",
           bottomText: "We don’t just imagine results — we deliver them.",
         }
       : {
-          navCta: "Start a Project",
           titleTop: "ALIGNING THE",
           titleBottom: "STARS FOR DIGITAL SUCCESS",
           description:
             "Star Digital Solutions combines strategy, content, commerce, and creator-led execution to help brands grow with clarity and momentum.",
           primary: "See Our Works",
-          socialLabel: "Follow us",
           bottomText: "We don’t just imagine results — we deliver them.",
         }
 
   return (
-    <section className="relative overflow-hidden bg-[#070707] text-white">
+    <section className="relative min-h-screen overflow-hidden bg-[#070707] text-white">
       {/* BACKGROUND */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[#070707]" />
@@ -56,58 +52,11 @@ export function HeroSectionSimple() {
         <div className="hero-pattern absolute -left-[12%] top-[4%] h-[78%] w-[72%]" />
       </div>
 
-      {/* HEADER */}
-      <header className="relative z-20 px-4 pt-5 md:px-8 lg:px-10">
-        <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-6 rounded-full border border-white/10 bg-black/20 px-4 py-4 backdrop-blur-sm md:px-6">
-          <div className="flex items-center gap-3">
-            <div className="grid h-11 w-11 place-items-center rounded-full bg-[#d7ff00] text-black shadow-[0_0_30px_rgba(215,255,0,0.25)]">
-              <div className="h-5 w-5 rounded-full border-[5px] border-black border-r-transparent border-b-transparent rotate-45" />
-            </div>
-            <div className="text-[28px] font-black uppercase tracking-tight">
-              <span className="text-[#d7ff00]">Star</span>{" "}
-              <span className="text-white">Digital</span>
-            </div>
-          </div>
-
-          <nav className="hidden items-center gap-8 lg:flex">
-            {["Home", "About", "Services", "Work", "Contact Us"].map((item) => (
-              <Link
-                key={item}
-                href={
-                  item === "Home"
-                    ? "/"
-                    : item === "About"
-                      ? "/about"
-                      : item === "Services"
-                        ? "/services"
-                        : item === "Work"
-                          ? "/portfolio"
-                          : "/contact"
-                }
-                className={`text-[15px] font-extrabold uppercase tracking-wide transition-colors ${
-                  item === "Home" ? "text-[#d7ff00]" : "text-white hover:text-[#d7ff00]"
-                }`}
-              >
-                {item}
-              </Link>
-            ))}
-          </nav>
-
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-full bg-[#d7ff00] px-5 py-3 text-[13px] font-black uppercase tracking-wide text-black transition-transform duration-300 hover:scale-[1.03]"
-          >
-            {t.navCta}
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </div>
-      </header>
-
       {/* HERO */}
-      <div className="relative z-10 px-4 pb-10 pt-10 md:px-8 md:pb-14 md:pt-14 lg:px-10 lg:pb-0">
-        <div className="mx-auto grid min-h-[calc(100vh-120px)] max-w-[1600px] grid-cols-1 items-end gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(520px,0.85fr)]">
+      <div className="relative z-10 px-4 pb-10 pt-10 md:px-8 md:pb-14 md:pt-12 lg:px-10 lg:pb-0 lg:pt-8">
+        <div className="mx-auto grid min-h-screen max-w-[1600px] grid-cols-1 items-end gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(520px,0.85fr)]">
           {/* LEFT */}
-          <div className="relative z-20 flex h-full flex-col justify-between pt-4 lg:pt-6">
+          <div className="relative z-20 flex h-full flex-col justify-between pt-6 lg:pt-10">
             <div className="max-w-[980px]">
               <h1 className="font-black uppercase leading-[0.86] tracking-[-0.05em] text-[#d7ff00]">
                 <span className="block text-[64px] sm:text-[86px] md:text-[118px] lg:text-[138px] xl:text-[168px]">
@@ -119,8 +68,8 @@ export function HeroSectionSimple() {
               </h1>
 
               <div className="mt-8 flex flex-col gap-8 xl:flex-row xl:items-end xl:justify-between">
-                {/* SOCIAL + TEXT */}
                 <div className="flex gap-5">
+                  {/* SOCIALS */}
                   <div className="flex flex-col gap-4">
                     <Link
                       href="#"
@@ -145,6 +94,7 @@ export function HeroSectionSimple() {
                     </Link>
                   </div>
 
+                  {/* DESCRIPTION + CTA */}
                   <div className="max-w-[520px] pt-1">
                     <p className="text-[21px] leading-[1.55] text-white/78 md:text-[24px]">
                       {t.description}
