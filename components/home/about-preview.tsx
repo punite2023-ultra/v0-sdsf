@@ -112,7 +112,7 @@ export function AboutPreview() {
               <span
                 className={`${raleway.className} text-primary text-base font-semibold uppercase tracking-[0.14em]`}
               >
-                What We Do
+                Who We Are
               </span>
             </ScrollReveal>
 
@@ -120,23 +120,24 @@ export function AboutPreview() {
               <h2
                 className={`${raleway.className} mt-4 mb-6 text-3xl font-extrabold md:text-4xl lg:text-5xl`}
               >
-                We Transform Brands Through Digital Strategy
+                We provide a space where content, commerce, and creators power brands to the spotlight.
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
               <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
-                Star Digital Solutions Inc. helps brands grow in today’s
-                fast-moving digital landscape through strategic marketing,
-                creative content, and platform management.
+                At Star Digital Solutions, we transform strategy into growth—leveraging e-commerce, 
+                creator partnerships, affiliate marketing, and multi-channel networks 
+                to drive measurable performance.
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={300}>
               <p className="mb-8 leading-relaxed text-muted-foreground">
-                Our team delivers data-driven solutions that strengthen brand
-                presence, increase engagement, and drive measurable results
-                across digital channels.
+                From established brands to emerging stars, we create campaigns designed not 
+                just to shine—but to convert, scale, and lead.  Built for brands ready to move 
+                faster and stand out in today’s digital landscape.
+
               </p>
             </ScrollReveal>
 
