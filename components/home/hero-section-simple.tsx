@@ -1,144 +1,179 @@
 "use client"
 
-import { useMemo, useState, useEffect } from "react"
+import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
+import { motion } from "framer-motion"
+import { useLanguage } from "@/lib/language-context"
 
-type Brand = {
-  name: string
-  logo: string
-}
+export function HeroSectionSimple() {
+  const { language } = useLanguage()
 
-const allBrands: Brand[] = [
-  { name: "Logoipsum One", logo: "https://logoipsum.com/300.svg?text=Logoipsum+One" },
-  { name: "Logoipsum Two", logo: "https://logoipsum.com/301.svg?text=Logoipsum+Two" },
-  { name: "Logoipsum Three", logo: "https://logoipsum.com/302.svg?text=Logoipsum+Three" },
-  { name: "Logoipsum Four", logo: "https://logoipsum.com/303.svg?text=Logoipsum+Four" },
-  { name: "Logoipsum Five", logo: "https://logoipsum.com/304.svg?text=Logoipsum+Five" },
-  { name: "Logoipsum Six", logo: "https://logoipsum.com/305.svg?text=Logoipsum+Six" },
-  { name: "Logoipsum Seven", logo: "https://logoipsum.com/306.svg?text=Logoipsum+Seven" },
-  { name: "Logoipsum Eight", logo: "https://logoipsum.com/307.svg?text=Logoipsum+Eight" },
-
-  { name: "Logoipsum Nine", logo: "https://logoipsum.com/308.svg?text=Logoipsum+Nine" },
-  { name: "Logoipsum Ten", logo: "https://logoipsum.com/309.svg?text=Logoipsum+Ten" },
-  { name: "Logoipsum Eleven", logo: "https://logoipsum.com/310.svg?text=Logoipsum+Eleven" },
-  { name: "Logoipsum Twelve", logo: "https://logoipsum.com/311.svg?text=Logoipsum+Twelve" },
-  { name: "Logoipsum Thirteen", logo: "https://logoipsum.com/312.svg?text=Logoipsum+Thirteen" },
-  { name: "Logoipsum Fourteen", logo: "https://logoipsum.com/313.svg?text=Logoipsum+Fourteen" },
-  { name: "Logoipsum Fifteen", logo: "https://logoipsum.com/314.svg?text=Logoipsum+Fifteen" },
-  { name: "Logoipsum Sixteen", logo: "https://logoipsum.com/315.svg?text=Logoipsum+Sixteen" },
-
-  { name: "Logoipsum Seventeen", logo: "https://logoipsum.com/316.svg?text=Logoipsum+Seventeen" },
-  { name: "Logoipsum Eighteen", logo: "https://logoipsum.com/317.svg?text=Logoipsum+Eighteen" },
-  { name: "Logoipsum Nineteen", logo: "https://logoipsum.com/318.svg?text=Logoipsum+Nineteen" },
-  { name: "Logoipsum Twenty", logo: "https://logoipsum.com/319.svg?text=Logoipsum+Twenty" },
-  { name: "Logoipsum Twenty One", logo: "https://logoipsum.com/320.svg?text=Logoipsum+Twenty+One" },
-  { name: "Logoipsum Twenty Two", logo: "https://logoipsum.com/321.svg?text=Logoipsum+Twenty+Two" },
-  { name: "Logoipsum Twenty Three", logo: "https://logoipsum.com/322.svg?text=Logoipsum+Twenty+Three" },
-  { name: "Logoipsum Twenty Four", logo: "https://logoipsum.com/323.svg?text=Logoipsum+Twenty+Four" },
-]
-
-function LogoCard({ brand }: { brand: Brand }) {
-  const fallback =
-    "data:image/svg+xml;utf8," +
-    encodeURIComponent(`
-      <svg xmlns="http://www.w3.org/2000/svg" width="220" height="70" viewBox="0 0 220 70">
-        <rect width="220" height="70" rx="14" fill="transparent"/>
-        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-          fill="white" fill-opacity="0.9" font-family="Arial, Helvetica, sans-serif"
-          font-size="20" font-weight="700">
-          ${brand.name}
-        </text>
-      </svg>
-    `)
+  const t =
+    language === "zh"
+      ? {
+          eyebrow: "STAR DIGITAL SOLUTIONS",
+          titleTop: "A new star",
+          titleBottom: "is entering the digital orbit.",
+          description:
+            "We help brands scale through e-commerce strategy, creator partnerships, affiliate marketing, and digital growth systems built for modern commerce.",
+          primary: "Work With Us",
+          secondary: "View Our Story",
+          stat1: "Creators",
+          stat2: "Campaigns",
+          stat3: "Growth Systems",
+        }
+      : {
+          eyebrow: "STAR DIGITAL SOLUTIONS",
+          titleTop: "A new star",
+          titleBottom: "is entering the digital orbit.",
+          description:
+            "We help brands scale through e-commerce strategy, creator partnerships, affiliate marketing, and digital growth systems built for modern commerce.",
+          primary: "Work With Us",
+          secondary: "View Our Story",
+          stat1: "Creators",
+          stat2: "Campaigns",
+          stat3: "Growth Systems",
+        }
 
   return (
-    <div className="group flex items-center justify-center px-4 opacity-70 transition duration-300 hover:opacity-100">
-      <div className="flex h-12 w-[170px] items-center justify-center grayscale transition duration-300 group-hover:grayscale-0">
-        <img
-          src={brand.logo}
-          alt={brand.name}
-          className="max-h-full max-w-full object-contain"
-          loading="lazy"
-          onError={(e) => {
-            const target = e.currentTarget
-            target.onerror = null
-            target.src = fallback
-          }}
-        />
+    <section className="relative overflow-hidden bg-black text-white">
+      {/* Background glow */}
+      <div className="absolute inset-0">
+        <div className="absolute left-[-10%] top-[-10%] h-[420px] w-[420px] rounded-full bg-fuchsia-600/20 blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] h-[420px] w-[420px] rounded-full bg-violet-500/20 blur-[140px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_35%),linear-gradient(to_bottom,rgba(255,255,255,0.03),transparent_35%)]" />
+        <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] [background-size:120px_120px]" />
       </div>
-    </div>
-  )
-}
 
-export function BrandShowcaseSlider() {
-  const [page, setPage] = useState(0)
+      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-between px-6 pb-10 pt-28 sm:px-8 lg:px-12 lg:pt-36">
+        <div className="grid items-end gap-16 lg:grid-cols-[1.15fr_0.85fr]">
+          {/* Left content */}
+          <div className="max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.28em] text-white/70 backdrop-blur-sm"
+            >
+              <span className="inline-block h-2 w-2 rounded-full bg-fuchsia-400" />
+              {t.eyebrow}
+            </motion.div>
 
-  const itemsPerPage = 8
-  const totalPages = Math.ceil(allBrands.length / itemsPerPage)
+            <motion.h1
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.08 }}
+              className="max-w-5xl text-[clamp(3.25rem,9vw,7.5rem)] font-semibold leading-[0.9] tracking-[-0.05em]"
+            >
+              <span className="block">{t.titleTop}</span>
+              <span className="block text-white/90">{t.titleBottom}</span>
+            </motion.h1>
 
-  const visibleBrands = useMemo(() => {
-    const start = page * itemsPerPage
-    return allBrands.slice(start, start + itemsPerPage)
-  }, [page])
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPage((prev) => (prev + 1) % totalPages)
-    }, 3500)
-
-    return () => clearInterval(interval)
-  }, [totalPages])
-
-  return (
-    <section className="relative bg-[#080015] px-4 py-14 md:px-8 md:py-20">
-      <div className="mx-auto max-w-7xl">
-        <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.02)_100%)] px-6 py-10 shadow-[0_25px_80px_rgba(0,0,0,0.35)] md:px-10 md:py-14 lg:px-14 lg:py-16">
-          <div className="pointer-events-none absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-fuchsia-400/20 blur-[100px]" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(180,124,253,0.10),transparent_35%)]" />
-          <div className="pointer-events-none absolute left-0 right-0 top-[58%] h-px bg-white/6" />
-
-          <div className="relative z-10">
-            <div className="mx-auto max-w-4xl text-center">
-              <h2 className="text-balance text-3xl font-extrabold leading-tight tracking-[-0.04em] text-white sm:text-4xl md:text-5xl lg:text-[56px]">
-                Trusted By Leading Brands
-              </h2>
-
-              <p className="mt-4 text-lg text-white/70 md:text-xl">
-                Partnered with Brands That Shape the Market
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.16 }}
+              className="mt-8 max-w-xl"
+            >
+              <p className="text-sm leading-7 text-white/68 sm:text-base sm:leading-8">
+                {t.description}
               </p>
+            </motion.div>
 
-              <p className="mt-6 text-sm leading-relaxed text-white/60 md:text-base">
-                We’ve worked with a growing portfolio of brands across beauty, personal care,
-                FMCG, fashion, tech, and lifestyle.
-              </p>
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.24 }}
+              className="mt-10 flex flex-col gap-4 sm:flex-row"
+            >
+              <Link
+                href="/contact"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:scale-[1.02]"
+              >
+                {t.primary}
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
 
-              <p className="mt-6 text-sm leading-relaxed text-white/60 md:text-base">
-                From household names to fast-rising challengers, we help brands launch,
-                scale, and perform across the platforms that matter most.
-              </p>
-            </div>
-
-            <div className="mt-12 grid grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-y-12">
-              {visibleBrands.map((brand, index) => (
-                <LogoCard key={`${brand.name}-${page}-${index}`} brand={brand} />
-              ))}
-            </div>
-
-            <div className="mt-12 flex items-center justify-center gap-3">
-              {Array.from({ length: totalPages }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setPage(index)}
-                  className={`h-3 rounded-full transition-all duration-300 ${
-                    page === index
-                      ? "w-10 bg-[linear-gradient(90deg,#B47CFD_0%,#FF2D8D_100%)] shadow-[0_0_12px_rgba(255,45,141,0.6)]"
-                      : "w-3 bg-white/30 hover:bg-white/50"
-                  }`}
-                  aria-label={`Go to page ${index + 1}`}
-                />
-              ))}
-            </div>
+              <Link
+                href="/about/our-story"
+                className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-medium text-white/88 backdrop-blur-sm transition hover:bg-white/10"
+              >
+                {t.secondary}
+              </Link>
+            </motion.div>
           </div>
+
+          {/* Right visual card */}
+          <motion.div
+            initial={{ opacity: 0, y: 36 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: "easeOut", delay: 0.12 }}
+            className="relative lg:ml-auto lg:w-full lg:max-w-[460px]"
+          >
+            <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-fuchsia-500/10" />
+
+              <div className="relative space-y-10">
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.24em] text-white/45">
+                    Digital Growth Platform
+                  </p>
+                  <p className="mt-4 max-w-sm text-2xl font-medium leading-tight text-white/92">
+                    Where strategy, creators, commerce, and content move in one orbit.
+                  </p>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-3 sm:gap-3">
+                  <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+                    <div className="text-2xl font-semibold tracking-[-0.04em]">01</div>
+                    <div className="mt-2 text-xs uppercase tracking-[0.18em] text-white/45">
+                      {t.stat1}
+                    </div>
+                  </div>
+
+                  <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+                    <div className="text-2xl font-semibold tracking-[-0.04em]">02</div>
+                    <div className="mt-2 text-xs uppercase tracking-[0.18em] text-white/45">
+                      {t.stat2}
+                    </div>
+                  </div>
+
+                  <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+                    <div className="text-2xl font-semibold tracking-[-0.04em]">03</div>
+                    <div className="mt-2 text-xs uppercase tracking-[0.18em] text-white/45">
+                      {t.stat3}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-dashed border-white/12 p-5">
+                  <p className="text-sm leading-7 text-white/62">
+                    Built for brands ready to scale on digital platforms that move fast.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
+
+        {/* Bottom strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.28 }}
+          className="mt-16 flex flex-col gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <p className="max-w-md text-xs uppercase tracking-[0.22em] text-white/40">
+            Aligning the stars for your digital success
+          </p>
+
+          <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.18em] text-white/50">
+            <span className="rounded-full border border-white/10 px-3 py-2">E-commerce</span>
+            <span className="rounded-full border border-white/10 px-3 py-2">Affiliate</span>
+            <span className="rounded-full border border-white/10 px-3 py-2">Creators</span>
+            <span className="rounded-full border border-white/10 px-3 py-2">Campaigns</span>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
