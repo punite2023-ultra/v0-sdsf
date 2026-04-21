@@ -16,6 +16,9 @@ import {
   Star,
   Users,
   Video,
+  Network,
+  Target,
+  LineChart,
 } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
@@ -24,58 +27,58 @@ import { useLanguage } from "@/lib/language-context"
 
 const serviceCards = [
   {
-    titleEn: "Social Media Marketing",
-    titleZh: "社交媒体营销",
+    titleEn: "Affiliate & Influencer Marketing",
+    titleZh: "联盟与达人营销",
     descEn:
-      "We build platform-first campaigns that grow awareness, sharpen positioning, and turn audience attention into measurable momentum.",
+      "We connect brands with high-impact creators and affiliate partners to build campaigns that convert attention into measurable sales.",
     descZh:
-      "我们打造以平台为核心的营销活动，提升品牌认知、强化定位，并将流量转化为可衡量的增长。",
-    icon: Megaphone,
-  },
-  {
-    titleEn: "Content Creation & Branding",
-    titleZh: "内容创作与品牌建设",
-    descEn:
-      "From creative concepts to branded visual systems, we craft content that feels clear, premium, and built to perform.",
-    descZh:
-      "从创意概念到品牌视觉系统，我们打造清晰、高级且具转化力的内容表达。",
-    icon: PenTool,
-  },
-  {
-    titleEn: "E-Commerce Strategy & Management",
-    titleZh: "电商策略与管理",
-    descEn:
-      "We help brands optimize storefronts, sales moments, campaign planning, and day-to-day execution across fast-moving commerce platforms.",
-    descZh:
-      "我们帮助品牌优化店铺、销售节点、活动规划与日常执行，提升电商平台整体表现。",
-    icon: ShoppingBag,
-  },
-  {
-    titleEn: "Influencer & Affiliate Marketing",
-    titleZh: "达人与联盟营销",
-    descEn:
-      "We connect brands with the right creators, affiliates, and content ecosystems to drive visibility, trust, and conversion.",
-    descZh:
-      "我们帮助品牌连接合适的达人、联盟伙伴与内容生态，提升曝光、信任与转化。",
+      "我们帮助品牌连接高影响力达人与联盟伙伴，打造将关注转化为可衡量销售的营销活动。",
     icon: Users,
   },
   {
-    titleEn: "Live Streaming Services",
-    titleZh: "直播服务",
+    titleEn: "Multi-Channel Network Management",
+    titleZh: "多渠道网络管理",
     descEn:
-      "From live selling support to stream-ready visuals and campaign planning, we create live commerce systems designed to convert.",
+      "We grow creator ecosystems, manage brand collaborations, and activate talent networks designed to drive long-term digital performance.",
     descZh:
-      "从直播带货支持到直播视觉与活动策划，我们打造以转化为目标的直播增长体系。",
-    icon: Video,
+      "我们帮助发展创作者生态，管理品牌合作，并激活人才网络，以推动长期数字增长表现。",
+    icon: Network,
   },
   {
-    titleEn: "Website Design & Development",
-    titleZh: "网站设计与开发",
+    titleEn: "Brand Campaign Execution",
+    titleZh: "品牌活动执行",
     descEn:
-      "We design and build fast, modern, conversion-focused websites that support stronger brand storytelling and better business results.",
+      "From strategy to rollout, we build campaigns that align creators, content, and commerce into one seamless growth system.",
     descZh:
-      "我们设计并开发现代、快速、以转化为导向的网站，提升品牌表达与商业效果。",
-    icon: Globe,
+      "从策略到落地，我们打造整合达人、内容与商业转化的品牌活动，实现一体化增长。",
+    icon: Megaphone,
+  },
+  {
+    titleEn: "E-Commerce Growth Support",
+    titleZh: "电商增长支持",
+    descEn:
+      "We help brands maximize platform opportunities, optimize campaign performance, and scale during high-volume sale moments.",
+    descZh:
+      "我们帮助品牌把握平台机会，优化活动表现，并在高峰销售节点实现增长。",
+    icon: ShoppingBag,
+  },
+  {
+    titleEn: "Performance Marketing & Analytics",
+    titleZh: "效果营销与数据分析",
+    descEn:
+      "We track campaign results, optimize media performance, and turn real-time insights into smarter growth decisions across every channel.",
+    descZh:
+      "我们追踪活动效果、优化媒体表现，并将实时数据洞察转化为更聪明的增长决策。",
+    icon: LineChart,
+  },
+  {
+    titleEn: "Strategic Brand Partnerships",
+    titleZh: "战略品牌合作",
+    descEn:
+      "We build collaboration opportunities between brands, creators, and platforms to unlock stronger reach, deeper engagement, and sustainable growth.",
+    descZh:
+      "我们搭建品牌、创作者与平台之间的合作机会，带来更广覆盖、更深互动与可持续增长。",
+    icon: Target,
   },
 ]
 
@@ -169,7 +172,7 @@ function ServiceCard({
   return (
     <div className="group rounded-[22px] border border-white/10 bg-white/[0.03] p-3 transition-all duration-300 hover:-translate-y-1 hover:border-pink-400/40 hover:bg-white/[0.045]">
       <div className="rounded-[18px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-6 md:p-7">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10">
+        <div className="flex h-12 w-12 items-center justify-center rounded-[14px] border border-pink-400/25 bg-white/[0.02]">
           <Icon className="h-6 w-6 text-pink-300" />
         </div>
 
@@ -182,9 +185,10 @@ function ServiceCard({
         <div className="mt-7">
           <Link
             href="/contact"
-            className="inline-flex items-center rounded-full bg-[linear-gradient(90deg,#b47cfd,#ff7eb6)] px-5 py-2.5 text-[11px] font-bold tracking-[0.18em] text-white transition hover:scale-[1.03]"
+            className="inline-flex items-center gap-2 rounded-full bg-[linear-gradient(90deg,#a855f7,#ec4899,#f59e0b)] px-5 py-2.5 text-[11px] font-bold tracking-[0.18em] text-white transition hover:scale-[1.03]"
           >
             {cta}
+            <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
         </div>
       </div>
@@ -226,14 +230,12 @@ export default function ServicesPage() {
           heroSubtitle:
             "我们帮助品牌通过策略、创意执行、电商支持、达人合作与数字系统实现更清晰、更可持续的增长。",
 
-          introTitle:
-            "推动数字卓越增长：发现 Star Digital 的优势。",
+          introTitle: "推动数字卓越增长：发现 Star Digital 的优势。",
           introBody:
             "我们不仅提供单一服务，而是将策略、创意、内容、电商与执行整合成一个高效增长系统，帮助品牌更快启动、更强扩张、持续优化。",
 
           offerLabel: "WHAT WE OFFER",
-          offerTitle:
-            "让策略、内容、商业与创作者协同发力。",
+          offerTitle: "让策略、内容、商业与创作者协同发力。",
           learnMore: "LEARN MORE",
 
           valueLabel: "OUR VALUES",
@@ -242,8 +244,7 @@ export default function ServicesPage() {
           valueBody:
             "我们对结果负责，以透明方式协作，并坚持高标准交付。快速适应、紧密协作、持续进化，是我们推动品牌实现真正增长的方式。",
 
-          partnerTitle:
-            "不只是服务提供者，更是与你并肩增长的合作伙伴。",
+          partnerTitle: "不只是服务提供者，更是与你并肩增长的合作伙伴。",
           partnerBody:
             "我们与品牌并肩工作，深入理解其愿景、挑战与机会，从而打造既有创意张力又可规模化落地的解决方案。",
 
@@ -269,7 +270,8 @@ export default function ServicesPage() {
         }
       : {
           heroEyebrow: "SERVICES",
-          heroTitle: "Growth Services Built Around Content, Commerce, and Creators.",
+          heroTitle:
+            "Growth Services Built Around Content, Commerce, and Creators.",
           heroSubtitle:
             "We help brands move with more clarity and momentum through strategy, creative execution, e-commerce support, affiliate partnerships, and scalable digital systems.",
 
@@ -323,7 +325,6 @@ export default function ServicesPage() {
       <main className="min-h-screen overflow-hidden bg-[#0a0118] text-white">
         <div className="pointer-events-none fixed inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.18)_1px,transparent_1px)] [background-size:56px_56px]" />
 
-        {/* HERO */}
         <section className="relative overflow-hidden pt-24">
           <div className="relative mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
             <div className="relative overflow-hidden rounded-bl-[34px] rounded-br-[34px] border-b border-white/15 bg-[radial-gradient(circle_at_top,rgba(180,124,253,0.24),rgba(10,1,24,0.96)_35%,rgba(10,1,24,1)_72%)] px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
@@ -348,7 +349,6 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* INTRO */}
         <section className="relative py-14 sm:py-16 lg:py-20">
           <div className="mx-auto grid max-w-[1440px] items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8">
             <ScrollReveal>
@@ -414,7 +414,6 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* SERVICES GRID */}
         <section className="relative py-16 sm:py-20 lg:py-24">
           <GradientOrb className="left-1/2 top-10 h-56 w-56 -translate-x-1/2" />
 
@@ -445,7 +444,6 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* VALUE + IMAGE */}
         <section className="relative py-16 sm:py-20 lg:py-24">
           <div className="mx-auto grid max-w-[1440px] items-stretch px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
             <ScrollReveal>
@@ -488,7 +486,6 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* STATS */}
         <section className="relative">
           <div className="bg-[linear-gradient(90deg,#b47cfd_0%,#cf7df0_35%,#ff7eb6_100%)]">
             <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-y-6 px-4 py-8 sm:px-6 md:grid-cols-4 lg:px-8">
@@ -516,7 +513,6 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* FEATURE MOSAIC */}
         <section className="relative py-16 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
             <div className="grid gap-8 lg:grid-cols-[1.15fr_1fr]">
