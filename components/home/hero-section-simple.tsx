@@ -1,8 +1,21 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import Image from "next/image"
+import { ArrowRight, Facebook, Instagram, Play, Youtube } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
+
+const stats = [
+  { value: "250+", label: "Projects Completed" },
+  { value: "80+", label: "Happy Clients" },
+]
+
+const miniAvatars = [
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop&crop=faces",
+  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&h=120&fit=crop&crop=faces",
+  "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=120&h=120&fit=crop&crop=faces",
+  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120&h=120&fit=crop&crop=faces",
+]
 
 export function HeroSectionSimple() {
   const { language } = useLanguage()
@@ -10,275 +23,234 @@ export function HeroSectionSimple() {
   const t =
     language === "zh"
       ? {
-          badge: "WELCOME TO STAR DIGITAL",
-          title: (
-            <>
-             Aligning the Stars 
-              <br />
-              for Your Digital Success
-            </>
-          ),
+          navCta: "开启项目",
+          titleTop: "ALIGNING THE",
+          titleBottom: "STARS FOR DIGITAL SUCCESS",
           description:
-            "Star Digital Solutions helps brands grow through e-commerce strategy, creator partnerships, affiliate marketing, and multi-channel network execution.",
-          primary: "Get Started",
-          secondary: "Learn More",
+            "Star Digital Solutions combines strategy, content, commerce, and creator-led execution to help brands grow with clarity and momentum.",
+          primary: "See Our Works",
+          socialLabel: "Follow us",
+          bottomText: "We don’t just imagine results — we deliver them.",
         }
       : {
-          badge: "WELCOME TO STAR DIGITAL",
-          title: (
-            <>
-              Aligning the Stars 
-              <br />
-              for Your Digital Success
-            </>
-          ),
+          navCta: "Start a Project",
+          titleTop: "ALIGNING THE",
+          titleBottom: "STARS FOR DIGITAL SUCCESS",
           description:
-            "Star Digital Solutions combines strategy, creative execution, and digital growth systems to help brands build a stronger presence and better results.",
-          primary: "Get Started",
-          secondary: "Learn More",
+            "Star Digital Solutions combines strategy, content, commerce, and creator-led execution to help brands grow with clarity and momentum.",
+          primary: "See Our Works",
+          socialLabel: "Follow us",
+          bottomText: "We don’t just imagine results — we deliver them.",
         }
 
   return (
-    <section className="hero-wrap relative overflow-hidden border-b border-white/10 bg-[#080015] text-white">
-      {/* VIDEO */}
+    <section className="relative overflow-hidden bg-[#070707] text-white">
+      {/* BACKGROUND */}
       <div className="absolute inset-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="h-full w-full object-cover opacity-20"
-          poster="/images/hero-fallback.jpg"
-        >
-          <source src="/videos/hero-bg.mp4" type="video/mp4" />
-        </video>
+        <div className="absolute inset-0 bg-[#070707]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(201,255,0,0.08),transparent_28%),radial-gradient(circle_at_70%_18%,rgba(201,255,0,0.05),transparent_22%),linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.18)_100%)]" />
       </div>
 
-      {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_center,rgba(140,69,255,0.16),transparent_22%),linear-gradient(180deg,rgba(8,0,21,0.66)_0%,rgba(8,0,21,0.94)_72%,rgba(8,0,21,1)_100%)]" />
-
-      {/* LIGHT PATHS / FLOW LINES */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-70">
-        <div className="hero-path hero-path-1" />
-        <div className="hero-path hero-path-2" />
-        <div className="hero-path hero-path-3" />
+      {/* DOT / WAVE PATTERN */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.18]">
+        <div className="hero-pattern absolute -left-[12%] top-[4%] h-[78%] w-[72%]" />
       </div>
 
-      {/* GLOW BLOBS */}
-      <div className="pointer-events-none absolute left-1/2 top-[16%] h-[320px] w-[760px] -translate-x-1/2 rounded-full bg-fuchsia-500/10 blur-[140px]" />
-      <div className="pointer-events-none absolute left-1/2 top-[10%] h-[180px] w-[300px] -translate-x-1/2 rounded-full bg-violet-500/20 blur-[90px]" />
+      {/* HEADER */}
+      <header className="relative z-20 px-4 pt-5 md:px-8 lg:px-10">
+        <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-6 rounded-full border border-white/10 bg-black/20 px-4 py-4 backdrop-blur-sm md:px-6">
+          <div className="flex items-center gap-3">
+            <div className="grid h-11 w-11 place-items-center rounded-full bg-[#d7ff00] text-black shadow-[0_0_30px_rgba(215,255,0,0.25)]">
+              <div className="h-5 w-5 rounded-full border-[5px] border-black border-r-transparent border-b-transparent rotate-45" />
+            </div>
+            <div className="text-[28px] font-black uppercase tracking-tight">
+              <span className="text-[#d7ff00]">Star</span>{" "}
+              <span className="text-white">Digital</span>
+            </div>
+          </div>
 
-      <div className="relative z-10 px-4 pt-28 md:px-8 md:pt-32 lg:pt-[7em]">
-        <div className="mx-auto max-w-[720px]">
-          <div className="px-4 py-16 md:px-8 md:py-20 lg:px-8 lg:py-[7em]">
-            <div className="text-center">
-              {/* BADGE */}
-              <div className="badge-hero inline-flex items-center justify-center rounded-full px-4 py-[7px] text-[10px] font-semibold uppercase tracking-[0.22em] text-white shadow-[0_0_30px_rgba(225,23,138,0.18)] md:px-5 md:text-[11px]">
-                <span className="relative z-[2]">{t.badge}</span>
-              </div>
+          <nav className="hidden items-center gap-8 lg:flex">
+            {["Home", "About", "Services", "Work", "Contact Us"].map((item) => (
+              <Link
+                key={item}
+                href={
+                  item === "Home"
+                    ? "/"
+                    : item === "About"
+                      ? "/about"
+                      : item === "Services"
+                        ? "/services"
+                        : item === "Work"
+                          ? "/portfolio"
+                          : "/contact"
+                }
+                className={`text-[15px] font-extrabold uppercase tracking-wide transition-colors ${
+                  item === "Home" ? "text-[#d7ff00]" : "text-white hover:text-[#d7ff00]"
+                }`}
+              >
+                {item}
+              </Link>
+            ))}
+          </nav>
 
-              {/* TITLE */}
-              <h1 className="hero-title mx-auto mt-6 max-w-5xl text-[42px] font-extrabold leading-[0.92] tracking-[-0.045em] text-white sm:text-[56px] md:text-[68px] lg:text-[78px]">
-                {t.title}
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-full bg-[#d7ff00] px-5 py-3 text-[13px] font-black uppercase tracking-wide text-black transition-transform duration-300 hover:scale-[1.03]"
+          >
+            {t.navCta}
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </div>
+      </header>
+
+      {/* HERO */}
+      <div className="relative z-10 px-4 pb-10 pt-10 md:px-8 md:pb-14 md:pt-14 lg:px-10 lg:pb-0">
+        <div className="mx-auto grid min-h-[calc(100vh-120px)] max-w-[1600px] grid-cols-1 items-end gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(520px,0.85fr)]">
+          {/* LEFT */}
+          <div className="relative z-20 flex h-full flex-col justify-between pt-4 lg:pt-6">
+            <div className="max-w-[980px]">
+              <h1 className="font-black uppercase leading-[0.86] tracking-[-0.05em] text-[#d7ff00]">
+                <span className="block text-[64px] sm:text-[86px] md:text-[118px] lg:text-[138px] xl:text-[168px]">
+                  {t.titleTop}
+                </span>
+                <span className="block text-[64px] sm:text-[86px] md:text-[118px] lg:text-[138px] xl:text-[168px]">
+                  {t.titleBottom}
+                </span>
               </h1>
 
-              {/* DESCRIPTION */}
-              <p className="hero-copy mx-auto mt-5 max-w-[620px] text-[13px] leading-6 text-white/60 sm:text-[14px] sm:leading-7 md:text-[15px]">
-                {t.description}
-              </p>
+              <div className="mt-8 flex flex-col gap-8 xl:flex-row xl:items-end xl:justify-between">
+                {/* SOCIAL + TEXT */}
+                <div className="flex gap-5">
+                  <div className="flex flex-col gap-4">
+                    <Link
+                      href="#"
+                      aria-label="Facebook"
+                      className="grid h-16 w-16 place-items-center rounded-full border border-white/30 text-white transition-all hover:border-[#d7ff00] hover:text-[#d7ff00]"
+                    >
+                      <Facebook className="h-6 w-6" />
+                    </Link>
+                    <Link
+                      href="#"
+                      aria-label="Instagram"
+                      className="grid h-16 w-16 place-items-center rounded-full border border-white/30 text-white transition-all hover:border-[#d7ff00] hover:text-[#d7ff00]"
+                    >
+                      <Instagram className="h-6 w-6" />
+                    </Link>
+                    <Link
+                      href="#"
+                      aria-label="Youtube"
+                      className="grid h-16 w-16 place-items-center rounded-full border border-white/30 text-white transition-all hover:border-[#d7ff00] hover:text-[#d7ff00]"
+                    >
+                      <Youtube className="h-6 w-6" />
+                    </Link>
+                  </div>
 
-              {/* BUTTONS */}
-              <div className="hero-actions mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <Link
-                  href="/contact"
-                  className="inline-flex min-w-[170px] items-center justify-center rounded-full bg-[linear-gradient(90deg,#B47CFD_0%,#E8178A_100%)] px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_10px_35px_rgba(180,124,253,0.32)]"
-                >
-                  {t.primary}
-                </Link>
+                  <div className="max-w-[520px] pt-1">
+                    <p className="text-[21px] leading-[1.55] text-white/78 md:text-[24px]">
+                      {t.description}
+                    </p>
 
-                <Link
-                  href="/about"
-                  className="inline-flex min-w-[170px] items-center justify-center rounded-full border border-white/25 bg-transparent px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:border-white/40 hover:bg-white/8"
-                >
-                  {t.secondary}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+                    <div className="mt-8 flex flex-wrap items-center gap-4">
+                      <Link
+                        href="/portfolio"
+                        className="inline-flex min-h-[68px] items-center justify-center rounded-full bg-[#d7ff00] px-8 text-[18px] font-black uppercase tracking-wide text-black transition-transform duration-300 hover:scale-[1.03]"
+                      >
+                        {t.primary}
+                      </Link>
+
+                      <Link
+                        href="/about"
+                        aria-label="Play showreel"
+                        className="group relative grid h-[74px] w-[74px] place-items-center rounded-full bg-[radial-gradient(circle_at_center,#a855f7_0%,#7c3aed_55%,#2b1022_100%)] text-white shadow-[0_0_0_12px_rgba(220,38,38,0.18)] transition-transform duration-300 hover:scale-105"
+                      >
+                        <Play className="ml-1 h-7 w-7 fill-current" />
+                        <span className="absolute inset-[-14px] rounded-full border border-red-500/25" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
+            </div>
+
+            {/* BOTTOM INFO */}
+            <div className="mt-12 grid grid-cols-1 gap-10 border-t border-white/10 pt-8 lg:mt-16 lg:grid-cols-[320px_1fr] lg:items-end lg:border-t-0 lg:pt-0">
+              <div>
+                <div className="flex -space-x-3">
+                  {miniAvatars.map((avatar, index) => (
+                    <div
+                      key={index}
+                      className="relative h-16 w-16 overflow-hidden rounded-full border-2 border-black bg-white/10"
+                    >
+                      <Image
+                        src={avatar}
+                        alt={`Avatar ${index + 1}`}
+                        fill
+                        className="object-cover"
+                        sizes="64px"
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                <p className="mt-5 max-w-[260px] text-[18px] leading-[1.4] text-white">
+                  {t.bottomText}
+                </p>
+              </div>
+
+              <div className="grid gap-8 border-l-0 border-white/15 lg:grid-cols-2 lg:border-l lg:pl-10 xl:max-w-[760px]">
+                {stats.map((stat) => (
+                  <div key={stat.label}>
+                    <div className="text-[72px] font-black uppercase leading-none tracking-[-0.05em] text-[#8b5cf6] md:text-[90px]">
+                      {stat.value}
+                    </div>
+                    <div className="mt-3 text-[22px] font-black uppercase leading-[1] tracking-tight text-white">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT IMAGE */}
+          <div className="relative flex min-h-[620px] items-end justify-center lg:min-h-[860px]">
+            <div className="absolute bottom-[8%] right-[7%] h-[68%] w-[58%] rounded-full bg-[#00d0c7]/10 blur-[130px]" />
+            <div className="absolute right-[8%] top-[10%] h-[16%] w-[26%] rounded-full bg-[#d7ff00]/10 blur-[90px]" />
+
+            <div className="relative h-[620px] w-full max-w-[760px] lg:h-[860px]">
+              <Image
+                src="/images/hero-model.png"
+                alt="Star Digital hero visual"
+                fill
+                priority
+                className="object-contain object-bottom"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+              />
             </div>
           </div>
         </div>
       </div>
 
       <style jsx>{`
-        .badge-hero {
-          position: relative;
-          overflow: hidden;
-          border: 1px solid rgba(255, 255, 255, 0.18);
-          background:
-            linear-gradient(
-              90deg,
-              rgba(180, 124, 253, 0.22) 0%,
-              rgba(232, 23, 138, 0.18) 50%,
-              rgba(180, 124, 253, 0.22) 100%
-            );
-          backdrop-filter: blur(10px);
-          animation: badgeFloat 4s ease-in-out infinite;
+        .hero-pattern {
+          background-image:
+            radial-gradient(circle, rgba(255, 255, 255, 0.5) 1.2px, transparent 1.2px),
+            radial-gradient(circle at center, transparent 0, transparent 24%, rgba(255, 255, 255, 0.04) 25%, transparent 26%),
+            radial-gradient(circle at center, transparent 0, transparent 36%, rgba(255, 255, 255, 0.04) 37%, transparent 38%),
+            radial-gradient(circle at center, transparent 0, transparent 48%, rgba(255, 255, 255, 0.04) 49%, transparent 50%);
+          background-size: 16px 16px, 100% 100%, 100% 100%, 100% 100%;
+          mask-image: radial-gradient(circle at 40% 40%, black 0%, rgba(0, 0, 0, 0.95) 42%, transparent 76%);
+          -webkit-mask-image: radial-gradient(circle at 40% 40%, black 0%, rgba(0, 0, 0, 0.95) 42%, transparent 76%);
+          animation: floatPattern 12s ease-in-out infinite;
         }
 
-        .badge-hero::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(
-            120deg,
-            transparent 0%,
-            rgba(255, 255, 255, 0.16) 45%,
-            transparent 70%
-          );
-          transform: translateX(-140%);
-          animation: badgeShine 3.8s ease-in-out infinite;
-        }
-
-        .hero-title {
-          opacity: 0;
-          transform: translateY(22px);
-          filter: blur(10px);
-          animation: heroReveal 0.9s ease forwards;
-          text-wrap: balance;
-        }
-
-        .hero-copy {
-          opacity: 0;
-          transform: translateY(20px);
-          filter: blur(8px);
-          animation: heroReveal 0.9s ease forwards;
-          animation-delay: 0.16s;
-        }
-
-        .hero-actions {
-          opacity: 0;
-          transform: translateY(18px);
-          filter: blur(8px);
-          animation: heroReveal 0.9s ease forwards;
-          animation-delay: 0.28s;
-        }
-
-        .hero-path {
-          position: absolute;
-          left: 50%;
-          width: 1200px;
-          height: 240px;
-          border-radius: 999px;
-          transform: translateX(-50%);
-          border: 1px solid rgba(255, 255, 255, 0.05);
-          filter: blur(0.2px);
-        }
-
-        .hero-path-1 {
-          top: 18%;
-          background:
-            radial-gradient(circle at center, rgba(180, 124, 253, 0.08), transparent 55%);
-          box-shadow:
-            0 0 60px rgba(180, 124, 253, 0.08),
-            inset 0 0 30px rgba(255, 255, 255, 0.02);
-          animation: pathDrift1 11s ease-in-out infinite;
-        }
-
-        .hero-path-2 {
-          top: 28%;
-          width: 1400px;
-          height: 280px;
-          border-color: rgba(255, 255, 255, 0.035);
-          background:
-            radial-gradient(circle at center, rgba(232, 23, 138, 0.06), transparent 58%);
-          animation: pathDrift2 14s ease-in-out infinite;
-        }
-
-        .hero-path-3 {
-          top: 24%;
-          width: 1000px;
-          height: 190px;
-          border-color: rgba(255, 255, 255, 0.04);
-          animation: pathDrift3 9s ease-in-out infinite;
-        }
-
-        @keyframes heroReveal {
-          to {
-            opacity: 1;
-            transform: translateY(0);
-            filter: blur(0);
-          }
-        }
-
-        @keyframes badgeFloat {
+        @keyframes floatPattern {
           0%,
           100% {
-            transform: translateY(0);
+            transform: translate3d(0, 0, 0) scale(1);
           }
           50% {
-            transform: translateY(-2px);
-          }
-        }
-
-        @keyframes badgeShine {
-          0% {
-            transform: translateX(-140%);
-          }
-          50% {
-            transform: translateX(140%);
-          }
-          100% {
-            transform: translateX(140%);
-          }
-        }
-
-        @keyframes pathDrift1 {
-          0%,
-          100% {
-            transform: translateX(-50%) scaleX(1) translateY(0px);
-            opacity: 0.7;
-          }
-          50% {
-            transform: translateX(-50%) scaleX(1.04) translateY(8px);
-            opacity: 1;
-          }
-        }
-
-        @keyframes pathDrift2 {
-          0%,
-          100% {
-            transform: translateX(-50%) scaleX(1) translateY(0px);
-            opacity: 0.45;
-          }
-          50% {
-            transform: translateX(-50%) scaleX(1.06) translateY(-10px);
-            opacity: 0.8;
-          }
-        }
-
-        @keyframes pathDrift3 {
-          0%,
-          100% {
-            transform: translateX(-50%) scaleX(1) translateY(0px);
-            opacity: 0.35;
-          }
-          50% {
-            transform: translateX(-50%) scaleX(1.03) translateY(6px);
-            opacity: 0.65;
-          }
-        }
-
-        @media (max-width: 768px) {
-          .hero-path {
-            width: 760px;
-          }
-
-          .hero-path-2 {
-            width: 860px;
-          }
-
-          .hero-path-3 {
-            width: 640px;
+            transform: translate3d(18px, -10px, 0) scale(1.03);
           }
         }
       `}</style>
