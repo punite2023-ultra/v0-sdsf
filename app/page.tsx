@@ -8,6 +8,7 @@ import { StatsSection } from "@/components/home/stats-section"
 import { TestimonialsSection } from "@/components/home/testimonials-section"
 import { BlogPreview } from "@/components/home/blog-preview"
 import { ClientsMarquee } from "@/components/home/clients-marquee"
+import { FeaturedProjectSection } from "@/components/home/featured-project-section" // ✅ ADD THIS
 
 export default function HomePage() {
   return (
@@ -19,6 +20,10 @@ export default function HomePage() {
         <AboutPreview />
         <ServicesPreview />
         <PortfolioPreview />
+
+        {/* ✅ NEW SECTION */}
+        <FeaturedProjectSection />
+
         <StatsSection />
         <TestimonialsSection />
         <BlogPreview />
