@@ -78,7 +78,7 @@ export function ServicesPreview() {
   const marqueeItems = [...logos, ...logos]
 
   return (
-    <section className="relative overflow-hidden bg-white py-20 text-[#111111] md:py-24 lg:py-28">
+    <section className="relative overflow-hidden bg-white py-16 text-[#111111] md:py-20 lg:py-24">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(110,66,255,0.08),transparent_38%)]" />
 
       <div className="relative mx-auto max-w-[1400px] px-6 md:px-8">
@@ -87,23 +87,31 @@ export function ServicesPreview() {
             Trusted by Brands
           </div>
 
-          <h2 className="mt-6 text-balance text-[40px] font-black leading-[0.95] tracking-[-0.05em] text-[#111111] sm:text-[52px] md:text-[64px] lg:text-[78px]">
+          <h2 className="mt-5 text-balance text-[40px] font-black leading-[0.95] tracking-[-0.05em] text-[#111111] sm:text-[52px] md:text-[64px] lg:text-[78px]">
             Trusted by Leading Organizations Worldwide,
             <br className="hidden md:block" />
             Building a Constellation of High-Performing Brands.
           </h2>
 
-          <p className="mx-auto mt-6 max-w-[760px] text-pretty text-[16px] leading-7 text-[#5f5f5f] md:text-[18px]">
-            From established names to emerging stars, we help brands launch,
-            scale, and shine across the platforms that matter most.
-          </p>
+          <div className="mx-auto mt-5 max-w-[820px] space-y-2">
+            <p className="text-pretty text-[15px] leading-7 text-[#5f5f5f] md:text-[17px]">
+              We collaborate with a constellation of industry leaders and rising
+              market stars across beauty, personal care, FMCG, fashion, tech,
+              and lifestyle.
+            </p>
+
+            <p className="text-pretty text-[13.5px] leading-6 text-[#7a7a7a] md:text-[15px]">
+              From established names to emerging stars, we help brands launch,
+              scale, and shine across the platforms that matter most.
+            </p>
+          </div>
         </div>
 
-        <div className="relative mt-14 md:mt-16">
+        <div className="relative mt-10 md:mt-12">
           <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-white to-transparent md:w-28" />
           <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-white to-transparent md:w-28" />
 
-          <div className="rounded-[28px] border border-[#111111]/8 bg-[#fafafa] py-6 shadow-[0_10px_40px_rgba(0,0,0,0.04)] md:py-8">
+          <div className="rounded-[28px] border border-[#111111]/8 bg-[#fafafa] py-5 shadow-[0_10px_40px_rgba(0,0,0,0.04)] md:py-6">
             <div className="overflow-hidden">
               <div className="marquee-track flex w-max items-center">
                 {marqueeItems.map((logo, index) => (
@@ -117,7 +125,7 @@ export function ServicesPreview() {
 
       <style jsx>{`
         .marquee-track {
-          animation: marquee 30s linear infinite;
+          animation: marquee 42s linear infinite;
         }
 
         .marquee-track:hover {
