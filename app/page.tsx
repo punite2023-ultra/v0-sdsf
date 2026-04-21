@@ -1,31 +1,25 @@
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
-import { HeroSectionSimple } from "@/components/home/hero-section-simple"
-import { BrandShowcaseSlider } from "@/components/home/brand-showcase-slider"
-import { AboutPreview } from "@/components/home/about-preview"
+import { HeroSection } from "@/components/home/hero-section"
 import { ServicesPreview } from "@/components/home/services-preview"
-import { StatsSection } from "@/components/home/stats-section"
+import { AboutPreview } from "@/components/home/about-preview"
 import { PortfolioPreview } from "@/components/home/portfolio-preview"
-import { TrustedPartnerSection } from "@/components/home/trusted-partner-section"
-import { HowItWorksSection } from "@/components/home/how-it-works-section"
-import { FeaturedProjectSection } from "@/components/home/featured-project-section"
+import { StatsSection } from "@/components/home/stats-section"
 import { TestimonialsSection } from "@/components/home/testimonials-section"
 import { BlogPreview } from "@/components/home/blog-preview"
+import { ClientsMarquee } from "@/components/home/clients-marquee"
 
 export default function HomePage() {
   return (
     <>
       <Navigation />
       <main>
-        <HeroSectionSimple />
-        <BrandShowcaseSlider />
+        <HeroSection />
+        <ClientsMarquee />
         <AboutPreview />
         <ServicesPreview />
-        <StatsSection />
         <PortfolioPreview />
-        <HowItWorksSection />
-        <TrustedPartnerSection />
-        <FeaturedProjectSection />
+        <StatsSection />
         <TestimonialsSection />
         <BlogPreview />
       </main>
