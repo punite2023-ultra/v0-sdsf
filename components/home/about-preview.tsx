@@ -73,7 +73,7 @@ export function AboutPreview() {
               <h2
                 className={`${raleway.className} mx-auto max-w-[1500px] text-center text-[60px] leading-[0.9] tracking-[-0.03em] text-white md:text-[64px] lg:text-[64px] xl:text-[64px]`}
               >
-                Where Content, Commerce, and Creators Power Brands to the Spotlight
+                Where Content, Commerce, and Creators Bring Brands into the Spotlight
               </h2>
             </ScrollReveal>
           </div>
