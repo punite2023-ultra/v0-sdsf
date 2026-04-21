@@ -57,23 +57,23 @@ export function AboutPreview() {
           <div className="max-w-6xl">
             <ScrollReveal>
               <div className="mb-5 flex items-center justify-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center text-[#d7ff00]">
+                <div className="flex h-9 w-9 items-center justify-center text-white">
                   <Sparkles className="h-7 w-7 fill-current" />
                 </div>
 
                 <span
                   className={`${raleway.className} text-sm uppercase tracking-[0.08em] text-white md:text-base`}
                 >
-                  What We Do
+                  WHO WE ARE
                 </span>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
               <h2
-                className={`${raleway.className} mx-auto max-w-[1500px] text-center text-[60px] leading-[0.9] tracking-[-0.03em] text-white md:text-[64px] lg:text-[64px] xl:text-[64px]`}
+                className={`${raleway.className} mx-auto max-w-[1500px] text-center text-[60px] leading-[0.9] tracking-[-0.03em] text-white uppercase md:text-[64px] lg:text-[64px] xl:text-[64px]`}
               >
-                Where Content, Commerce, and Creators Bring Brands into the Spotlight
+                WHERE CONTENT, COMMERCE, AND CREATORS BRING BRANDS INTO THE SPOTLIGHT
               </h2>
             </ScrollReveal>
           </div>
