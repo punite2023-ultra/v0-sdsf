@@ -1,287 +1,145 @@
 "use client"
 
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import { useLanguage } from "@/lib/language-context"
+import { useMemo, useState, useEffect } from "react"
 
-export function HeroSectionSimple() {
-  const { language } = useLanguage()
+type Brand = {
+  name: string
+  logo: string
+}
 
-  const t =
-    language === "zh"
-      ? {
-          badge: "WELCOME TO STAR DIGITAL",
-          title: (
-            <>
-             Aligning the Stars 
-              <br />
-              for Your Digital Success
-            </>
-          ),
-          description:
-            "Star Digital Solutions helps brands grow through e-commerce strategy, creator partnerships, affiliate marketing, and multi-channel network execution.",
-          primary: "Get Started",
-          secondary: "Learn More",
-        }
-      : {
-          badge: "WELCOME TO STAR DIGITAL",
-          title: (
-            <>
-              Aligning the Stars 
-              <br />
-              for Your Digital Success
-            </>
-          ),
-          description:
-            "Star Digital Solutions combines strategy, creative execution, and digital growth systems to help brands build a stronger presence and better results.",
-          primary: "Get Started",
-          secondary: "Learn More",
-        }
+const allBrands: Brand[] = [
+  { name: "Logoipsum One", logo: "https://logoipsum.com/300.svg?text=Logoipsum+One" },
+  { name: "Logoipsum Two", logo: "https://logoipsum.com/301.svg?text=Logoipsum+Two" },
+  { name: "Logoipsum Three", logo: "https://logoipsum.com/302.svg?text=Logoipsum+Three" },
+  { name: "Logoipsum Four", logo: "https://logoipsum.com/303.svg?text=Logoipsum+Four" },
+  { name: "Logoipsum Five", logo: "https://logoipsum.com/304.svg?text=Logoipsum+Five" },
+  { name: "Logoipsum Six", logo: "https://logoipsum.com/305.svg?text=Logoipsum+Six" },
+  { name: "Logoipsum Seven", logo: "https://logoipsum.com/306.svg?text=Logoipsum+Seven" },
+  { name: "Logoipsum Eight", logo: "https://logoipsum.com/307.svg?text=Logoipsum+Eight" },
+
+  { name: "Logoipsum Nine", logo: "https://logoipsum.com/308.svg?text=Logoipsum+Nine" },
+  { name: "Logoipsum Ten", logo: "https://logoipsum.com/309.svg?text=Logoipsum+Ten" },
+  { name: "Logoipsum Eleven", logo: "https://logoipsum.com/310.svg?text=Logoipsum+Eleven" },
+  { name: "Logoipsum Twelve", logo: "https://logoipsum.com/311.svg?text=Logoipsum+Twelve" },
+  { name: "Logoipsum Thirteen", logo: "https://logoipsum.com/312.svg?text=Logoipsum+Thirteen" },
+  { name: "Logoipsum Fourteen", logo: "https://logoipsum.com/313.svg?text=Logoipsum+Fourteen" },
+  { name: "Logoipsum Fifteen", logo: "https://logoipsum.com/314.svg?text=Logoipsum+Fifteen" },
+  { name: "Logoipsum Sixteen", logo: "https://logoipsum.com/315.svg?text=Logoipsum+Sixteen" },
+
+  { name: "Logoipsum Seventeen", logo: "https://logoipsum.com/316.svg?text=Logoipsum+Seventeen" },
+  { name: "Logoipsum Eighteen", logo: "https://logoipsum.com/317.svg?text=Logoipsum+Eighteen" },
+  { name: "Logoipsum Nineteen", logo: "https://logoipsum.com/318.svg?text=Logoipsum+Nineteen" },
+  { name: "Logoipsum Twenty", logo: "https://logoipsum.com/319.svg?text=Logoipsum+Twenty" },
+  { name: "Logoipsum Twenty One", logo: "https://logoipsum.com/320.svg?text=Logoipsum+Twenty+One" },
+  { name: "Logoipsum Twenty Two", logo: "https://logoipsum.com/321.svg?text=Logoipsum+Twenty+Two" },
+  { name: "Logoipsum Twenty Three", logo: "https://logoipsum.com/322.svg?text=Logoipsum+Twenty+Three" },
+  { name: "Logoipsum Twenty Four", logo: "https://logoipsum.com/323.svg?text=Logoipsum+Twenty+Four" },
+]
+
+function LogoCard({ brand }: { brand: Brand }) {
+  const fallback =
+    "data:image/svg+xml;utf8," +
+    encodeURIComponent(`
+      <svg xmlns="http://www.w3.org/2000/svg" width="220" height="70" viewBox="0 0 220 70">
+        <rect width="220" height="70" rx="14" fill="transparent"/>
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+          fill="white" fill-opacity="0.9" font-family="Arial, Helvetica, sans-serif"
+          font-size="20" font-weight="700">
+          ${brand.name}
+        </text>
+      </svg>
+    `)
 
   return (
-    <section className="hero-wrap relative overflow-hidden border-b border-white/10 bg-[#080015] text-white">
-      {/* VIDEO */}
-      <div className="absolute inset-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="h-full w-full object-cover opacity-20"
-          poster="/images/hero-fallback.jpg"
-        >
-          <source src="/videos/hero-bg.mp4" type="video/mp4" />
-        </video>
+    <div className="group flex items-center justify-center px-4 opacity-70 transition duration-300 hover:opacity-100">
+      <div className="flex h-12 w-[170px] items-center justify-center grayscale transition duration-300 group-hover:grayscale-0">
+        <img
+          src={brand.logo}
+          alt={brand.name}
+          className="max-h-full max-w-full object-contain"
+          loading="lazy"
+          onError={(e) => {
+            const target = e.currentTarget
+            target.onerror = null
+            target.src = fallback
+          }}
+        />
       </div>
+    </div>
+  )
+}
 
-      {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_center,rgba(140,69,255,0.16),transparent_22%),linear-gradient(180deg,rgba(8,0,21,0.66)_0%,rgba(8,0,21,0.94)_72%,rgba(8,0,21,1)_100%)]" />
+export function BrandShowcaseSlider() {
+  const [page, setPage] = useState(0)
 
-      {/* LIGHT PATHS / FLOW LINES */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-70">
-        <div className="hero-path hero-path-1" />
-        <div className="hero-path hero-path-2" />
-        <div className="hero-path hero-path-3" />
-      </div>
+  const itemsPerPage = 8
+  const totalPages = Math.ceil(allBrands.length / itemsPerPage)
 
-      {/* GLOW BLOBS */}
-      <div className="pointer-events-none absolute left-1/2 top-[16%] h-[320px] w-[760px] -translate-x-1/2 rounded-full bg-fuchsia-500/10 blur-[140px]" />
-      <div className="pointer-events-none absolute left-1/2 top-[10%] h-[180px] w-[300px] -translate-x-1/2 rounded-full bg-violet-500/20 blur-[90px]" />
+  const visibleBrands = useMemo(() => {
+    const start = page * itemsPerPage
+    return allBrands.slice(start, start + itemsPerPage)
+  }, [page])
 
-      <div className="relative z-10 px-4 pt-28 md:px-8 md:pt-32 lg:pt-[7em]">
-        <div className="mx-auto max-w-[720px]">
-          <div className="px-4 py-16 md:px-8 md:py-20 lg:px-8 lg:py-[7em]">
-            <div className="text-center">
-              {/* BADGE */}
-              <div className="badge-hero inline-flex items-center justify-center rounded-full px-4 py-[7px] text-[10px] font-semibold uppercase tracking-[0.22em] text-white shadow-[0_0_30px_rgba(225,23,138,0.18)] md:px-5 md:text-[11px]">
-                <span className="relative z-[2]">{t.badge}</span>
-              </div>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPage((prev) => (prev + 1) % totalPages)
+    }, 3500)
 
-              {/* TITLE */}
-              <h1 className="hero-title mx-auto mt-6 max-w-5xl text-[42px] font-extrabold leading-[0.92] tracking-[-0.045em] text-white sm:text-[56px] md:text-[68px] lg:text-[78px]">
-                {t.title}
-              </h1>
+    return () => clearInterval(interval)
+  }, [totalPages])
 
-              {/* DESCRIPTION */}
-              <p className="hero-copy mx-auto mt-5 max-w-[620px] text-[13px] leading-6 text-white/60 sm:text-[14px] sm:leading-7 md:text-[15px]">
-                {t.description}
+  return (
+    <section className="relative bg-[#080015] px-4 py-14 md:px-8 md:py-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.02)_100%)] px-6 py-10 shadow-[0_25px_80px_rgba(0,0,0,0.35)] md:px-10 md:py-14 lg:px-14 lg:py-16">
+          <div className="pointer-events-none absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-fuchsia-400/20 blur-[100px]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(180,124,253,0.10),transparent_35%)]" />
+          <div className="pointer-events-none absolute left-0 right-0 top-[58%] h-px bg-white/6" />
+
+          <div className="relative z-10">
+            <div className="mx-auto max-w-4xl text-center">
+              <h2 className="text-balance text-3xl font-extrabold leading-tight tracking-[-0.04em] text-white sm:text-4xl md:text-5xl lg:text-[56px]">
+                Trusted By Leading Brands
+              </h2>
+
+              <p className="mt-4 text-lg text-white/70 md:text-xl">
+                Partnered with Brands That Shape the Market
               </p>
 
-              {/* BUTTONS */}
-              <div className="hero-actions mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <Link
-                  href="/contact"
-                  className="inline-flex min-w-[170px] items-center justify-center rounded-full bg-[linear-gradient(90deg,#B47CFD_0%,#E8178A_100%)] px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_10px_35px_rgba(180,124,253,0.32)]"
-                >
-                  {t.primary}
-                </Link>
+              <p className="mt-6 text-sm leading-relaxed text-white/60 md:text-base">
+                We’ve worked with a growing portfolio of brands across beauty, personal care,
+                FMCG, fashion, tech, and lifestyle.
+              </p>
 
-                <Link
-                  href="/about"
-                  className="inline-flex min-w-[170px] items-center justify-center rounded-full border border-white/25 bg-transparent px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:border-white/40 hover:bg-white/8"
-                >
-                  {t.secondary}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </div>
+              <p className="mt-6 text-sm leading-relaxed text-white/60 md:text-base">
+                From household names to fast-rising challengers, we help brands launch,
+                scale, and perform across the platforms that matter most.
+              </p>
+            </div>
+
+            <div className="mt-12 grid grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-y-12">
+              {visibleBrands.map((brand, index) => (
+                <LogoCard key={`${brand.name}-${page}-${index}`} brand={brand} />
+              ))}
+            </div>
+
+            <div className="mt-12 flex items-center justify-center gap-3">
+              {Array.from({ length: totalPages }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setPage(index)}
+                  className={`h-3 rounded-full transition-all duration-300 ${
+                    page === index
+                      ? "w-10 bg-[linear-gradient(90deg,#B47CFD_0%,#FF2D8D_100%)] shadow-[0_0_12px_rgba(255,45,141,0.6)]"
+                      : "w-3 bg-white/30 hover:bg-white/50"
+                  }`}
+                  aria-label={`Go to page ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .badge-hero {
-          position: relative;
-          overflow: hidden;
-          border: 1px solid rgba(255, 255, 255, 0.18);
-          background:
-            linear-gradient(
-              90deg,
-              rgba(180, 124, 253, 0.22) 0%,
-              rgba(232, 23, 138, 0.18) 50%,
-              rgba(180, 124, 253, 0.22) 100%
-            );
-          backdrop-filter: blur(10px);
-          animation: badgeFloat 4s ease-in-out infinite;
-        }
-
-        .badge-hero::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(
-            120deg,
-            transparent 0%,
-            rgba(255, 255, 255, 0.16) 45%,
-            transparent 70%
-          );
-          transform: translateX(-140%);
-          animation: badgeShine 3.8s ease-in-out infinite;
-        }
-
-        .hero-title {
-          opacity: 0;
-          transform: translateY(22px);
-          filter: blur(10px);
-          animation: heroReveal 0.9s ease forwards;
-          text-wrap: balance;
-        }
-
-        .hero-copy {
-          opacity: 0;
-          transform: translateY(20px);
-          filter: blur(8px);
-          animation: heroReveal 0.9s ease forwards;
-          animation-delay: 0.16s;
-        }
-
-        .hero-actions {
-          opacity: 0;
-          transform: translateY(18px);
-          filter: blur(8px);
-          animation: heroReveal 0.9s ease forwards;
-          animation-delay: 0.28s;
-        }
-
-        .hero-path {
-          position: absolute;
-          left: 50%;
-          width: 1200px;
-          height: 240px;
-          border-radius: 999px;
-          transform: translateX(-50%);
-          border: 1px solid rgba(255, 255, 255, 0.05);
-          filter: blur(0.2px);
-        }
-
-        .hero-path-1 {
-          top: 18%;
-          background:
-            radial-gradient(circle at center, rgba(180, 124, 253, 0.08), transparent 55%);
-          box-shadow:
-            0 0 60px rgba(180, 124, 253, 0.08),
-            inset 0 0 30px rgba(255, 255, 255, 0.02);
-          animation: pathDrift1 11s ease-in-out infinite;
-        }
-
-        .hero-path-2 {
-          top: 28%;
-          width: 1400px;
-          height: 280px;
-          border-color: rgba(255, 255, 255, 0.035);
-          background:
-            radial-gradient(circle at center, rgba(232, 23, 138, 0.06), transparent 58%);
-          animation: pathDrift2 14s ease-in-out infinite;
-        }
-
-        .hero-path-3 {
-          top: 24%;
-          width: 1000px;
-          height: 190px;
-          border-color: rgba(255, 255, 255, 0.04);
-          animation: pathDrift3 9s ease-in-out infinite;
-        }
-
-        @keyframes heroReveal {
-          to {
-            opacity: 1;
-            transform: translateY(0);
-            filter: blur(0);
-          }
-        }
-
-        @keyframes badgeFloat {
-          0%,
-          100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-2px);
-          }
-        }
-
-        @keyframes badgeShine {
-          0% {
-            transform: translateX(-140%);
-          }
-          50% {
-            transform: translateX(140%);
-          }
-          100% {
-            transform: translateX(140%);
-          }
-        }
-
-        @keyframes pathDrift1 {
-          0%,
-          100% {
-            transform: translateX(-50%) scaleX(1) translateY(0px);
-            opacity: 0.7;
-          }
-          50% {
-            transform: translateX(-50%) scaleX(1.04) translateY(8px);
-            opacity: 1;
-          }
-        }
-
-        @keyframes pathDrift2 {
-          0%,
-          100% {
-            transform: translateX(-50%) scaleX(1) translateY(0px);
-            opacity: 0.45;
-          }
-          50% {
-            transform: translateX(-50%) scaleX(1.06) translateY(-10px);
-            opacity: 0.8;
-          }
-        }
-
-        @keyframes pathDrift3 {
-          0%,
-          100% {
-            transform: translateX(-50%) scaleX(1) translateY(0px);
-            opacity: 0.35;
-          }
-          50% {
-            transform: translateX(-50%) scaleX(1.03) translateY(6px);
-            opacity: 0.65;
-          }
-        }
-
-        @media (max-width: 768px) {
-          .hero-path {
-            width: 760px;
-          }
-
-          .hero-path-2 {
-            width: 860px;
-          }
-
-          .hero-path-3 {
-            width: 640px;
-          }
-        }
-      `}</style>
     </section>
   )
 }
