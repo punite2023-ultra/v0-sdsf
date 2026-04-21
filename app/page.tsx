@@ -1,6 +1,5 @@
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
-import { HeroSectionSimple } from "@/components/home/hero-section-simple"
 import { HeroSection } from "@/components/home/hero-section"
 import { ServicesPreview } from "@/components/home/services-preview"
 import { AboutPreview } from "@/components/home/about-preview"
@@ -17,7 +16,6 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <ClientsMarquee />
-        <BrandShowcaseSlider />
         <AboutPreview />
         <ServicesPreview />
         <PortfolioPreview />
