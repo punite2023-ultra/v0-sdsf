@@ -87,9 +87,9 @@ export function AboutPreview() {
                     isFeatured ? "bg-[#682e94] text-white" : "bg-[#262626] text-white"
                   }`}
                 >
-                  <div className="p-7 md:p-8">
-                    {!isFeatured && (
-                      <>
+                  {!isFeatured ? (
+                    <>
+                      <div className="p-7 md:p-8">
                         <div className="mb-7 flex items-start justify-between gap-4">
                           <h3
                             className={`${raleway.className} max-w-[68%] text-[32px] leading-[0.95] tracking-[-0.02em]`}
@@ -99,7 +99,7 @@ export function AboutPreview() {
 
                           <a
                             href={service.href}
-                            className="mt-1 flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#7f2064] text-white transition duration-300 group-hover:scale-105"
+                            className="mt-1 flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#8d1b73] text-white transition duration-300 group-hover:scale-105"
                             aria-label={`View ${service.title}`}
                           >
                             <ArrowUpRight className="h-11 w-11" strokeWidth={2.3} />
@@ -113,18 +113,30 @@ export function AboutPreview() {
                         >
                           {service.description}
                         </p>
-                      </>
-                    )}
-                  </div>
+                      </div>
 
-                  {isFeatured ? (
-                    <div className="px-7 pb-7 md:px-8 md:pb-8">
+                      <div className="px-7 pb-7 md:px-8 md:pb-8">
+                        <div className="overflow-hidden">
+                          <Image
+                            src={service.image}
+                            alt={service.title}
+                            width={1200}
+                            height={900}
+                            unoptimized
+                            className="h-[220px] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                          />
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="p-7 md:p-8">
                       <div className="overflow-hidden border-[12px] border-[#682e94] bg-black">
                         <Image
                           src={service.image}
                           alt={service.title}
                           width={1200}
                           height={900}
+                          unoptimized
                           className="h-[260px] w-full object-cover grayscale transition duration-500 group-hover:scale-[1.03]"
                         />
                       </div>
@@ -138,7 +150,7 @@ export function AboutPreview() {
 
                         <a
                           href={service.href}
-                          className="flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#7f2064] text-white transition duration-300 group-hover:scale-105"
+                          className="flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#8d1b73] text-white transition duration-300 group-hover:scale-105"
                           aria-label={`View ${service.title}`}
                         >
                           <ArrowUpRight className="h-11 w-11" strokeWidth={2.3} />
@@ -150,18 +162,6 @@ export function AboutPreview() {
                       >
                         {service.description}
                       </p>
-                    </div>
-                  ) : (
-                    <div className="px-7 pb-7 md:px-8 md:pb-8">
-                      <div className="overflow-hidden">
-                        <Image
-                          src={service.image}
-                          alt={service.title}
-                          width={1200}
-                          height={900}
-                          className="h-[220px] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                        />
-                      </div>
                     </div>
                   )}
                 </article>
