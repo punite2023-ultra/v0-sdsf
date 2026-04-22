@@ -5,6 +5,10 @@ import { Sparkles, ArrowUpRight } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Raleway, Poppins } from "next/font/google"
 
+import image1 from "@/public/Image1.jpg"
+import image2 from "@/public/Image2.jpg"
+import image3 from "@/public/Image3.jpg"
+
 const raleway = Raleway({
   subsets: ["latin"],
   weight: ["800"],
@@ -20,7 +24,7 @@ const services = [
     title: "PERFORMANCE & GROWTH STRATEGY",
     description:
       "At Star Digital Solutions, we transform strategy into growth—leveraging e-commerce, creator partnerships, affiliate marketing, and multi-channel networks to drive measurable performance.",
-    image: "/Image1.jpg",
+    image: image1,
     href: "/services",
     featured: false,
   },
@@ -28,7 +32,7 @@ const services = [
     title: "SCALABLE CAMPAIGN DESIGN",
     description:
       "From established brands to emerging stars, we create campaigns designed not just to shine—but to convert, scale, and lead.",
-    image: "/Image2.jpg",
+    image: image2,
     href: "/services",
     featured: true,
   },
@@ -36,7 +40,7 @@ const services = [
     title: "AGILE DIGITAL INNOVATION",
     description:
       "Built for brands ready to move faster and stand out in today’s digital landscape.",
-    image: "/Image3.jpg",
+    image: image3,
     href: "/services",
     featured: false,
   },
@@ -49,7 +53,6 @@ export function AboutPreview() {
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:72px_72px] opacity-20" />
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
         <div className="mb-10 flex flex-col items-center text-center lg:mb-14">
           <div className="max-w-6xl">
             <ScrollReveal>
@@ -70,13 +73,13 @@ export function AboutPreview() {
               <h2
                 className={`${raleway.className} mx-auto max-w-[1500px] text-center text-[60px] leading-[0.9] tracking-[-0.03em] uppercase md:text-[64px]`}
               >
-                WHERE CONTENT, COMMERCE, AND CREATORS BRING BRANDS INTO THE SPOTLIGHT
+                WHERE CONTENT, COMMERCE, AND CREATORS BRING BRANDS INTO THE
+                SPOTLIGHT
               </h2>
             </ScrollReveal>
           </div>
         </div>
 
-        {/* Grid */}
         <div className="grid gap-6 lg:grid-cols-3 xl:gap-10">
           {services.map((service, index) => {
             const isFeatured = service.featured
@@ -85,7 +88,7 @@ export function AboutPreview() {
               <ScrollReveal key={service.title} delay={index * 120}>
                 <article
                   className={`group overflow-hidden ${
-                    isFeatured ? "bg-[#682e94]" : "bg-[#262626]"
+                    isFeatured ? "bg-[#682e94] text-white" : "bg-[#262626] text-white"
                   }`}
                 >
                   <div className="p-7 md:p-8">
@@ -93,14 +96,15 @@ export function AboutPreview() {
                       <>
                         <div className="mb-7 flex items-start justify-between gap-4">
                           <h3
-                            className={`${raleway.className} max-w-[68%] text-[32px] leading-[0.95]`}
+                            className={`${raleway.className} max-w-[68%] text-[32px] leading-[0.95] tracking-[-0.02em]`}
                           >
                             {service.title}
                           </h3>
 
                           <a
                             href={service.href}
-                            className="mt-1 flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#7f2064] transition duration-300 group-hover:scale-105"
+                            className="mt-1 flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#7f2064] text-white transition duration-300 group-hover:scale-105"
+                            aria-label={`View ${service.title}`}
                           >
                             <ArrowUpRight className="h-11 w-11" strokeWidth={2.3} />
                           </a>
@@ -109,7 +113,7 @@ export function AboutPreview() {
                         <div className="mb-6 h-px bg-white/12" />
 
                         <p
-                          className={`${poppins.className} max-w-[92%] text-[14px] leading-[1.6] text-white/80`}
+                          className={`${poppins.className} max-w-[92%] text-[14px] leading-[1.6] text-white/80 md:text-[15px]`}
                         >
                           {service.description}
                         </p>
@@ -122,29 +126,29 @@ export function AboutPreview() {
                           <Image
                             src={service.image}
                             alt={service.title}
-                            width={1200}
-                            height={900}
                             className="h-[260px] w-full object-cover grayscale transition duration-500 group-hover:scale-[1.03]"
+                            priority={index === 1}
                           />
                         </div>
 
                         <div className="mt-8 flex items-end justify-between gap-4">
                           <h3
-                            className={`${raleway.className} max-w-[72%] text-[32px] leading-[0.95]`}
+                            className={`${raleway.className} max-w-[72%] text-[32px] leading-[0.95] tracking-[-0.02em]`}
                           >
                             {service.title}
                           </h3>
 
                           <a
                             href={service.href}
-                            className="flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#7f2064] transition duration-300 group-hover:scale-105"
+                            className="flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#7f2064] text-white transition duration-300 group-hover:scale-105"
+                            aria-label={`View ${service.title}`}
                           >
                             <ArrowUpRight className="h-11 w-11" strokeWidth={2.3} />
                           </a>
                         </div>
 
                         <p
-                          className={`${poppins.className} mt-5 max-w-[92%] text-[14px] leading-[1.6] text-white/85`}
+                          className={`${poppins.className} mt-5 max-w-[92%] text-[14px] leading-[1.6] text-white/85 md:text-[15px]`}
                         >
                           {service.description}
                         </p>
@@ -158,8 +162,6 @@ export function AboutPreview() {
                         <Image
                           src={service.image}
                           alt={service.title}
-                          width={1200}
-                          height={900}
                           className="h-[220px] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
                         />
                       </div>
