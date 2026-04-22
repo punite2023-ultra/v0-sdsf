@@ -8,7 +8,7 @@ import { StatsSection } from "@/components/home/stats-section"
 import { TestimonialsSection } from "@/components/home/testimonials-section"
 import { BlogPreview } from "@/components/home/blog-preview"
 import { ClientsMarquee } from "@/components/home/clients-marquee"
-import { FeaturedProjectSection } from "@/components/home/featured-project-section" // ✅ ADD THIS
+import { NewsEventsSection } from "@/components/home/featured-project-section"
 
 export default function HomePage() {
   return (
@@ -20,10 +20,7 @@ export default function HomePage() {
         <AboutPreview />
         <ServicesPreview />
         <PortfolioPreview />
-
-        {/* ✅ NEW SECTION */}
-        <FeaturedProjectSection />
-
+        <NewsEventsSection />
         <StatsSection />
         <TestimonialsSection />
         <BlogPreview />
