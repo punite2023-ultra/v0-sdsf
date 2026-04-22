@@ -20,8 +20,7 @@ const services = [
     title: "PERFORMANCE & GROWTH STRATEGY",
     description:
       "At Star Digital Solutions, we transform strategy into growth—leveraging e-commerce, creator partnerships, affiliate marketing, and multi-channel networks to drive measurable performance.",
-    image:
-      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1200&h=900&fit=crop",
+    image: "/Image1.jpg",
     href: "/services",
     featured: false,
   },
@@ -29,8 +28,7 @@ const services = [
     title: "SCALABLE CAMPAIGN DESIGN",
     description:
       "From established brands to emerging stars, we create campaigns designed not just to shine—but to convert, scale, and lead.",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=900&fit=crop",
+    image: "/Image2.jpg",
     href: "/services",
     featured: true,
   },
@@ -38,8 +36,7 @@ const services = [
     title: "AGILE DIGITAL INNOVATION",
     description:
       "Built for brands ready to move faster and stand out in today’s digital landscape.",
-    image:
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=1200&h=900&fit=crop",
+    image: "/Image3.jpg",
     href: "/services",
     featured: false,
   },
@@ -52,7 +49,7 @@ export function AboutPreview() {
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:72px_72px] opacity-20" />
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top heading area */}
+        {/* Heading */}
         <div className="mb-10 flex flex-col items-center text-center lg:mb-14">
           <div className="max-w-6xl">
             <ScrollReveal>
@@ -71,7 +68,7 @@ export function AboutPreview() {
 
             <ScrollReveal delay={100}>
               <h2
-                className={`${raleway.className} mx-auto max-w-[1500px] text-center text-[60px] leading-[0.9] tracking-[-0.03em] text-white uppercase md:text-[64px] lg:text-[64px] xl:text-[64px]`}
+                className={`${raleway.className} mx-auto max-w-[1500px] text-center text-[60px] leading-[0.9] tracking-[-0.03em] uppercase md:text-[64px]`}
               >
                 WHERE CONTENT, COMMERCE, AND CREATORS BRING BRANDS INTO THE SPOTLIGHT
               </h2>
@@ -79,7 +76,7 @@ export function AboutPreview() {
           </div>
         </div>
 
-        {/* Services grid stays the same */}
+        {/* Grid */}
         <div className="grid gap-6 lg:grid-cols-3 xl:gap-10">
           {services.map((service, index) => {
             const isFeatured = service.featured
@@ -88,7 +85,7 @@ export function AboutPreview() {
               <ScrollReveal key={service.title} delay={index * 120}>
                 <article
                   className={`group overflow-hidden ${
-                    isFeatured ? "bg-[#682e94] text-white" : "bg-[#262626] text-white"
+                    isFeatured ? "bg-[#682e94]" : "bg-[#262626]"
                   }`}
                 >
                   <div className="p-7 md:p-8">
@@ -96,15 +93,14 @@ export function AboutPreview() {
                       <>
                         <div className="mb-7 flex items-start justify-between gap-4">
                           <h3
-                            className={`${raleway.className} max-w-[68%] text-[32px] leading-[0.95] tracking-[-0.02em]`}
+                            className={`${raleway.className} max-w-[68%] text-[32px] leading-[0.95]`}
                           >
                             {service.title}
                           </h3>
 
                           <a
                             href={service.href}
-                            className="mt-1 flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#7f2064] text-white transition duration-300 group-hover:scale-105"
-                            aria-label={`View ${service.title}`}
+                            className="mt-1 flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#7f2064] transition duration-300 group-hover:scale-105"
                           >
                             <ArrowUpRight className="h-11 w-11" strokeWidth={2.3} />
                           </a>
@@ -113,7 +109,7 @@ export function AboutPreview() {
                         <div className="mb-6 h-px bg-white/12" />
 
                         <p
-                          className={`${poppins.className} max-w-[92%] text-[14px] leading-[1.6] text-white/82 md:text-[15px]`}
+                          className={`${poppins.className} max-w-[92%] text-[14px] leading-[1.6] text-white/80`}
                         >
                           {service.description}
                         </p>
@@ -134,22 +130,21 @@ export function AboutPreview() {
 
                         <div className="mt-8 flex items-end justify-between gap-4">
                           <h3
-                            className={`${raleway.className} max-w-[72%] text-[32px] leading-[0.95] tracking-[-0.02em]`}
+                            className={`${raleway.className} max-w-[72%] text-[32px] leading-[0.95]`}
                           >
                             {service.title}
                           </h3>
 
                           <a
                             href={service.href}
-                            className="flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#7f2064] text-white transition duration-300 group-hover:scale-105"
-                            aria-label={`View ${service.title}`}
+                            className="flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#7f2064] transition duration-300 group-hover:scale-105"
                           >
                             <ArrowUpRight className="h-11 w-11" strokeWidth={2.3} />
                           </a>
                         </div>
 
                         <p
-                          className={`${poppins.className} mt-5 max-w-[92%] text-[14px] leading-[1.6] text-white/86 md:text-[15px]`}
+                          className={`${poppins.className} mt-5 max-w-[92%] text-[14px] leading-[1.6] text-white/85`}
                         >
                           {service.description}
                         </p>
