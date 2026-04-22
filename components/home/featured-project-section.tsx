@@ -15,15 +15,15 @@ type NewsEvent = {
 
 const newsEvents: NewsEvent[] = [
   {
-    category: "Event Highlights",
+    category: "Creator Insights",
     title: "Creator Advice Spotlight",
     image: "/news-events/event-1.jpg",
     date: "31 Mar 2026",
     location: "Philippines",
     shortDescription:
-      "A motivating content piece centered on showing up, starting imperfectly, and learning through action.",
+      "SDS spotlighted a creator-first message about starting before everything feels perfect and learning through action.",
     fullDescription:
-      "This post highlighted a practical creator mindset: start before everything feels perfect. It reinforces Star Digital Solutions’ belief in progress through action, experimentation, and consistent content creation. Ideal for the News & Events page as a motivational community-facing update that reflects creator development and real-world learning.",
+      "This feature shared a practical content-creation mindset rooted in action, consistency, and progress. Through this post, SDS highlighted the importance of showing up, creating, and improving over time—reflecting the agency’s support for creators and brands growing through real momentum.",
   },
   {
     category: "Event Recap",
@@ -32,9 +32,9 @@ const newsEvents: NewsEvent[] = [
     date: "30 Mar 2026",
     location: "SM Beauty x Watsons BeautyCon",
     shortDescription:
-      "A post-event recap capturing the energy, beauty trends, and brand experience from BeautyCon 2026.",
+      "SDS recapped the excitement of BeautyCon 2026, highlighting the energy, beauty trends, and brand presence from the event.",
     fullDescription:
-      "This recap post looked back at the momentum from BeautyCon 2026, extending the event’s visibility beyond the venue itself. It positions Star Digital Solutions as an active participant in beauty, retail, and consumer-facing brand experiences while keeping the conversation alive after the event.",
+      "This post served as a continuation of the BeautyCon experience, turning live event moments into extended digital visibility. SDS used the recap to reinforce brand relevance, celebrate the atmosphere of the event, and show its connection to beauty, retail, and consumer engagement.",
   },
   {
     category: "On-Ground Coverage",
@@ -43,9 +43,9 @@ const newsEvents: NewsEvent[] = [
     date: "25 Mar 2026",
     location: "Philippines",
     shortDescription:
-      "Star Digital Solutions covered BeautyCon 2026 on-ground, capturing trends, moments, and brand activity.",
+      "SDS went on-ground at BeautyCon 2026 to capture live moments, observe trends, and engage with the beauty community.",
     fullDescription:
-      "This post documented Star Digital Solutions’ presence at Watsons BeautyCon 2026, where the team explored the event floor and engaged with the beauty and lifestyle space. It works well for the News & Events page because it shows real participation, industry presence, and the brand’s connection to live activations and consumer events.",
+      "Through its on-site presence, SDS documented key moments from the event and translated them into content that reflects cultural relevance and real-world brand participation. The post shows SDS not just as a digital agency, but as an active presence in brand spaces where consumer attention is happening live.",
   },
   {
     category: "Brand Experience",
@@ -54,9 +54,9 @@ const newsEvents: NewsEvent[] = [
     date: "24 Mar 2026",
     location: "Philippines",
     shortDescription:
-      "A day of empowerment, connection, and meaningful brand engagement together with AvonPH.",
+      "SDS joined AvonPH for a day centered on empowerment, connection, and meaningful brand-community engagement.",
     fullDescription:
-      "This event-focused post celebrated a collaboration with AvonPH built around connection and empowerment. For the page, it adds a warm and people-centered story that shows Star Digital Solutions participating in purposeful brand experiences, not just campaigns.",
+      "This event highlighted a more human side of brand activation—bringing people together through shared purpose and experience. SDS positioned the moment as more than a simple appearance, but as a meaningful collaboration built around community, values, and engagement.",
   },
   {
     category: "Milestone",
@@ -65,9 +65,9 @@ const newsEvents: NewsEvent[] = [
     date: "24 Mar 2026",
     location: "Philippines",
     shortDescription:
-      "A milestone update recognizing forward momentum, industry trust, and another strong signal of growth.",
+      "SDS shared another milestone that reflects steady growth, industry trust, and continued forward momentum.",
     fullDescription:
-      "This post shared another important milestone for Star Digital Solutions and framed it as a sign that the company is moving in the right direction. It is a strong addition to the News & Events page because it gives visitors proof of momentum, credibility, and continued progress.",
+      "This update captured a key achievement in the company’s journey and framed it as a sign of progress in the right direction. It reinforces the idea that SDS is building credibility through results, consistency, and the trust of the brands and partners it works with.",
   },
   {
     category: "Award Recognition",
@@ -76,9 +76,9 @@ const newsEvents: NewsEvent[] = [
     date: "24 Mar 2026",
     location: "Venice Cineplex",
     shortDescription:
-      "Star Digital Solutions was recognized as MCN Agency of the Year at the TikTok Shop Creator Awards 2026.",
+      "SDS was recognized as MCN Agency of the Year, celebrating its impact in creator commerce and digital growth.",
     fullDescription:
-      "This recognition marked a major achievement for Star Digital Solutions. Being named MCN Agency of the Year at the TikTok Shop Creator Awards 2026 highlights the team’s performance, creativity, and impact in the creator-commerce space. This is one of the strongest proof-point stories to feature on the News & Events page.",
+      "This recognition marked a major achievement for SDS and highlighted the strength of its work in the creator and commerce space. The post communicates leadership, performance, and the agency’s ability to deliver results that stand out at an industry level.",
   },
 ]
 
@@ -161,7 +161,7 @@ export function NewsEventsSection() {
                       </div>
 
                       <div className="pt-5">
-                        <p className="mb-4 text-sm leading-7 text-white/70">
+                        <p className="mb-4 text-sm leading-7 text-white/75">
                           {item.shortDescription}
                         </p>
 
