@@ -17,7 +17,7 @@ const newsEvents: NewsEvent[] = [
   {
     category: "Creator Insights",
     title: "Creator Advice Spotlight",
-    image: "/news-events/event-1.jpg",
+    image: "/news-events/Event-1.jpg",
     date: "31 Mar 2026",
     location: "Philippines",
     shortDescription:
@@ -28,7 +28,7 @@ const newsEvents: NewsEvent[] = [
   {
     category: "Event Recap",
     title: "BeautyCon 2026 Fever",
-    image: "/news-events/event-2.jpg",
+    image: "/news-events/Event-2.jpg",
     date: "30 Mar 2026",
     location: "SM Beauty x Watsons BeautyCon",
     shortDescription:
@@ -39,7 +39,7 @@ const newsEvents: NewsEvent[] = [
   {
     category: "On-Ground Coverage",
     title: "Watsons BeautyCon 2026",
-    image: "/news-events/event-3.jpg",
+    image: "/news-events/Event-3.jpg",
     date: "25 Mar 2026",
     location: "Philippines",
     shortDescription:
@@ -50,7 +50,7 @@ const newsEvents: NewsEvent[] = [
   {
     category: "Brand Experience",
     title: "AvonPH Empowerment Day",
-    image: "/news-events/event-4.jpg",
+    image: "/news-events/Event-4.jpg",
     date: "24 Mar 2026",
     location: "Philippines",
     shortDescription:
@@ -61,7 +61,7 @@ const newsEvents: NewsEvent[] = [
   {
     category: "Milestone",
     title: "Another Milestone for Star Digital",
-    image: "/news-events/event-5.jpg",
+    image: "/news-events/Event-5.jpg",
     date: "24 Mar 2026",
     location: "Philippines",
     shortDescription:
@@ -72,7 +72,7 @@ const newsEvents: NewsEvent[] = [
   {
     category: "Award Recognition",
     title: "MCN Agency of the Year 2026",
-    image: "/news-events/event-6.jpg",
+    image: "/news-events/Event-6.jpg",
     date: "24 Mar 2026",
     location: "Venice Cineplex",
     shortDescription:
