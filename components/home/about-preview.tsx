@@ -5,10 +5,6 @@ import { Sparkles, ArrowUpRight } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Raleway, Poppins } from "next/font/google"
 
-import image1 from "@/public/Image1.jpg"
-import image2 from "@/public/Image2.jpg"
-import image3 from "@/public/Image3.jpg"
-
 const raleway = Raleway({
   subsets: ["latin"],
   weight: ["800"],
@@ -24,7 +20,7 @@ const services = [
     title: "PERFORMANCE & GROWTH STRATEGY",
     description:
       "At Star Digital Solutions, we transform strategy into growth—leveraging e-commerce, creator partnerships, affiliate marketing, and multi-channel networks to drive measurable performance.",
-    image: image1,
+    image: "/Image1.jpg",
     href: "/services",
     featured: false,
   },
@@ -32,7 +28,7 @@ const services = [
     title: "SCALABLE CAMPAIGN DESIGN",
     description:
       "From established brands to emerging stars, we create campaigns designed not just to shine—but to convert, scale, and lead.",
-    image: image2,
+    image: "/Image2.jpg",
     href: "/services",
     featured: true,
   },
@@ -40,7 +36,7 @@ const services = [
     title: "AGILE DIGITAL INNOVATION",
     description:
       "Built for brands ready to move faster and stand out in today’s digital landscape.",
-    image: image3,
+    image: "/Image3.jpg",
     href: "/services",
     featured: false,
   },
@@ -119,49 +115,50 @@ export function AboutPreview() {
                         </p>
                       </>
                     )}
-
-                    {isFeatured && (
-                      <>
-                        <div className="overflow-hidden border-[12px] border-[#682e94] bg-black">
-                          <Image
-                            src={service.image}
-                            alt={service.title}
-                            className="h-[260px] w-full object-cover grayscale transition duration-500 group-hover:scale-[1.03]"
-                            priority={index === 1}
-                          />
-                        </div>
-
-                        <div className="mt-8 flex items-end justify-between gap-4">
-                          <h3
-                            className={`${raleway.className} max-w-[72%] text-[32px] leading-[0.95] tracking-[-0.02em]`}
-                          >
-                            {service.title}
-                          </h3>
-
-                          <a
-                            href={service.href}
-                            className="flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#7f2064] text-white transition duration-300 group-hover:scale-105"
-                            aria-label={`View ${service.title}`}
-                          >
-                            <ArrowUpRight className="h-11 w-11" strokeWidth={2.3} />
-                          </a>
-                        </div>
-
-                        <p
-                          className={`${poppins.className} mt-5 max-w-[92%] text-[14px] leading-[1.6] text-white/85 md:text-[15px]`}
-                        >
-                          {service.description}
-                        </p>
-                      </>
-                    )}
                   </div>
 
-                  {!isFeatured && (
+                  {isFeatured ? (
+                    <div className="px-7 pb-7 md:px-8 md:pb-8">
+                      <div className="overflow-hidden border-[12px] border-[#682e94] bg-black">
+                        <Image
+                          src={service.image}
+                          alt={service.title}
+                          width={1200}
+                          height={900}
+                          className="h-[260px] w-full object-cover grayscale transition duration-500 group-hover:scale-[1.03]"
+                        />
+                      </div>
+
+                      <div className="mt-8 flex items-end justify-between gap-4">
+                        <h3
+                          className={`${raleway.className} max-w-[72%] text-[32px] leading-[0.95] tracking-[-0.02em]`}
+                        >
+                          {service.title}
+                        </h3>
+
+                        <a
+                          href={service.href}
+                          className="flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#7f2064] text-white transition duration-300 group-hover:scale-105"
+                          aria-label={`View ${service.title}`}
+                        >
+                          <ArrowUpRight className="h-11 w-11" strokeWidth={2.3} />
+                        </a>
+                      </div>
+
+                      <p
+                        className={`${poppins.className} mt-5 max-w-[92%] text-[14px] leading-[1.6] text-white/85 md:text-[15px]`}
+                      >
+                        {service.description}
+                      </p>
+                    </div>
+                  ) : (
                     <div className="px-7 pb-7 md:px-8 md:pb-8">
                       <div className="overflow-hidden">
                         <Image
                           src={service.image}
                           alt={service.title}
+                          width={1200}
+                          height={900}
                           className="h-[220px] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
                         />
                       </div>
