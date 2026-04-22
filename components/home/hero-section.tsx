@@ -31,8 +31,8 @@ type Slide = {
 const slides: Slide[] = [
   {
     image: "/HeroImage1.png",
-    line1: "CONTENT CREATION",
-    line2: "& BRANDING",
+    line1: "STAR DIGITAL",
+    line2: "SOLUTIONS",
     color: "#9c003a",
     layout: "default",
   },
