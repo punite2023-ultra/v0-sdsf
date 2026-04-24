@@ -6,8 +6,10 @@ import {
   ArrowLeft,
   ArrowRight,
   Gauge,
+  Handshake,
   Network,
   Play,
+  RadioTower,
   ShoppingBag,
   Sparkles,
 } from "lucide-react"
@@ -37,26 +39,42 @@ const brandNames = [
   "COLGATE",
 ]
 
-const whoWeArePillars = [
+const orbitCards = [
   {
     title: "Strategy",
-    text: "Data-driven systems that align brand direction with measurable growth.",
+    text: "Data-driven direction that builds powerful brand systems.",
     Icon: Sparkles,
+    className: "left-1/2 top-6 -translate-x-1/2",
   },
   {
     title: "Creators",
-    text: "Creator partnerships and MCN solutions built for influence and conversion.",
+    text: "Creator partnerships that drive attention and trust.",
     Icon: Network,
+    className: "left-8 top-1/2 -translate-y-1/2",
   },
   {
     title: "Commerce",
-    text: "E-commerce growth across channels, platforms, and digital storefronts.",
+    text: "E-commerce growth across platforms that convert.",
     Icon: ShoppingBag,
+    className: "right-8 top-1/2 -translate-y-1/2",
+  },
+  {
+    title: "Affiliate",
+    text: "Affiliate networks that scale reach and revenue.",
+    Icon: Handshake,
+    className: "bottom-16 left-[15%]",
+  },
+  {
+    title: "MCN",
+    text: "Multi-channel networks that empower creators and scale influence.",
+    Icon: RadioTower,
+    className: "bottom-16 right-[15%]",
   },
   {
     title: "Performance",
     text: "Campaigns optimized for results, scale, visibility, and ROI.",
     Icon: Gauge,
+    className: "bottom-4 left-1/2 -translate-x-1/2",
   },
 ]
 
@@ -303,55 +321,53 @@ export default function AboutPage() {
           }}
           className="absolute inset-0 flex items-center justify-center px-4 pt-20 sm:px-6 lg:px-10"
         >
-          <div className="relative h-[82vh] w-full max-w-[1500px] overflow-hidden rounded-[14px] border border-violet-400/20 bg-[#1b0b31]/90 shadow-[0_35px_120px_rgba(0,0,0,0.35)]">
-            <div className="absolute inset-0 opacity-[0.12] [background-image:linear-gradient(90deg,rgba(255,255,255,0.22)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.16)_1px,transparent_1px)] [background-size:150px_150px]" />
-            <div className="absolute right-[7%] top-1/2 h-[560px] w-[560px] -translate-y-1/2 rounded-full bg-violet-500/20 blur-[120px]" />
-            <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-[#1b0b31] via-[#1b0b31]/90 to-transparent" />
+          <div className="relative h-[82vh] w-full max-w-[1500px] overflow-hidden rounded-[14px] border border-violet-400/20 bg-[#0f0622]/92 shadow-[0_35px_120px_rgba(0,0,0,0.35)]">
+            <div className="absolute inset-0 opacity-[0.12] [background-image:linear-gradient(90deg,rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.14)_1px,transparent_1px)] [background-size:95px_95px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(168,85,247,0.28),transparent_44%),radial-gradient(circle_at_50%_75%,rgba(236,72,153,0.16),transparent_42%)]" />
 
-            <div className="relative z-10 grid h-full grid-rows-[auto_1fr_auto] gap-8 p-8 sm:p-10 lg:p-14">
-              <div className="reveal flex items-center justify-between">
-                <div className="flex items-center gap-5">
-                  <span className="text-xs font-bold uppercase tracking-[0.4em] text-white/60">WHO WE ARE</span>
-                  <span className="hidden h-px w-32 bg-gradient-to-r from-pink-400 to-transparent sm:block" />
-                </div>
-                <span className="text-xs font-bold text-pink-400">02 / 05</span>
+            <div className="absolute left-1/2 top-1/2 h-[570px] w-[570px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-pink-400/30" />
+            <div className="absolute left-1/2 top-1/2 h-[690px] w-[690px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-violet-400/24" />
+            <div className="absolute left-1/2 top-1/2 h-[790px] w-[790px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-violet-400/12" />
+
+            <div className="absolute left-1/2 top-1/2 h-[410px] w-[410px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_45%_28%,rgba(255,255,255,0.32),rgba(168,85,247,0.28)_18%,rgba(16,5,43,0.92)_58%,rgba(12,4,32,0.98)_100%)] shadow-[0_0_80px_rgba(168,85,247,0.65)] ring-1 ring-pink-400/28" />
+            <div className="absolute left-1/2 top-1/2 h-[430px] w-[430px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-pink-300/20 blur-[0.5px]" />
+
+            <div className="relative z-10 flex h-full flex-col items-center justify-center px-8 text-center">
+              <div className="reveal absolute left-8 top-8 text-xl font-semibold tracking-[0.7em] text-white/85 lg:left-14 lg:top-12">
+                SDS<span className="ml-2 text-pink-400">✦</span>
+              </div>
+              <div className="reveal absolute right-8 top-8 text-sm font-bold tracking-[0.18em] lg:right-14 lg:top-12">
+                <span className="text-pink-400">02</span><span className="text-white/70"> / 05</span>
               </div>
 
-              <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.85fr]">
-                <div className="relative z-10 max-w-4xl">
-                  <h2 className="reveal max-w-[11ch] text-4xl font-black leading-[1.02] tracking-[-0.045em] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
-                    WHERE CONTENT, COMMERCE, AND CREATORS BRING BRANDS INTO THE SPOTLIGHT
-                  </h2>
-                  <p className="reveal mt-7 max-w-2xl text-sm leading-7 text-white/72 lg:text-base lg:leading-8">
-                    At Star Digital Solutions, we transform strategy into growth—leveraging e-commerce, creator partnerships, affiliate marketing, and multi-channel networks to drive measurable performance.
-                  </p>
-                  <p className="reveal mt-5 max-w-2xl text-sm leading-7 text-white/58 lg:text-base lg:leading-8">
-                    From established brands to emerging stars, we create campaigns designed not just to shine—but to convert, scale, and lead. Built for brands ready to move faster and stand out in today’s digital landscape.
-                  </p>
-                </div>
-
-                <div className="reveal relative hidden h-[430px] items-center justify-center lg:flex">
-                  <div className="absolute inset-0 rounded-full border border-violet-300/10" />
-                  <div className="absolute inset-10 rounded-full border border-pink-300/10" />
-                  <div className="absolute left-1/2 top-1/2 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_35%_30%,rgba(255,255,255,0.9),rgba(255,72,220,0.68)_24%,rgba(73,83,255,0.58)_58%,rgba(16,5,43,0.22)_78%)] shadow-[0_0_90px_rgba(236,72,153,0.32)] animate-[organicFloat_14s_ease-in-out_infinite]" />
-                  <div className="absolute left-1/2 top-1/2 h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#140720]/70 blur-[1px]" />
-                  <Sparkles className="absolute left-1/2 top-1/2 h-14 w-14 -translate-x-1/2 -translate-y-1/2 text-pink-300 drop-shadow-[0_0_24px_rgba(236,72,153,0.9)]" />
-                  <div className="absolute bottom-12 left-1/2 h-1 w-64 -translate-x-1/2 rounded-full bg-pink-400/40 blur-sm" />
-                </div>
+              <div className="reveal relative z-20 mx-auto max-w-[560px]">
+                <p className="text-xs font-bold uppercase tracking-[0.38em] text-pink-300">WHO WE ARE</p>
+                <h2 className="mt-5 text-4xl font-black uppercase leading-[1.02] tracking-[-0.035em] text-white sm:text-5xl lg:text-6xl">
+                  WHERE CONTENT, COMMERCE, AND CREATORS BRING BRANDS INTO THE SPOTLIGHT
+                </h2>
+                <p className="mx-auto mt-7 max-w-[460px] text-sm leading-7 text-white/66">
+                  We connect strategy, creators, and commerce through performance-driven systems that turn attention into growth and brands into industry leaders.
+                </p>
               </div>
 
-              <div className="reveal grid gap-4 md:grid-cols-4">
-                {whoWeArePillars.map((pillar) => {
-                  const Icon = pillar.Icon
-                  return (
-                    <div key={pillar.title} className="border-t border-white/10 px-2 pt-5 text-center md:border-l md:border-t-0 md:px-6">
-                      <Icon className="mx-auto h-9 w-9 animate-[floatIcon_4s_ease-in-out_infinite] text-pink-300" />
-                      <h3 className="mt-4 text-sm font-black uppercase tracking-[0.16em] text-white">{pillar.title}</h3>
-                      <p className="mt-3 text-xs leading-6 text-white/55">{pillar.text}</p>
-                    </div>
-                  )
-                })}
-              </div>
+              {orbitCards.map((card, index) => {
+                const Icon = card.Icon
+                return (
+                  <div
+                    key={card.title}
+                    className={`reveal absolute hidden w-[178px] rounded-2xl border border-violet-300/24 bg-[#140720]/72 p-5 text-center shadow-[0_0_35px_rgba(168,85,247,0.16)] backdrop-blur-xl lg:block ${card.className}`}
+                    style={{ animationDelay: `${index * 0.18}s` }}
+                  >
+                    <Icon className="mx-auto h-10 w-10 animate-[floatIcon_4s_ease-in-out_infinite] text-pink-300" />
+                    <h3 className="mt-4 text-sm font-black uppercase tracking-[0.12em] text-white">{card.title}</h3>
+                    <p className="mt-3 text-xs leading-5 text-white/58">{card.text}</p>
+                  </div>
+                )
+              })}
+
+              <p className="reveal absolute bottom-10 left-1/2 hidden w-full max-w-xl -translate-x-1/2 text-sm leading-7 text-white/60 md:block">
+                From established brands to emerging stars, we create campaigns designed not just to shine—but to convert, scale, and lead.
+              </p>
             </div>
           </div>
         </section>
