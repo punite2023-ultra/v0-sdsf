@@ -7,9 +7,15 @@ import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/language-context"
 
-const navLinksEn = [{ href: "/", label: "Landing Page" }]
+const navLinksEn = [
+  { href: "/", label: "Landing Page" },
+  { href: "/about", label: "About Us" },
+]
 
-const navLinksZh = [{ href: "/", label: "主页" }]
+const navLinksZh = [
+  { href: "/", label: "主页" },
+  { href: "/about", label: "关于我们" },
+]
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
