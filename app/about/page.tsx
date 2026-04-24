@@ -5,8 +5,6 @@ import Link from "next/link"
 import {
   ArrowLeft,
   ArrowRight,
-  BarChart3,
-  Dna,
   Gauge,
   Network,
   Play,
@@ -20,30 +18,10 @@ import { Navigation } from "@/components/navigation"
 const totalPanels = 3
 
 const serviceCards = [
-  {
-    number: "01",
-    title: "Strategy",
-    label: "BRAND SYSTEM",
-    Icon: Sparkles,
-  },
-  {
-    number: "02",
-    title: "Creators",
-    label: "AFFILIATE + MCN",
-    Icon: Network,
-  },
-  {
-    number: "03",
-    title: "Commerce",
-    label: "PLATFORM GROWTH",
-    Icon: ShoppingBag,
-  },
-  {
-    number: "04",
-    title: "Performance",
-    label: "DATA + RESULTS",
-    Icon: Gauge,
-  },
+  { number: "01", title: "Strategy", label: "BRAND SYSTEM", Icon: Sparkles },
+  { number: "02", title: "Creators", label: "AFFILIATE + MCN", Icon: Network },
+  { number: "03", title: "Commerce", label: "PLATFORM GROWTH", Icon: ShoppingBag },
+  { number: "04", title: "Performance", label: "DATA + RESULTS", Icon: Gauge },
 ]
 
 export default function AboutPage() {
@@ -180,6 +158,18 @@ export default function AboutPage() {
 
       <main className="relative h-screen overflow-hidden bg-[#21103f] text-white">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_4%,rgba(155,92,255,0.32),transparent_30%),radial-gradient(circle_at_50%_110%,rgba(120,59,255,0.24),transparent_42%),linear-gradient(180deg,#3c1875_0%,#241044_48%,#1b0b31_100%)]" />
+
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20 mix-blend-screen"
+        >
+          <source src="/IntroVid.mp4" type="video/mp4" />
+        </video>
+
         <div className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.18)_1px,transparent_1px)] [background-size:120px_120px]" />
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-[720px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10" />
 
@@ -213,7 +203,7 @@ export default function AboutPage() {
 
                 <div>
                   <p className="reveal text-[10px] font-bold uppercase tracking-[0.54em] text-white/72">
-                    HACKING THE GROWTH SYSTEM
+                    BUILDING THE GROWTH SYSTEM
                   </p>
                   <h1 className="reveal mt-8 max-w-[11ch] text-5xl font-black leading-[0.93] tracking-[-0.055em] text-white sm:text-6xl lg:text-7xl">
                     Creating Digital Momentum
