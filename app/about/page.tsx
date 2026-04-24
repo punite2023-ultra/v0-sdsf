@@ -5,8 +5,10 @@ import Link from "next/link"
 import {
   ArrowLeft,
   ArrowRight,
+  BarChart3,
   Gauge,
   Handshake,
+  Megaphone,
   Network,
   Play,
   RadioTower,
@@ -39,42 +41,54 @@ const brandNames = [
   "COLGATE",
 ]
 
-const orbitCards = [
+const integrationNodes = [
   {
     title: "Strategy",
-    text: "Data-driven direction that builds powerful brand systems.",
+    text: "Brand direction and growth systems.",
     Icon: Sparkles,
-    className: "left-1/2 top-6 -translate-x-1/2",
+    className: "left-[8%] top-[25%]",
+  },
+  {
+    title: "E-Commerce",
+    text: "Scale across stores and channels.",
+    Icon: ShoppingBag,
+    className: "left-[8%] top-[45%]",
   },
   {
     title: "Creators",
-    text: "Creator partnerships that drive attention and trust.",
+    text: "Creator partnerships that convert.",
     Icon: Network,
-    className: "left-8 top-1/2 -translate-y-1/2",
-  },
-  {
-    title: "Commerce",
-    text: "E-commerce growth across platforms that convert.",
-    Icon: ShoppingBag,
-    className: "right-8 top-1/2 -translate-y-1/2",
+    className: "left-[8%] top-[65%]",
   },
   {
     title: "Affiliate",
-    text: "Affiliate networks that scale reach and revenue.",
+    text: "Networks that scale reach.",
     Icon: Handshake,
-    className: "bottom-16 left-[15%]",
-  },
-  {
-    title: "MCN",
-    text: "Multi-channel networks that empower creators and scale influence.",
-    Icon: RadioTower,
-    className: "bottom-16 right-[15%]",
+    className: "left-[19%] bottom-[8%]",
   },
   {
     title: "Performance",
-    text: "Campaigns optimized for results, scale, visibility, and ROI.",
+    text: "Campaigns focused on results.",
     Icon: Gauge,
-    className: "bottom-4 left-1/2 -translate-x-1/2",
+    className: "right-[8%] top-[25%]",
+  },
+  {
+    title: "MCN",
+    text: "Multi-channel creator growth.",
+    Icon: RadioTower,
+    className: "right-[8%] top-[45%]",
+  },
+  {
+    title: "Ads",
+    text: "Paid media that drives growth.",
+    Icon: Megaphone,
+    className: "right-[8%] top-[65%]",
+  },
+  {
+    title: "Analytics",
+    text: "Data that informs every move.",
+    Icon: BarChart3,
+    className: "right-[19%] bottom-[8%]",
   },
 ]
 
@@ -169,21 +183,32 @@ export default function AboutPage() {
         "-=0.58",
       )
       .fromTo(
-        nextPanel.querySelectorAll(".orbit-card-inner"),
-        { opacity: 0, scale: 0.55, y: 42, filter: "blur(12px)" },
+        nextPanel.querySelectorAll(".circuit-line"),
+        { strokeDashoffset: 900, opacity: 0 },
+        {
+          strokeDashoffset: 0,
+          opacity: 1,
+          stagger: 0.05,
+          duration: 1.1,
+          ease: "power2.out",
+        },
+        "-=0.6",
+      )
+      .fromTo(
+        nextPanel.querySelectorAll(".integration-node-inner"),
+        { opacity: 0, scale: 0.65, filter: "blur(10px)" },
         {
           opacity: 1,
           scale: 1,
-          y: 0,
           filter: "blur(0px)",
-          stagger: 0.14,
-          duration: 0.78,
+          stagger: 0.09,
+          duration: 0.55,
           ease: "back.out(1.7)",
         },
-        "-=0.62",
+        "-=0.8",
       )
       .fromTo(
-        nextPanel.querySelectorAll("svg"),
+        nextPanel.querySelectorAll("svg:not(.circuit-map)"),
         { scale: 0.6, opacity: 0, y: 20 },
         {
           scale: 1,
@@ -255,14 +280,14 @@ export default function AboutPage() {
       { scale: 1, opacity: 1, y: 0, stagger: 0.06, duration: 0.65, ease: "back.out(1.7)" },
     )
 
-    gsap.to(".orbit-card-inner", {
-      y: 12,
-      duration: 2.6,
+    gsap.to(".integration-node-inner", {
+      boxShadow: "0 0 42px rgba(236,72,153,0.28)",
+      duration: 1.8,
       ease: "sine.inOut",
       yoyo: true,
       repeat: -1,
       stagger: {
-        each: 0.22,
+        each: 0.16,
         from: "random",
       },
     })
@@ -348,17 +373,51 @@ export default function AboutPage() {
           className="absolute inset-0 flex items-center justify-center px-4 pt-20 sm:px-6 lg:px-10"
         >
           <div className="relative h-[82vh] w-full max-w-[1500px] overflow-hidden rounded-[14px] border border-violet-400/20 bg-[#0f0622]/92 shadow-[0_35px_120px_rgba(0,0,0,0.35)]">
-            <div className="absolute inset-0 opacity-[0.12] [background-image:linear-gradient(90deg,rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.14)_1px,transparent_1px)] [background-size:95px_95px]" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(168,85,247,0.28),transparent_44%),radial-gradient(circle_at_50%_75%,rgba(236,72,153,0.16),transparent_42%)]" />
+            <div className="absolute inset-0 opacity-[0.1] [background-image:linear-gradient(90deg,rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.14)_1px,transparent_1px)] [background-size:95px_95px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_52%,rgba(168,85,247,0.22),transparent_42%),radial-gradient(circle_at_50%_78%,rgba(236,72,153,0.14),transparent_42%)]" />
 
-            <div className="absolute left-1/2 top-1/2 h-[570px] w-[570px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-pink-400/40" />
-            <div className="absolute left-1/2 top-1/2 h-[690px] w-[690px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-violet-400/32 animate-[slowSpin_70s_linear_infinite]" />
-            <div className="absolute left-1/2 top-1/2 h-[790px] w-[790px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/15" />
+            <svg className="circuit-map pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 1500 820" preserveAspectRatio="none">
+              <defs>
+                <filter id="pinkGlow">
+                  <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                  <feMerge>
+                    <feMergeNode in="coloredBlur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+              <g fill="none" stroke="rgba(236,72,153,0.42)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.4" filter="url(#pinkGlow)">
+                <path className="circuit-line" pathLength="900" strokeDasharray="900" d="M730 450 H570 C525 450 525 365 480 365 H330" />
+                <path className="circuit-line" pathLength="900" strokeDasharray="900" d="M730 470 H520 C470 470 470 450 420 450 H330" />
+                <path className="circuit-line" pathLength="900" strokeDasharray="900" d="M730 490 H530 C485 490 485 535 440 535 H330" />
+                <path className="circuit-line" pathLength="900" strokeDasharray="900" d="M730 510 H575 C515 510 515 670 455 670 H430" />
+                <path className="circuit-line" pathLength="900" strokeDasharray="900" d="M770 450 H930 C975 450 975 365 1020 365 H1170" />
+                <path className="circuit-line" pathLength="900" strokeDasharray="900" d="M770 470 H980 C1030 470 1030 450 1080 450 H1170" />
+                <path className="circuit-line" pathLength="900" strokeDasharray="900" d="M770 490 H970 C1015 490 1015 535 1060 535 H1170" />
+                <path className="circuit-line" pathLength="900" strokeDasharray="900" d="M770 510 H925 C985 510 985 670 1045 670 H1070" />
+              </g>
+              <g fill="rgba(236,72,153,0.95)" filter="url(#pinkGlow)">
+                {[
+                  [570, 450],
+                  [520, 470],
+                  [530, 490],
+                  [575, 510],
+                  [930, 450],
+                  [980, 470],
+                  [970, 490],
+                  [925, 510],
+                ].map(([cx, cy]) => (
+                  <circle key={`${cx}-${cy}`} className="signal-dot" cx={cx} cy={cy} r="4" />
+                ))}
+              </g>
+            </svg>
 
-            <div className="absolute left-1/2 top-1/2 h-[410px] w-[410px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_45%_28%,rgba(255,255,255,0.32),rgba(168,85,247,0.28)_18%,rgba(16,5,43,0.92)_58%,rgba(12,4,32,0.98)_100%)] shadow-[0_0_80px_rgba(168,85,247,0.65)] ring-1 ring-pink-400/28" />
-            <div className="absolute left-1/2 top-1/2 h-[430px] w-[430px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-pink-300/20 blur-[0.5px] animate-[slowSpinReverse_90s_linear_infinite]" />
+            <div className="absolute left-1/2 top-[58%] z-10 flex h-[120px] w-[120px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[26px] border border-pink-400/45 bg-[#140720]/82 text-xl font-black tracking-[0.24em] text-white shadow-[0_0_55px_rgba(236,72,153,0.45)] backdrop-blur-xl">
+              SDS<span className="ml-2 text-pink-300">✦</span>
+              <span className="absolute inset-0 rounded-[26px] border border-pink-400/40 animate-ping opacity-20" />
+            </div>
 
-            <div className="relative z-10 flex h-full flex-col items-center justify-center px-8 text-center">
+            <div className="relative z-20 flex h-full flex-col items-center px-8 text-center">
               <div className="reveal absolute left-8 top-8 text-xl font-semibold tracking-[0.7em] text-white/85 lg:left-14 lg:top-12">
                 SDS<span className="ml-2 text-pink-400">✦</span>
               </div>
@@ -366,36 +425,35 @@ export default function AboutPage() {
                 <span className="text-pink-400">02</span><span className="text-white/70"> / 05</span>
               </div>
 
-              <div className="reveal relative z-20 mx-auto max-w-[560px]">
-                <p className="text-xs font-bold uppercase tracking-[0.38em] text-pink-300">WHO WE ARE</p>
-                <h2 className="mt-5 text-4xl font-black uppercase leading-[1.02] tracking-[-0.035em] text-white sm:text-5xl lg:text-6xl">
-                  WHERE CONTENT, COMMERCE, AND CREATORS BRING BRANDS INTO THE SPOTLIGHT
+              <div className="reveal mt-[7vh] max-w-[760px]">
+                <p className="text-xs font-bold uppercase tracking-[0.38em] text-pink-300">[ WHO WE ARE ]</p>
+                <h2 className="mt-5 text-4xl font-black leading-[1.02] tracking-[-0.035em] text-white sm:text-5xl lg:text-6xl">
+                  Built to Make Brands Shine—with Results That Scale
                 </h2>
-                <p className="mx-auto mt-7 max-w-[460px] text-sm leading-7 text-white/66">
-                  We connect strategy, creators, and commerce through performance-driven systems that turn attention into growth and brands into industry leaders.
+                <p className="mx-auto mt-6 max-w-[560px] text-sm leading-7 text-white/66">
+                  We connect strategy, creators, commerce, and performance channels into one growth system built to turn attention into measurable brand momentum.
                 </p>
               </div>
 
-              {orbitCards.map((card, index) => {
-                const Icon = card.Icon
+              {integrationNodes.map((node, index) => {
+                const Icon = node.Icon
+                const isRight = node.className.includes("right")
                 return (
-                  <div
-                    key={card.title}
-                    className={`orbit-card reveal absolute hidden w-[178px] lg:block ${card.className}`}
-                    style={{ animationDelay: `${index * 0.18}s` }}
-                  >
-                    <div className="orbit-card-inner rounded-2xl border border-violet-300/24 bg-[#140720]/72 p-5 text-center shadow-[0_0_35px_rgba(168,85,247,0.16)] backdrop-blur-xl transition duration-300 hover:border-pink-400/50 hover:bg-[#1d0b33]/82 hover:shadow-[0_0_45px_rgba(236,72,153,0.22)]">
-                      <Icon className="mx-auto h-10 w-10 text-pink-300" />
-                      <h3 className="mt-4 text-sm font-black uppercase tracking-[0.12em] text-white">{card.title}</h3>
-                      <p className="mt-3 text-xs leading-5 text-white/58">{card.text}</p>
+                  <div key={node.title} className={`integration-node reveal absolute hidden lg:block ${node.className}`}>
+                    <div className={`integration-node-inner flex items-center gap-4 ${isRight ? "flex-row-reverse text-right" : "text-left"}`}>
+                      <div className="flex h-[74px] w-[74px] shrink-0 items-center justify-center rounded-2xl border border-violet-300/28 bg-[#140720]/78 text-pink-300 shadow-[0_0_26px_rgba(168,85,247,0.18)] backdrop-blur-xl">
+                        <Icon className="h-8 w-8" />
+                      </div>
+                      <div className="max-w-[180px]">
+                        <h3 className="text-sm font-black uppercase tracking-[0.12em] text-white">{node.title}</h3>
+                        <p className="mt-2 text-xs leading-5 text-white/58">{node.text}</p>
+                      </div>
                     </div>
                   </div>
                 )
               })}
 
-              <p className="reveal absolute bottom-10 left-1/2 hidden w-full max-w-xl -translate-x-1/2 text-sm leading-7 text-white/60 md:block">
-                From established brands to emerging stars, we create campaigns designed not just to shine—but to convert, scale, and lead.
-              </p>
+              <div className="reveal absolute bottom-8 left-1/2 h-8 w-8 -translate-x-1/2 rotate-45 border-b-2 border-r-2 border-pink-400/80" />
             </div>
           </div>
         </section>
@@ -542,24 +600,6 @@ export default function AboutPage() {
             }
             50% {
               transform: scale(1.2);
-            }
-          }
-
-          @keyframes slowSpin {
-            from {
-              transform: translate(-50%, -50%) rotate(0deg);
-            }
-            to {
-              transform: translate(-50%, -50%) rotate(360deg);
-            }
-          }
-
-          @keyframes slowSpinReverse {
-            from {
-              transform: translate(-50%, -50%) rotate(360deg);
-            }
-            to {
-              transform: translate(-50%, -50%) rotate(0deg);
             }
           }
 
