@@ -45,21 +45,13 @@ export function Navigation() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        useDarkNav
-          ? "bg-[#18072f]/80 py-5 backdrop-blur-md"
-          : "bg-background/95 py-4 shadow-sm backdrop-blur-md"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-md py-5"
     >
       <div className="container mx-auto px-6 lg:px-8">
         <nav className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <img
-              src={
-                useDarkNav
-                  ? "/images/StarDigitalSolutionsWhite.svg"
-                  : "/images/StarDigitalSolutionsColor.svg"
-              }
+              src="/images/StarDigitalSolutionsWhite.svg"
               alt="Star Digital Solutions"
               className="h-[72px] w-auto"
             />
@@ -73,9 +65,7 @@ export function Navigation() {
                 className={`text-sm font-medium transition ${
                   isActive(link.href)
                     ? "text-[#ff2f74]"
-                    : useDarkNav
-                    ? "text-white hover:text-[#ff2f74]"
-                    : "text-[#62248e] hover:text-[#ff002f]"
+                    : "text-white hover:text-[#ff2f74]"
                 }`}
               >
                 {link.label}
@@ -89,9 +79,7 @@ export function Navigation() {
               className={`px-3 py-1 rounded-full text-sm ${
                 language === "en"
                   ? "bg-[#ff002f] text-white"
-                  : useDarkNav
-                  ? "text-white"
-                  : "text-[#62248e]"
+                  : "text-white"
               }`}
             >
               EN
@@ -101,9 +89,7 @@ export function Navigation() {
               className={`px-3 py-1 rounded-full text-sm ${
                 language === "zh"
                   ? "bg-[#ff002f] text-white"
-                  : useDarkNav
-                  ? "text-white"
-                  : "text-[#62248e]"
+                  : "text-white"
               }`}
             >
               中文
@@ -113,11 +99,7 @@ export function Navigation() {
           <div className="hidden lg:block">
             <Button
               asChild
-              className={`rounded-full px-6 ${
-                useDarkNav
-                  ? "border border-pink-400/70 bg-transparent text-white hover:bg-pink-500/15"
-                  : ""
-              }`}
+              className="rounded-full px-6 border border-pink-400/70 bg-transparent text-white hover:bg-pink-500/15"
             >
               <Link href="/contact">
                 {language === "en" ? "Get Started" : "开始使用"}
@@ -126,9 +108,7 @@ export function Navigation() {
           </div>
 
           <button
-            className={`lg:hidden p-2 ${
-              useDarkNav ? "text-white" : "text-[#62248e]"
-            }`}
+            className="lg:hidden p-2 text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -136,14 +116,14 @@ export function Navigation() {
         </nav>
 
         {isMobileMenuOpen && (
-          <div className={`mt-6 rounded-2xl p-6 ${useDarkNav ? "border border-white/10 bg-[#21103f]/95" : "bg-card"}`}>
+          <div className="mt-6 rounded-2xl p-6 border border-white/10 bg-[#21103f]/95">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`font-medium ${useDarkNav ? "text-white" : "text-[#62248e]"}`}
+                  className="font-medium text-white"
                 >
                   {link.label}
                 </Link>
