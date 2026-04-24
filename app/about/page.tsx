@@ -178,14 +178,14 @@ export default function AboutPage() {
           ref={(element) => {
             if (element) panelRefs.current[0] = element
           }}
-          className="absolute inset-0 flex items-center justify-center px-5 pt-16 sm:px-8 lg:px-14"
+          className="absolute inset-0 flex items-center justify-center px-0 pt-0"
         >
-          <div className="relative h-[70vh] w-full max-w-[1280px] overflow-hidden rounded-[10px] border border-violet-400/25 bg-[#2a1252]/70 shadow-[0_35px_120px_rgba(0,0,0,0.36)] ring-8 ring-violet-500/10">
+          <div className="relative h-screen w-full overflow-hidden border border-violet-400/25 bg-[#2a1252]/55 shadow-[0_35px_120px_rgba(0,0,0,0.36)]">
             <div className="absolute inset-0 opacity-[0.16] [background-image:linear-gradient(90deg,rgba(255,255,255,0.28)_1px,transparent_1px)] [background-size:155px_100%]" />
-            <div className="absolute left-[52%] top-1/2 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-[44%_56%_48%_52%] bg-[radial-gradient(circle_at_35%_30%,rgba(255,255,255,0.98),rgba(255,123,246,0.8)_24%,rgba(48,83,255,0.86)_58%,rgba(25,8,64,0)_72%)] opacity-95 blur-[1px] animate-[organicFloat_9s_ease-in-out_infinite]" />
-            <div className="absolute left-[56%] top-[48%] h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/25 blur-[80px]" />
+            <div className="absolute left-[52%] top-1/2 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-[44%_56%_48%_52%] bg-[radial-gradient(circle_at_35%_30%,rgba(255,255,255,0.98),rgba(255,123,246,0.8)_24%,rgba(48,83,255,0.86)_58%,rgba(25,8,64,0)_72%)] opacity-95 blur-[1px] animate-[organicFloat_9s_ease-in-out_infinite]" />
+            <div className="absolute left-[56%] top-[48%] h-[460px] w-[460px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/25 blur-[80px]" />
 
-            <div className="relative z-10 flex h-full flex-col justify-between p-7 sm:p-10 lg:p-14">
+            <div className="relative z-10 flex h-full flex-col justify-between px-8 pb-14 pt-32 sm:px-12 lg:px-24 lg:pb-20 lg:pt-36">
               <div className="reveal flex items-center justify-between">
                 <div className="text-sm font-black tracking-tight">SDS</div>
                 <div className="text-xs font-bold tracking-[0.34em] text-white/70">ABOUT</div>
@@ -229,11 +229,11 @@ export default function AboutPage() {
           ref={(element) => {
             if (element) panelRefs.current[1] = element
           }}
-          className="absolute inset-0 flex items-center justify-center px-5 pt-16 sm:px-8 lg:px-14"
+          className="absolute inset-0 flex items-center justify-center px-0 pt-0"
         >
-          <div className="relative w-full max-w-[1280px] overflow-hidden rounded-[10px] border border-violet-400/16 bg-[#1d0c38]/88 shadow-[0_35px_120px_rgba(0,0,0,0.35)]">
-            <div className="grid lg:grid-cols-[0.8fr_repeat(4,1fr)]">
-              <div className="reveal flex min-h-[560px] items-center justify-center gap-3 border-r border-white/10 px-8">
+          <div className="relative h-screen w-full overflow-hidden border border-violet-400/16 bg-[#1d0c38]/70 shadow-[0_35px_120px_rgba(0,0,0,0.35)]">
+            <div className="grid h-full lg:grid-cols-[0.8fr_repeat(4,1fr)]">
+              <div className="reveal flex min-h-screen items-center justify-center gap-3 border-r border-white/10 px-8">
                 <button onClick={() => goToPanel(0)} className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/[0.03] text-white/70 transition hover:border-pink-400 hover:text-pink-300">
                   <ArrowLeft className="h-4 w-4" />
                 </button>
@@ -245,7 +245,7 @@ export default function AboutPage() {
               {serviceCards.map((item) => {
                 const Icon = item.Icon
                 return (
-                  <Link key={item.number} href="/services" className="reveal group relative min-h-[560px] border-r border-white/10 p-9 transition duration-500 hover:bg-violet-500/10">
+                  <Link key={item.number} href="/services" className="reveal group relative min-h-screen border-r border-white/10 p-9 pt-32 transition duration-500 hover:bg-violet-500/10">
                     <div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_top,rgba(236,72,153,0.16),transparent_58%)]" />
                     <div className="relative z-10 flex h-full flex-col justify-between">
                       <div>
@@ -276,13 +276,13 @@ export default function AboutPage() {
           ref={(element) => {
             if (element) panelRefs.current[2] = element
           }}
-          className="absolute inset-0 flex items-center justify-center px-5 pt-16 sm:px-8 lg:px-14"
+          className="absolute inset-0 flex items-center justify-center px-0 pt-0"
         >
-          <div className="relative h-[70vh] w-full max-w-[1280px] overflow-hidden rounded-[10px] border border-violet-400/20 bg-[#21103f]/88 shadow-[0_35px_120px_rgba(0,0,0,0.35)]">
-            <div className="absolute left-1/2 top-0 h-[360px] w-[640px] -translate-x-1/2 -translate-y-[28%] rounded-[46%_54%_40%_60%] bg-[radial-gradient(circle_at_50%_25%,rgba(255,255,255,0.96),rgba(255,121,246,0.78)_28%,rgba(48,83,255,0.82)_64%,transparent_76%)] blur-[1px] animate-[organicFloat_10s_ease-in-out_infinite]" />
-            <div className="absolute left-1/2 top-[12%] h-[720px] w-[720px] -translate-x-1/2 rounded-full border border-white/10" />
+          <div className="relative h-screen w-full overflow-hidden border border-violet-400/20 bg-[#21103f]/70 shadow-[0_35px_120px_rgba(0,0,0,0.35)]">
+            <div className="absolute left-1/2 top-0 h-[420px] w-[720px] -translate-x-1/2 -translate-y-[18%] rounded-[46%_54%_40%_60%] bg-[radial-gradient(circle_at_50%_25%,rgba(255,255,255,0.96),rgba(255,121,246,0.78)_28%,rgba(48,83,255,0.82)_64%,transparent_76%)] blur-[1px] animate-[organicFloat_10s_ease-in-out_infinite]" />
+            <div className="absolute left-1/2 top-[12%] h-[760px] w-[760px] -translate-x-1/2 rounded-full border border-white/10" />
 
-            <div className="relative z-10 flex h-full flex-col items-center justify-end px-6 pb-16 text-center">
+            <div className="relative z-10 flex h-full flex-col items-center justify-end px-6 pb-20 text-center">
               <p className="reveal mb-12 text-[10px] font-bold uppercase tracking-[1.2em] text-white/70">
                 BETTER THAN ORDINARY GROWTH
               </p>
