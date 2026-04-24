@@ -15,13 +15,26 @@ import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { Navigation } from "@/components/navigation"
 
-const totalPanels = 3
+const totalPanels = 4
 
 const serviceCards = [
   { number: "01", title: "Strategy", label: "BRAND SYSTEM", Icon: Sparkles },
   { number: "02", title: "Creators", label: "AFFILIATE + MCN", Icon: Network },
   { number: "03", title: "Commerce", label: "PLATFORM GROWTH", Icon: ShoppingBag },
   { number: "04", title: "Performance", label: "DATA + RESULTS", Icon: Gauge },
+]
+
+const brandNames = [
+  "L’ORÉAL",
+  "MAYBELLINE",
+  "NIVEA",
+  "PANTENE",
+  "NESTLÉ",
+  "HUAWEI",
+  "PHILIPS",
+  "DOVE",
+  "OLAY",
+  "COLGATE",
 ]
 
 export default function AboutPage() {
@@ -220,7 +233,7 @@ export default function AboutPage() {
 
               <div className="grid items-end gap-8 lg:grid-cols-[0.18fr_1fr_0.22fr]">
                 <div className="reveal hidden gap-3 lg:flex">
-                  <button onClick={() => goToPanel(2)} className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/[0.03] text-white/70 transition hover:border-pink-400 hover:text-pink-300">
+                  <button onClick={() => goToPanel(3)} className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/[0.03] text-white/70 transition hover:border-pink-400 hover:text-pink-300">
                     <ArrowLeft className="h-4 w-4" />
                   </button>
                   <button onClick={() => goToPanel(1)} className="flex h-10 w-10 items-center justify-center rounded-full border border-pink-400 bg-pink-500/10 text-pink-300 transition hover:bg-pink-500/20">
@@ -230,20 +243,20 @@ export default function AboutPage() {
 
                 <div>
                   <p className="reveal text-[10px] font-bold uppercase tracking-[0.54em] text-white/72">
-                    BUILDING THE GROWTH SYSTEM
+                    WELCOME TO STAR DIGITAL SOLUTIONS
                   </p>
-                  <h1 className="reveal mt-8 max-w-[11ch] text-5xl font-black leading-[0.93] tracking-[-0.055em] text-white sm:text-6xl lg:text-7xl">
-                    Creating Digital Momentum
+                  <h1 className="reveal mt-8 max-w-[13ch] text-5xl font-black leading-[0.93] tracking-[-0.055em] text-white sm:text-6xl lg:text-7xl">
+                    Aligning the Stars for your Digital Success
                   </h1>
                   <Link href="/services" className="reveal mt-9 inline-flex w-[230px] items-center justify-between border border-pink-400/80 bg-pink-500/10 px-7 py-4 text-[11px] font-bold uppercase tracking-[0.18em] text-white transition hover:bg-pink-500/20">
-                    Watch System
+                    SEE THE VISION
                     <Play className="h-3.5 w-3.5 fill-current" />
                   </Link>
                 </div>
 
                 <div className="reveal flex items-end justify-between lg:block lg:text-right">
                   <div className="text-4xl font-black text-white">01</div>
-                  <div className="mt-2 text-xs font-bold text-pink-400">/ 03</div>
+                  <div className="mt-2 text-xs font-bold text-pink-400">/ 04</div>
                   <div className="mt-4 h-0.5 w-12 bg-white lg:ml-auto" />
                 </div>
               </div>
@@ -251,20 +264,57 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* PANEL 2: CARD ROW */}
+        {/* PANEL 2: BRANDS FEATURETTE */}
         <section
           ref={(element) => {
             if (element) panelRefs.current[1] = element
           }}
           className="absolute inset-0 flex items-center justify-center px-4 pt-20 sm:px-6 lg:px-10"
         >
+          <div className="relative h-[82vh] w-full max-w-[1500px] overflow-hidden rounded-[14px] border border-violet-400/20 bg-[#1b0b31]/90 shadow-[0_35px_120px_rgba(0,0,0,0.35)]">
+            <div className="absolute inset-0 opacity-[0.1] [background-image:linear-gradient(90deg,rgba(255,255,255,0.22)_1px,transparent_1px)] [background-size:150px_100%]" />
+            <div className="absolute left-1/2 top-1/2 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-500/20 blur-[100px]" />
+
+            <div className="relative z-10 flex h-full flex-col justify-between p-10 lg:p-16">
+              <div className="reveal flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-[0.4em] text-white/60">TRUSTED BY BRANDS</span>
+                <span className="text-xs font-bold text-pink-400">02 / 04</span>
+              </div>
+
+              <div className="reveal grid grid-cols-2 items-center justify-items-center gap-8 sm:grid-cols-3 md:grid-cols-5 lg:gap-12">
+                {brandNames.map((brand) => (
+                  <div
+                    key={brand}
+                    className="flex h-20 w-full items-center justify-center border border-white/10 bg-white/[0.03] text-center text-xs font-bold uppercase tracking-[0.28em] text-white/60 transition duration-300 hover:border-pink-400/40 hover:text-pink-300"
+                  >
+                    {brand}
+                  </div>
+                ))}
+              </div>
+
+              <div className="reveal mx-auto max-w-2xl text-center">
+                <p className="text-sm leading-7 text-white/62">
+                  From established global names to emerging market stars, we help brands launch, scale, and shine across the digital platforms that matter most.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* PANEL 3: CARD ROW */}
+        <section
+          ref={(element) => {
+            if (element) panelRefs.current[2] = element
+          }}
+          className="absolute inset-0 flex items-center justify-center px-4 pt-20 sm:px-6 lg:px-10"
+        >
           <div className="relative h-[82vh] w-full max-w-[1500px] overflow-hidden rounded-[14px] border border-violet-400/16 bg-[#1d0c38]/88 shadow-[0_35px_120px_rgba(0,0,0,0.35)]">
             <div className="grid h-full lg:grid-cols-[0.8fr_repeat(4,1fr)]">
               <div className="reveal flex h-full items-center justify-center gap-3 border-r border-white/10 px-8">
-                <button onClick={() => goToPanel(0)} className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/[0.03] text-white/70 transition hover:border-pink-400 hover:text-pink-300">
+                <button onClick={() => goToPanel(1)} className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/[0.03] text-white/70 transition hover:border-pink-400 hover:text-pink-300">
                   <ArrowLeft className="h-4 w-4" />
                 </button>
-                <button onClick={() => goToPanel(2)} className="flex h-10 w-10 items-center justify-center rounded-full border border-pink-400 bg-pink-500/10 text-pink-300 transition hover:bg-pink-500/20">
+                <button onClick={() => goToPanel(3)} className="flex h-10 w-10 items-center justify-center rounded-full border border-pink-400 bg-pink-500/10 text-pink-300 transition hover:bg-pink-500/20">
                   <ArrowRight className="h-4 w-4" />
                 </button>
               </div>
@@ -298,10 +348,10 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* PANEL 3: CENTER DETAIL */}
+        {/* PANEL 4: CENTER DETAIL */}
         <section
           ref={(element) => {
-            if (element) panelRefs.current[2] = element
+            if (element) panelRefs.current[3] = element
           }}
           className="absolute inset-0 flex items-center justify-center px-4 pt-20 sm:px-6 lg:px-10"
         >
