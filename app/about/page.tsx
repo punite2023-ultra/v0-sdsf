@@ -169,6 +169,20 @@ export default function AboutPage() {
         "-=0.58",
       )
       .fromTo(
+        nextPanel.querySelectorAll(".orbit-card-inner"),
+        { opacity: 0, scale: 0.55, y: 42, filter: "blur(12px)" },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          filter: "blur(0px)",
+          stagger: 0.14,
+          duration: 0.78,
+          ease: "back.out(1.7)",
+        },
+        "-=0.62",
+      )
+      .fromTo(
         nextPanel.querySelectorAll("svg"),
         { scale: 0.6, opacity: 0, y: 20 },
         {
@@ -240,6 +254,18 @@ export default function AboutPage() {
       { scale: 0.7, opacity: 0, y: 16 },
       { scale: 1, opacity: 1, y: 0, stagger: 0.06, duration: 0.65, ease: "back.out(1.7)" },
     )
+
+    gsap.to(".orbit-card-inner", {
+      y: 12,
+      duration: 2.6,
+      ease: "sine.inOut",
+      yoyo: true,
+      repeat: -1,
+      stagger: {
+        each: 0.22,
+        from: "random",
+      },
+    })
   }, [])
 
   return (
@@ -325,12 +351,12 @@ export default function AboutPage() {
             <div className="absolute inset-0 opacity-[0.12] [background-image:linear-gradient(90deg,rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.14)_1px,transparent_1px)] [background-size:95px_95px]" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(168,85,247,0.28),transparent_44%),radial-gradient(circle_at_50%_75%,rgba(236,72,153,0.16),transparent_42%)]" />
 
-            <div className="absolute left-1/2 top-1/2 h-[570px] w-[570px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-pink-400/30" />
-            <div className="absolute left-1/2 top-1/2 h-[690px] w-[690px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-violet-400/24" />
-            <div className="absolute left-1/2 top-1/2 h-[790px] w-[790px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-violet-400/12" />
+            <div className="absolute left-1/2 top-1/2 h-[570px] w-[570px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-pink-400/40" />
+            <div className="absolute left-1/2 top-1/2 h-[690px] w-[690px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-violet-400/32 animate-[slowSpin_70s_linear_infinite]" />
+            <div className="absolute left-1/2 top-1/2 h-[790px] w-[790px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/15" />
 
             <div className="absolute left-1/2 top-1/2 h-[410px] w-[410px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_45%_28%,rgba(255,255,255,0.32),rgba(168,85,247,0.28)_18%,rgba(16,5,43,0.92)_58%,rgba(12,4,32,0.98)_100%)] shadow-[0_0_80px_rgba(168,85,247,0.65)] ring-1 ring-pink-400/28" />
-            <div className="absolute left-1/2 top-1/2 h-[430px] w-[430px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-pink-300/20 blur-[0.5px]" />
+            <div className="absolute left-1/2 top-1/2 h-[430px] w-[430px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-pink-300/20 blur-[0.5px] animate-[slowSpinReverse_90s_linear_infinite]" />
 
             <div className="relative z-10 flex h-full flex-col items-center justify-center px-8 text-center">
               <div className="reveal absolute left-8 top-8 text-xl font-semibold tracking-[0.7em] text-white/85 lg:left-14 lg:top-12">
@@ -355,12 +381,14 @@ export default function AboutPage() {
                 return (
                   <div
                     key={card.title}
-                    className={`reveal absolute hidden w-[178px] rounded-2xl border border-violet-300/24 bg-[#140720]/72 p-5 text-center shadow-[0_0_35px_rgba(168,85,247,0.16)] backdrop-blur-xl lg:block ${card.className}`}
+                    className={`orbit-card reveal absolute hidden w-[178px] lg:block ${card.className}`}
                     style={{ animationDelay: `${index * 0.18}s` }}
                   >
-                    <Icon className="mx-auto h-10 w-10 animate-[floatIcon_4s_ease-in-out_infinite] text-pink-300" />
-                    <h3 className="mt-4 text-sm font-black uppercase tracking-[0.12em] text-white">{card.title}</h3>
-                    <p className="mt-3 text-xs leading-5 text-white/58">{card.text}</p>
+                    <div className="orbit-card-inner rounded-2xl border border-violet-300/24 bg-[#140720]/72 p-5 text-center shadow-[0_0_35px_rgba(168,85,247,0.16)] backdrop-blur-xl transition duration-300 hover:border-pink-400/50 hover:bg-[#1d0b33]/82 hover:shadow-[0_0_45px_rgba(236,72,153,0.22)]">
+                      <Icon className="mx-auto h-10 w-10 text-pink-300" />
+                      <h3 className="mt-4 text-sm font-black uppercase tracking-[0.12em] text-white">{card.title}</h3>
+                      <p className="mt-3 text-xs leading-5 text-white/58">{card.text}</p>
+                    </div>
                   </div>
                 )
               })}
@@ -514,6 +542,24 @@ export default function AboutPage() {
             }
             50% {
               transform: scale(1.2);
+            }
+          }
+
+          @keyframes slowSpin {
+            from {
+              transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to {
+              transform: translate(-50%, -50%) rotate(360deg);
+            }
+          }
+
+          @keyframes slowSpinReverse {
+            from {
+              transform: translate(-50%, -50%) rotate(360deg);
+            }
+            to {
+              transform: translate(-50%, -50%) rotate(0deg);
             }
           }
 
