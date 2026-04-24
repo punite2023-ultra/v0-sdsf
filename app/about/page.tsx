@@ -37,6 +37,29 @@ const brandNames = [
   "COLGATE",
 ]
 
+const whoWeArePillars = [
+  {
+    title: "Strategy",
+    text: "Data-driven systems that align brand direction with measurable growth.",
+    Icon: Sparkles,
+  },
+  {
+    title: "Creators",
+    text: "Creator partnerships and MCN solutions built for influence and conversion.",
+    Icon: Network,
+  },
+  {
+    title: "Commerce",
+    text: "E-commerce growth across channels, platforms, and digital storefronts.",
+    Icon: ShoppingBag,
+  },
+  {
+    title: "Performance",
+    text: "Campaigns optimized for results, scale, visibility, and ROI.",
+    Icon: Gauge,
+  },
+]
+
 export default function AboutPage() {
   const panelRefs = useRef<HTMLDivElement[]>([])
   const [current, setCurrent] = useState(0)
@@ -281,25 +304,53 @@ export default function AboutPage() {
           className="absolute inset-0 flex items-center justify-center px-4 pt-20 sm:px-6 lg:px-10"
         >
           <div className="relative h-[82vh] w-full max-w-[1500px] overflow-hidden rounded-[14px] border border-violet-400/20 bg-[#1b0b31]/90 shadow-[0_35px_120px_rgba(0,0,0,0.35)]">
-            <div className="absolute inset-0 opacity-[0.1] [background-image:linear-gradient(90deg,rgba(255,255,255,0.22)_1px,transparent_1px)] [background-size:150px_100%]" />
-            <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-500/20 blur-[120px]" />
+            <div className="absolute inset-0 opacity-[0.12] [background-image:linear-gradient(90deg,rgba(255,255,255,0.22)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.16)_1px,transparent_1px)] [background-size:150px_150px]" />
+            <div className="absolute right-[7%] top-1/2 h-[560px] w-[560px] -translate-y-1/2 rounded-full bg-violet-500/20 blur-[120px]" />
+            <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-[#1b0b31] via-[#1b0b31]/90 to-transparent" />
 
-            <div className="relative z-10 flex h-full flex-col justify-between p-10 lg:p-16">
+            <div className="relative z-10 grid h-full grid-rows-[auto_1fr_auto] gap-8 p-8 sm:p-10 lg:p-14">
               <div className="reveal flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-[0.4em] text-white/60">WHO WE ARE</span>
+                <div className="flex items-center gap-5">
+                  <span className="text-xs font-bold uppercase tracking-[0.4em] text-white/60">WHO WE ARE</span>
+                  <span className="hidden h-px w-32 bg-gradient-to-r from-pink-400 to-transparent sm:block" />
+                </div>
                 <span className="text-xs font-bold text-pink-400">02 / 05</span>
               </div>
 
-              <div className="max-w-4xl">
-                <h2 className="reveal text-4xl font-black leading-[1.05] tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl">
-                  WHERE CONTENT, COMMERCE, AND CREATORS BRING BRANDS INTO THE SPOTLIGHT
-                </h2>
-                <p className="reveal mt-8 max-w-2xl text-base leading-8 text-white/70">
-                  At Star Digital Solutions, we transform strategy into growth—leveraging e-commerce, creator partnerships, affiliate marketing, and multi-channel networks to drive measurable performance.
-                </p>
-                <p className="reveal mt-6 max-w-2xl text-base leading-8 text-white/60">
-                  From established brands to emerging stars, we create campaigns designed not just to shine—but to convert, scale, and lead. Built for brands ready to move faster and stand out in today’s digital landscape.
-                </p>
+              <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.85fr]">
+                <div className="relative z-10 max-w-4xl">
+                  <h2 className="reveal max-w-[11ch] text-4xl font-black leading-[1.02] tracking-[-0.045em] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
+                    WHERE CONTENT, COMMERCE, AND CREATORS BRING BRANDS INTO THE SPOTLIGHT
+                  </h2>
+                  <p className="reveal mt-7 max-w-2xl text-sm leading-7 text-white/72 lg:text-base lg:leading-8">
+                    At Star Digital Solutions, we transform strategy into growth—leveraging e-commerce, creator partnerships, affiliate marketing, and multi-channel networks to drive measurable performance.
+                  </p>
+                  <p className="reveal mt-5 max-w-2xl text-sm leading-7 text-white/58 lg:text-base lg:leading-8">
+                    From established brands to emerging stars, we create campaigns designed not just to shine—but to convert, scale, and lead. Built for brands ready to move faster and stand out in today’s digital landscape.
+                  </p>
+                </div>
+
+                <div className="reveal relative hidden h-[430px] items-center justify-center lg:flex">
+                  <div className="absolute inset-0 rounded-full border border-violet-300/10" />
+                  <div className="absolute inset-10 rounded-full border border-pink-300/10" />
+                  <div className="absolute left-1/2 top-1/2 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_35%_30%,rgba(255,255,255,0.9),rgba(255,72,220,0.68)_24%,rgba(73,83,255,0.58)_58%,rgba(16,5,43,0.22)_78%)] shadow-[0_0_90px_rgba(236,72,153,0.32)] animate-[organicFloat_14s_ease-in-out_infinite]" />
+                  <div className="absolute left-1/2 top-1/2 h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#140720]/70 blur-[1px]" />
+                  <Sparkles className="absolute left-1/2 top-1/2 h-14 w-14 -translate-x-1/2 -translate-y-1/2 text-pink-300 drop-shadow-[0_0_24px_rgba(236,72,153,0.9)]" />
+                  <div className="absolute bottom-12 left-1/2 h-1 w-64 -translate-x-1/2 rounded-full bg-pink-400/40 blur-sm" />
+                </div>
+              </div>
+
+              <div className="reveal grid gap-4 md:grid-cols-4">
+                {whoWeArePillars.map((pillar) => {
+                  const Icon = pillar.Icon
+                  return (
+                    <div key={pillar.title} className="border-t border-white/10 px-2 pt-5 text-center md:border-l md:border-t-0 md:px-6">
+                      <Icon className="mx-auto h-9 w-9 animate-[floatIcon_4s_ease-in-out_infinite] text-pink-300" />
+                      <h3 className="mt-4 text-sm font-black uppercase tracking-[0.16em] text-white">{pillar.title}</h3>
+                      <p className="mt-3 text-xs leading-6 text-white/55">{pillar.text}</p>
+                    </div>
+                  )
+                })}
               </div>
             </div>
           </div>
