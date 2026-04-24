@@ -59,6 +59,8 @@ export default function AboutPage() {
       yPercent: 100 * direction,
       opacity: 1,
       scale: 0.94,
+      rotateX: -8 * direction,
+      transformPerspective: 1000,
       filter: "blur(10px)",
       zIndex: 3,
       pointerEvents: "auto",
@@ -67,11 +69,12 @@ export default function AboutPage() {
     gsap.set(currentPanel, {
       zIndex: 2,
       pointerEvents: "none",
+      transformPerspective: 1000,
     })
 
     gsap
       .timeline({
-        defaults: { ease: "power4.inOut", duration: 0.85 },
+        defaults: { ease: "power4.inOut", duration: 1 },
         onComplete: () => {
           gsap.set(panelRefs.current, {
             yPercent: 0,
@@ -80,10 +83,12 @@ export default function AboutPage() {
             pointerEvents: "none",
             filter: "blur(0px)",
             scale: 1,
+            rotateX: 0,
           })
           gsap.set(nextPanel, {
             opacity: 1,
             scale: 1,
+            rotateX: 0,
             zIndex: 2,
             pointerEvents: "auto",
           })
@@ -93,16 +98,18 @@ export default function AboutPage() {
         },
       })
       .to(currentPanel, {
-        yPercent: -55 * direction,
+        yPercent: -60 * direction,
         opacity: 0,
-        scale: 0.88,
-        filter: "blur(14px)",
+        scale: 0.85,
+        rotateX: 8 * direction,
+        filter: "blur(18px)",
       })
       .to(
         nextPanel,
         {
           yPercent: 0,
           scale: 1,
+          rotateX: 0,
           filter: "blur(0px)",
         },
         "<",
@@ -115,10 +122,10 @@ export default function AboutPage() {
           y: 0,
           filter: "blur(0px)",
           stagger: 0.08,
-          duration: 0.7,
+          duration: 0.72,
           ease: "power3.out",
         },
-        "-=0.5",
+        "-=0.58",
       )
       .fromTo(
         nextPanel.querySelectorAll("svg"),
@@ -167,6 +174,8 @@ export default function AboutPage() {
       opacity: 0,
       zIndex: 1,
       pointerEvents: "none",
+      transformPerspective: 1000,
+      transformOrigin: "center center",
     })
     gsap.set(panelRefs.current[0], {
       opacity: 1,
@@ -205,7 +214,7 @@ export default function AboutPage() {
           loop
           playsInline
           preload="metadata"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20 mix-blend-screen"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25 mix-blend-screen scale-110 animate-[slowZoom_20s_linear_infinite]"
         >
           <source src="/IntroVid.mp4" type="video/mp4" />
         </video>
@@ -222,7 +231,7 @@ export default function AboutPage() {
         >
           <div className="relative h-[82vh] w-full max-w-[1500px] overflow-hidden rounded-[14px] border border-violet-400/25 bg-[#2a1252]/70 shadow-[0_35px_120px_rgba(0,0,0,0.36)] ring-8 ring-violet-500/10">
             <div className="absolute inset-0 opacity-[0.16] [background-image:linear-gradient(90deg,rgba(255,255,255,0.28)_1px,transparent_1px)] [background-size:155px_100%]" />
-            <div className="absolute left-[52%] top-1/2 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-[44%_56%_48%_52%] bg-[radial-gradient(circle_at_35%_30%,rgba(255,255,255,0.98),rgba(255,123,246,0.8)_24%,rgba(48,83,255,0.86)_58%,rgba(25,8,64,0)_72%)] opacity-95 blur-[1px] animate-[organicFloat_9s_ease-in-out_infinite]" />
+            <div className="absolute left-[52%] top-1/2 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-[44%_56%_48%_52%] bg-[radial-gradient(circle_at_35%_30%,rgba(255,255,255,0.98),rgba(255,123,246,0.8)_24%,rgba(48,83,255,0.86)_58%,rgba(25,8,64,0)_72%)] opacity-95 blur-[1px] animate-[organicFloat_12s_ease-in-out_infinite]" />
             <div className="absolute left-[56%] top-[48%] h-[460px] w-[460px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/25 blur-[80px]" />
 
             <div className="relative z-10 flex h-full flex-col justify-between p-8 sm:p-11 lg:p-16">
@@ -363,7 +372,7 @@ export default function AboutPage() {
                       </div>
 
                       <div className="flex h-28 w-28 items-center justify-center rounded-full border border-white/10 bg-white/[0.02] text-pink-300 transition duration-500 group-hover:scale-110 group-hover:border-pink-400/40">
-                        <Icon className="h-11 w-11" />
+                        <Icon className="h-11 w-11 animate-[floatIcon_4s_ease-in-out_infinite]" />
                       </div>
 
                       <div>
@@ -388,7 +397,7 @@ export default function AboutPage() {
           className="absolute inset-0 flex items-center justify-center px-4 pt-20 sm:px-6 lg:px-10"
         >
           <div className="relative h-[82vh] w-full max-w-[1500px] overflow-hidden rounded-[14px] border border-violet-400/20 bg-[#21103f]/88 shadow-[0_35px_120px_rgba(0,0,0,0.35)]">
-            <div className="absolute left-1/2 top-0 h-[420px] w-[720px] -translate-x-1/2 -translate-y-[22%] rounded-[46%_54%_40%_60%] bg-[radial-gradient(circle_at_50%_25%,rgba(255,255,255,0.96),rgba(255,121,246,0.78)_28%,rgba(48,83,255,0.82)_64%,transparent_76%)] blur-[1px] animate-[organicFloat_10s_ease-in-out_infinite]" />
+            <div className="absolute left-1/2 top-0 h-[420px] w-[720px] -translate-x-1/2 -translate-y-[22%] rounded-[46%_54%_40%_60%] bg-[radial-gradient(circle_at_50%_25%,rgba(255,255,255,0.96),rgba(255,121,246,0.78)_28%,rgba(48,83,255,0.82)_64%,transparent_76%)] blur-[1px] animate-[organicFloat_12s_ease-in-out_infinite]" />
             <div className="absolute left-1/2 top-[12%] h-[760px] w-[760px] -translate-x-1/2 rounded-full border border-white/10" />
 
             <div className="relative z-10 flex h-full flex-col items-center justify-end px-6 pb-20 text-center">
@@ -429,6 +438,24 @@ export default function AboutPage() {
             50% {
               transform: translate(-48%, -53%) rotate(8deg) scale(1.08);
               border-radius: 56% 44% 58% 42%;
+            }
+          }
+
+          @keyframes slowZoom {
+            0%, 100% {
+              transform: scale(1.1);
+            }
+            50% {
+              transform: scale(1.2);
+            }
+          }
+
+          @keyframes floatIcon {
+            0%, 100% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-8px);
             }
           }
         `}</style>
