@@ -13,18 +13,25 @@ export default function AboutPage() {
       <main className="min-h-screen overflow-hidden bg-black text-white">
         {/* HERO */}
         <section className="relative min-h-screen overflow-hidden bg-black px-6 pt-28 sm:px-10 lg:px-16">
-          {/* dark cinematic background */}
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_78%,rgba(37,99,235,0.52),transparent_32%),radial-gradient(circle_at_54%_72%,rgba(124,58,237,0.34),transparent_28%),linear-gradient(90deg,#050505_0%,#070912_42%,#111827_100%)]" />
-          <div className="pointer-events-none absolute inset-0 opacity-[0.16] [background-image:radial-gradient(circle,rgba(255,255,255,0.42)_1px,transparent_1px)] [background-size:3px_3px]" />
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.84)_0%,rgba(0,0,0,0.36)_45%,rgba(0,0,0,0.1)_100%)]" />
+          {/* video background: place file at public/Background.mp4 */}
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          >
+            <source src="/Background.mp4" type="video/mp4" />
+          </video>
 
-          {/* vertical light beam */}
-          <div className="pointer-events-none absolute left-[58%] top-0 hidden h-full w-[2px] -translate-x-1/2 bg-white shadow-[0_0_18px_5px_rgba(199,210,254,0.95),0_0_80px_22px_rgba(59,130,246,0.6)] md:block" />
-          <div className="pointer-events-none absolute left-[58%] top-0 hidden h-full w-24 -translate-x-1/2 bg-[linear-gradient(90deg,transparent,rgba(129,140,248,0.42),transparent)] blur-xl md:block" />
+          {/* fallback cinematic background if video is unavailable */}
+          <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_72%_78%,rgba(37,99,235,0.52),transparent_32%),radial-gradient(circle_at_54%_72%,rgba(124,58,237,0.34),transparent_28%),linear-gradient(90deg,#050505_0%,#070912_42%,#111827_100%)]" />
 
-          {/* bottom glow floor */}
-          <div className="pointer-events-none absolute bottom-0 left-1/2 h-[260px] w-[92vw] -translate-x-1/2 rounded-t-[50%] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.95)_0%,rgba(191,219,254,0.82)_8%,rgba(96,165,250,0.48)_26%,rgba(59,130,246,0.18)_48%,transparent_72%)] blur-[2px]" />
-          <div className="pointer-events-none absolute bottom-0 left-1/2 h-[160px] w-[72vw] -translate-x-1/2 rounded-t-full bg-white/40 blur-[48px]" />
+          {/* readability overlays */}
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.92)_0%,rgba(0,0,0,0.72)_33%,rgba(0,0,0,0.26)_68%,rgba(0,0,0,0.1)_100%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.35)_0%,transparent_42%,rgba(0,0,0,0.52)_100%)]" />
+          <div className="pointer-events-none absolute inset-0 opacity-[0.10] [background-image:radial-gradient(circle,rgba(255,255,255,0.42)_1px,transparent_1px)] [background-size:3px_3px]" />
 
           <div className="relative z-10 flex min-h-[calc(100vh-7rem)] items-center">
             <div className="max-w-4xl pb-24">
