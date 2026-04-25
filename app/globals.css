@@ -212,6 +212,24 @@ html {
   }
 }
 
+@keyframes orbitSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitSpinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
 .animate-fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
 }
@@ -307,4 +325,66 @@ html {
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* SDS About hero: converts the original purple blob into a premium orbit motion. */
+[class*="animate-[organicFloat_12s_ease-in-out_infinite]"][class*="h-[620px]"][class*="w-[620px]"] {
+  overflow: visible !important;
+  border-radius: 9999px !important;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.22), rgba(168, 85, 247, 0.12) 42%, transparent 68%) !important;
+  filter: none !important;
+  animation: none !important;
+  box-shadow: 0 0 120px rgba(99, 102, 241, 0.26);
+}
+
+[class*="animate-[organicFloat_12s_ease-in-out_infinite]"][class*="h-[620px]"][class*="w-[620px]"]::before,
+[class*="animate-[organicFloat_12s_ease-in-out_infinite]"][class*="h-[620px]"][class*="w-[620px]"]::after {
+  content: '';
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+[class*="animate-[organicFloat_12s_ease-in-out_infinite]"][class*="h-[620px]"][class*="w-[620px]"]::before {
+  inset: 0;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(255, 255, 255, 0.9) 44deg,
+    rgba(168, 85, 247, 0.95) 72deg,
+    rgba(59, 130, 246, 0.9) 104deg,
+    transparent 150deg,
+    transparent 214deg,
+    rgba(236, 72, 153, 0.9) 254deg,
+    rgba(99, 102, 241, 0.9) 292deg,
+    transparent 336deg
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 74px), #000 calc(100% - 72px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 74px), #000 calc(100% - 72px));
+  animation: orbitSpin 14s linear infinite;
+  opacity: 0.92;
+}
+
+[class*="animate-[organicFloat_12s_ease-in-out_infinite]"][class*="h-[620px]"][class*="w-[620px]"]::after {
+  inset: 78px;
+  background: conic-gradient(
+    from 180deg,
+    transparent 0deg,
+    rgba(255, 255, 255, 0.72) 42deg,
+    rgba(168, 85, 247, 0.85) 78deg,
+    transparent 128deg,
+    transparent 232deg,
+    rgba(59, 130, 246, 0.76) 276deg,
+    transparent 326deg
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 48px), #000 calc(100% - 46px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 48px), #000 calc(100% - 46px));
+  animation: orbitSpinReverse 18s linear infinite;
+  opacity: 0.84;
+}
+
+@media (max-width: 768px) {
+  [class*="animate-[organicFloat_12s_ease-in-out_infinite]"][class*="h-[620px]"][class*="w-[620px]"] {
+    transform: translate(-50%, -50%) scale(0.72) !important;
+  }
 }
