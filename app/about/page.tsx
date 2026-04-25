@@ -50,27 +50,59 @@ const integrationNodes = [
     title: "E-Commerce",
     text: "Scale across stores and channels.",
     Icon: ShoppingBag,
-    className: "left-[8%] top-[32%]",
+    className: "left-[8%] top-[28%]",
   },
   {
     title: "Creators",
     text: "Creator partnerships that convert.",
     Icon: Network,
-    className: "left-[8%] top-[58%]",
+    className: "left-[8%] top-[50%]",
   },
   {
     title: "Affiliate",
     text: "Networks that scale reach.",
     Icon: Handshake,
-    className: "left-[22%] bottom-[8%]",
+    className: "left-[12%] bottom-[10%]",
   },
   {
     title: "MCN",
     text: "Multi-channel creator growth.",
     Icon: RadioTower,
-    className: "right-[8%] top-[58%]",
+    className: "right-[8%] top-[28%]",
+  },
+  {
+    title: "Performance",
+    text: "Data-driven scaling systems.",
+    Icon: Gauge,
+    className: "right-[8%] top-[50%]",
+  },
+  {
+    title: "Strategy",
+    text: "Structured brand growth systems.",
+    Icon: Sparkles,
+    className: "right-[12%] bottom-[10%]",
   },
 ]
+
+function StarMark() {
+  return (
+    <svg
+      viewBox="0 0 120 120"
+      aria-hidden="true"
+      className="h-14 w-14 drop-shadow-[0_0_22px_rgba(255,255,255,0.55)]"
+    >
+      <path
+        fill="white"
+        d="M60 6.5 72.7 45.2 113.5 45.2 80.5 69 93.2 107.5 60 83.7 26.8 107.5 39.5 69 6.5 45.2 47.3 45.2 60 6.5Z"
+      />
+      <path
+        fill="white"
+        opacity="0.72"
+        d="M60 23.2 67.4 46.1 91.6 46.1 72 60.2 79.5 83 60 68.9 40.5 83 48 60.2 28.4 46.1 52.6 46.1 60 23.2Z"
+      />
+    </svg>
+  )
+}
 
 export default function AboutPage() {
   const panelRefs = useRef<HTMLDivElement[]>([])
@@ -397,25 +429,29 @@ export default function AboutPage() {
                 strokeWidth="1.4"
                 filter="url(#pinkGlow)"
               >
-                <path className="circuit-line" pathLength="900" strokeDasharray="900" d="M730 450 H540 C500 450 500 360 460 360 H330" />
-                <path className="circuit-line" pathLength="900" strokeDasharray="900" d="M730 485 H530 C485 485 485 540 440 540 H330" />
+                <path className="circuit-line" pathLength="900" strokeDasharray="900" d="M730 435 H540 C500 435 500 340 460 340 H330" />
+                <path className="circuit-line" pathLength="900" strokeDasharray="900" d="M730 475 H530 C485 475 485 470 440 470 H330" />
                 <path className="circuit-line" pathLength="900" strokeDasharray="900" d="M730 515 H590 C535 515 535 670 480 670 H430" />
-                <path className="circuit-line" pathLength="900" strokeDasharray="900" d="M770 485 H980 C1030 485 1030 540 1080 540 H1170" />
+                <path className="circuit-line" pathLength="900" strokeDasharray="900" d="M770 435 H960 C1000 435 1000 340 1040 340 H1170" />
+                <path className="circuit-line" pathLength="900" strokeDasharray="900" d="M770 475 H980 C1030 475 1030 470 1080 470 H1170" />
+                <path className="circuit-line" pathLength="900" strokeDasharray="900" d="M770 515 H910 C965 515 965 670 1020 670 H1070" />
               </g>
               <g fill="rgba(236,72,153,0.95)" filter="url(#pinkGlow)">
                 {[
-                  [540, 450],
-                  [530, 485],
+                  [540, 435],
+                  [530, 475],
                   [590, 515],
-                  [980, 485],
+                  [960, 435],
+                  [980, 475],
+                  [910, 515],
                 ].map(([cx, cy]) => (
                   <circle key={`${cx}-${cy}`} className="signal-dot" cx={cx} cy={cy} r="4" />
                 ))}
               </g>
             </svg>
 
-            <div className="absolute left-1/2 top-[58%] z-10 flex h-[120px] w-[120px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[26px] border border-pink-400/45 bg-[#140720]/82 text-xl font-black tracking-[0.24em] text-white shadow-[0_0_55px_rgba(236,72,153,0.45)] backdrop-blur-xl">
-              SDS<span className="ml-2 text-pink-300">✦</span>
+            <div className="absolute left-1/2 top-[50%] z-10 flex h-[120px] w-[120px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[26px] border border-pink-400/45 bg-[#140720]/82 shadow-[0_0_55px_rgba(236,72,153,0.45)] backdrop-blur-xl">
+              <StarMark />
               <span className="absolute inset-0 rounded-[26px] border border-pink-400/40 animate-ping opacity-20" />
             </div>
 
