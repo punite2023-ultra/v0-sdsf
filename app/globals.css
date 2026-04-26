@@ -94,6 +94,7 @@ html { scroll-behavior: smooth; }
 @keyframes pulse-slow { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
 @keyframes organicFloat { 0%,100% { transform: translate(-50%,-50%) rotate(0deg) scale(1); border-radius:44% 56% 48% 52%; } 50% { transform: translate(-50%,-50%) rotate(8deg) scale(1.03); border-radius:56% 44% 55% 45%; } }
 @keyframes slowZoom { 0%,100% { transform: scale(1.1); } 50% { transform: scale(1.16); } }
+@keyframes aboutVideoGlow { 0%,100% { box-shadow: 0 0 55px rgba(168,85,247,.22), 0 35px 90px rgba(0,0,0,.35); } 50% { box-shadow: 0 0 85px rgba(236,72,153,.35), 0 35px 110px rgba(0,0,0,.45); } }
 
 .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
 .animate-fade-in-down { animation: fadeInDown 0.8s ease-out forwards; }
@@ -121,3 +122,47 @@ html { scroll-behavior: smooth; }
 .underline-animation:hover::after { width: 100%; }
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
 .reveal.active { opacity: 1; transform: translateY(0); }
+
+/* About page Panel 1: move the existing video into the right-side hero visual area. */
+main > video {
+  inset: auto !important;
+  left: auto !important;
+  right: 7% !important;
+  top: 50% !important;
+  width: min(44vw, 620px) !important;
+  height: min(62vh, 560px) !important;
+  transform: translateY(-46%) !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  opacity: .9 !important;
+  mix-blend-mode: normal !important;
+  border-radius: 28px !important;
+  border: 1px solid rgba(255,255,255,.18) !important;
+  z-index: 4 !important;
+  box-shadow: 0 0 55px rgba(168,85,247,.22), 0 35px 90px rgba(0,0,0,.35) !important;
+  animation: aboutVideoGlow 4.8s ease-in-out infinite !important;
+}
+
+main > section:first-of-type > div > div[class*="left-[52%]"][class*="h-[620px]"] {
+  opacity: .28 !important;
+  filter: blur(42px) !important;
+}
+
+main > section:first-of-type > div > div[class*="left-[56%]"][class*="h-[460px]"] {
+  opacity: .22 !important;
+}
+
+@media (max-width: 1024px) {
+  main > video {
+    right: 5% !important;
+    width: min(42vw, 460px) !important;
+    height: min(48vh, 420px) !important;
+    opacity: .55 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  main > video {
+    display: none !important;
+  }
+}
