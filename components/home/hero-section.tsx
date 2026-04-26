@@ -64,14 +64,14 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* FULL HEIGHT RIGHT IMAGE (FINAL FIX) */}
-        <div className="absolute right-0 top-0 bottom-0 w-[65vw] max-w-none pointer-events-none">
+        {/* ADJUSTED POSITION + SIZE */}
+        <div className="absolute right-[-5vw] top-0 bottom-0 w-[60vw] max-w-none pointer-events-none">
           <Image
             src="/HeroImage1.png"
             alt="Star Digital Solutions hero person"
             fill
             priority
-            className="object-contain object-bottom scale-[1.65] lg:scale-[1.8] 2xl:scale-[2] drop-shadow-[0_50px_120px_rgba(0,0,0,0.5)]"
+            className="object-contain object-bottom scale-[1.45] lg:scale-[1.55] 2xl:scale-[1.65] drop-shadow-[0_50px_120px_rgba(0,0,0,0.5)]"
           />
         </div>
 
