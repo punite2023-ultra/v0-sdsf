@@ -42,6 +42,8 @@
 /* keep everything same, only add override below */
 
 [class*="animate-[organicFloat_12s_ease-in-out_infinite]"][class*="h-[620px]"][class*="w-[620px]"] {
-  left: 112% !important;
-  top: 49% !important;
+  left: auto !important;
+  right: 5% !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
 }
