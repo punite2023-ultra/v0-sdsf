@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="68%" cy="50%" r="88%">
+      <stop offset="0" stop-color="#2f2fd4" stop-opacity=".72"/>
+      <stop offset=".32" stop-color="#180b42"/>
+      <stop offset="1" stop-color="#030616"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fff7b0"/><stop offset=".45" stop-color="#ffcc63"/><stop offset="1" stop-color="#ff7fb9"/>
+    </linearGradient>
+    <linearGradient id="city" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#9fd5ff"/><stop offset=".7" stop-color="#ffc174"/><stop offset="1" stop-color="#2b164e"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+    <clipPath id="starClip"><polygon points="1000,98 1102,384 1410,386 1163,561 1255,820 1000,662 745,820 837,561 590,386 898,384"/></clipPath>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g opacity=".92" stroke-linecap="round">
+    <g stroke="#5947ff" stroke-width="3" opacity=".78">
+      <path d="M0 115 930 382"/><path d="M0 188 915 407"/><path d="M0 302 900 444"/><path d="M0 495 894 520"/><path d="M0 712 930 598"/><path d="M1600 80 1080 385"/><path d="M1600 225 1095 426"/><path d="M1600 428 1120 501"/><path d="M1600 710 1094 584"/>
+    </g>
+    <g stroke="#c12cff" stroke-width="2.2" opacity=".72">
+      <path d="M60 18 924 362"/><path d="M0 372 930 466"/><path d="M0 615 890 560"/><path d="M1540 0 1078 368"/><path d="M1600 336 1110 466"/><path d="M1600 610 1130 545"/>
+    </g>
+    <g stroke="#0cefff" stroke-width="1.8" opacity=".78">
+      <path d="M0 255 922 416"/><path d="M0 782 900 608"/><path d="M1600 152 1085 400"/><path d="M1600 520 1110 516"/>
+    </g>
+  </g>
+  <g fill="#08e9ff" font-family="monospace" font-size="36" opacity=".72">
+    <text x="124" y="164">11 0 1 00 011</text><text x="180" y="290">0101</text><text x="116" y="650">11 0 1 00-011</text><text x="1240" y="210">0101</text><text x="1265" y="610">11 00 0101</text><text x="1320" y="735">0101</text>
+  </g>
+  <circle cx="1000" cy="520" r="335" fill="none" stroke="#d13cff" stroke-width="10" stroke-dasharray="16 18" opacity=".55"/>
+  <polygon points="1000,98 1102,384 1410,386 1163,561 1255,820 1000,662 745,820 837,561 590,386 898,384" fill="none" stroke="url(#gold)" stroke-width="12" filter="url(#glow)" stroke-linejoin="round"/>
+  <g clip-path="url(#starClip)">
+    <rect x="560" y="220" width="900" height="580" fill="url(#city)" opacity=".96"/>
+    <circle cx="1025" cy="590" r="250" fill="#fff2a3" opacity=".36" filter="url(#soft)"/>
+    <g fill="#fff7d4" opacity=".85">
+      <rect x="918" y="370" width="42" height="220" rx="20"/><rect x="970" y="285" width="70" height="330" rx="34"/><rect x="1076" y="410" width="46" height="190" rx="18"/><rect x="1150" y="355" width="38" height="245" rx="18"/><rect x="830" y="455" width="30" height="130" rx="12"/><rect x="1244" y="445" width="32" height="140" rx="12"/>
+    </g>
+    <path d="M675 760 C820 642 885 598 1000 596 C1124 594 1215 642 1340 765" fill="none" stroke="#ffd26c" stroke-width="10" opacity=".75"/>
+  </g>
+  <path d="M0 900 760 670 M1600 900 1210 667" stroke="url(#gold)" stroke-width="9" filter="url(#glow)"/>
+  <g fill="#05040a">
+    <ellipse cx="950" cy="735" rx="17" ry="48"/><circle cx="950" cy="676" r="16"/><ellipse cx="1000" cy="730" rx="18" ry="56"/><circle cx="1000" cy="662" r="17"/><ellipse cx="1052" cy="735" rx="18" ry="52"/><circle cx="1052" cy="671" r="17"/>
+  </g>
+  <g opacity=".45" fill="#ffb85d"><ellipse cx="950" cy="792" rx="26" ry="88"/><ellipse cx="1000" cy="800" rx="31" ry="110"/><ellipse cx="1052" cy="795" rx="28" ry="92"/></g>
+</svg>
