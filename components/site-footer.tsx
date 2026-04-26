@@ -153,8 +153,8 @@ export function SiteFooter() {
 
               <p className="mt-5 text-white/70 leading-relaxed max-w-md">
                 {language === "en"
-                  ? "We craft exceptional digital experiences that elevate brands and drive meaningful results for businesses worldwide."
-                  : "我们打造卓越的数字体验，提升品牌价值，并为企业带来真正有意义的成果。"}
+                  ? "Aligning the stars for your digital success."
+                  : "为您的数字成功对齐星辰。"}
               </p>
 
               <div className="mt-6 space-y-3 text-sm text-white/75">
@@ -162,25 +162,25 @@ export function SiteFooter() {
                   <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
                   <span>
                     {language === "en"
-                      ? "123 Creative Street, Design City, DC 10001"
-                      : "创意街123号，设计城，DC 10001"}
+                      ? "747 Nicanor Padilla St. San Miguel, Manila, Philippines, 1005"
+                      : "菲律宾马尼拉圣米格尔 Nicanor Padilla 街 747 号，1005"}
                   </span>
                 </div>
 
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 shrink-0" />
-                  <a href="tel:+15551234567" className="hover:text-white transition-colors">
-                    +1 (555) 123-4567
+                  <a href="tel:+639176783965" className="hover:text-white transition-colors">
+                    09176783965
                   </a>
                 </div>
 
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 shrink-0" />
                   <a
-                    href="mailto:hello@stardigitalsolutions.ph"
+                    href="mailto:info@stardigitalms.com"
                     className="hover:text-white transition-colors"
                   >
-                    hello@stardigitalsolutions.ph
+                    info@stardigitalms.com
                   </a>
                 </div>
               </div>
