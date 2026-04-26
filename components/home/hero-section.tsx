@@ -42,7 +42,7 @@ export function HeroSection() {
           </p>
 
           <h1 className={`${anton.className} text-[64px] uppercase leading-[0.92] tracking-[-0.04em] text-[#b70d41] sm:text-[86px] md:text-[104px] xl:text-[116px]`}>
-            Built to Make
+            <span className="block whitespace-nowrap">Built to Make</span>
             <span className="block">Brands Shine</span>
           </h1>
 
@@ -64,8 +64,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* ADJUSTED POSITION + SIZE */}
-        <div className="absolute right-[-5vw] top-0 bottom-0 w-[60vw] max-w-none pointer-events-none">
+        <div className="absolute right-[-5vw] top-[-10%] bottom-0 w-[60vw] max-w-none pointer-events-none">
           <Image
             src="/HeroImage1.png"
             alt="Star Digital Solutions hero person"
