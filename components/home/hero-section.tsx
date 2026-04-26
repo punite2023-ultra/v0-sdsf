@@ -64,19 +64,15 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="relative z-10 flex min-h-[540px] items-end justify-center lg:min-h-[700px] lg:justify-end">
-          <div className="absolute bottom-0 right-[4%] h-[250px] w-[88%] rounded-full bg-black/35 blur-2xl" />
-          <div className="absolute bottom-[28%] right-[8%] h-[360px] w-[360px] rounded-full bg-[#ff0048]/22 blur-3xl" />
-
-          <div className="relative -mb-14 h-[670px] w-[118%] max-w-none md:-mb-20 md:h-[790px] lg:-mr-20 lg:h-[860px] xl:-mr-28 xl:h-[920px] 2xl:-mr-36 2xl:h-[980px]">
-            <Image
-              src="/HeroImage1.png"
-              alt="Star Digital Solutions hero person"
-              fill
-              priority
-              className="object-contain object-bottom drop-shadow-[0_30px_70px_rgba(0,0,0,0.38)]"
-            />
-          </div>
+        {/* FULL HEIGHT RIGHT IMAGE (FINAL FIX) */}
+        <div className="absolute right-0 top-0 bottom-0 w-[65vw] max-w-none pointer-events-none">
+          <Image
+            src="/HeroImage1.png"
+            alt="Star Digital Solutions hero person"
+            fill
+            priority
+            className="object-contain object-bottom scale-[1.65] lg:scale-[1.8] 2xl:scale-[2] drop-shadow-[0_50px_120px_rgba(0,0,0,0.5)]"
+          />
         </div>
 
         <div className="absolute bottom-7 left-1/2 z-20 flex -translate-x-1/2 items-center gap-3">
