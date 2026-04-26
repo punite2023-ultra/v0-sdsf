@@ -133,7 +133,7 @@ html { scroll-behavior: smooth; }
 @keyframes pulse-slow { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
 @keyframes orbitSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @keyframes orbitSpinReverse { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
-@keyframes starShine { 0%, 100% { opacity: .86; filter: brightness(1); } 50% { opacity: 1; filter: brightness(1.22); } }
+@keyframes starShine { 0%, 100% { opacity: .88; filter: brightness(1); } 50% { opacity: 1; filter: brightness(1.18); } }
 
 .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
 .animate-fade-in-down { animation: fadeInDown 0.8s ease-out forwards; }
@@ -162,8 +162,12 @@ html { scroll-behavior: smooth; }
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* SDS About hero: clear five-point star with the same orbit/glow energy as the circle effect. */
+/* SDS About hero: smaller five-point star placed beside the headline. */
 [class*="animate-[organicFloat_12s_ease-in-out_infinite]"][class*="h-[620px]"][class*="w-[620px]"] {
+  left: 67% !important;
+  top: 52% !important;
+  width: 430px !important;
+  height: 430px !important;
   overflow: visible !important;
   border-radius: 0 !important;
   background: transparent !important;
@@ -183,29 +187,32 @@ html { scroll-behavior: smooth; }
 }
 
 [class*="animate-[organicFloat_12s_ease-in-out_infinite]"][class*="h-[620px]"][class*="w-[620px]"]::before {
-  inset: 0;
+  inset: 14px;
   background:
-    conic-gradient(from 0deg, transparent 0deg, rgba(255,255,255,.96) 42deg, rgba(90,139,255,.94) 96deg, rgba(82,56,255,.58) 145deg, transparent 176deg, rgba(236,72,153,.94) 236deg, rgba(255,255,255,.92) 286deg, transparent 336deg),
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,.16), rgba(92,135,255,.22) 38%, transparent 68%);
-  -webkit-mask: radial-gradient(circle, transparent 0 37%, #000 39% 100%);
-  mask: radial-gradient(circle, transparent 0 37%, #000 39% 100%);
+    conic-gradient(from 0deg, rgba(255,255,255,.9), rgba(92,135,255,.88), rgba(42,27,105,.35), rgba(236,72,153,.86), rgba(255,255,255,.86), rgba(74,118,255,.82), rgba(42,27,105,.32), rgba(236,72,153,.74), rgba(255,255,255,.9));
+  -webkit-mask: radial-gradient(circle, transparent 0 43%, #000 45% 100%);
+  mask: radial-gradient(circle, transparent 0 43%, #000 45% 100%);
   animation: orbitSpin 14s linear infinite;
-  opacity: .96;
-  filter: drop-shadow(0 0 34px rgba(168,85,247,.44)) drop-shadow(0 0 80px rgba(59,130,246,.22));
+  opacity: .9;
+  filter: drop-shadow(0 0 28px rgba(168,85,247,.34)) drop-shadow(0 0 56px rgba(59,130,246,.2));
 }
 
 [class*="animate-[organicFloat_12s_ease-in-out_infinite]"][class*="h-[620px]"][class*="w-[620px]"]::after {
-  inset: 76px;
+  inset: 58px;
   background:
-    linear-gradient(90deg, transparent 49.5%, rgba(255,255,255,.62) 50%, transparent 50.5%),
-    linear-gradient(18deg, transparent 49.5%, rgba(255,255,255,.2) 50%, transparent 50.5%),
-    linear-gradient(162deg, transparent 49.5%, rgba(255,255,255,.18) 50%, transparent 50.5%),
-    conic-gradient(from -18deg, rgba(255,255,255,.92), rgba(203,214,255,.86), rgba(98,77,255,.5), rgba(30,18,70,.92), rgba(238,101,211,.7), rgba(255,255,255,.82), rgba(56,109,255,.72), rgba(30,18,70,.9), rgba(255,255,255,.92));
-  opacity: .94;
-  filter: drop-shadow(0 0 20px rgba(255,255,255,.22));
+    linear-gradient(90deg, transparent 49.5%, rgba(255,255,255,.54) 50%, transparent 50.5%),
+    linear-gradient(18deg, transparent 49.5%, rgba(255,255,255,.18) 50%, transparent 50.5%),
+    linear-gradient(162deg, transparent 49.5%, rgba(255,255,255,.16) 50%, transparent 50.5%),
+    conic-gradient(from -18deg, rgba(255,255,255,.92), rgba(203,214,255,.82), rgba(98,77,255,.48), rgba(30,18,70,.9), rgba(238,101,211,.66), rgba(255,255,255,.78), rgba(56,109,255,.68), rgba(30,18,70,.9), rgba(255,255,255,.9));
+  opacity: .92;
+  filter: drop-shadow(0 0 18px rgba(255,255,255,.2));
   animation: starShine 4.8s ease-in-out infinite;
 }
 
 @media (max-width: 768px) {
-  [class*="animate-[organicFloat_12s_ease-in-out_infinite]"][class*="h-[620px]"][class*="w-[620px]"] { transform: translate(-50%, -50%) scale(.72) !important; }
+  [class*="animate-[organicFloat_12s_ease-in-out_infinite]"][class*="h-[620px]"][class*="w-[620px]"] {
+    left: 68% !important;
+    top: 48% !important;
+    transform: translate(-50%, -50%) scale(.68) !important;
+  }
 }
