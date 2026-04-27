@@ -3,28 +3,55 @@
 import Image from "next/image"
 
 const logos = [
-  "_0009_Nestle-Logo.png",
-  "_0010_Unilever-Logo.png",
   "_0000_Palmolive-Logo.png",
+  "_0001_Define-Logo.png",
   "_0001_Equal-Logo.png",
+  "_0002_Bambini-Logo.png",
   "_0002_Silka-Logo.png",
+  "_0003_Biogenic-Logo.png",
   "_0003_Bonita-Logo.png",
+  "_0004_Har-Works-Logo.png",
   "_0004_Palawan-Gold-Logo.png",
+  "_0005_Goli-Logo.png",
   "_0005_Loreal-Logo.png",
   "_0006_Rexona-Logo.png",
+  "_0007_Alibaba-Logo.png",
   "_0007_Nivea-Logo.png",
+  "_0008_Bench-Logo.png",
   "_0008_Garnier-Logo.png",
+  "_0009_Nestle-Logo.png",
+  "_0009_Vice-Logo.png",
+  "_0010_Colourette-Logo.png",
+  "_0010_Unilever-Logo.png",
+  "_0011_Colgate-Logo.png",
+  "_0012_Sunnies_Studios_logo.png",
+  "_0013_Axe-Logo.png",
+  "_0014_Vaseline-Logo.png",
+  "_0015_Dove-Logo.png",
+  "_0016_Shark-Ninja.png",
+  "_0017_Extreme-Logo.png",
+  "_0018_Juicy-Cologne-Logo.png",
+  "_0019_Silka-Logo.png",
+  "_0020_Bonita-Logo.png",
+  "_0021_Palawan-Gold-Logo.png",
+  "_0022_Loreal-Logo.png",
+  "_0023_Rexona-Logo.png",
+  "_0024_Nivea-Logo.png",
+  "_0025_Garnier-Logo.png",
+  "_0026_Nestle-Logo.png",
+  "_0027_Unilever-Logo.png",
+  "_0028_Layer-1.png",
 ]
 
 function LogoItem({ src, index }: { src: string; index: number }) {
   return (
-    <div className="mx-6 flex min-w-max items-center justify-center md:mx-10">
-      <div className="relative h-14 w-[160px] opacity-90 transition duration-300 hover:scale-105 hover:opacity-100">
+    <div className="mx-8 flex min-w-max items-center justify-center md:mx-12">
+      <div className="relative h-16 w-[200px] opacity-90 transition duration-300 hover:scale-105 hover:opacity-100">
         <Image
           src={`/logos/${src}`}
           alt={`Brand logo ${index + 1}`}
           fill
-          className="object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.18)]"
+          className="object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]"
         />
       </div>
     </div>
@@ -80,10 +107,10 @@ export function ServicesPreview() {
 
         {/* MARQUEE */}
         <div className="relative mt-10 md:mt-12">
-          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-black to-transparent md:w-28" />
-          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-black to-transparent md:w-28" />
+          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-black to-transparent md:w-32" />
+          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-black to-transparent md:w-32" />
 
-          <div className="rounded-[28px] border border-white/10 bg-white/5 py-5 backdrop-blur-md md:py-6">
+          <div className="rounded-[32px] border border-white/10 bg-white/5 py-8 backdrop-blur-md md:py-10">
             <div className="overflow-hidden">
               <div className="marquee-track flex w-max items-center">
                 {marqueeItems.map((logo, index) => (
@@ -98,7 +125,7 @@ export function ServicesPreview() {
       {/* ANIMATION */}
       <style jsx>{`
         .marquee-track {
-          animation: marquee 60s linear infinite;
+          animation: marquee 90s linear infinite;
         }
 
         .marquee-track:hover {
