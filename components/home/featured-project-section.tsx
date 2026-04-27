@@ -25,7 +25,7 @@ const newsEvents: NewsEvent[] = [
     shortDescription:
       "A look behind the lens at the vibrant, fast-paced world of live-streaming with Denise Laurel and Rejuran.",
     fullDescription:
-      "From the studio to the screen, we’re all about elevating the creator experience. SDS proudly facilitated this collaboration between Denise Laurel and Rejuran, managing the technical precision and creative energy required for a high-impact live-stream. This feature highlights our commitment to professional excellence, ensuring that every brand message is delivered with clarity, style, and real-time engagement.",
+      "From the studio to the screen, we’re all about elevating the creator experience. SDS proudly facilitated this collaboration between Denise Laurel and Rejuran, managing the technical precision and creative energy required for a high-impact live-stream.",
   },
   {
     category: "Event Recap",
@@ -37,7 +37,7 @@ const newsEvents: NewsEvent[] = [
     shortDescription:
       "SDS recapped the excitement of BeautyCon 2026, highlighting the energy, beauty trends, and brand presence from the event.",
     fullDescription:
-      "This post served as a continuation of the BeautyCon experience, turning live event moments into extended digital visibility. SDS used the recap to reinforce brand relevance, celebrate the atmosphere of the event, and show its connection to beauty, retail, and consumer engagement.",
+      "This post served as a continuation of the BeautyCon experience, turning live event moments into extended digital visibility.",
   },
   {
     category: "Star Digital Solutions Milestone",
@@ -48,9 +48,9 @@ const newsEvents: NewsEvent[] = [
     date: "25 Mar 2026",
     location: "Philippines",
     shortDescription:
-      "A dynamic retrospective of Star Digital Solutions’ journey, highlighting our evolution from inaugural live-stream sessions to becoming the powerhouse production partner for global brands like Colgate, Maybelline, and Garnier.",
+      "A dynamic retrospective of Star Digital Solutions’ journey, highlighting our evolution from inaugural live-stream sessions to becoming the powerhouse production partner for global brands.",
     fullDescription:
-      'Star Digital Solutions (SDS) is proud to present a milestone-marking "Flashback" feature, tracing our trajectory as a premier creative and digital production agency. This visual journey captures the high-stakes energy, technical precision, and creative passion that define every SDS project.',
+      "Star Digital Solutions is proud to present a milestone-marking flashback feature, tracing our trajectory as a premier creative and digital production agency.",
   },
   {
     category: "Brand Experience",
@@ -62,7 +62,7 @@ const newsEvents: NewsEvent[] = [
     shortDescription:
       "SDS joined AvonPH for a day centered on empowerment, connection, and meaningful brand-community engagement.",
     fullDescription:
-      "This event highlighted a more human side of brand activation—bringing people together through shared purpose and experience. SDS positioned the moment as more than a simple appearance, but as a meaningful collaboration built around community, values, and engagement.",
+      "This event highlighted a more human side of brand activation—bringing people together through shared purpose and experience.",
   },
   {
     category: "Milestone",
@@ -74,7 +74,7 @@ const newsEvents: NewsEvent[] = [
     shortDescription:
       "SDS shared another milestone that reflects steady growth, industry trust, and continued forward momentum.",
     fullDescription:
-      "This update captured a key achievement in the company’s journey and framed it as a sign of progress in the right direction. It reinforces the idea that SDS is building credibility through results, consistency, and the trust of the brands and partners it works with.",
+      "This update captured a key achievement in the company’s journey and framed it as a sign of progress in the right direction.",
   },
   {
     category: "Award Recognition",
@@ -86,7 +86,7 @@ const newsEvents: NewsEvent[] = [
     shortDescription:
       "SDS was recognized as MCN Agency of the Year, celebrating its impact in creator commerce and digital growth.",
     fullDescription:
-      "This recognition marked a major achievement for SDS and highlighted the strength of its work in the creator and commerce space. The post communicates leadership, performance, and the agency’s ability to deliver results that stand out at an industry level.",
+      "This recognition marked a major achievement for SDS and highlighted the strength of its work in the creator and commerce space.",
   },
 ]
 
@@ -125,7 +125,7 @@ export function NewsEventsSection() {
         </div>
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {newsEvents.map((item, index) => {
+          {newsEvents.slice(0, 3).map((item, index) => {
             const isActive = activeIndex === index
             const isPlaying = playingIndex === index
 
@@ -208,6 +208,52 @@ export function NewsEventsSection() {
               </article>
             )
           })}
+        </div>
+
+        <div className="mt-16">
+          <div className="mx-auto max-w-5xl rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-center backdrop-blur-md sm:p-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#ff7fd4]">
+              For More Details
+            </p>
+
+            <h3 className="mt-4 text-2xl font-semibold text-white sm:text-3xl">
+              For News and Events, check our latest updates.
+            </h3>
+
+            <p className="mt-4 text-sm leading-7 text-white/65 sm:text-base">
+              Follow Star Digital Solutions on Facebook, Instagram, and TikTok
+              for more event highlights, brand moments, and agency updates.
+            </p>
+
+            <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 items-center justify-center rounded-full bg-gradient-to-r from-[#cc7bff] to-[#ff8ab5] px-6 text-xs font-semibold uppercase tracking-[0.22em] text-white transition-transform duration-300 hover:scale-[1.04]"
+              >
+                Facebook
+              </a>
+
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 items-center justify-center rounded-full border border-white/15 px-6 text-xs font-semibold uppercase tracking-[0.22em] text-white transition-all duration-300 hover:border-white/30 hover:bg-white/10"
+              >
+                Instagram
+              </a>
+
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 items-center justify-center rounded-full border border-white/15 px-6 text-xs font-semibold uppercase tracking-[0.22em] text-white transition-all duration-300 hover:border-white/30 hover:bg-white/10"
+              >
+                TikTok
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
