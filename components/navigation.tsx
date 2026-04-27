@@ -8,13 +8,21 @@ import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/language-context"
 
 const navLinksEn = [
-  { href: "/", label: "Landing Page" },
+  { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
+  { href: "/services", label: "Services" },
+  { href: "/brand-partners", label: "Brand Partners" },
+  { href: "/news-events", label: "News & Events" },
+  { href: "/contact", label: "Contact" },
 ]
 
 const navLinksZh = [
   { href: "/", label: "主页" },
   { href: "/about", label: "关于我们" },
+  { href: "/services", label: "服务" },
+  { href: "/brand-partners", label: "合作品牌" },
+  { href: "/news-events", label: "新闻与活动" },
+  { href: "/contact", label: "联系我们" },
 ]
 
 export function Navigation() {
@@ -40,15 +48,15 @@ export function Navigation() {
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/"
-    return pathname === href
+    return pathname.startsWith(href)
   }
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-md py-5"
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-md py-5">
       <div className="container mx-auto px-6 lg:px-8">
         <nav className="flex items-center justify-between">
+
+          {/* LOGO */}
           <Link href="/" className="flex items-center gap-2">
             <img
               src="/images/StarDigitalSolutionsWhite.svg"
@@ -57,6 +65,7 @@ export function Navigation() {
             />
           </Link>
 
+          {/* DESKTOP NAV */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
@@ -73,6 +82,7 @@ export function Navigation() {
             ))}
           </div>
 
+          {/* LANGUAGE SWITCH */}
           <div className="hidden lg:flex items-center gap-2">
             <button
               onClick={() => setLanguage("en")}
@@ -96,6 +106,7 @@ export function Navigation() {
             </button>
           </div>
 
+          {/* CTA */}
           <div className="hidden lg:block">
             <Button
               asChild
@@ -107,14 +118,20 @@ export function Navigation() {
             </Button>
           </div>
 
+          {/* MOBILE MENU BUTTON */}
           <button
             className="lg:hidden p-2 text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </nav>
 
+        {/* MOBILE MENU */}
         {isMobileMenuOpen && (
           <div className="mt-6 rounded-2xl p-6 border border-white/10 bg-[#21103f]/95">
             <div className="flex flex-col gap-4">
