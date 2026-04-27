@@ -19,12 +19,12 @@ const logos = [
 function LogoItem({ src, index }: { src: string; index: number }) {
   return (
     <div className="mx-6 flex min-w-max items-center justify-center md:mx-10">
-      <div className="relative h-12 w-[150px] opacity-80 transition duration-300 hover:scale-105 hover:opacity-100">
+      <div className="relative h-14 w-[160px] opacity-90 transition duration-300 hover:scale-105 hover:opacity-100">
         <Image
           src={`/logos/${src}`}
           alt={`Brand logo ${index + 1}`}
           fill
-          className="object-contain brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.18)]"
+          className="object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.18)]"
         />
       </div>
     </div>
@@ -36,6 +36,7 @@ export function ServicesPreview() {
 
   return (
     <section className="relative overflow-hidden py-16 text-white md:py-20 lg:py-24">
+      {/* BACKGROUND */}
       <div className="absolute inset-0 -z-20">
         <Image
           src="/10121357.jpg"
@@ -46,10 +47,12 @@ export function ServicesPreview() {
         />
       </div>
 
+      {/* OVERLAYS */}
       <div className="absolute inset-0 -z-10 bg-black/70" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(110,66,255,0.15),transparent_40%)]" />
 
       <div className="relative mx-auto max-w-[1400px] px-6 md:px-8">
+        {/* HEADER */}
         <div className="mx-auto max-w-[980px] text-center">
           <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/70 md:text-xs">
             Trusted by Brands
@@ -75,6 +78,7 @@ export function ServicesPreview() {
           </div>
         </div>
 
+        {/* MARQUEE */}
         <div className="relative mt-10 md:mt-12">
           <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-black to-transparent md:w-28" />
           <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-black to-transparent md:w-28" />
@@ -91,6 +95,7 @@ export function ServicesPreview() {
         </div>
       </div>
 
+      {/* ANIMATION */}
       <style jsx>{`
         .marquee-track {
           animation: marquee 60s linear infinite;
