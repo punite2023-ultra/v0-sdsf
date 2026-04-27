@@ -19,7 +19,7 @@ const newsEvents: NewsEvent[] = [
     category: "Creator Insights",
     title: "Creator Advice Spotlight",
     image: "/news-events/Event-1.jpg",
-    video: "/news-events/Event-1.mp4",
+    video: "/news-events/NewsVideo1.mp4",
     date: "31 Mar 2026",
     location: "Philippines",
     shortDescription:
@@ -135,7 +135,9 @@ export function NewsEventsSection() {
               >
                 <button
                   type="button"
-                  onClick={() => setPlayingIndex(isPlaying ? null : index)}
+                  onClick={() => {
+                    setPlayingIndex(isPlaying ? null : index)
+                  }}
                   className={`relative mx-auto block overflow-hidden bg-black text-left transition-all duration-500 ${
                     isPlaying
                       ? "aspect-[9/16] w-full max-w-[360px] rounded-[28px]"
@@ -158,7 +160,9 @@ export function NewsEventsSection() {
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
+
                       <div className="absolute inset-0 bg-black/25" />
+
                       <div className="absolute inset-0 flex items-center justify-center">
                         <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-white/15 text-sm backdrop-blur-md">
                           ▶
