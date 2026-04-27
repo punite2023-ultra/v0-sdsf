@@ -16,16 +16,16 @@ type NewsEvent = {
 
 const newsEvents: NewsEvent[] = [
   {
-    category: "Creator Insights",
-    title: "Creator Advice Spotlight",
-    image: "/news-events/Event-1.jpg",
-    video: "/news-events/NewsVideo1.mp4",
-    date: "31 Mar 2026",
+    category: "Brand Experiemce",
+    title: "Denise Laurel took over the Key Live Session",
+    image: "/news-events/Denise x Rejuran.png",
+    video: "/news-events/Denise x Rejuran.mp4",
+    date: "23 April 2026",
     location: "Philippines",
     shortDescription:
-      "SDS spotlighted a creator-first message about starting before everything feels perfect and learning through action.",
+      "A look behind the lens at the vibrant, fast-paced world of live-streaming with Denise Laurel and Rejuran.",
     fullDescription:
-      "This feature shared a practical content-creation mindset rooted in action, consistency, and progress. Through this post, SDS highlighted the importance of showing up, creating, and improving over time—reflecting the agency’s support for creators and brands growing through real momentum.",
+      "From the studio to the screen, we’re all about elevating the creator experience. SDS proudly facilitated this collaboration between Denise Laurel and Rejuran, managing the technical precision and creative energy required for a high-impact live-stream. This feature highlights our commitment to professional excellence, ensuring that every brand message is delivered with clarity, style, and real-time engagement.",
   },
   {
     category: "Event Recap",
