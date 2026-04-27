@@ -9,20 +9,20 @@ import { useLanguage } from "@/lib/language-context"
 
 const navLinksEn = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
-  { href: "/services", label: "Services" },
-  { href: "/brand-partners", label: "Brand Partners" },
-  { href: "/news-events", label: "News & Events" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#who-we-are", label: "About Us" },
+  { href: "/#what-we-offer", label: "Services" },
+  { href: "/#brand-partners", label: "Brand Partners" },
+  { href: "/#news-events", label: "News & Events" },
+  { href: "/#contact", label: "Contact" },
 ]
 
 const navLinksZh = [
   { href: "/", label: "主页" },
-  { href: "/about", label: "关于我们" },
-  { href: "/services", label: "服务" },
-  { href: "/brand-partners", label: "合作品牌" },
-  { href: "/news-events", label: "新闻与活动" },
-  { href: "/contact", label: "联系我们" },
+  { href: "/#who-we-are", label: "关于我们" },
+  { href: "/#what-we-offer", label: "服务" },
+  { href: "/#brand-partners", label: "合作品牌" },
+  { href: "/#news-events", label: "新闻与活动" },
+  { href: "/#contact", label: "联系我们" },
 ]
 
 export function Navigation() {
@@ -32,8 +32,6 @@ export function Navigation() {
   const { language, setLanguage } = useLanguage()
 
   const isHome = pathname === "/"
-  const isAbout = pathname === "/about"
-  const useDarkNav = isAbout || (isHome && !isScrolled)
   const navLinks = language === "en" ? navLinksEn : navLinksZh
 
   useEffect(() => {
@@ -48,7 +46,7 @@ export function Navigation() {
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/"
-    return pathname.startsWith(href)
+    return pathname === "/" && href.startsWith("/#")
   }
 
   return (
@@ -71,6 +69,7 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
+                scroll={true}
                 className={`text-sm font-medium transition ${
                   isActive(link.href)
                     ? "text-[#ff2f74]"
@@ -112,7 +111,7 @@ export function Navigation() {
               asChild
               className="rounded-full px-6 border border-pink-400/70 bg-transparent text-white hover:bg-pink-500/15"
             >
-              <Link href="/contact">
+              <Link href="/#contact">
                 {language === "en" ? "Get Started" : "开始使用"}
               </Link>
             </Button>
@@ -139,6 +138,7 @@ export function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  scroll={true}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="font-medium text-white"
                 >
@@ -147,7 +147,7 @@ export function Navigation() {
               ))}
 
               <Button asChild className="mt-4 rounded-full">
-                <Link href="/contact">
+                <Link href="/#contact">
                   {language === "en" ? "Get Started" : "开始使用"}
                 </Link>
               </Button>
