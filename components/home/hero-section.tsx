@@ -20,45 +20,48 @@ export function HeroSection() {
 
   return (
     <section className="relative isolate overflow-hidden bg-[#17002d] text-white">
-
-      {/* 🎥 SUBTLE VIDEO BACKGROUND */}
+      {/* Visible Video Background */}
       <div className="absolute inset-0 -z-20 overflow-hidden">
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="h-full w-full object-cover scale-[1.1] blur-[2px] opacity-30"
+          className="h-full w-full object-cover scale-[1.05] opacity-60"
         >
           <source src="/IntroVid.mp4" type="video/mp4" />
         </video>
       </div>
 
-      {/* STRONGER OVERLAY (KEY FOR SUBTLE LOOK) */}
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(19,0,42,0.97)_0%,rgba(45,0,77,0.9)_45%,rgba(45,0,77,0.5)_100%)]" />
-      <div className="absolute inset-0 -z-10 bg-black/30" />
+      {/* Overlays */}
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(19,0,42,0.9)_0%,rgba(45,0,77,0.75)_45%,rgba(45,0,77,0.3)_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-black/15" />
+      <div className="absolute left-0 top-0 -z-10 h-full w-[34%] bg-[linear-gradient(115deg,rgba(70,0,100,0.35),rgba(70,0,100,0)_70%)]" />
+      <div className="absolute right-0 top-0 -z-10 h-full w-[52%] bg-[radial-gradient(circle_at_67%_34%,rgba(255,0,70,0.22),transparent_36%)]" />
 
-      {/* CONTENT */}
+      {/* Content */}
       <div className="relative mx-auto grid min-h-[760px] max-w-[1500px] items-center gap-6 px-6 pb-14 pt-28 md:px-10 lg:grid-cols-[0.86fr_1.14fr] lg:pt-24 xl:min-h-[820px]">
-        
-        {/* LEFT TEXT */}
+        {/* Left Text */}
         <div className="relative z-20 max-w-[680px] lg:pl-4 xl:pl-10">
-          
-          <p className={`${poppins.className} mb-5 text-[12px] font-bold uppercase tracking-[0.34em] text-white/70`}>
+          <p
+            className={`${poppins.className} mb-5 text-[12px] font-bold uppercase tracking-[0.34em] text-white/70`}
+          >
             Welcome to Star Digital Solutions
           </p>
 
-          <h1 className={`${anton.className} text-[64px] uppercase leading-[0.92] tracking-[-0.04em] text-[#b70d41] sm:text-[86px] md:text-[104px] xl:text-[116px]`}>
-            <span className="block whitespace-nowrap mb-2">
-              Built to Make
-            </span>
-            <span className="block">
-              Brands Shine
-            </span>
+          <h1
+            className={`${anton.className} text-[64px] uppercase leading-[0.92] tracking-[-0.04em] text-[#b70d41] sm:text-[86px] md:text-[104px] xl:text-[116px]`}
+          >
+            <span className="mb-2 block whitespace-nowrap">Built to Make</span>
+            <span className="block">Brands Shine</span>
           </h1>
 
-          <p className={`${poppins.className} mt-5 max-w-[560px] text-[15px] font-medium leading-7 text-white md:text-[17px]`}>
-            Star Digital Solutions helps brands grow through e-commerce strategy, creator partnerships, and digital systems where brands become the star of the market.
+          <p
+            className={`${poppins.className} mt-5 max-w-[560px] text-[15px] font-medium leading-7 text-white md:text-[17px]`}
+          >
+            Star Digital Solutions helps brands grow through e-commerce strategy,
+            creator partnerships, and digital systems where brands become the star
+            of the market.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -75,18 +78,18 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* HERO IMAGE */}
-        <div className="absolute right-[-5vw] top-[-10%] bottom-0 w-[60vw] max-w-none pointer-events-none">
+        {/* Right Hero Image */}
+        <div className="pointer-events-none absolute bottom-0 right-[-5vw] top-[-10%] w-[60vw] max-w-none">
           <Image
             src="/HeroImage1.png"
             alt="Star Digital Solutions hero person"
             fill
             priority
-            className="object-contain object-bottom scale-[1.45] lg:scale-[1.55] 2xl:scale-[1.65] drop-shadow-[0_50px_120px_rgba(0,0,0,0.5)]"
+            className="object-contain object-bottom scale-[1.45] drop-shadow-[0_50px_120px_rgba(0,0,0,0.5)] lg:scale-[1.55] 2xl:scale-[1.65]"
           />
         </div>
 
-        {/* DOTS */}
+        {/* Dots */}
         <div className="absolute bottom-7 left-1/2 z-20 flex -translate-x-1/2 items-center gap-3">
           <span className="h-4 w-4 rounded-full bg-[#7c3aed]" />
           <span className="h-4 w-4 rounded-full bg-[#b70d41]/80" />
@@ -94,20 +97,26 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* VIDEO MODAL */}
+      {/* Video Modal */}
       {isVideoOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 px-4 backdrop-blur-sm">
           <div className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-white/15 bg-black shadow-[0_30px_100px_rgba(0,0,0,0.55)]">
-            
             <button
               type="button"
               onClick={() => setIsVideoOpen(false)}
-              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white"
+              aria-label="Close video"
+              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition hover:bg-white/20"
             >
               <X className="h-5 w-5" />
             </button>
 
-            <video className="aspect-video w-full" src="/TVC.mp4" controls autoPlay playsInline />
+            <video
+              className="aspect-video w-full"
+              src="/TVC.mp4"
+              controls
+              autoPlay
+              playsInline
+            />
           </div>
         </div>
       )}
