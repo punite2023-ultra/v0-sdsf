@@ -16,7 +16,7 @@ type NewsEvent = {
 
 const newsEvents: NewsEvent[] = [
   {
-    category: "Brand Experiemce",
+    category: "Brand Experience",
     title: "Denise Laurel took over the Key Live Session",
     image: "/news-events/Denise x Rejuran.png",
     video: "/news-events/Denise x Rejuran.mp4",
@@ -41,7 +41,8 @@ const newsEvents: NewsEvent[] = [
   },
   {
     category: "Star Digital Solutions Milestone",
-    title: "From First Stream to Industry Leaders: Star Digital Solutions Celebrates a Legacy of Digital Excellence",
+    title:
+      "From First Stream to Industry Leaders: Star Digital Solutions Celebrates a Legacy of Digital Excellence",
     image: "/news-events/Flashback.png",
     video: "/news-events/Flashback1.mp4",
     date: "25 Mar 2026",
@@ -49,7 +50,7 @@ const newsEvents: NewsEvent[] = [
     shortDescription:
       "A dynamic retrospective of Star Digital Solutions’ journey, highlighting our evolution from inaugural live-stream sessions to becoming the powerhouse production partner for global brands like Colgate, Maybelline, and Garnier.",
     fullDescription:
-      "Star Digital Solutions (SDS) is proud to present a milestone-marking "Flashback" feature, tracing our trajectory as a premier creative and digital production agency. This visual journey captures the high-stakes energy, technical precision, and creative passion that define every SDS project.",
+      'Star Digital Solutions (SDS) is proud to present a milestone-marking "Flashback" feature, tracing our trajectory as a premier creative and digital production agency. This visual journey captures the high-stakes energy, technical precision, and creative passion that define every SDS project.',
   },
   {
     category: "Brand Experience",
