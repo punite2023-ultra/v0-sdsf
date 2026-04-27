@@ -40,7 +40,7 @@ export function HeroSection() {
 
   return (
     <section className="relative isolate overflow-hidden bg-[#17002d] text-white">
-      {/* Image Background */}
+      {/* Background */}
       <div className="absolute inset-0 -z-20 overflow-hidden">
         <Image
           src="/10121357.jpg"
@@ -58,7 +58,7 @@ export function HeroSection() {
       <div className="absolute right-0 top-0 -z-10 h-full w-[52%] bg-[radial-gradient(circle_at_67%_34%,rgba(255,0,70,0.22),transparent_36%)]" />
 
       {/* Content */}
-      <div className="relative mx-auto grid min-h-[760px] max-w-[1500px] items-center gap-6 px-6 pb-14 pt-28 md:px-10 lg:grid-cols-[0.86fr_1.14fr] lg:pt-24 xl:min-h-[820px]">
+      <div className="relative mx-auto grid min-h-[760px] max-w-[1500px] items-center gap-6 px-6 pb-20 pt-28 md:px-10 lg:grid-cols-[0.86fr_1.14fr] lg:pt-24 xl:min-h-[820px]">
         {/* Left Text */}
         <div className="relative z-20 max-w-[680px] lg:pl-4 xl:pl-10">
           <p
@@ -97,7 +97,7 @@ export function HeroSection() {
         </div>
 
         {/* Right Hero Image Slider */}
-        <div className="pointer-events-none absolute bottom-0 right-[-5vw] top-[-18%] z-10 w-[60vw] max-w-none">
+        <div className="pointer-events-none absolute bottom-0 right-[-4vw] z-10 h-[82%] w-[62vw] max-w-[980px]">
           {heroImages.map((image, index) => (
             <Image
               key={image.src}
@@ -105,26 +105,28 @@ export function HeroSection() {
               alt={image.alt}
               fill
               priority={index === 0}
-              className={`object-contain object-top drop-shadow-[0_50px_120px_rgba(0,0,0,0.5)] transition-all duration-1000 ease-in-out ${
+              sizes="(max-width: 1024px) 100vw, 62vw"
+              className={`object-contain object-bottom drop-shadow-[0_50px_120px_rgba(0,0,0,0.5)] transition-all duration-1000 ease-in-out ${
                 activeImage === index
                   ? "translate-x-0 opacity-100"
                   : "translate-x-10 opacity-0"
-              } scale-[1.35] lg:scale-[1.45] 2xl:scale-[1.55]`}
+              } scale-[1.05] lg:scale-[1.18] xl:scale-[1.25]`}
             />
           ))}
         </div>
 
-        {/* Dots */}
-        <div className="absolute bottom-7 left-1/2 z-20 flex -translate-x-1/2 items-center gap-3">
+        {/* Slider Buttons / Dots */}
+        <div className="absolute bottom-8 left-1/2 z-30 flex -translate-x-1/2 items-center gap-3">
           {heroImages.map((_, index) => (
             <button
               key={index}
               type="button"
               onClick={() => setActiveImage(index)}
+              aria-label={`Go to hero image ${index + 1}`}
               className={`h-4 w-4 rounded-full transition ${
                 activeImage === index
-                  ? "bg-[#7c3aed]"
-                  : "bg-[#b70d41]/70 hover:bg-[#b70d41]"
+                  ? "scale-125 bg-white"
+                  : "bg-[#b70d41]/80 hover:bg-[#b70d41]"
               }`}
             />
           ))}
