@@ -20,6 +20,8 @@ export function HeroSection() {
 
   return (
     <section className="relative isolate overflow-hidden bg-[#17002d] text-white">
+      
+      {/* Background */}
       <div className="absolute inset-0 -z-20">
         <Image
           src="/10121357.jpg"
@@ -30,26 +32,39 @@ export function HeroSection() {
         />
       </div>
 
+      {/* Overlays */}
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(19,0,42,0.98)_0%,rgba(45,0,77,0.88)_42%,rgba(45,0,77,0.38)_100%)]" />
       <div className="absolute inset-0 -z-10 bg-black/15" />
       <div className="absolute left-0 top-0 -z-10 h-full w-[34%] bg-[linear-gradient(115deg,rgba(70,0,100,0.45),rgba(70,0,100,0)_70%)]" />
       <div className="absolute right-0 top-0 -z-10 h-full w-[52%] bg-[radial-gradient(circle_at_67%_34%,rgba(255,0,70,0.28),transparent_36%)]" />
 
+      {/* Content */}
       <div className="relative mx-auto grid min-h-[760px] max-w-[1500px] items-center gap-6 px-6 pb-14 pt-28 md:px-10 lg:grid-cols-[0.86fr_1.14fr] lg:pt-24 xl:min-h-[820px]">
+        
+        {/* LEFT TEXT */}
         <div className="relative z-20 max-w-[680px] lg:pl-4 xl:pl-10">
+          
+          {/* Updated Label */}
           <p className={`${poppins.className} mb-5 text-[12px] font-bold uppercase tracking-[0.34em] text-white/70`}>
-            Star Digital Solutions
+            Welcome to Star Digital Solutions
           </p>
 
+          {/* Headline FIXED */}
           <h1 className={`${anton.className} text-[64px] uppercase leading-[0.92] tracking-[-0.04em] text-[#b70d41] sm:text-[86px] md:text-[104px] xl:text-[116px]`}>
-            <span className="block whitespace-nowrap">Built to Make</span>
-            <span className="block">Brands Shine</span>
+            <span className="block whitespace-nowrap mb-2">
+              Built to Make
+            </span>
+            <span className="block">
+              Brands Shine
+            </span>
           </h1>
 
+          {/* Description */}
           <p className={`${poppins.className} mt-5 max-w-[560px] text-[15px] font-medium leading-7 text-white md:text-[17px]`}>
             Star Digital Solutions helps brands grow through e-commerce strategy, creator partnerships, and digital systems where brands become the star of the market.
           </p>
 
+          {/* CTA */}
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <button
               type="button"
@@ -64,6 +79,7 @@ export function HeroSection() {
           </div>
         </div>
 
+        {/* RIGHT IMAGE (FINAL POSITION) */}
         <div className="absolute right-[-5vw] top-[-10%] bottom-0 w-[60vw] max-w-none pointer-events-none">
           <Image
             src="/HeroImage1.png"
@@ -74,6 +90,7 @@ export function HeroSection() {
           />
         </div>
 
+        {/* Dots */}
         <div className="absolute bottom-7 left-1/2 z-20 flex -translate-x-1/2 items-center gap-3">
           <span className="h-4 w-4 rounded-full bg-[#7c3aed]" />
           <span className="h-4 w-4 rounded-full bg-[#b70d41]/80" />
@@ -81,9 +98,11 @@ export function HeroSection() {
         </div>
       </div>
 
+      {/* VIDEO MODAL */}
       {isVideoOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 px-4 backdrop-blur-sm">
           <div className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-white/15 bg-black shadow-[0_30px_100px_rgba(0,0,0,0.55)]">
+            
             <button
               type="button"
               onClick={() => setIsVideoOpen(false)}
@@ -93,7 +112,13 @@ export function HeroSection() {
               <X className="h-5 w-5" />
             </button>
 
-            <video className="aspect-video w-full" src="/TVC.mp4" controls autoPlay playsInline />
+            <video
+              className="aspect-video w-full"
+              src="/TVC.mp4"
+              controls
+              autoPlay
+              playsInline
+            />
           </div>
         </div>
       )}
