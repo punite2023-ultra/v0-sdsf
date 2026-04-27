@@ -1,7 +1,7 @@
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { HeroSection } from "@/components/home/hero-section"
-import { ServicesPreview } from "@/components/home/services-preview"
+// import { ServicesPreview } from "@/components/home/services-preview" ← optional remove
 import { AboutPreview } from "@/components/home/about-preview"
 import { PortfolioPreview } from "@/components/home/portfolio-preview"
 import { StatsSection } from "@/components/home/stats-section"
@@ -18,7 +18,10 @@ export default function HomePage() {
         <HeroSection />
         <ClientsMarquee />
         <AboutPreview />
-        <ServicesPreview />
+
+        {/* ❌ Hidden for now */}
+        {/* <ServicesPreview /> */}
+
         <PortfolioPreview />
         <NewsEventsSection />
         <StatsSection />
