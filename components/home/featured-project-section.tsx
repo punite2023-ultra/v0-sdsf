@@ -31,7 +31,7 @@ const newsEvents: NewsEvent[] = [
     category: "Event Recap",
     title: "BeautyCon 2026 Fever",
     image: "/news-events/BeautyCon2026.png",
-    video: "/news-events/Event-2.mp4",
+    video: "/news-events/SDS x BeautyCon 2026 Interview.mp4",
     date: "30 Mar 2026",
     location: "SM Beauty x Watsons BeautyCon",
     shortDescription:
@@ -135,13 +135,11 @@ export function NewsEventsSection() {
               >
                 <button
                   type="button"
-                  onClick={() => {
-                    setPlayingIndex(isPlaying ? null : index)
-                  }}
-                  className={`relative mx-auto block overflow-hidden bg-black text-left transition-all duration-500 ${
+                  onClick={() => setPlayingIndex(isPlaying ? null : index)}
+                  className={`relative block w-full overflow-hidden bg-black text-left transition-all duration-500 ${
                     isPlaying
-                      ? "aspect-[9/16] w-full max-w-[360px] rounded-[28px]"
-                      : "aspect-square w-[150px] rounded-2xl"
+                      ? "aspect-[9/16] rounded-[28px]"
+                      : "aspect-[16/10] rounded-xl"
                   }`}
                 >
                   {isPlaying ? (
@@ -164,7 +162,7 @@ export function NewsEventsSection() {
                       <div className="absolute inset-0 bg-black/25" />
 
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-white/15 text-sm backdrop-blur-md">
+                        <span className="flex h-14 w-14 items-center justify-center rounded-full border border-white/30 bg-white/15 text-base backdrop-blur-md">
                           ▶
                         </span>
                       </div>
