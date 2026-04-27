@@ -36,13 +36,13 @@ const logos = [
 
 function LogoItem({ src, index }: { src: string; index: number }) {
   return (
-    <div className="mx-8 flex min-w-max items-center justify-center md:mx-12">
-      <div className="relative h-16 w-[200px] opacity-90 transition duration-300 hover:scale-105 hover:opacity-100">
+    <div className="mx-12 flex min-w-max items-center justify-center md:mx-16">
+      <div className="relative h-24 w-[260px] opacity-95 transition duration-300 hover:scale-110 hover:opacity-100">
         <Image
           src={`/logos/${src}`}
           alt={`Brand logo ${index + 1}`}
           fill
-          className="object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]"
+          className="object-contain drop-shadow-[0_0_14px_rgba(255,255,255,0.25)]"
         />
       </div>
     </div>
@@ -54,7 +54,6 @@ export function ServicesPreview() {
 
   return (
     <section className="relative overflow-hidden py-16 text-white md:py-20 lg:py-24">
-      {/* BACKGROUND */}
       <div className="absolute inset-0 -z-20">
         <Image
           src="/10121357.jpg"
@@ -65,12 +64,10 @@ export function ServicesPreview() {
         />
       </div>
 
-      {/* OVERLAYS */}
       <div className="absolute inset-0 -z-10 bg-black/70" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(110,66,255,0.15),transparent_40%)]" />
 
       <div className="relative mx-auto max-w-[1400px] px-6 md:px-8">
-        {/* HEADER */}
         <div className="mx-auto max-w-[980px] text-center">
           <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/70 md:text-xs">
             Trusted by Brands
@@ -96,12 +93,11 @@ export function ServicesPreview() {
           </div>
         </div>
 
-        {/* MARQUEE */}
         <div className="relative mt-10 md:mt-12">
-          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-black to-transparent md:w-32" />
-          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-black to-transparent md:w-32" />
+          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-28 bg-gradient-to-r from-black to-transparent md:w-40" />
+          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-28 bg-gradient-to-l from-black to-transparent md:w-40" />
 
-          <div className="rounded-[32px] border border-white/10 bg-white/5 py-8 backdrop-blur-md md:py-10">
+          <div className="rounded-[36px] border border-white/10 bg-white/5 py-12 backdrop-blur-md md:py-14">
             <div className="overflow-hidden">
               <div className="marquee-track flex w-max items-center">
                 {marqueeItems.map((logo, index) => (
@@ -113,10 +109,9 @@ export function ServicesPreview() {
         </div>
       </div>
 
-      {/* ANIMATION */}
       <style jsx>{`
         .marquee-track {
-          animation: marquee 90s linear infinite;
+          animation: marquee 100s linear infinite;
         }
 
         .marquee-track:hover {
