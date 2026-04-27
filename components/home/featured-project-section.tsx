@@ -25,7 +25,7 @@ const newsEvents: NewsEvent[] = [
     shortDescription:
       "SDS spotlighted a creator-first message about starting before everything feels perfect and learning through action.",
     fullDescription:
-      "This feature shared a practical content-creation mindset rooted in action, consistency, and progress.",
+      "This feature shared a practical content-creation mindset rooted in action, consistency, and progress. Through this post, SDS highlighted the importance of showing up, creating, and improving over time—reflecting the agency’s support for creators and brands growing through real momentum.",
   },
   {
     category: "Event Recap",
@@ -35,9 +35,9 @@ const newsEvents: NewsEvent[] = [
     date: "30 Mar 2026",
     location: "SM Beauty x Watsons BeautyCon",
     shortDescription:
-      "SDS recapped the excitement of BeautyCon 2026, highlighting the energy, beauty trends, and brand presence.",
+      "SDS recapped the excitement of BeautyCon 2026, highlighting the energy, beauty trends, and brand presence from the event.",
     fullDescription:
-      "This post served as a continuation of the BeautyCon experience, turning live event moments into extended digital visibility.",
+      "This post served as a continuation of the BeautyCon experience, turning live event moments into extended digital visibility. SDS used the recap to reinforce brand relevance, celebrate the atmosphere of the event, and show its connection to beauty, retail, and consumer engagement.",
   },
   {
     category: "On-Ground Coverage",
@@ -49,7 +49,7 @@ const newsEvents: NewsEvent[] = [
     shortDescription:
       "SDS went on-ground at BeautyCon 2026 to capture live moments, observe trends, and engage with the beauty community.",
     fullDescription:
-      "Through its on-site presence, SDS documented key moments from the event and translated them into content.",
+      "Through its on-site presence, SDS documented key moments from the event and translated them into content that reflects cultural relevance and real-world brand participation. The post shows SDS not just as a digital agency, but as an active presence in brand spaces where consumer attention is happening live.",
   },
   {
     category: "Brand Experience",
@@ -61,7 +61,7 @@ const newsEvents: NewsEvent[] = [
     shortDescription:
       "SDS joined AvonPH for a day centered on empowerment, connection, and meaningful brand-community engagement.",
     fullDescription:
-      "This event highlighted a more human side of brand activation—bringing people together through shared purpose and experience.",
+      "This event highlighted a more human side of brand activation—bringing people together through shared purpose and experience. SDS positioned the moment as more than a simple appearance, but as a meaningful collaboration built around community, values, and engagement.",
   },
   {
     category: "Milestone",
@@ -73,7 +73,7 @@ const newsEvents: NewsEvent[] = [
     shortDescription:
       "SDS shared another milestone that reflects steady growth, industry trust, and continued forward momentum.",
     fullDescription:
-      "This update captured a key achievement in the company’s journey and framed it as progress in the right direction.",
+      "This update captured a key achievement in the company’s journey and framed it as a sign of progress in the right direction. It reinforces the idea that SDS is building credibility through results, consistency, and the trust of the brands and partners it works with.",
   },
   {
     category: "Award Recognition",
@@ -85,7 +85,7 @@ const newsEvents: NewsEvent[] = [
     shortDescription:
       "SDS was recognized as MCN Agency of the Year, celebrating its impact in creator commerce and digital growth.",
     fullDescription:
-      "This recognition marked a major achievement for SDS and highlighted the strength of its work in the creator and commerce space.",
+      "This recognition marked a major achievement for SDS and highlighted the strength of its work in the creator and commerce space. The post communicates leadership, performance, and the agency’s ability to deliver results that stand out at an industry level.",
   },
 ]
 
@@ -95,6 +95,17 @@ export function NewsEventsSection() {
 
   return (
     <section className="relative overflow-hidden bg-[#070012] px-4 py-20 text-white sm:px-6 lg:px-8">
+      <div className="absolute inset-0 opacity-[0.08]">
+        <div
+          className="h-full w-full"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
+            backgroundSize: "90px 90px",
+          }}
+        />
+      </div>
+
       <div className="relative mx-auto max-w-7xl">
         <div className="mx-auto mb-14 max-w-3xl text-center">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-[#d972ff]">
@@ -112,7 +123,7 @@ export function NewsEventsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
           {newsEvents.map((item, index) => {
             const isActive = activeIndex === index
             const isPlaying = playingIndex === index
@@ -120,15 +131,16 @@ export function NewsEventsSection() {
             return (
               <article
                 key={`${item.title}-${index}`}
-                className="overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03]"
+                className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-all duration-500 hover:border-white/20 hover:shadow-[0_0_40px_rgba(255,255,255,0.08)]"
               >
                 <button
                   type="button"
-                  onClick={() => {
-                    setPlayingIndex(isPlaying ? null : index)
-                    setActiveIndex(index)
-                  }}
-                  className="relative block aspect-[9/16] w-full overflow-hidden bg-black text-left"
+                  onClick={() => setPlayingIndex(isPlaying ? null : index)}
+                  className={`relative mx-auto block overflow-hidden bg-black text-left transition-all duration-500 ${
+                    isPlaying
+                      ? "aspect-[9/16] w-full max-w-[360px] rounded-[28px]"
+                      : "aspect-square w-[150px] rounded-2xl"
+                  }`}
                 >
                   {isPlaying ? (
                     <video
@@ -144,11 +156,11 @@ export function NewsEventsSection() {
                         src={item.image}
                         alt={item.title}
                         fill
-                        className="object-cover transition-transform duration-700 hover:scale-105"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-black/35" />
+                      <div className="absolute inset-0 bg-black/25" />
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/30 bg-white/15 text-xl backdrop-blur-md">
+                        <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-white/15 text-sm backdrop-blur-md">
                           ▶
                         </span>
                       </div>
@@ -156,7 +168,7 @@ export function NewsEventsSection() {
                   )}
                 </button>
 
-                <div className="p-6">
+                <div className="pt-6">
                   <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#ff7fd4]">
                     {item.category}
                   </p>
@@ -165,25 +177,27 @@ export function NewsEventsSection() {
                     {item.title}
                   </h3>
 
-                  <div className="mt-5 grid grid-cols-2 gap-x-6 gap-y-5 border-y border-white/10 py-5">
-                    <InfoItem label="Date" value={item.date} />
-                    <InfoItem label="Location" value={item.location} />
-                  </div>
-
-                  <p className="mt-5 text-sm leading-7 text-white/75">
+                  <p className="mt-4 text-sm leading-7 text-white/75">
                     {item.shortDescription}
                   </p>
 
                   {isActive && (
-                    <p className="mt-4 border-t border-white/10 pt-4 text-sm leading-7 text-white/80">
-                      {item.fullDescription}
-                    </p>
+                    <div className="mt-5 border-t border-white/10 pt-5">
+                      <div className="mb-5 grid grid-cols-2 gap-x-6 gap-y-5">
+                        <InfoItem label="Date" value={item.date} />
+                        <InfoItem label="Location" value={item.location} />
+                      </div>
+
+                      <p className="border-t border-white/10 pt-4 text-sm leading-7 text-white/80">
+                        {item.fullDescription}
+                      </p>
+                    </div>
                   )}
 
                   <button
                     type="button"
                     onClick={() => setActiveIndex(isActive ? null : index)}
-                    className="mt-5 inline-flex h-10 items-center justify-center rounded-full border border-white/10 bg-gradient-to-r from-[#cc7bff] to-[#ff8ab5] px-5 text-[11px] font-semibold uppercase tracking-[0.24em] text-white"
+                    className="mt-5 inline-flex h-10 items-center justify-center rounded-full border border-white/10 bg-gradient-to-r from-[#cc7bff] to-[#ff8ab5] px-5 text-[11px] font-semibold uppercase tracking-[0.24em] text-white transition-transform duration-300 hover:scale-[1.03]"
                   >
                     {isActive ? "Hide Details" : "View Details"}
                   </button>
