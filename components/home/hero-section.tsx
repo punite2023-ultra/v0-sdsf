@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Anton, Poppins } from "next/font/google"
 import { Play, X } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const anton = Anton({
   subsets: ["latin"],
@@ -15,27 +15,45 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
 })
 
+const heroImages = [
+  {
+    src: "/HeroImage1.png",
+    alt: "Star Digital Solutions hero image 1",
+  },
+  {
+    src: "/HeroImage2.png",
+    alt: "Star Digital Solutions hero image 2",
+  },
+]
+
 export function HeroSection() {
   const [isVideoOpen, setIsVideoOpen] = useState(false)
+  const [activeImage, setActiveImage] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveImage((prev) => (prev + 1) % heroImages.length)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <section className="relative isolate overflow-hidden bg-[#17002d] text-white">
-      {/* Visible Video Background */}
+      {/* Image Background */}
       <div className="absolute inset-0 -z-20 overflow-hidden">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="h-full w-full object-cover scale-[1.05] opacity-60"
-        >
-          <source src="/IntroVid.mp4" type="video/mp4" />
-        </video>
+        <Image
+          src="/10121357.jpg"
+          alt="Star Digital Solutions background"
+          fill
+          priority
+          className="h-full w-full object-cover opacity-70"
+        />
       </div>
 
       {/* Overlays */}
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(19,0,42,0.9)_0%,rgba(45,0,77,0.75)_45%,rgba(45,0,77,0.3)_100%)]" />
-      <div className="absolute inset-0 -z-10 bg-black/15" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(19,0,42,0.92)_0%,rgba(45,0,77,0.78)_45%,rgba(45,0,77,0.35)_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-black/20" />
       <div className="absolute left-0 top-0 -z-10 h-full w-[34%] bg-[linear-gradient(115deg,rgba(70,0,100,0.35),rgba(70,0,100,0)_70%)]" />
       <div className="absolute right-0 top-0 -z-10 h-full w-[52%] bg-[radial-gradient(circle_at_67%_34%,rgba(255,0,70,0.22),transparent_36%)]" />
 
@@ -78,22 +96,38 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Right Hero Image */}
-        <div className="pointer-events-none absolute bottom-0 right-[-5vw] top-[-10%] w-[60vw] max-w-none">
-          <Image
-            src="/HeroImage1.png"
-            alt="Star Digital Solutions hero person"
-            fill
-            priority
-            className="object-contain object-bottom scale-[1.45] drop-shadow-[0_50px_120px_rgba(0,0,0,0.5)] lg:scale-[1.55] 2xl:scale-[1.65]"
-          />
+        {/* Right Hero Image Slider */}
+        <div className="pointer-events-none absolute bottom-0 right-[-5vw] top-[-18%] z-10 w-[60vw] max-w-none">
+          {heroImages.map((image, index) => (
+            <Image
+              key={image.src}
+              src={image.src}
+              alt={image.alt}
+              fill
+              priority={index === 0}
+              className={`object-contain object-top drop-shadow-[0_50px_120px_rgba(0,0,0,0.5)] transition-all duration-1000 ease-in-out ${
+                activeImage === index
+                  ? "translate-x-0 opacity-100"
+                  : "translate-x-10 opacity-0"
+              } scale-[1.35] lg:scale-[1.45] 2xl:scale-[1.55]`}
+            />
+          ))}
         </div>
 
         {/* Dots */}
         <div className="absolute bottom-7 left-1/2 z-20 flex -translate-x-1/2 items-center gap-3">
-          <span className="h-4 w-4 rounded-full bg-[#7c3aed]" />
-          <span className="h-4 w-4 rounded-full bg-[#b70d41]/80" />
-          <span className="h-4 w-4 rounded-full bg-[#dc444a]/80" />
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => setActiveImage(index)}
+              className={`h-4 w-4 rounded-full transition ${
+                activeImage === index
+                  ? "bg-[#7c3aed]"
+                  : "bg-[#b70d41]/70 hover:bg-[#b70d41]"
+              }`}
+            />
+          ))}
         </div>
       </div>
 
