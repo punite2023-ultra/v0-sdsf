@@ -30,7 +30,7 @@ const newsEvents: NewsEvent[] = [
   {
     category: "Event Recap",
     title: "BeautyCon 2026 Fever",
-    image: "/news-events/Event-2.jpg",
+    image: "/news-events/BeautyCon2026.png",
     video: "/news-events/Event-2.mp4",
     date: "30 Mar 2026",
     location: "SM Beauty x Watsons BeautyCon",
