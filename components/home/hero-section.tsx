@@ -21,22 +21,22 @@ export function HeroSection() {
   return (
     <section className="relative isolate overflow-hidden bg-[#17002d] text-white">
 
-      {/* 🎥 VIDEO BACKGROUND */}
+      {/* 🎥 SUBTLE VIDEO BACKGROUND */}
       <div className="absolute inset-0 -z-20 overflow-hidden">
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover scale-[1.1] blur-[2px] opacity-30"
         >
-          <source src="/hero-bg.mp4" type="video/mp4" />
+          <source src="/IntroVid.mp4" type="video/mp4" />
         </video>
       </div>
 
-      {/* OVERLAYS */}
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(19,0,42,0.95)_0%,rgba(45,0,77,0.85)_42%,rgba(45,0,77,0.35)_100%)]" />
-      <div className="absolute inset-0 -z-10 bg-black/20" />
+      {/* STRONGER OVERLAY (KEY FOR SUBTLE LOOK) */}
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(19,0,42,0.97)_0%,rgba(45,0,77,0.9)_45%,rgba(45,0,77,0.5)_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-black/30" />
 
       {/* CONTENT */}
       <div className="relative mx-auto grid min-h-[760px] max-w-[1500px] items-center gap-6 px-6 pb-14 pt-28 md:px-10 lg:grid-cols-[0.86fr_1.14fr] lg:pt-24 xl:min-h-[820px]">
@@ -75,7 +75,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* RIGHT HERO IMAGE (UNCHANGED POSITION) */}
+        {/* HERO IMAGE */}
         <div className="absolute right-[-5vw] top-[-10%] bottom-0 w-[60vw] max-w-none pointer-events-none">
           <Image
             src="/HeroImage1.png"
@@ -102,19 +102,12 @@ export function HeroSection() {
             <button
               type="button"
               onClick={() => setIsVideoOpen(false)}
-              aria-label="Close video"
-              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition hover:bg-white/20"
+              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white"
             >
               <X className="h-5 w-5" />
             </button>
 
-            <video
-              className="aspect-video w-full"
-              src="/TVC.mp4"
-              controls
-              autoPlay
-              playsInline
-            />
+            <video className="aspect-video w-full" src="/TVC.mp4" controls autoPlay playsInline />
           </div>
         </div>
       )}
