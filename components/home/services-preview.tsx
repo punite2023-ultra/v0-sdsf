@@ -3,17 +3,17 @@
 import Image from "next/image"
 
 const logos = [
-  "0009_Nestle-Logo.png",
-  "0010_Unilever-Logo.png",
-  "0000_Palmolive-Logo.png",
-  "0001_Equal-Logo.png",
-  "0002_Silka-Logo.png",
-  "0003_Bonita-Logo.png",
-  "0004_Palawan-Gold-Logo.png",
-  "0005_Loreal-Logo.png",
-  "0006_Rexona-Logo.png",
-  "0007_Nivea-Logo.png",
-  "0008_Garnier-Logo.png",
+  "_0009_Nestle-Logo.png",
+  "_0010_Unilever-Logo.png",
+  "_0000_Palmolive-Logo.png",
+  "_0001_Equal-Logo.png",
+  "_0002_Silka-Logo.png",
+  "_0003_Bonita-Logo.png",
+  "_0004_Palawan-Gold-Logo.png",
+  "_0005_Loreal-Logo.png",
+  "_0006_Rexona-Logo.png",
+  "_0007_Nivea-Logo.png",
+  "_0008_Garnier-Logo.png",
 ]
 
 function LogoItem({ src, index }: { src: string; index: number }) {
@@ -36,7 +36,6 @@ export function ServicesPreview() {
 
   return (
     <section className="relative overflow-hidden py-16 text-white md:py-20 lg:py-24">
-      {/* BACKGROUND IMAGE */}
       <div className="absolute inset-0 -z-20">
         <Image
           src="/10121357.jpg"
@@ -47,14 +46,10 @@ export function ServicesPreview() {
         />
       </div>
 
-      {/* DARK OVERLAY */}
       <div className="absolute inset-0 -z-10 bg-black/70" />
-
-      {/* SUBTLE GLOW */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(110,66,255,0.15),transparent_40%)]" />
 
       <div className="relative mx-auto max-w-[1400px] px-6 md:px-8">
-        {/* HEADER */}
         <div className="mx-auto max-w-[980px] text-center">
           <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/70 md:text-xs">
             Trusted by Brands
@@ -80,7 +75,6 @@ export function ServicesPreview() {
           </div>
         </div>
 
-        {/* MARQUEE */}
         <div className="relative mt-10 md:mt-12">
           <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-black to-transparent md:w-28" />
           <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-black to-transparent md:w-28" />
@@ -97,7 +91,6 @@ export function ServicesPreview() {
         </div>
       </div>
 
-      {/* ANIMATION */}
       <style jsx>{`
         .marquee-track {
           animation: marquee 60s linear infinite;
