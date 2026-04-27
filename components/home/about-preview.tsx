@@ -1,7 +1,6 @@
 "use client"
 
-import Image from "next/image"
-import { Sparkles, ArrowUpRight } from "lucide-react"
+import { Sparkles, BarChart3, Megaphone, Users } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Raleway, Poppins } from "next/font/google"
 
@@ -15,50 +14,45 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
 })
 
-const services = [
+const pillars = [
   {
-    title: "PERFORMANCE & GROWTH STRATEGY",
+    icon: BarChart3,
+    title: "Performance & Growth Strategy",
     description:
-      "At Star Digital Solutions, we transform strategy into growth—leveraging e-commerce, creator partnerships, affiliate marketing, and multi-channel networks to drive measurable performance.",
-    image: "/Image1.jpg",
-    href: "/services",
-    featured: false,
+      "We connect content, commerce, and data to drive measurable and scalable growth.",
   },
   {
-    title: "SCALABLE CAMPAIGN DESIGN",
+    icon: Megaphone,
+    title: "Scalable Campaign Design",
     description:
-      "From established brands to emerging stars, we create campaigns designed not just to shine—but to convert, scale, and lead.",
-    image: "/Image2.jpg",
-    href: "/services",
-    featured: true,
+      "Campaigns built to convert, optimize, and expand across multiple platforms.",
   },
   {
-    title: "AGILE DIGITAL INNOVATION",
+    icon: Users,
+    title: "Creator & Commerce Ecosystem",
     description:
-      "Built for brands ready to move faster and stand out in today’s digital landscape.",
-    image: "/Image3.jpg",
-    href: "/services",
-    featured: false,
+      "We leverage creators, affiliates, and networks to amplify reach and performance.",
   },
 ]
 
 export function AboutPreview() {
   return (
     <section className="relative overflow-hidden bg-[#171717] py-16 text-white md:py-20 lg:py-24">
+      {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.05),transparent_44%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:72px_72px] opacity-20" />
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 flex flex-col items-center text-center lg:mb-14">
-          <div className="max-w-6xl">
+        
+        {/* HEADER */}
+        <div className="mb-14 flex flex-col items-center text-center">
+          <div className="max-w-5xl">
+
             <ScrollReveal>
               <div className="mb-5 flex items-center justify-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center text-white">
-                  <Sparkles className="h-7 w-7 fill-current" />
-                </div>
-
+                <Sparkles className="h-6 w-6 fill-current" />
                 <span
-                  className={`${raleway.className} text-sm uppercase tracking-[0.08em] text-white md:text-base`}
+                  className={`${raleway.className} text-sm uppercase tracking-[0.08em]`}
                 >
                   WHO WE ARE
                 </span>
@@ -67,104 +61,52 @@ export function AboutPreview() {
 
             <ScrollReveal delay={100}>
               <h2
-                className={`${raleway.className} mx-auto max-w-[1500px] text-center text-[60px] leading-[0.9] tracking-[-0.03em] uppercase md:text-[64px]`}
+                className={`${raleway.className} text-[42px] leading-[1] tracking-[-0.03em] uppercase md:text-[60px]`}
               >
-                WHERE CONTENT, COMMERCE, AND CREATORS BRING BRANDS INTO THE
-                SPOTLIGHT
+                Where Content, Commerce, and Creators Bring Brands Into the Spotlight
               </h2>
+            </ScrollReveal>
+
+            <ScrollReveal delay={200}>
+              <p
+                className={`${poppins.className} mx-auto mt-6 max-w-2xl text-[15px] leading-[1.7] text-white/70 md:text-[16px]`}
+              >
+                At Star Digital Solutions, we transform strategy into measurable growth by combining
+                e-commerce, creator partnerships, and data-driven marketing to help brands scale,
+                convert, and lead in today’s digital landscape.
+              </p>
             </ScrollReveal>
           </div>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3 xl:gap-10">
-          {services.map((service, index) => {
-            const isFeatured = service.featured
+        {/* ICON GRID */}
+        <div className="grid gap-6 md:grid-cols-3">
+          {pillars.map((item, index) => {
+            const Icon = item.icon
 
             return (
-              <ScrollReveal key={service.title} delay={index * 120}>
-                <article
-                  className={`group overflow-hidden ${
-                    isFeatured ? "bg-[#682e94] text-white" : "bg-[#262626] text-white"
-                  }`}
-                >
-                  {!isFeatured ? (
-                    <>
-                      <div className="p-7 md:p-8">
-                        <div className="mb-7 flex items-start justify-between gap-4">
-                          <h3
-                            className={`${raleway.className} max-w-[68%] text-[32px] leading-[0.95] tracking-[-0.02em]`}
-                          >
-                            {service.title}
-                          </h3>
+              <ScrollReveal key={item.title} delay={index * 120}>
+                <div className="group rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition hover:border-purple-400/40 hover:bg-white/[0.06]">
+                  
+                  {/* ICON */}
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/20 text-purple-300">
+                    <Icon className="h-6 w-6" />
+                  </div>
 
-                          <a
-                            href={service.href}
-                            className="mt-1 flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#8d1b73] text-white transition duration-300 group-hover:scale-105"
-                            aria-label={`View ${service.title}`}
-                          >
-                            <ArrowUpRight className="h-11 w-11" strokeWidth={2.3} />
-                          </a>
-                        </div>
+                  {/* TITLE */}
+                  <h3
+                    className={`${raleway.className} mb-3 text-[20px] leading-[1.1]`}
+                  >
+                    {item.title}
+                  </h3>
 
-                        <div className="mb-6 h-px bg-white/12" />
-
-                        <p
-                          className={`${poppins.className} max-w-[92%] text-[14px] leading-[1.6] text-white/80 md:text-[15px]`}
-                        >
-                          {service.description}
-                        </p>
-                      </div>
-
-                      <div className="px-7 pb-7 md:px-8 md:pb-8">
-                        <div className="relative aspect-[4/3] w-full overflow-hidden bg-black">
-                          <Image
-                            src={service.image}
-                            alt={service.title}
-                            fill
-                            unoptimized
-                            className="object-cover transition duration-500 group-hover:scale-[1.03]"
-                          />
-                        </div>
-                      </div>
-                    </>
-                  ) : (
-                    <div className="p-7 md:p-8">
-                      <div className="overflow-hidden border-[12px] border-[#682e94] bg-black">
-                        <div className="relative aspect-[4/3] w-full">
-                          <Image
-                            src={service.image}
-                            alt={service.title}
-                            fill
-                            unoptimized
-                            className="object-cover grayscale transition duration-500 group-hover:scale-[1.03]"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="mt-8 flex items-end justify-between gap-4">
-                        <h3
-                          className={`${raleway.className} max-w-[72%] text-[32px] leading-[0.95] tracking-[-0.02em]`}
-                        >
-                          {service.title}
-                        </h3>
-
-                        <a
-                          href={service.href}
-                          className="flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full bg-[#8d1b73] text-white transition duration-300 group-hover:scale-105"
-                          aria-label={`View ${service.title}`}
-                        >
-                          <ArrowUpRight className="h-11 w-11" strokeWidth={2.3} />
-                        </a>
-                      </div>
-
-                      <p
-                        className={`${poppins.className} mt-5 max-w-[92%] text-[14px] leading-[1.6] text-white/85 md:text-[15px]`}
-                      >
-                        {service.description}
-                      </p>
-                    </div>
-                  )}
-                </article>
+                  {/* DESCRIPTION */}
+                  <p
+                    className={`${poppins.className} text-[14px] leading-[1.6] text-white/70`}
+                  >
+                    {item.description}
+                  </p>
+                </div>
               </ScrollReveal>
             )
           })}
