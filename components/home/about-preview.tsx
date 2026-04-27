@@ -116,14 +116,13 @@ export function AboutPreview() {
                       </div>
 
                       <div className="px-7 pb-7 md:px-8 md:pb-8">
-                        <div className="overflow-hidden">
+                        <div className="relative aspect-[4/3] w-full overflow-hidden bg-black">
                           <Image
                             src={service.image}
                             alt={service.title}
-                            width={1200}
-                            height={900}
+                            fill
                             unoptimized
-                            className="h-[220px] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                            className="object-cover transition duration-500 group-hover:scale-[1.03]"
                           />
                         </div>
                       </div>
@@ -131,14 +130,15 @@ export function AboutPreview() {
                   ) : (
                     <div className="p-7 md:p-8">
                       <div className="overflow-hidden border-[12px] border-[#682e94] bg-black">
-                        <Image
-                          src={service.image}
-                          alt={service.title}
-                          width={1200}
-                          height={900}
-                          unoptimized
-                          className="h-[260px] w-full object-cover grayscale transition duration-500 group-hover:scale-[1.03]"
-                        />
+                        <div className="relative aspect-[4/3] w-full">
+                          <Image
+                            src={service.image}
+                            alt={service.title}
+                            fill
+                            unoptimized
+                            className="object-cover grayscale transition duration-500 group-hover:scale-[1.03]"
+                          />
+                        </div>
                       </div>
 
                       <div className="mt-8 flex items-end justify-between gap-4">
