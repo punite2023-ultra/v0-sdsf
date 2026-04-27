@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Sparkles, BarChart3, Megaphone, Users } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Raleway, Poppins } from "next/font/google"
@@ -39,19 +40,21 @@ export function AboutPreview() {
   return (
     <section className="relative overflow-hidden py-16 text-white md:py-20 lg:py-24">
 
-      {/* 🌌 NEW BACKGROUND IMAGE */}
+      {/* 🌌 BACKGROUND IMAGE */}
       <div className="absolute inset-0 -z-20">
-        <img
-          src="/AboutBG.jpg" // 👉 rename your uploaded image to this
-          alt="background"
-          className="h-full w-full object-cover"
+        <Image
+          src="/about-bg.jpg"
+          alt="About background"
+          fill
+          priority
+          className="object-cover"
         />
       </div>
 
-      {/* OVERLAY FOR READABILITY */}
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(15,0,30,0.85)_0%,rgba(20,0,40,0.9)_50%,rgba(15,0,30,0.95)_100%)]" />
+      {/* 🔥 OVERLAY (IMPORTANT FOR READABILITY) */}
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(10,0,25,0.8)_0%,rgba(20,0,40,0.9)_60%,rgba(10,0,25,0.95)_100%)]" />
 
-      {/* SOFT GLOW */}
+      {/* ✨ SUBTLE PURPLE GLOW */}
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.2),transparent_60%)]" />
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,7 +65,7 @@ export function AboutPreview() {
 
             <ScrollReveal>
               <div className="mb-5 flex items-center justify-center gap-3">
-                <Sparkles className="h-6 w-6 fill-current text-purple-300" />
+                <Sparkles className="h-6 w-6 text-purple-300 fill-current" />
                 <span
                   className={`${raleway.className} text-sm uppercase tracking-[0.08em]`}
                 >
