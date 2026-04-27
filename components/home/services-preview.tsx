@@ -39,13 +39,14 @@ const rowTwoLogos = [
 
 function LogoItem({ src, index }: { src: string; index: number }) {
   return (
-    <div className="mx-5 flex min-w-max items-center justify-center md:mx-7">
-      <div className="flex h-[130px] w-[260px] items-center justify-center rounded-[26px] border border-white/10 bg-white/[0.04] px-8 py-7 backdrop-blur-md transition duration-300 hover:scale-105 hover:border-white/20 hover:bg-white/[0.07]">
-        <div className="relative h-full w-full">
+    <div className="mx-4 flex min-w-max items-center justify-center md:mx-5">
+      <div className="flex h-[128px] w-[260px] items-center justify-center rounded-[26px] border border-white/10 bg-white/[0.04] px-8 py-8 backdrop-blur-md transition duration-300 hover:scale-105 hover:border-white/20 hover:bg-white/[0.07]">
+        <div className="relative h-[72px] w-[180px]">
           <Image
             src={`/logos/${src}`}
             alt={`Brand logo ${index + 1}`}
             fill
+            sizes="180px"
             className="object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.18)]"
           />
         </div>
@@ -54,22 +55,12 @@ function LogoItem({ src, index }: { src: string; index: number }) {
   )
 }
 
-function MarqueeRow({
-  logos,
-  reverse = false,
-}: {
-  logos: string[]
-  reverse?: boolean
-}) {
+function MarqueeRow({ logos }: { logos: string[] }) {
   const marqueeItems = [...logos, ...logos]
 
   return (
     <div className="overflow-hidden">
-      <div
-        className={`flex w-max items-center ${
-          reverse ? "marquee-track-reverse" : "marquee-track"
-        }`}
-      >
+      <div className="marquee-track flex w-max items-center">
         {marqueeItems.map((logo, index) => (
           <LogoItem key={`${logo}-${index}`} src={logo} index={index} />
         ))}
@@ -127,7 +118,7 @@ export function ServicesPreview() {
           <div className="rounded-[36px] border border-white/10 bg-black/20 py-8 backdrop-blur-md md:py-10">
             <MarqueeRow logos={rowOneLogos} />
             <div className="mt-7">
-              <MarqueeRow logos={rowTwoLogos} reverse />
+              <MarqueeRow logos={rowTwoLogos} />
             </div>
           </div>
         </div>
@@ -135,29 +126,14 @@ export function ServicesPreview() {
 
       <style jsx>{`
         .marquee-track {
-          animation: marquee 70s linear infinite;
+          animation: marquee-left-to-right 85s linear infinite;
         }
 
-        .marquee-track-reverse {
-          animation: marquee-reverse 85s linear infinite;
-        }
-
-        .marquee-track:hover,
-        .marquee-track-reverse:hover {
+        .marquee-track:hover {
           animation-play-state: paused;
         }
 
-        @keyframes marquee {
-          0% {
-            transform: translate3d(0, 0, 0);
-          }
-
-          100% {
-            transform: translate3d(-50%, 0, 0);
-          }
-        }
-
-        @keyframes marquee-reverse {
+        @keyframes marquee-left-to-right {
           0% {
             transform: translate3d(-50%, 0, 0);
           }
