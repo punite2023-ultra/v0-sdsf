@@ -40,16 +40,16 @@ const newsEvents: NewsEvent[] = [
       "This post served as a continuation of the BeautyCon experience, turning live event moments into extended digital visibility. SDS used the recap to reinforce brand relevance, celebrate the atmosphere of the event, and show its connection to beauty, retail, and consumer engagement.",
   },
   {
-    category: "On-Ground Coverage",
-    title: "Watsons BeautyCon 2026",
-    image: "/news-events/Event-3.jpg",
-    video: "/news-events/Event-3.mp4",
+    category: "Star Digital Solutions Milestone",
+    title: "From First Stream to Industry Leaders: Star Digital Solutions Celebrates a Legacy of Digital Excellence",
+    image: "/news-events/Flashback.png",
+    video: "/news-events/Flashback1.mp4",
     date: "25 Mar 2026",
     location: "Philippines",
     shortDescription:
-      "SDS went on-ground at BeautyCon 2026 to capture live moments, observe trends, and engage with the beauty community.",
+      "A dynamic retrospective of Star Digital Solutions’ journey, highlighting our evolution from inaugural live-stream sessions to becoming the powerhouse production partner for global brands like Colgate, Maybelline, and Garnier.",
     fullDescription:
-      "Through its on-site presence, SDS documented key moments from the event and translated them into content that reflects cultural relevance and real-world brand participation. The post shows SDS not just as a digital agency, but as an active presence in brand spaces where consumer attention is happening live.",
+      "Star Digital Solutions (SDS) is proud to present a milestone-marking "Flashback" feature, tracing our trajectory as a premier creative and digital production agency. This visual journey captures the high-stakes energy, technical precision, and creative passion that define every SDS project.",
   },
   {
     category: "Brand Experience",
