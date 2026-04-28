@@ -2,16 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import {
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
-  Mail,
-  MapPin,
-  Phone,
-  ArrowUpRight,
-} from "lucide-react"
+import { Mail, MapPin, Phone, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Raleway } from "next/font/google"
 import { useLanguage } from "@/lib/language-context"
@@ -24,87 +15,13 @@ const raleway = Raleway({
 export function SiteFooter() {
   const { language } = useLanguage()
 
-  const footerLinks = {
-    company: [
-      {
-        href: "/about",
-        label: language === "en" ? "About Us" : "关于我们",
-      },
-      {
-        href: "/services",
-        label: language === "en" ? "Services" : "服务",
-      },
-      {
-        href: "/portfolio",
-        label: language === "en" ? "Portfolio" : "作品集",
-      },
-      {
-        href: "/pricing",
-        label: language === "en" ? "Pricing" : "定价",
-      },
-      {
-        href: "/blog",
-        label: language === "en" ? "Blog" : "博客",
-      },
-    ],
-    services: [
-      {
-        href: "/services/branding",
-        label: language === "en" ? "Social Media Marketing" : "社交媒体营销",
-      },
-      {
-        href: "/services/web-design",
-        label: language === "en" ? "Content Creation & Branding" : "内容创作与品牌建设",
-      },
-      {
-        href: "/services/development",
-        label:
-          language === "en"
-            ? "E-Commerce Strategy & Management"
-            : "电商策略与管理",
-      },
-      {
-        href: "/services/marketing",
-        label: language === "en" ? "Digital Marketing" : "数字营销",
-      },
-      {
-        href: "/services/seo",
-        label:
-          language === "en" ? "Influencer & Affiliate Marketing" : "达人与联盟营销",
-      },
-    ],
-    support: [
-      {
-        href: "/contact",
-        label: language === "en" ? "Contact Us" : "联系我们",
-      },
-      {
-        href: "/faq",
-        label: language === "en" ? "FAQs" : "常见问题",
-      },
-      {
-        href: "/privacy",
-        label: language === "en" ? "Privacy Policy" : "隐私政策",
-      },
-      {
-        href: "/terms",
-        label: language === "en" ? "Terms of Service" : "服务条款",
-      },
-    ],
-  }
-
-  const socialLinks = [
-    { href: "#", icon: Facebook, label: "Facebook" },
-    { href: "#", icon: Twitter, label: "Twitter" },
-    { href: "#", icon: Instagram, label: "Instagram" },
-    { href: "#", icon: Linkedin, label: "LinkedIn" },
-  ]
-
   return (
     <>
+      {/* CTA SECTION */}
       <section className="bg-[#682e94] text-white">
         <div className="container mx-auto px-6 lg:px-8 py-16 lg:py-20">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+
             <div className="max-w-2xl">
               <h2
                 className={`${raleway.className} text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight`}
@@ -133,136 +50,74 @@ export function SiteFooter() {
                 </Link>
               </Button>
             </div>
+
           </div>
         </div>
       </section>
 
+      {/* FOOTER */}
       <footer className="bg-black text-white">
         <div className="container mx-auto px-6 lg:px-8 py-14 lg:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-10">
-            <div className="xl:col-span-2">
-              <Link href="/" className="inline-flex items-center">
-                <Image
-                  src="/StarDigitalSolutionsLogoWhite.png"
-                  alt="Star Digital Solutions"
-                  width={360}
-                  height={110}
-                  className="h-auto w-auto max-w-[180px]"
-                />
-              </Link>
 
-              <p className="mt-5 text-white/70 leading-relaxed max-w-md">
-                {language === "en"
-                  ? "Aligning the stars for your digital success."
-                  : "为您的数字成功对齐星辰。"}
-              </p>
+          {/* ✅ CLEAN SINGLE COLUMN */}
+          <div className="flex flex-col items-center text-center">
 
-              <div className="mt-6 space-y-3 text-sm text-white/75">
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                  <span>
-                    {language === "en"
-                      ? "747 Nicanor Padilla St. San Miguel, Manila, Philippines, 1005"
-                      : "菲律宾马尼拉圣米格尔 Nicanor Padilla 街 747 号，1005"}
-                  </span>
-                </div>
+            {/* LOGO */}
+            <Link href="/" className="inline-flex items-center">
+              <Image
+                src="/StarDigitalSolutionsLogoWhite.png"
+                alt="Star Digital Solutions"
+                width={360}
+                height={110}
+                className="h-auto w-auto max-w-[180px]"
+              />
+            </Link>
 
-                <div className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 shrink-0" />
-                  <a href="tel:+639176783965" className="hover:text-white transition-colors">
-                    09176783965
-                  </a>
-                </div>
+            {/* DESCRIPTION */}
+            <p className="mt-5 text-white/70 max-w-md">
+              {language === "en"
+                ? "Aligning the stars for your digital success."
+                : "为您的数字成功对齐星辰。"}
+            </p>
 
-                <div className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 shrink-0" />
-                  <a
-                    href="mailto:info@stardigitalms.com"
-                    className="hover:text-white transition-colors"
-                  >
-                    info@stardigitalms.com
-                  </a>
-                </div>
+            {/* CONTACT INFO */}
+            <div className="mt-6 space-y-3 text-sm text-white/75">
+
+              <div className="flex items-center justify-center gap-3">
+                <MapPin className="w-4 h-4" />
+                <span>
+                  {language === "en"
+                    ? "Manila, Philippines"
+                    : "菲律宾马尼拉"}
+                </span>
               </div>
+
+              <div className="flex items-center justify-center gap-3">
+                <Phone className="w-4 h-4" />
+                <a href="tel:+639176783965">
+                  09176783965
+                </a>
+              </div>
+
+              <div className="flex items-center justify-center gap-3">
+                <Mail className="w-4 h-4" />
+                <a href="mailto:info@stardigitalms.com">
+                  info@stardigitalms.com
+                </a>
+              </div>
+
             </div>
 
-            <div>
-              <h3 className="text-lg font-semibold mb-5">
-                {language === "en" ? "Company" : "公司"}
-              </h3>
-              <ul className="space-y-3">
-                {footerLinks.company.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-white/70 hover:text-white transition-colors text-sm"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-5">
-                {language === "en" ? "Services" : "服务"}
-              </h3>
-              <ul className="space-y-3">
-                {footerLinks.services.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-white/70 hover:text-white transition-colors text-sm"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-5">
-                {language === "en" ? "Support" : "支持"}
-              </h3>
-              <ul className="space-y-3">
-                {footerLinks.support.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-white/70 hover:text-white transition-colors text-sm"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
 
-          <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-5">
-            <p className="text-sm text-white/60 text-center md:text-left">
+          {/* BOTTOM */}
+          <div className="mt-12 pt-6 border-t border-white/10 text-center">
+            <p className="text-sm text-white/60">
               © {new Date().getFullYear()} Star Digital Solutions.{" "}
               {language === "en" ? "All rights reserved." : "版权所有。"}
             </p>
-
-            <div className="flex items-center gap-3">
-              {socialLinks.map((social) => {
-                const Icon = social.icon
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all"
-                  >
-                    <Icon className="w-4 h-4" />
-                  </a>
-                )
-              })}
-            </div>
           </div>
+
         </div>
       </footer>
     </>
