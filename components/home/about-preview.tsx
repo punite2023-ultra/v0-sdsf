@@ -64,7 +64,7 @@ export function AboutPreview() {
               <div className="mb-5 flex items-center justify-center gap-3">
                 <Sparkles className="h-6 w-6 text-purple-300 fill-current" />
                 <span className={`${raleway.className} text-sm uppercase tracking-[0.08em]`}>
-                  WHO WE ARE
+                  ABOUT US
                 </span>
               </div>
             </ScrollReveal>
