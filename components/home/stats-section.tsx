@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import {
   Users,
   Network,
@@ -8,7 +7,6 @@ import {
   ShoppingBag,
   LineChart,
   Target,
-  ArrowRight,
 } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
@@ -93,15 +91,12 @@ const servicesZh = [
 export function StatsSection() {
   const { language } = useLanguage()
   const isZh = language === "zh"
-
   const services = isZh ? servicesZh : servicesEn
 
   return (
     <section className="relative bg-[#070015] py-20">
-      {/* Background glow */}
+      {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.18),transparent_40%)]" />
-
-      {/* Grid texture */}
       <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.15)_1px,transparent_1px)] [background-size:60px_60px]" />
 
       <div className="relative z-10 mx-auto max-w-[1300px] px-6">
@@ -128,9 +123,9 @@ export function StatsSection() {
                 key={i}
                 className="group relative rounded-[24px] border border-white/10 p-[12px] transition-all duration-300 hover:border-[#a855f7]/60"
               >
-                <div className="relative h-full min-h-[300px] rounded-[18px] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 group-hover:bg-white/[0.06]">
+                <div className="relative h-full min-h-[260px] rounded-[18px] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 group-hover:bg-white/[0.06]">
                   
-                  {/* inner grid */}
+                  {/* Grid overlay */}
                   <div className="absolute inset-0 rounded-[18px] opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.2)_1px,transparent_1px)] [background-size:48px_48px]" />
 
                   <div className="relative z-10 flex h-full flex-col">
@@ -151,17 +146,6 @@ export function StatsSection() {
                     <p className="mt-3 text-sm leading-relaxed text-white/60">
                       {item.description}
                     </p>
-
-                    {/* Button */}
-                    <div className="mt-auto pt-6">
-                      <Link
-                        href="#"
-                        className="inline-flex items-center gap-2 rounded-full bg-[#662d91] px-5 py-2 text-[11px] font-semibold uppercase tracking-widest text-white transition hover:bg-[#55257a] hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(102,45,145,0.6)]"
-                      >
-                        {isZh ? "了解更多" : "Learn More"}
-                        <ArrowRight className="h-3 w-3" />
-                      </Link>
-                    </div>
 
                   </div>
                 </div>
