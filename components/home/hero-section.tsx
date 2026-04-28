@@ -22,7 +22,7 @@ const heroImages = [
     alt: "Hero image 1",
   },
   {
-    src: "/HeroImage2.png",
+    src: "/Home2.png",
     alt: "Hero image 2",
   },
 ]
