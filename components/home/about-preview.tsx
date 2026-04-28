@@ -45,18 +45,24 @@ export function AboutPreview() {
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
-              <h2 className={`${raleway.className} text-[42px] leading-[1] tracking-[-0.03em] md:text-[60px]`}>
+              <h2 className={`${raleway.className} text-[42px] leading-[1] tracking-[-0.03em] uppercase md:text-[60px]`}>
                 {isChinese
                   ? "让内容、商业与创作者共同推动品牌走向聚光灯"
-                  : "Where Content, Commerce, and Creators Bring Brands Into the Spotlight"}
+                  : "WHERE CONTENT, COMMERCE, AND CREATORS BRING BRANDS INTO THE SPOTLIGHT"}
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
               <p className={`${poppins.className} mx-auto mt-5 max-w-2xl text-white/80`}>
-                {isChinese
-                  ? "在 Star Digital Solutions，我们通过结合电商、创作者合作与数据驱动营销，将策略转化为可衡量的增长。"
-                  : "At Star Digital Solutions, we transform strategy into measurable growth through e-commerce and creator partnerships."}
+                {isChinese ? (
+                  "在 Star Digital Solutions，我们通过结合电商、创作者合作与数据驱动营销，将策略转化为可衡量的增长。"
+                ) : (
+                  <>
+                    At Star Digital Solutions, we transform strategy into measurable growth
+                    <br />
+                    through e-commerce and creator partnerships.
+                  </>
+                )}
               </p>
             </ScrollReveal>
           </div>
