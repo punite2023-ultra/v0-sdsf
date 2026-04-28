@@ -18,7 +18,7 @@ const poppins = Poppins({
 
 const heroImages = [
   {
-    src: "/HeroImage1.png",
+    src: "/Home1.png",
     alt: "Hero image 1",
   },
   {
