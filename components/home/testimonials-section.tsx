@@ -24,9 +24,9 @@ export function TestimonialsSection() {
       : {
           title: (
             <>
-              Ready to Start Your Project?
+              READY TO START YOUR PROJECT?
               <br />
-              Let’s collaborate to create something extraordinary.
+              LET’S COLLABORATE TO CREATE SOMETHING EXTRAORDINARY.
             </>
           ),
           description:
@@ -40,7 +40,7 @@ export function TestimonialsSection() {
         <ScrollReveal>
           <div className="relative overflow-hidden rounded-[28px] border border-white/10 min-h-[420px]">
 
-            {/* Background Image */}
+            {/* Background */}
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
@@ -58,8 +58,8 @@ export function TestimonialsSection() {
               {/* Glass Card */}
               <div className="max-w-[560px] rounded-[22px] border border-white/10 bg-white/5 backdrop-blur-md p-6 sm:p-8">
 
-                {/* TITLE (FIXED FONT) */}
-                <h2 className="font-display text-[32px] sm:text-[38px] lg:text-[42px] font-semibold leading-[1.15] tracking-[-0.02em] text-white">
+                {/* TITLE (ALL CAPS) */}
+                <h2 className="font-display uppercase text-[32px] sm:text-[38px] lg:text-[42px] font-semibold leading-[1.15] tracking-[-0.02em] text-white">
                   {t.title}
                 </h2>
 
@@ -75,8 +75,8 @@ export function TestimonialsSection() {
                 >
                   {t.button}
                 </Link>
-              </div>
 
+              </div>
             </div>
           </div>
         </ScrollReveal>
