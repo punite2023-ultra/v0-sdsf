@@ -18,11 +18,11 @@ const poppins = Poppins({
 
 const heroImages = [
   {
-    src: "/Hero1.png",
+    src: "/Hero1a.png",
     alt: "Hero image 1",
   },
   {
-    src: "/Hero2.png",
+    src: "/Hero2a.png",
     alt: "Hero image 2",
   },
 ]
