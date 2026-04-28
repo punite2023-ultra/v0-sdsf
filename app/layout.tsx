@@ -1,43 +1,56 @@
-import type { Metadata } from 'next'
-import { DM_Sans, Playfair_Display } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
-import { LanguageProvider } from '@/lib/language-context'
-import './globals.css'
+import type { Metadata } from "next"
+import { DM_Sans, Playfair_Display } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
+import { LanguageProvider } from "@/lib/language-context"
+import "./globals.css"
 
-const dmSans = DM_Sans({ 
+/* ===============================
+   FONTS
+   =============================== */
+
+const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-sans"
-});
+  variable: "--font-sans",
+})
 
-const playfair = Playfair_Display({ 
+const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-display"
-});
+  variable: "--font-display",
+})
+
+/* ===============================
+   METADATA
+   =============================== */
 
 export const metadata: Metadata = {
-  title: 'Star Digital Solutions | Marketing Agency',
-  description: 'We craft exceptional digital experiences that elevate brands and drive results. Strategy, Design, Development, and Marketing.',
-  generator: 'v0.app',
+  title: "Star Digital Solutions | Marketing Agency",
+  description:
+    "We craft exceptional digital experiences that elevate brands and drive results. Strategy, Design, Development, and Marketing.",
+  generator: "v0.app",
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
+        url: "/icon-light-32x32.png",
+        media: "(prefers-color-scheme: light)",
       },
       {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
+        url: "/icon-dark-32x32.png",
+        media: "(prefers-color-scheme: dark)",
       },
       {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: "/icon.svg",
+        type: "image/svg+xml",
       },
     ],
-    apple: '/apple-icon.png',
+    apple: "/apple-icon.png",
   },
 }
+
+/* ===============================
+   ROOT LAYOUT
+   =============================== */
 
 export default function RootLayout({
   children,
@@ -45,11 +58,20 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${dmSans.variable} ${playfair.variable} font-sans antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`
+          ${dmSans.variable} 
+          ${playfair.variable} 
+          font-sans 
+          antialiased
+        `}
+      >
         <LanguageProvider>
           {children}
         </LanguageProvider>
+
+        {/* Vercel Analytics */}
         <Analytics />
       </body>
     </html>
