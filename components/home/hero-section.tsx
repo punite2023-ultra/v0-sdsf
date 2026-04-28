@@ -17,18 +17,9 @@ const poppins = Poppins({
 })
 
 const heroImages = [
-  {
-    src: "/Hero1a.png",
-    alt: "Hero image 1",
-  },
-  {
-    src: "/Hero2a.png",
-    alt: "Hero image 2",
-  },
-  {
-    src: "/Hero3a.png",
-    alt: "Hero image 3",
-  },
+  { src: "/Hero1a.png", alt: "Hero image 1" },
+  { src: "/Hero2a.png", alt: "Hero image 2" },
+  { src: "/Hero3a.png", alt: "Hero image 3" },
 ]
 
 export function HeroSection() {
@@ -48,6 +39,7 @@ export function HeroSection() {
 
   return (
     <section className="relative isolate overflow-hidden bg-[#17002d] text-white">
+
       {/* BACKGROUND */}
       <div className="absolute inset-0 -z-20">
         <Image
@@ -65,19 +57,15 @@ export function HeroSection() {
 
       {/* CONTENT */}
       <div className="relative mx-auto grid min-h-[760px] max-w-[1500px] items-center gap-6 px-6 pb-14 pt-28 md:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:pt-24 xl:min-h-[820px]">
+
         {/* LEFT TEXT */}
         <div className="relative z-20 max-w-[760px] lg:pl-4 xl:pl-10">
-          <p
-            className={`${poppins.className} mb-5 text-[12px] font-bold uppercase tracking-[0.34em] text-white/70`}
-          >
-            {isZh
-              ? "欢迎来到星际数字解决方案"
-              : "WELCOME TO STAR DIGITAL SOLUTIONS"}
+
+          <p className={`${poppins.className} mb-5 text-[12px] font-bold uppercase tracking-[0.34em] text-white/70`}>
+            {isZh ? "欢迎来到星际数字解决方案" : "WELCOME TO STAR DIGITAL SOLUTIONS"}
           </p>
 
-          <h1
-            className={`${anton.className} uppercase leading-[0.92] tracking-[-0.04em] text-[#b70d41]`}
-          >
+          <h1 className={`${anton.className} uppercase leading-[0.92] tracking-[-0.04em] text-[#b70d41]`}>
             {isZh ? (
               <>
                 <span className="block whitespace-nowrap text-[58px] sm:text-[76px] md:text-[90px] xl:text-[102px]">
@@ -99,9 +87,7 @@ export function HeroSection() {
             )}
           </h1>
 
-          <p
-            className={`${poppins.className} mt-5 max-w-[560px] text-[15px] font-medium leading-7 text-white md:text-[17px]`}
-          >
+          <p className={`${poppins.className} mt-5 max-w-[560px] text-[15px] font-medium leading-7 text-white md:text-[17px]`}>
             {isZh
               ? "Star Digital Solutions 通过电商策略、创作者合作及数字化系统，帮助品牌实现增长，让品牌在市场中脱颖而出。"
               : "Star Digital Solutions helps brands grow through e-commerce strategy, creator partnerships, and digital systems where brands become the star of the market."}
@@ -122,8 +108,9 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* RIGHT IMAGE SLIDER */}
-        <div className="pointer-events-none absolute bottom-0 right-0 z-10 h-full w-[70vw] max-w-[1100px] overflow-hidden">
+        {/* RIGHT IMAGE SLIDER (FIXED) */}
+        <div className="pointer-events-none absolute bottom-0 right-0 z-10 h-[90%] w-[75vw] max-w-[1250px]">
+
           {heroImages.map((image, index) => (
             <Image
               key={image.src}
@@ -131,14 +118,15 @@ export function HeroSection() {
               alt={image.alt}
               fill
               priority={index === 0}
-              sizes="70vw"
-              className={`object-cover object-right-bottom transition-all duration-1000 ease-in-out ${
+              sizes="75vw"
+              className={`object-contain object-right-bottom transition-all duration-1000 ease-in-out ${
                 activeImage === index
                   ? "translate-x-0 opacity-100 scale-100"
                   : "translate-x-16 opacity-0 scale-105"
               } drop-shadow-[0_50px_120px_rgba(0,0,0,0.5)]`}
             />
           ))}
+
         </div>
 
         {/* DOTS */}
@@ -146,9 +134,7 @@ export function HeroSection() {
           {heroImages.map((_, index) => (
             <button
               key={index}
-              type="button"
               onClick={() => setActiveImage(index)}
-              aria-label={`Go to hero image ${index + 1}`}
               className={`h-4 w-4 rounded-full transition ${
                 activeImage === index
                   ? "bg-[#7c3aed]"
@@ -157,14 +143,15 @@ export function HeroSection() {
             />
           ))}
         </div>
+
       </div>
 
       {/* VIDEO MODAL */}
       {isVideoOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 px-4 backdrop-blur-sm">
           <div className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-white/15 bg-black shadow-[0_30px_100px_rgba(0,0,0,0.55)]">
+
             <button
-              type="button"
               onClick={() => setIsVideoOpen(false)}
               className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
             >
@@ -181,6 +168,7 @@ export function HeroSection() {
           </div>
         </div>
       )}
+
     </section>
   )
 }
