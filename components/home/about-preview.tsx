@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { Sparkles, BarChart3, Megaphone, Users } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { useLanguage } from "@/lib/language-context"
@@ -63,20 +62,10 @@ export function AboutPreview() {
   return (
     <section
       id="who-we-are"
-      className="relative scroll-mt-28 overflow-hidden py-16 text-white md:py-20 lg:py-24"
+      className="relative scroll-mt-28 overflow-hidden py-16 text-white md:py-20 lg:py-24 bg-[linear-gradient(180deg,#26003e_0%,#140020_55%,#000000_100%)]"
     >
-      <div className="absolute inset-0 -z-20">
-        <Image
-          src="/about-bg.jpg"
-          alt="About background"
-          fill
-          priority
-          className="object-cover"
-        />
-      </div>
-
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(10,0,25,0.8)_0%,rgba(20,0,40,0.9)_60%,rgba(10,0,25,0.95)_100%)]" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.2),transparent_60%)]" />
+      {/* Glow overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.25),transparent_60%)]" />
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-14 flex flex-col items-center text-center">
