@@ -18,8 +18,13 @@ export default function HomePage() {
         <ClientsMarquee />
         <AboutPreview />
         <ServicesPreview />
-        <FeaturedProjectSection />
+
+        {/* WHAT WE OFFER moved above */}
         <StatsSection />
+
+        {/* News & Events */}
+        <FeaturedProjectSection />
+
         <TestimonialsSection />
       </main>
 
