@@ -27,7 +27,7 @@ export function AboutPreview() {
 
   return (
     <section
-      id="who-we-are"
+      id="about"
       className="relative scroll-mt-28 overflow-hidden pt-10 pb-16 md:pt-12 md:pb-20 lg:pt-14 lg:pb-24 text-white bg-[linear-gradient(180deg,#26003e_0%,#140020_55%,#000000_100%)]"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.25),transparent_60%)]" />
