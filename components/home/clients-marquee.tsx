@@ -1,3 +1,5 @@
+"use client"
+
 const clients = [
   "Social Media Marketing",
   "Content Creation & Branding",
@@ -15,7 +17,7 @@ export function ClientsMarquee() {
       style={{ backgroundColor: "#62248e" }}
       aria-label="Services marquee"
     >
-      <div className="relative flex h-16 items-center">
+      <div className="relative flex h-16 items-center overflow-hidden">
         <div
           className="flex min-w-max items-center whitespace-nowrap"
           style={{
@@ -24,15 +26,13 @@ export function ClientsMarquee() {
         >
           {[...clients, ...clients].map((client, index) => (
             <div key={index} className="flex items-center whitespace-nowrap">
-
               <span className="px-6 text-base font-bold uppercase text-white">
                 {client}
               </span>
 
-              <span className="text-base font-bold text-white/90">
+              <span className="text-base font-bold text-white/90 px-2">
                 ✦
               </span>
-
             </div>
           ))}
         </div>
