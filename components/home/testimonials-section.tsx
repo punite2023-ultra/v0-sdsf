@@ -3,6 +3,14 @@
 import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { useLanguage } from "@/lib/language-context"
+import { Raleway, Poppins } from "next/font/google"
+
+// ✅ SAME FONTS AS ABOUT SECTION
+const raleway = Raleway({ subsets: ["latin"], weight: ["800"] })
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+})
 
 export function TestimonialsSection() {
   const { language } = useLanguage()
@@ -58,13 +66,17 @@ export function TestimonialsSection() {
               {/* Glass Card */}
               <div className="max-w-[560px] rounded-[22px] border border-white/10 bg-white/5 backdrop-blur-md p-6 sm:p-8">
 
-                {/* TITLE (ALL CAPS) */}
-                <h2 className="font-display uppercase text-[32px] sm:text-[38px] lg:text-[42px] font-semibold leading-[1.15] tracking-[-0.02em] text-white">
+                {/* ✅ TITLE (Raleway EXACT MATCH) */}
+                <h2
+                  className={`${raleway.className} uppercase text-[42px] leading-[1] tracking-[-0.03em] md:text-[60px] text-white`}
+                >
                   {t.title}
                 </h2>
 
-                {/* DESCRIPTION */}
-                <p className="mt-4 text-[14px] sm:text-[15px] leading-6 text-white/65 max-w-[480px]">
+                {/* ✅ DESCRIPTION (Poppins EXACT MATCH) */}
+                <p
+                  className={`${poppins.className} mt-5 max-w-[480px] text-white/80`}
+                >
                   {t.description}
                 </p>
 
