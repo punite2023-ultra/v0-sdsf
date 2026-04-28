@@ -6,7 +6,7 @@ import { AboutPreview } from "@/components/home/about-preview"
 import { ServicesPreview } from "@/components/home/services-preview"
 import { FeaturedProjectSection } from "@/components/home/featured-project-section"
 import { StatsSection } from "@/components/home/stats-section"
-import { TestimonialsSection } from "@/components/home/testimonials-section"
+// import { TestimonialsSection } from "@/components/home/testimonials-section"
 
 export default function HomePage() {
   return (
@@ -19,13 +19,12 @@ export default function HomePage() {
         <AboutPreview />
         <ServicesPreview />
 
-        {/* WHAT WE OFFER moved above */}
         <StatsSection />
 
-        {/* News & Events */}
         <FeaturedProjectSection />
 
-        <TestimonialsSection />
+        {/* Hidden for now */}
+        {/* <TestimonialsSection /> */}
       </main>
 
       <SiteFooter />
