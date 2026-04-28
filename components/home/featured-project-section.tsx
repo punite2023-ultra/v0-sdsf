@@ -34,9 +34,9 @@ const newsEvents: NewsEvent[] = [
     shortDescriptionZh:
       "走进 Denise Laurel 与 Rejuran 的直播幕后，感受充满活力且节奏快速的直播体验。",
     fullDescription:
-      "From the studio to the screen, we’re all about elevating the creator experience. SDS proudly facilitated this collaboration between Denise Laurel and Rejuran, managing the technical precision and creative energy required for a high-impact live-stream.",
+      "From the studio to the screen, we’re all about elevating the creator experience.",
     fullDescriptionZh:
-      "从摄影棚到线上屏幕，SDS 致力于提升创作者体验。我们协助 Denise Laurel 与 Rejuran 的合作，统筹高影响力直播所需的技术执行与创意能量。",
+      "从摄影棚到线上屏幕，SDS 致力于提升创作者体验。",
   },
   {
     category: "Event Recap",
@@ -48,13 +48,13 @@ const newsEvents: NewsEvent[] = [
     date: "30 Mar 2026",
     location: "SM Beauty x Watsons BeautyCon",
     shortDescription:
-      "SDS recapped the excitement of BeautyCon 2026, highlighting the energy, beauty trends, and brand presence from the event.",
+      "SDS recapped the excitement of BeautyCon 2026.",
     shortDescriptionZh:
-      "SDS 回顾 BeautyCon 2026 的精彩时刻，呈现活动能量、美妆趋势与品牌现场影响力。",
+      "SDS 回顾 BeautyCon 2026 的精彩时刻。",
     fullDescription:
-      "This post served as a continuation of the BeautyCon experience, turning live event moments into extended digital visibility.",
+      "This post served as a continuation of the BeautyCon experience.",
     fullDescriptionZh:
-      "这次内容延续了 BeautyCon 的现场体验，将活动亮点转化为更持久的数字曝光。",
+      "这次内容延续了 BeautyCon 的现场体验。",
   },
   {
     category: "Star Digital Solutions Milestone",
@@ -66,13 +66,13 @@ const newsEvents: NewsEvent[] = [
     date: "25 Mar 2026",
     location: "Philippines",
     shortDescription:
-      "A dynamic retrospective of Star Digital Solutions’ journey, highlighting our evolution from inaugural live-stream sessions to becoming the powerhouse production partner for global brands.",
+      "A dynamic retrospective of Star Digital Solutions’ journey.",
     shortDescriptionZh:
-      "回顾 Star Digital Solutions 的成长历程，从首次直播项目发展成为全球品牌信赖的内容制作与数字增长伙伴。",
+      "回顾 Star Digital Solutions 的成长历程。",
     fullDescription:
-      "Star Digital Solutions is proud to present a milestone-marking flashback feature, tracing our trajectory as a premier creative and digital production agency.",
+      "Star Digital Solutions presents a milestone flashback feature.",
     fullDescriptionZh:
-      "Star Digital Solutions 隆重呈现这一里程碑回顾，记录我们作为创意与数字制作机构持续成长的轨迹。",
+      "Star Digital Solutions 呈现里程碑回顾。",
   },
 ]
 
@@ -80,11 +80,11 @@ export function FeaturedProjectSection() {
   const { language } = useLanguage()
   const isZh = language === "zh"
 
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const [playingIndex, setPlayingIndex] = useState<number | null>(null)
 
   return (
     <section className="relative overflow-hidden bg-[#070012] px-4 py-20 text-white sm:px-6 lg:px-8">
+      {/* Background grid */}
       <div className="absolute inset-0 opacity-[0.08]">
         <div
           className="h-full w-full"
@@ -97,13 +97,14 @@ export function FeaturedProjectSection() {
       </div>
 
       <div className="relative mx-auto max-w-7xl">
+
         {/* HEADER */}
         <div className="mx-auto mb-14 max-w-3xl text-center">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-[#b70d41]">
             {isZh ? "新闻与活动" : "News & Events"}
           </p>
 
-          <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
             {isZh ? (
               <>
                 精彩亮点、重要里程碑，
@@ -117,39 +118,35 @@ export function FeaturedProjectSection() {
             )}
           </h2>
 
-          <p className="mt-5 text-sm leading-7 text-white/65 sm:text-base">
+          <p className="mt-5 text-sm text-white/65 sm:text-base">
             {isZh
-              ? "探索 Star Digital Solutions 的最新里程碑、行业活动与品牌时刻。点击缩略图播放视频。"
-              : "Explore recent Star Digital Solutions milestones, industry appearances, and brand moments. Click the thumbnail to play the video."}
+              ? "探索 Star Digital Solutions 的最新里程碑与品牌时刻。"
+              : "Explore recent Star Digital Solutions milestones and brand moments."}
           </p>
         </div>
 
         {/* GRID */}
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           {newsEvents.map((item, index) => {
-            const isActive = activeIndex === index
             const isPlaying = playingIndex === index
 
             return (
               <article
                 key={index}
-                className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-all duration-500 hover:border-white/20 hover:shadow-[0_0_40px_rgba(255,255,255,0.08)]"
+                className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-white/20"
               >
-                {/* VIDEO / IMAGE */}
                 <button
-                  type="button"
                   onClick={() => setPlayingIndex(isPlaying ? null : index)}
-                  className={`relative block w-full overflow-hidden bg-black ${
+                  className={`relative w-full overflow-hidden ${
                     isPlaying ? "aspect-[9/16]" : "aspect-[16/10]"
                   } rounded-xl`}
                 >
                   {isPlaying ? (
                     <video
                       src={item.video}
-                      className="h-full w-full object-cover"
+                      className="w-full h-full object-cover"
                       controls
                       autoPlay
-                      playsInline
                     />
                   ) : (
                     <>
@@ -159,24 +156,23 @@ export function FeaturedProjectSection() {
                         fill
                         className="object-cover"
                       />
-                      <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="absolute inset-0 flex items-center justify-center text-white text-xl">
                         ▶
                       </div>
                     </>
                   )}
                 </button>
 
-                {/* CONTENT */}
-                <div className="pt-6">
-                  <p className="text-[11px] uppercase text-[#b70d41]">
+                <div className="pt-5">
+                  <p className="text-xs uppercase text-[#b70d41]">
                     {isZh ? item.categoryZh : item.category}
                   </p>
 
-                  <h3 className="text-xl text-white mt-2">
+                  <h3 className="mt-2 text-lg font-semibold">
                     {isZh ? item.titleZh : item.title}
                   </h3>
 
-                  <p className="mt-3 text-sm text-white/70">
+                  <p className="mt-2 text-sm text-white/70">
                     {isZh
                       ? item.shortDescriptionZh
                       : item.shortDescription}
@@ -186,6 +182,52 @@ export function FeaturedProjectSection() {
             )
           })}
         </div>
+
+        {/* FOR MORE DETAILS (RESTORED) */}
+        <div className="mx-auto mt-20 max-w-5xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#b70d41]">
+            {isZh ? "更多详情" : "FOR MORE DETAILS"}
+          </p>
+
+          <h3 className="mt-4 text-2xl font-semibold sm:text-3xl">
+            {isZh
+              ? "查看我们的最新新闻与活动动态。"
+              : "For News and Events, check our latest updates."}
+          </h3>
+
+          <p className="mt-4 text-sm text-white/65 sm:text-base">
+            {isZh
+              ? "关注我们的社交平台获取更多内容。"
+              : "Follow Star Digital Solutions on Facebook, Instagram, and TikTok for more event highlights, brand moments, and agency updates."}
+          </p>
+
+          <div className="mt-7 flex flex-wrap justify-center gap-4">
+            <a
+              href="https://www.facebook.com/stardigitalsolutionsph"
+              target="_blank"
+              className="rounded-full bg-[#b70d41] px-6 py-3 text-xs uppercase text-white"
+            >
+              Facebook
+            </a>
+
+            <a
+              href="https://www.instagram.com/stardigitalsolutionsph"
+              target="_blank"
+              className="rounded-full bg-[#b70d41] px-6 py-3 text-xs uppercase text-white"
+            >
+              Instagram
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@stardigitalsolutionsph"
+              target="_blank"
+              className="rounded-full bg-[#b70d41] px-6 py-3 text-xs uppercase text-white"
+            >
+              TikTok
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
   )
