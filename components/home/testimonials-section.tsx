@@ -12,30 +12,26 @@ export function TestimonialsSection() {
       ? {
           title: (
             <>
-              开创数字卓越：
+              准备开始您的项目？
               <br />
-              探索 Star Digital
-              <br />
-              的优势。
+              让我们一起打造非凡成果。
             </>
           ),
           description:
-            "我们结合创意策略、以转化为导向的设计和数字执行，帮助品牌建立影响力、扩大增长并脱颖而出。",
-          button: "发现更多",
+            "与我们合作，共同创造卓越成果。立即联系我们，一起探讨您的品牌愿景与增长方向。",
+          button: "开始项目",
         }
       : {
           title: (
             <>
-              Pioneering Digital Excellence:
+              Ready to Start Your Project?
               <br />
-              Discover the Star Digital
-              <br />
-              Advantage.
+              Let’s collaborate to create something extraordinary.
             </>
           ),
           description:
-            "We combine strong creative direction, conversion-focused design, and digital execution to help brands launch, grow, and stand out.",
-          button: "DISCOVER MORE",
+            "Let's collaborate to create something extraordinary. Get in touch and let's discuss your vision.",
+          button: "START A PROJECT",
         }
 
   return (
@@ -43,7 +39,7 @@ export function TestimonialsSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="relative overflow-hidden rounded-[28px] border border-white/10 min-h-[420px]">
-            
+
             {/* Background Image */}
             <div
               className="absolute inset-0 bg-cover bg-center"
@@ -53,16 +49,16 @@ export function TestimonialsSection() {
               }}
             />
 
-            {/* Overlay */}
+            {/* Overlay (SDS dark gradient) */}
             <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,0,18,0.92)_0%,rgba(10,2,20,0.85)_40%,rgba(7,0,18,0.7)_70%,rgba(7,0,18,0.9)_100%)]" />
 
             {/* Content */}
             <div className="relative z-10 flex items-center h-full px-6 sm:px-10">
-              
-              {/* GLASS BOX */}
+
+              {/* Glass Card */}
               <div className="max-w-[560px] rounded-[22px] border border-white/10 bg-white/5 backdrop-blur-md p-6 sm:p-8">
-                
-                {/* TITLE */}
+
+                {/* Title */}
                 <h2
                   className="text-[32px] sm:text-[38px] lg:text-[42px] font-semibold leading-[1.15] tracking-[-0.02em] text-white"
                   style={{ fontFamily: "var(--font-display)" }}
@@ -70,15 +66,15 @@ export function TestimonialsSection() {
                   {t.title}
                 </h2>
 
-                {/* DESCRIPTION */}
+                {/* Description */}
                 <p className="mt-4 text-[14px] sm:text-[15px] leading-6 text-white/65 max-w-[480px]">
                   {t.description}
                 </p>
 
-                {/* BUTTON */}
+                {/* Button */}
                 <Link
                   href="/contact"
-                  className="mt-6 inline-flex h-11 items-center justify-center rounded-full bg-gradient-to-r from-[#b96cff] to-[#ff9a7a] px-6 text-[11px] font-semibold uppercase tracking-[0.25em] text-white transition hover:scale-[1.04]"
+                  className="mt-6 inline-flex h-11 items-center justify-center rounded-full bg-gradient-to-r from-[#b70d41] to-[#ff4d6d] px-6 text-[11px] font-semibold uppercase tracking-[0.25em] text-white transition-all duration-300 hover:scale-[1.05] hover:shadow-[0_0_20px_rgba(183,13,65,0.6)]"
                 >
                   {t.button}
                 </Link>
