@@ -94,13 +94,11 @@ export function StatsSection() {
   const services = isZh ? servicesZh : servicesEn
 
   return (
-    <section className="relative bg-[#070015] py-20">
-      {/* Background */}
+    <section className="relative bg-[#26003e] py-20">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.18),transparent_40%)]" />
       <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.15)_1px,transparent_1px)] [background-size:60px_60px]" />
 
       <div className="relative z-10 mx-auto max-w-[1300px] px-6">
-        {/* Header */}
         <div className="mb-12 text-center">
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#f472b6]">
             {isZh ? "我们的服务" : "WHAT WE OFFER"}
@@ -113,7 +111,6 @@ export function StatsSection() {
           </h2>
         </div>
 
-        {/* Cards */}
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {services.map((item, i) => {
             const Icon = item.icon
@@ -125,24 +122,20 @@ export function StatsSection() {
               >
                 <div className="relative h-full min-h-[260px] rounded-[18px] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 group-hover:bg-white/[0.06]">
                   
-                  {/* Grid overlay */}
                   <div className="absolute inset-0 rounded-[18px] opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.2)_1px,transparent_1px)] [background-size:48px_48px]" />
 
                   <div className="relative z-10 flex h-full flex-col">
                     
-                    {/* Icon */}
                     <div className="mb-6">
                       <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-[#f472b6]/30 bg-[#f472b6]/5 text-[#f472b6] transition-transform duration-300 group-hover:scale-110">
                         <Icon className="h-6 w-6" />
                       </div>
                     </div>
 
-                    {/* Title */}
                     <h3 className="text-xl font-semibold text-white">
                       {item.title}
                     </h3>
 
-                    {/* Description */}
                     <p className="mt-3 text-sm leading-relaxed text-white/60">
                       {item.description}
                     </p>
