@@ -12,7 +12,7 @@ import {
 } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
-const services = [
+const servicesEn = [
   {
     title: "Affiliate & Influencer Marketing",
     description:
@@ -51,8 +51,50 @@ const services = [
   },
 ]
 
+const servicesZh = [
+  {
+    title: "联盟与达人营销",
+    description:
+      "我们连接品牌与高影响力创作者及联盟合作伙伴，打造将关注转化为实际销售成果的营销活动。",
+    icon: Users,
+  },
+  {
+    title: "多渠道网络管理",
+    description:
+      "我们构建创作者生态系统，管理品牌合作，并激活人才网络，实现长期数字增长。",
+    icon: Network,
+  },
+  {
+    title: "品牌活动执行",
+    description:
+      "从策略到落地，我们整合创作者、内容与电商，打造一体化增长体系。",
+    icon: Megaphone,
+  },
+  {
+    title: "电商增长支持",
+    description:
+      "我们帮助品牌优化平台表现，把握大促节点，实现规模化增长。",
+    icon: ShoppingBag,
+  },
+  {
+    title: "效果营销与数据分析",
+    description:
+      "我们跟踪表现、优化投放，并将实时数据转化为更智能的增长决策。",
+    icon: LineChart,
+  },
+  {
+    title: "战略品牌合作",
+    description:
+      "我们为品牌、创作者与平台搭建合作，提升触达、互动与长期增长。",
+    icon: Target,
+  },
+]
+
 export function StatsSection() {
   const { language } = useLanguage()
+  const isZh = language === "zh"
+
+  const services = isZh ? servicesZh : servicesEn
 
   return (
     <section className="relative bg-[#070015] py-20">
@@ -63,11 +105,13 @@ export function StatsSection() {
       <div className="relative z-10 mx-auto max-w-[1300px] px-6">
         <div className="mb-12 text-center">
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#f472b6]">
-            WHAT WE OFFER
+            {isZh ? "我们的服务" : "WHAT WE OFFER"}
           </p>
 
           <h2 className="mx-auto max-w-[780px] text-3xl font-semibold leading-tight text-white md:text-5xl">
-            Where Strategy Meets Digital. Your Success Story Begins.
+            {isZh
+              ? "策略与数字融合，从这里开启您的成功之路"
+              : "Where Strategy Meets Digital. Your Success Story Begins."}
           </h2>
         </div>
 
@@ -103,7 +147,7 @@ export function StatsSection() {
                         href="#"
                         className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#a855f7] via-[#ec4899] to-[#f59e0b] px-5 py-2 text-[11px] font-semibold uppercase tracking-widest text-white transition hover:scale-[1.03]"
                       >
-                        Learn More
+                        {isZh ? "了解更多" : "Learn More"}
                         <ArrowRight className="h-3 w-3" />
                       </Link>
                     </div>
