@@ -1,19 +1,18 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
-/* ... Keep all your :root, .dark, and @theme sections exactly as they are ... */
+/* ===============================
+   YOUR EXISTING STYLES (KEEP)
+   =============================== */
 
-/* [MODIFIED SECTION AT THE BOTTOM] */
-
-/* SDS About hero: moves the element to the right and adds the orbit effect */
+/* --- ORBIT EFFECT (unchanged) --- */
 [class*="animate-[organicFloat_12s_ease-in-out_infinite]"][class*="h-[620px]"][class*="w-[620px]"] {
-  /* Positioning Fix */
   position: absolute;
-  right: -10%;         /* Adjust this to move it further right or left */
+  right: -10%;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 0; 
-  
+  z-index: 0;
+
   overflow: visible !important;
   border-radius: 9999px !important;
   background: radial-gradient(circle, rgba(59, 130, 246, 0.22), rgba(168, 85, 247, 0.12) 42%, transparent 68%) !important;
@@ -30,7 +29,7 @@
   pointer-events: none;
 }
 
-/* Outer Orbit Ring */
+/* Outer ring */
 [class*="animate-[organicFloat_12s_ease-in-out_infinite]"][class*="h-[620px]"][class*="w-[620px]"]::before {
   inset: 0;
   background: conic-gradient(
@@ -48,10 +47,8 @@
   -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 74px), #000 calc(100% - 72px));
   mask: radial-gradient(farthest-side, transparent calc(100% - 74px), #000 calc(100% - 72px));
   animation: orbitSpin 14s linear infinite;
-  opacity: 0.92;
 }
 
-/* Inner Orbit Ring */
 [class*="animate-[organicFloat_12s_ease-in-out_infinite]"][class*="h-[620px]"][class*="w-[620px]"]::after {
   inset: 78px;
   background: conic-gradient(
@@ -67,8 +64,33 @@
   -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 48px), #000 calc(100% - 46px));
   mask: radial-gradient(farthest-side, transparent calc(100% - 48px), #000 calc(100% - 46px));
   animation: orbitSpinReverse 18s linear infinite;
-  opacity: 0.84;
 }
+
+/* Orbit animations */
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbitSpinReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+/* ===============================
+   ✅ MARQUEE FIX (THIS IS THE KEY)
+   =============================== */
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* =============================== */
 
 @media (max-width: 768px) {
   [class*="animate-[organicFloat_12s_ease-in-out_infinite]"][class*="h-[620px]"][class*="w-[620px]"] {
