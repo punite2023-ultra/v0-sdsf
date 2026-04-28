@@ -1,16 +1,15 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
+import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/language-context"
 
 const navLinksEn = [
   { href: "#home", label: "Home" },
-  { href: "#who-we-are", label: "About Us" },
-  { href: "#services", label: "Services" },
+  { href: "#who-we-are", label: "About" },
   { href: "#brand-partners", label: "Brand Partners" },
+  { href: "#services", label: "Services" },
   { href: "#news-events", label: "News & Events" },
   { href: "#contact", label: "Contact" },
 ]
@@ -18,8 +17,8 @@ const navLinksEn = [
 const navLinksZh = [
   { href: "#home", label: "主页" },
   { href: "#who-we-are", label: "关于我们" },
-  { href: "#services", label: "服务" },
   { href: "#brand-partners", label: "合作品牌" },
+  { href: "#services", label: "服务" },
   { href: "#news-events", label: "新闻与活动" },
   { href: "#contact", label: "联系我们" },
 ]
@@ -30,37 +29,35 @@ export function Navigation() {
 
   const navLinks = language === "en" ? navLinksEn : navLinksZh
 
-  // ✅ Smooth scroll handler
+  // 🔥 smooth scroll with offset
   const handleScroll = (e: any, targetId: string) => {
     e.preventDefault()
 
-    const element = document.getElementById(targetId)
-    if (element) {
-      const yOffset = -100 // offset for fixed navbar
-      const y =
-        element.getBoundingClientRect().top +
-        window.pageYOffset +
-        yOffset
+    const el = document.getElementById(targetId)
+    if (!el) return
 
-      window.scrollTo({ top: y, behavior: "smooth" })
-    }
+    const offset = -100
+    const y =
+      el.getBoundingClientRect().top +
+      window.pageYOffset +
+      offset
 
+    window.scrollTo({ top: y, behavior: "smooth" })
     setIsMobileMenuOpen(false)
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-md py-5">
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-transparent py-5">
       <div className="container mx-auto px-6 lg:px-8">
         <nav className="flex items-center justify-between">
 
           {/* LOGO */}
-          <Link href="/" className="flex items-center gap-2">
+          <a href="#home" onClick={(e) => handleScroll(e, "home")}>
             <img
               src="/images/StarDigitalSolutionsWhite.svg"
-              alt="Star Digital Solutions"
-              className="h-[72px] w-auto"
+              className="h-[72px]"
             />
-          </Link>
+          </a>
 
           {/* DESKTOP NAV */}
           <div className="hidden lg:flex items-center gap-8">
@@ -71,20 +68,20 @@ export function Navigation() {
                 onClick={(e) =>
                   handleScroll(e, link.href.replace("#", ""))
                 }
-                className="text-sm font-medium text-white hover:text-[#ff2f74] transition"
+                className="text-sm text-white hover:text-[#b70d41] transition"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          {/* LANGUAGE SWITCH */}
-          <div className="hidden lg:flex items-center gap-2">
+          {/* LANGUAGE */}
+          <div className="hidden lg:flex gap-2">
             <button
               onClick={() => setLanguage("en")}
               className={`px-3 py-1 rounded-full text-sm ${
                 language === "en"
-                  ? "bg-[#ff002f] text-white"
+                  ? "bg-[#b70d41] text-white"
                   : "text-white"
               }`}
             >
@@ -94,7 +91,7 @@ export function Navigation() {
               onClick={() => setLanguage("zh")}
               className={`px-3 py-1 rounded-full text-sm ${
                 language === "zh"
-                  ? "bg-[#ff002f] text-white"
+                  ? "bg-[#b70d41] text-white"
                   : "text-white"
               }`}
             >
@@ -106,7 +103,7 @@ export function Navigation() {
           <div className="hidden lg:block">
             <Button
               asChild
-              className="rounded-full px-6 border border-pink-400/70 bg-transparent text-white hover:bg-pink-500/15"
+              className="rounded-full px-6 border border-[#b70d41]/60 text-white hover:bg-[#b70d41]/20"
             >
               <a
                 href="#contact"
@@ -117,22 +114,18 @@ export function Navigation() {
             </Button>
           </div>
 
-          {/* MOBILE BUTTON */}
+          {/* MOBILE MENU BUTTON */}
           <button
-            className="lg:hidden p-2 text-white"
+            className="lg:hidden text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            {isMobileMenuOpen ? <X /> : <Menu />}
           </button>
         </nav>
 
         {/* MOBILE MENU */}
         {isMobileMenuOpen && (
-          <div className="mt-6 rounded-2xl p-6 border border-white/10 bg-[#21103f]/95">
+          <div className="mt-6 rounded-2xl p-6 bg-[#21103f]/95 border border-white/10">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
@@ -141,7 +134,7 @@ export function Navigation() {
                   onClick={(e) =>
                     handleScroll(e, link.href.replace("#", ""))
                   }
-                  className="font-medium text-white"
+                  className="text-white"
                 >
                   {link.label}
                 </a>
