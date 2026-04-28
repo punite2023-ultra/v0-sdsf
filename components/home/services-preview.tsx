@@ -45,9 +45,15 @@ const rowTwoLogos = [
 function LogoItem({ src, index }: { src: string; index: number }) {
   return (
     <div className="mx-3 flex min-w-max items-center justify-center md:mx-4">
-      <div className="flex h-[140px] w-[300px] items-center justify-center rounded-[28px] border border-white/10 bg-black/40 backdrop-blur-md transition duration-300 hover:scale-105 hover:border-white/20 hover:bg-black/50">
-        <div className="relative h-[70px] w-[180px]">
-          <Image src={`/logos/${src}`} alt={`Brand logo ${index + 1}`} fill sizes="180px" className="object-contain" />
+      <div className="flex h-[140px] w-[300px] items-center justify-center rounded-[28px] border border-white/10 bg-black/40 p-6 backdrop-blur-md transition duration-300 hover:scale-105 hover:border-white/20 hover:bg-black/50">
+        <div className="relative h-[80px] w-[200px]">
+          <Image
+            src={`/logos/${src}`}
+            alt={`Brand logo ${index + 1}`}
+            fill
+            sizes="200px"
+            className="object-contain"
+          />
         </div>
       </div>
     </div>
