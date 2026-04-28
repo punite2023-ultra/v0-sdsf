@@ -24,14 +24,14 @@ const clientsZh = [
 
 export function ClientsMarquee() {
   const { language } = useLanguage()
-
-  const clients = language === "zh" ? clientsZh : clientsEn
+  const isChinese = language === "zh"
+  const clients = isChinese ? clientsZh : clientsEn
 
   return (
     <section
       className="overflow-hidden"
       style={{ backgroundColor: "#62248e" }}
-      aria-label={language === "zh" ? "服务滚动栏" : "Services marquee"}
+      aria-label={isChinese ? "服务滚动栏" : "Services marquee"}
     >
       <div className="relative flex h-16 items-center overflow-hidden">
         <div
@@ -40,13 +40,17 @@ export function ClientsMarquee() {
             animation: "marquee 28s linear infinite",
           }}
         >
-          {[...clients, ...clients].map((client, index) => (
-            <div key={index} className="flex items-center whitespace-nowrap">
-              <span className="px-6 text-base font-bold uppercase text-white">
+          {[...clients, ...clients, ...clients].map((client, index) => (
+            <div key={`${client}-${index}`} className="flex items-center whitespace-nowrap">
+              <span
+                className={`px-6 text-base font-bold text-white ${
+                  isChinese ? "tracking-wide" : "uppercase tracking-[0.08em]"
+                }`}
+              >
                 {client}
               </span>
 
-              <span className="text-base font-bold text-white/90 px-2">
+              <span className="px-2 text-base font-bold text-white/90">
                 ✦
               </span>
             </div>
