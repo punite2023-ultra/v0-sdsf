@@ -130,7 +130,7 @@ const newsEvents: NewsEvent[] = [
   },
 ]
 
-export function NewsEventsSection() {
+export function FeaturedProjectSection() {
   const { language } = useLanguage()
   const isZh = language === "zh"
 
