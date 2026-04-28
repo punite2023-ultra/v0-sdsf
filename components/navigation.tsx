@@ -2,53 +2,50 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/language-context"
 
 const navLinksEn = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
-  { href: "/services", label: "Services" },
-  { href: "/brand-partners", label: "Brand Partners" },
-  { href: "/news-events", label: "News & Events" },
-  { href: "/contact", label: "Contact" },
+  { href: "#home", label: "Home" },
+  { href: "#who-we-are", label: "About Us" },
+  { href: "#services", label: "Services" },
+  { href: "#brand-partners", label: "Brand Partners" },
+  { href: "#news-events", label: "News & Events" },
+  { href: "#contact", label: "Contact" },
 ]
 
 const navLinksZh = [
-  { href: "/", label: "主页" },
-  { href: "/about", label: "关于我们" },
-  { href: "/services", label: "服务" },
-  { href: "/brand-partners", label: "合作品牌" },
-  { href: "/news-events", label: "新闻与活动" },
-  { href: "/contact", label: "联系我们" },
+  { href: "#home", label: "主页" },
+  { href: "#who-we-are", label: "关于我们" },
+  { href: "#services", label: "服务" },
+  { href: "#brand-partners", label: "合作品牌" },
+  { href: "#news-events", label: "新闻与活动" },
+  { href: "#contact", label: "联系我们" },
 ]
 
 export function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const pathname = usePathname()
   const { language, setLanguage } = useLanguage()
 
-  const isHome = pathname === "/"
-  const isAbout = pathname === "/about"
-  const useDarkNav = isAbout || (isHome && !isScrolled)
   const navLinks = language === "en" ? navLinksEn : navLinksZh
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+  // ✅ Smooth scroll handler
+  const handleScroll = (e: any, targetId: string) => {
+    e.preventDefault()
+
+    const element = document.getElementById(targetId)
+    if (element) {
+      const yOffset = -100 // offset for fixed navbar
+      const y =
+        element.getBoundingClientRect().top +
+        window.pageYOffset +
+        yOffset
+
+      window.scrollTo({ top: y, behavior: "smooth" })
     }
 
-    handleScroll()
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  const isActive = (href: string) => {
-    if (href === "/") return pathname === "/"
-    return pathname.startsWith(href)
+    setIsMobileMenuOpen(false)
   }
 
   return (
@@ -68,17 +65,16 @@ export function Navigation() {
           {/* DESKTOP NAV */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition ${
-                  isActive(link.href)
-                    ? "text-[#ff2f74]"
-                    : "text-white hover:text-[#ff2f74]"
-                }`}
+                onClick={(e) =>
+                  handleScroll(e, link.href.replace("#", ""))
+                }
+                className="text-sm font-medium text-white hover:text-[#ff2f74] transition"
               >
                 {link.label}
-              </Link>
+              </a>
             ))}
           </div>
 
@@ -112,13 +108,16 @@ export function Navigation() {
               asChild
               className="rounded-full px-6 border border-pink-400/70 bg-transparent text-white hover:bg-pink-500/15"
             >
-              <Link href="/contact">
+              <a
+                href="#contact"
+                onClick={(e) => handleScroll(e, "contact")}
+              >
                 {language === "en" ? "Get Started" : "开始使用"}
-              </Link>
+              </a>
             </Button>
           </div>
 
-          {/* MOBILE MENU BUTTON */}
+          {/* MOBILE BUTTON */}
           <button
             className="lg:hidden p-2 text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -136,20 +135,25 @@ export function Navigation() {
           <div className="mt-6 rounded-2xl p-6 border border-white/10 bg-[#21103f]/95">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <Link
+                <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) =>
+                    handleScroll(e, link.href.replace("#", ""))
+                  }
                   className="font-medium text-white"
                 >
                   {link.label}
-                </Link>
+                </a>
               ))}
 
               <Button asChild className="mt-4 rounded-full">
-                <Link href="/contact">
+                <a
+                  href="#contact"
+                  onClick={(e) => handleScroll(e, "contact")}
+                >
                   {language === "en" ? "Get Started" : "开始使用"}
-                </Link>
+                </a>
               </Button>
             </div>
           </div>
