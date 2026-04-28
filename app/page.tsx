@@ -1,162 +1,29 @@
-"use client"
+import { Navigation } from "@/components/navigation"
+import { SiteFooter } from "@/components/site-footer"
+import { HeroSection } from "@/components/home/hero-section"
+import { ClientsMarquee } from "@/components/home/clients-marquee"
+import { AboutPreview } from "@/components/home/about-preview"
+import { ServicesPreview } from "@/components/home/services-preview"
+import { NewsEventsSection } from "@/components/home/featured-project-section"
+import { StatsSection } from "@/components/home/stats-section"
+import { TestimonialsSection } from "@/components/home/testimonials-section"
 
-import Link from "next/link"
-import {
-  Users,
-  Network,
-  Megaphone,
-  ShoppingBag,
-  LineChart,
-  Target,
-  ArrowRight,
-} from "lucide-react"
-import { useLanguage } from "@/lib/language-context"
-
-const servicesEn = [
-  {
-    title: "Affiliate & Influencer Marketing",
-    description:
-      "We connect brands with high-impact creators and affiliate partners to build campaigns that convert attention into measurable sales.",
-    icon: Users,
-  },
-  {
-    title: "Multi-Channel Network Management",
-    description:
-      "We grow creator ecosystems, manage brand collaborations, and activate talent networks designed to drive long-term digital performance.",
-    icon: Network,
-  },
-  {
-    title: "Brand Campaign Execution",
-    description:
-      "From strategy to rollout, we build campaigns that align creators, content, and commerce into one seamless growth system.",
-    icon: Megaphone,
-  },
-  {
-    title: "E-commerce Growth Support",
-    description:
-      "We help brands maximize platform opportunities, optimize campaign performance, and scale during high-volume sale moments.",
-    icon: ShoppingBag,
-  },
-  {
-    title: "Performance Marketing & Analytics",
-    description:
-      "We track campaign results, optimize media performance, and turn real-time insights into smarter growth decisions across every channel.",
-    icon: LineChart,
-  },
-  {
-    title: "Strategic Brand Partnerships",
-    description:
-      "We build collaboration opportunities between brands, creators, and platforms to unlock stronger reach, deeper engagement, and sustainable growth.",
-    icon: Target,
-  },
-]
-
-const servicesZh = [
-  {
-    title: "联盟与达人营销",
-    description:
-      "我们帮助品牌连接高影响力创作者与联盟合作伙伴，打造能够将关注度转化为实际销售成果的营销活动。",
-    icon: Users,
-  },
-  {
-    title: "多渠道网络管理",
-    description:
-      "我们协助品牌发展创作者生态，管理品牌合作，并激活人才网络，以推动长期的数字化增长表现。",
-    icon: Network,
-  },
-  {
-    title: "品牌营销活动执行",
-    description:
-      "从策略规划到落地执行，我们整合创作者、内容与电商渠道，打造顺畅且高效的增长体系。",
-    icon: Megaphone,
-  },
-  {
-    title: "电商增长支持",
-    description:
-      "我们帮助品牌把握平台机会，优化活动表现，并在大促与高流量节点实现更高效的规模化增长。",
-    icon: ShoppingBag,
-  },
-  {
-    title: "效果营销与数据分析",
-    description:
-      "我们追踪活动成果、优化媒体表现，并将实时数据洞察转化为更聪明的增长决策。",
-    icon: LineChart,
-  },
-  {
-    title: "战略品牌合作",
-    description:
-      "我们为品牌、创作者与平台建立合作机会，帮助品牌提升触达、深化互动，并实现可持续增长。",
-    icon: Target,
-  },
-]
-
-export function StatsSection() {
-  const { language } = useLanguage()
-  const isZh = language === "zh"
-  const services = isZh ? servicesZh : servicesEn
-
+export default function HomePage() {
   return (
-    <section className="relative bg-[#070015] py-20">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.18),transparent_40%)]" />
+    <>
+      <Navigation />
 
-      <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.15)_1px,transparent_1px)] [background-size:60px_60px]" />
+      <main>
+        <HeroSection />
+        <ClientsMarquee />
+        <AboutPreview />
+        <ServicesPreview />
+        <NewsEventsSection />
+        <StatsSection />
+        <TestimonialsSection />
+      </main>
 
-      <div className="relative z-10 mx-auto max-w-[1300px] px-6">
-        <div className="mb-12 text-center">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#f472b6]">
-            {isZh ? "我们的服务" : "WHAT WE OFFER"}
-          </p>
-
-          <h2 className="mx-auto max-w-[780px] text-3xl font-semibold leading-tight text-white md:text-5xl">
-            {isZh
-              ? "策略与数字化在此融合，您的成功故事从这里开始。"
-              : "Where Strategy Meets Digital. Your Success Story Begins."}
-          </h2>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {services.map((item, i) => {
-            const Icon = item.icon
-
-            return (
-              <div
-                key={i}
-                className="group relative rounded-[24px] border border-white/10 p-[12px] transition-all duration-300 hover:border-[#a855f7]/60"
-              >
-                <div className="relative h-full min-h-[300px] rounded-[18px] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 group-hover:bg-white/[0.06]">
-                  <div className="absolute inset-0 rounded-[18px] opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.2)_1px,transparent_1px)] [background-size:48px_48px]" />
-
-                  <div className="relative z-10 flex h-full flex-col">
-                    <div className="mb-6">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-[#f472b6]/30 bg-[#f472b6]/5 text-[#f472b6] transition-transform duration-300 group-hover:scale-110">
-                        <Icon className="h-6 w-6" />
-                      </div>
-                    </div>
-
-                    <h3 className="text-xl font-semibold text-white">
-                      {item.title}
-                    </h3>
-
-                    <p className="mt-3 text-sm leading-relaxed text-white/60">
-                      {item.description}
-                    </p>
-
-                    <div className="mt-auto pt-6">
-                      <Link
-                        href="#"
-                        className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#a855f7] via-[#ec4899] to-[#f59e0b] px-5 py-2 text-[11px] font-semibold uppercase tracking-widest text-white transition hover:scale-[1.03]"
-                      >
-                        {isZh ? "了解更多" : "Learn More"}
-                        <ArrowRight className="h-3 w-3" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      </div>
-    </section>
+      <SiteFooter />
+    </>
   )
 }
