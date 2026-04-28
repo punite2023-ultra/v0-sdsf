@@ -18,8 +18,8 @@ export default function HomePage() {
         <ClientsMarquee />
         <AboutPreview />
         <ServicesPreview />
-        <NewsEventsSection />
         <StatsSection />
+        <NewsEventsSection />
         <TestimonialsSection />
       </main>
 
