@@ -49,7 +49,7 @@ export function TestimonialsSection() {
               }}
             />
 
-            {/* Overlay (SDS dark gradient) */}
+            {/* Overlay */}
             <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,0,18,0.92)_0%,rgba(10,2,20,0.85)_40%,rgba(7,0,18,0.7)_70%,rgba(7,0,18,0.9)_100%)]" />
 
             {/* Content */}
@@ -58,20 +58,17 @@ export function TestimonialsSection() {
               {/* Glass Card */}
               <div className="max-w-[560px] rounded-[22px] border border-white/10 bg-white/5 backdrop-blur-md p-6 sm:p-8">
 
-                {/* Title */}
-                <h2
-                  className="text-[32px] sm:text-[38px] lg:text-[42px] font-semibold leading-[1.15] tracking-[-0.02em] text-white"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
+                {/* TITLE (FIXED FONT) */}
+                <h2 className="font-display text-[32px] sm:text-[38px] lg:text-[42px] font-semibold leading-[1.15] tracking-[-0.02em] text-white">
                   {t.title}
                 </h2>
 
-                {/* Description */}
+                {/* DESCRIPTION */}
                 <p className="mt-4 text-[14px] sm:text-[15px] leading-6 text-white/65 max-w-[480px]">
                   {t.description}
                 </p>
 
-                {/* Button */}
+                {/* BUTTON */}
                 <Link
                   href="/contact"
                   className="mt-6 inline-flex h-11 items-center justify-center rounded-full bg-gradient-to-r from-[#b70d41] to-[#ff4d6d] px-6 text-[11px] font-semibold uppercase tracking-[0.25em] text-white transition-all duration-300 hover:scale-[1.05] hover:shadow-[0_0_20px_rgba(183,13,65,0.6)]"
@@ -79,6 +76,7 @@ export function TestimonialsSection() {
                   {t.button}
                 </Link>
               </div>
+
             </div>
           </div>
         </ScrollReveal>
