@@ -96,7 +96,7 @@ function MarqueeRow({
   logos: string[]
   direction?: "left" | "right"
 }) {
-  const marqueeItems = [...logos, ...logos]
+  const marqueeItems = [...logos, ...logos, ...logos]
 
   return (
     <div className="overflow-hidden">
@@ -130,15 +130,14 @@ export function ServicesPreview() {
       </div>
 
       <div className="absolute inset-0 -z-10 bg-black/70" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(110,66,255,0.18),transparent_42%)]" />
 
       <div className="relative mx-auto max-w-[1500px] px-6 md:px-8">
-        <div className="mx-auto max-w-[980px] text-center">
+        <div className="mx-auto max-w-[1080px] text-center">
           <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/70 md:text-xs">
             {isZh ? "品牌信赖之选" : "Trusted by Brands"}
           </div>
 
-          <h2 className="mt-5 text-[40px] font-black leading-[0.95] tracking-[-0.05em] sm:text-[52px] md:text-[64px] lg:text-[78px]">
+          <h2 className="font-display mt-5 text-[40px] font-black uppercase leading-[0.95] tracking-[-0.04em] sm:text-[52px] md:text-[64px] lg:text-[78px]">
             {isZh ? (
               <>
                 深受全球领先组织信赖，
@@ -147,9 +146,9 @@ export function ServicesPreview() {
               </>
             ) : (
               <>
-                Trusted by Leading Organizations Worldwide,
+                TRUSTED BY LEADING ORGANIZATIONS WORLDWIDE,
                 <br className="hidden md:block" />
-                Building a Constellation of High-Performing Brands.
+                BUILDING A CONSTELLATION OF HIGH-PERFORMING BRANDS.
               </>
             )}
           </h2>
@@ -169,21 +168,18 @@ export function ServicesPreview() {
           </div>
         </div>
 
-        <div className="relative mt-12 space-y-7 md:mt-14">
-          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-black to-transparent md:w-40" />
-          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-black to-transparent md:w-40" />
+        <div className="relative mt-12 md:mt-14">
+          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-black/80 to-transparent md:w-40" />
+          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-black/80 to-transparent md:w-40" />
 
-          <div className="rounded-[36px] border border-white/10 bg-black/25 py-8 backdrop-blur-md md:py-10">
+          <div className="space-y-7 rounded-[36px] border border-white/10 bg-black/25 py-8 backdrop-blur-md md:py-10">
             <MarqueeRow logos={rowOneLogos} direction="right" />
-
-            <div className="mt-7">
-              <MarqueeRow logos={rowTwoLogos} direction="left" />
-            </div>
+            <MarqueeRow logos={rowTwoLogos} direction="left" />
           </div>
         </div>
       </div>
 
-      <style jsx>{`
+      <style jsx global>{`
         .marquee-left {
           animation: marquee-left 95s linear infinite;
         }
@@ -203,13 +199,13 @@ export function ServicesPreview() {
           }
 
           100% {
-            transform: translate3d(-50%, 0, 0);
+            transform: translate3d(-33.333%, 0, 0);
           }
         }
 
         @keyframes marquee-right {
           0% {
-            transform: translate3d(-50%, 0, 0);
+            transform: translate3d(-33.333%, 0, 0);
           }
 
           100% {
