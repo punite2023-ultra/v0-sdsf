@@ -1,12 +1,12 @@
 "use client"
 
 const clients = [
-  "Social Media Marketing",
-  "Content Creation & Branding",
-  "E-Commerce Strategy & Management",
-  "Influencer and Affiliate Marketing",
-  "Live Streaming Services",
-  "Website Design & Development",
+  "Affiliate & Influencer Marketing",
+  "Multi-Channel Network Management",
+  "Brand Campaign Execution",
+  "E-commerce Growth Support",
+  "Performance Marketing & Analytics",
+  "Strategic Brand Partnerships",
   "Brand Strategy",
 ]
 
