@@ -18,11 +18,11 @@ const poppins = Poppins({
 
 const heroImages = [
   {
-    src: "/Home1.png",
+    src: "/Hero1.png",
     alt: "Hero image 1",
   },
   {
-    src: "/Home2.png",
+    src: "/Hero2.png",
     alt: "Hero image 2",
   },
 ]
@@ -44,8 +44,8 @@ export function HeroSection() {
 
   return (
     <section className="relative isolate overflow-hidden bg-[#17002d] text-white">
-      
-      {/* Background */}
+
+      {/* BACKGROUND */}
       <div className="absolute inset-0 -z-20">
         <Image
           src="/10121357.jpg"
@@ -56,16 +56,16 @@ export function HeroSection() {
         />
       </div>
 
-      {/* Overlays */}
+      {/* OVERLAYS */}
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(19,0,42,0.92)_0%,rgba(45,0,77,0.78)_45%,rgba(45,0,77,0.35)_100%)]" />
       <div className="absolute inset-0 -z-10 bg-black/20" />
 
-      {/* Content */}
+      {/* CONTENT */}
       <div className="relative mx-auto grid min-h-[760px] max-w-[1500px] items-center gap-6 px-6 pb-14 pt-28 md:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:pt-24 xl:min-h-[820px]">
-        
+
         {/* LEFT TEXT */}
         <div className="relative z-20 max-w-[760px] lg:pl-4 xl:pl-10">
-          
+
           <p className={`${poppins.className} mb-5 text-[12px] font-bold uppercase tracking-[0.34em] text-white/70`}>
             {isZh ? "欢迎来到星际数字解决方案" : "WELCOME TO STAR DIGITAL SOLUTIONS"}
           </p>
@@ -113,7 +113,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* RIGHT IMAGE (BIGGER, SAME POSITION) */}
+        {/* RIGHT IMAGE SLIDER */}
         <div className="pointer-events-none absolute bottom-0 right-0 z-10 h-full w-[70vw] max-w-[1100px]">
           {heroImages.map((image, index) => (
             <Image
@@ -123,10 +123,10 @@ export function HeroSection() {
               fill
               priority={index === 0}
               sizes="70vw"
-              className={`object-contain object-bottom scale-[1.15] md:scale-[1.25] xl:scale-[1.35] transition-all duration-1000 ease-in-out ${
+              className={`object-cover object-right-bottom transition-all duration-1000 ease-in-out ${
                 activeImage === index
-                  ? "translate-x-0 opacity-100"
-                  : "translate-x-8 opacity-0"
+                  ? "translate-x-0 opacity-100 scale-100"
+                  : "translate-x-16 opacity-0 scale-105"
               } drop-shadow-[0_50px_120px_rgba(0,0,0,0.5)]`}
             />
           ))}
@@ -152,7 +152,7 @@ export function HeroSection() {
       {isVideoOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 px-4 backdrop-blur-sm">
           <div className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-white/15 bg-black shadow-[0_30px_100px_rgba(0,0,0,0.55)]">
-            
+
             <button
               onClick={() => setIsVideoOpen(false)}
               className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
