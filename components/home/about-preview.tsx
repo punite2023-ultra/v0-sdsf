@@ -1,143 +1,153 @@
 "use client"
 
-import Image from "next/image"
-import { Sparkles, BarChart3, Megaphone, Users } from "lucide-react"
-import { ScrollReveal } from "@/components/scroll-reveal"
+import {
+  Users,
+  Network,
+  Megaphone,
+  ShoppingBag,
+  LineChart,
+  Target,
+} from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
-import { Raleway, Poppins } from "next/font/google"
 
-const raleway = Raleway({
-  subsets: ["latin"],
-  weight: ["800"],
-})
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-})
-
-const pillarsEn = [
+const servicesEn = [
   {
-    icon: BarChart3,
-    title: "Performance & Growth Strategy",
+    title: "Affiliate & Influencer Marketing",
     description:
-      "We connect content, commerce, and data to drive measurable and scalable growth.",
-  },
-  {
-    icon: Megaphone,
-    title: "Scalable Campaign Design",
-    description:
-      "Campaigns built to convert, optimize, and expand across multiple platforms.",
-  },
-  {
+      "We connect brands with high-impact creators and affiliate partners to build campaigns that convert attention into measurable sales.",
     icon: Users,
-    title: "Creator & Commerce Ecosystem",
+  },
+  {
+    title: "Multi-Channel Network Management",
     description:
-      "We leverage creators, affiliates, and networks to amplify reach and performance.",
+      "We grow creator ecosystems, manage brand collaborations, and activate talent networks designed to drive long-term digital performance.",
+    icon: Network,
+  },
+  {
+    title: "Brand Campaign Execution",
+    description:
+      "From strategy to rollout, we build campaigns that align creators, content, and commerce into one seamless growth system.",
+    icon: Megaphone,
+  },
+  {
+    title: "E-commerce Growth Support",
+    description:
+      "We help brands maximize platform opportunities, optimize campaign performance, and scale during high-volume sale moments.",
+    icon: ShoppingBag,
+  },
+  {
+    title: "Performance Marketing & Analytics",
+    description:
+      "We track campaign results, optimize media performance, and turn real-time insights into smarter growth decisions across every channel.",
+    icon: LineChart,
+  },
+  {
+    title: "Strategic Brand Partnerships",
+    description:
+      "We build collaboration opportunities between brands, creators, and platforms to unlock stronger reach, deeper engagement, and sustainable growth.",
+    icon: Target,
   },
 ]
 
-const pillarsZh = [
+const servicesZh = [
   {
-    icon: BarChart3,
-    title: "绩效与增长策略",
-    description: "我们结合内容、商业与数据，推动可衡量且可持续扩展的品牌增长。",
-  },
-  {
-    icon: Megaphone,
-    title: "可扩展的活动策划",
-    description: "我们打造能够转化、优化并拓展至多个平台的品牌营销活动。",
-  },
-  {
+    title: "联盟与达人营销",
+    description:
+      "我们连接品牌与高影响力创作者及联盟合作伙伴，打造将关注转化为实际销售成果的营销活动。",
     icon: Users,
-    title: "创作者与电商生态系统",
-    description: "我们整合创作者、联盟伙伴与网络资源，提升品牌触达率与市场表现。",
+  },
+  {
+    title: "多渠道网络管理",
+    description:
+      "我们构建创作者生态系统，管理品牌合作，并激活人才网络，实现长期数字增长。",
+    icon: Network,
+  },
+  {
+    title: "品牌活动执行",
+    description:
+      "从策略到落地，我们整合创作者、内容与电商，打造一体化增长体系。",
+    icon: Megaphone,
+  },
+  {
+    title: "电商增长支持",
+    description:
+      "我们帮助品牌优化平台表现，把握大促节点，实现规模化增长。",
+    icon: ShoppingBag,
+  },
+  {
+    title: "效果营销与数据分析",
+    description:
+      "我们跟踪表现、优化投放，并将实时数据转化为更智能的增长决策。",
+    icon: LineChart,
+  },
+  {
+    title: "战略品牌合作",
+    description:
+      "我们为品牌、创作者与平台搭建合作，提升触达、互动与长期增长。",
+    icon: Target,
   },
 ]
 
-export function AboutPreview() {
+export function StatsSection() {
   const { language } = useLanguage()
-  const isChinese = language === "zh"
-  const pillars = isChinese ? pillarsZh : pillarsEn
+  const isZh = language === "zh"
+  const services = isZh ? servicesZh : servicesEn
 
   return (
-    <section
-      id="who-we-are"
-      className="relative scroll-mt-28 overflow-hidden py-16 text-white md:py-20 lg:py-24"
-    >
-      <div className="absolute inset-0 -z-20">
-        <Image
-          src="/about-bg.jpg"
-          alt="About background"
-          fill
-          priority
-          className="object-cover"
-        />
-      </div>
+    <section className="relative bg-[#26003e] py-20">
+      {/* Background glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.18),transparent_40%)]" />
 
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(10,0,25,0.8)_0%,rgba(20,0,40,0.9)_60%,rgba(10,0,25,0.95)_100%)]" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.2),transparent_60%)]" />
+      {/* Grid texture */}
+      <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.15)_1px,transparent_1px)] [background-size:60px_60px]" />
 
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-14 flex flex-col items-center text-center">
-          <div className="max-w-5xl">
-            <ScrollReveal>
-              <div className="mb-5 flex items-center justify-center gap-3">
-                <Sparkles className="h-6 w-6 text-purple-300 fill-current" />
-                <span
-                  className={`${raleway.className} text-sm uppercase tracking-[0.08em]`}
-                >
-                  {isChinese ? "关于我们" : "ABOUT US"}
-                </span>
-              </div>
-            </ScrollReveal>
+      <div className="relative z-10 mx-auto max-w-[1300px] px-6">
+        {/* Header */}
+        <div className="mb-12 text-center">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#f472b6]">
+            {isZh ? "我们的服务" : "WHAT WE OFFER"}
+          </p>
 
-            <ScrollReveal delay={100}>
-              <h2
-                className={`${raleway.className} text-[42px] leading-[1] tracking-[-0.03em] ${
-                  isChinese ? "" : "uppercase"
-                } md:text-[60px]`}
-              >
-                {isChinese
-                  ? "让内容、商业与创作者共同推动品牌走向聚光灯"
-                  : "Where Content, Commerce, and Creators Bring Brands Into the Spotlight"}
-              </h2>
-            </ScrollReveal>
-
-            <ScrollReveal delay={200}>
-              <p
-                className={`${poppins.className} mx-auto mt-6 max-w-2xl text-[15px] leading-[1.7] text-white/80 md:text-[16px]`}
-              >
-                {isChinese
-                  ? "在 Star Digital Solutions，我们通过结合电商、创作者合作与数据驱动营销，将策略转化为可衡量的增长，帮助品牌实现规模化、提升转化，并在当今数字市场中脱颖而出。"
-                  : "At Star Digital Solutions, we transform strategy into measurable growth by combining e-commerce, creator partnerships, and data-driven marketing to help brands scale, convert, and lead in today’s digital landscape."}
-              </p>
-            </ScrollReveal>
-          </div>
+          <h2 className="mx-auto max-w-[780px] text-3xl font-semibold leading-tight text-white md:text-5xl">
+            {isZh
+              ? "策略与数字融合，从这里开启您的成功之路"
+              : "Where Strategy Meets Digital. Your Success Story Begins."}
+          </h2>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {pillars.map((item, index) => {
+        {/* Cards */}
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {services.map((item, i) => {
             const Icon = item.icon
 
             return (
-              <ScrollReveal key={item.title} delay={index * 120}>
-                <div className="group rounded-2xl border border-white/10 bg-white/[0.04] p-8 text-center backdrop-blur-sm transition hover:border-purple-400/40 hover:bg-white/[0.08]">
-                  <div className="mb-6 flex justify-center">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-purple-500/20 text-purple-300">
-                      <Icon className="h-8 w-8" />
+              <div
+                key={i}
+                className="group relative rounded-[24px] border border-white/10 p-[12px] transition-all duration-300 hover:border-[#a855f7]/60"
+              >
+                <div className="relative h-full min-h-[260px] rounded-[18px] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 group-hover:bg-white/[0.06]">
+                  
+                  <div className="absolute inset-0 rounded-[18px] opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.2)_1px,transparent_1px)] [background-size:48px_48px]" />
+
+                  <div className="relative z-10 flex h-full flex-col">
+                    
+                    <div className="mb-6">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-[#f472b6]/30 bg-[#f472b6]/5 text-[#f472b6] transition-transform duration-300 group-hover:scale-110">
+                        <Icon className="h-6 w-6" />
+                      </div>
                     </div>
+
+                    <h3 className="text-xl font-semibold text-white">
+                      {item.title}
+                    </h3>
+
+                    <p className="mt-3 text-sm leading-relaxed text-white/60">
+                      {item.description}
+                    </p>
+
                   </div>
-
-                  <h3 className={`${raleway.className} mb-3 text-[22px]`}>
-                    {item.title}
-                  </h3>
-
-                  <p className={`${poppins.className} text-[14px] text-white/75`}>
-                    {item.description}
-                  </p>
                 </div>
-              </ScrollReveal>
+              </div>
             )
           })}
         </div>
