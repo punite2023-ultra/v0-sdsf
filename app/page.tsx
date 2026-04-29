@@ -6,7 +6,6 @@ import { AboutPreview } from "@/components/home/about-preview"
 import { ServicesPreview } from "@/components/home/services-preview"
 import { FeaturedProjectSection } from "@/components/home/featured-project-section"
 import { StatsSection } from "@/components/home/stats-section"
-// import { TestimonialsSection } from "@/components/home/testimonials-section"
 
 export default function HomePage() {
   return (
@@ -14,20 +13,39 @@ export default function HomePage() {
       <Navigation />
 
       <main>
-        <HeroSection />
+        {/* HOME */}
+        <section id="home">
+          <HeroSection />
+        </section>
+
+        {/* (Optional — no nav link now) */}
         <ClientsMarquee />
-        <AboutPreview />
-        <ServicesPreview />
 
-        <StatsSection />
+        {/* ABOUT US */}
+        <section id="about">
+          <AboutPreview />
+        </section>
 
-        <FeaturedProjectSection />
+        {/* BRAND PARTNERS → points to ServicesPreview */}
+        <section id="brand-partners">
+          <ServicesPreview />
+        </section>
 
-        {/* Hidden for now */}
-        {/* <TestimonialsSection /> */}
+        {/* SERVICES → points to StatsSection */}
+        <section id="services">
+          <StatsSection />
+        </section>
+
+        {/* NEWS & EVENTS */}
+        <section id="news-events">
+          <FeaturedProjectSection />
+        </section>
       </main>
 
-      <SiteFooter />
+      {/* CONTACT */}
+      <section id="contact">
+        <SiteFooter />
+      </section>
     </>
   )
 }
